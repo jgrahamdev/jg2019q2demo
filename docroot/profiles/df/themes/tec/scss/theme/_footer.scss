@@ -1,0 +1,110 @@
+/* Theme for the footer region */
+
+footer {
+    margin-top: rem-calc(50px);
+    .block-tec-footercontact {
+        background-image: url('../images/pattern_1.png');
+        min-height: rem-calc(150px);
+        position: relative;
+        @media #{$medium-only},#{$small-only} {
+            padding: rem-calc(15px);
+        }
+        > div {
+            /* We have to do this as classes don't work in imports (yet) */
+            @extend .row;
+        }
+        .field-name-body {
+            @media #{$large-up} {
+                position: absolute;
+                top: 40%;
+            }
+        }
+        .field-item {
+            ul {
+                display: inline-block;
+                list-style: none;
+                margin-right: rem-calc(20px);
+                margin-left: 0;
+                &:last-child {
+                    margin-right: 0;
+                }
+                li {
+                    display: inline-block;
+                    text-transform: uppercase;
+                    color: $primary-color;
+                    font-weight: 500;
+                    &:last-child {
+                        padding-left: rem-calc(20px);
+                        margin-left: rem-calc(10px);
+                        background: transparent url('../images/contact_dot.png') no-repeat left center;
+                    }
+                }
+            }
+        }
+    }
+    .block-tec-footerabout {
+        background-color: $primary-color;
+        color: $white;
+        border-color: $white;
+        position: relative;
+        /* We have to do this as classes don't work in imports (yet) */
+        > div {
+            @extend .row;
+        }
+        section {
+            display: inline-block;
+            max-width: rem-calc(400px);
+            vertical-align: top;
+            margin: rem-calc(40px);
+            h4 {
+                color: $white;
+                text-transform: uppercase;
+                font-size: rem-calc(16px);
+                border-bottom: rem-calc(3px) solid;
+                padding: 0 rem-calc(20px) rem-calc(10px) 0;
+                display:inline-block;
+            }
+            b {
+                text-transform: uppercase;
+            }
+            br {
+                padding-bottom: rem-calc(20px);
+            }
+        }
+    }
+}
+
+/* Theme for the static bottom/copyright area */
+
+.bottom-bar {
+    font-weight: 500;
+    color: $primary-color;
+    text-transform: uppercase;
+    .columns {
+        padding: 0;
+    }
+    .row {
+        margin: rem-calc(25px) auto rem-calc(25px) auto;
+    }
+    .bottom-copyright {
+        vertical-align: middle;
+        margin-top: rem-calc(5px);
+    }
+    .bottom-contact {
+        p,a {
+            display: inline-block;
+            vertical-align: middle;
+            margin-bottom: 0;
+        }
+        a {
+            background-color: $white;
+            color: $primary-color;
+            border: rem-calc(1px) solid $seafoam;
+            padding: rem-calc(10px);
+            margin: 0 0 0 rem-calc(20px);
+            &:hover {
+                background-color: $seafoam;
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+name: 'DF Tools CTA'
+description: 'Provide a base Call to Action node type configuration for Demo Framework.'
+type: module
+core: 8.x
+package: 'Demo Framework Tools'
+dependencies:
+  - df_core
+  - entity_browser
+  - field
+  - field_formatter_class
+  - file
+  - image
+  - link
+  - link_class
+  - node
+  - text
+  - view_modes_display
+version: 8.x-1.0

@@ -1,0 +1,99 @@
+uuid: 6141134e-df62-4ea9-b712-188ec36c7815
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.dfs_fin_home
+    - views.view.testimonials
+  content:
+    - 'block_content:basic:06373690-27be-4b0f-9600-c09dbb841bec'
+    - 'block_content:basic:308108a8-ca4d-4114-8c05-5e1571837cba'
+    - 'block_content:basic:370ab1dd-01be-454a-bf9a-526bfeb3f8c5'
+    - 'block_content:slideshow:c2342a6d-194f-47f1-9b08-8c129f72d3c1'
+  module:
+    - block_content
+    - panels
+    - views
+    - dfs_fin
+  enforced:
+    module:
+      - dfs_fin
+id: homepage_variant
+label: 'Homepage Variant'
+variant: panels_variant
+variant_settings:
+  blocks:
+    01134c6f-637a-48f1-b900-0fd50bd2ce9a:
+      id: 'block_content:370ab1dd-01be-454a-bf9a-526bfeb3f8c5'
+      label: 'Our History'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: middle
+      weight: 4
+      uuid: 01134c6f-637a-48f1-b900-0fd50bd2ce9a
+      context_mapping: {  }
+    e60b7d57-bbf2-48a9-be32-508faf7c2c5a:
+      id: 'block_content:06373690-27be-4b0f-9600-c09dbb841bec'
+      label: 'Member Services'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      context_mapping: {  }
+      region: middle
+      uuid: e60b7d57-bbf2-48a9-be32-508faf7c2c5a
+      weight: 3
+    c3130eb0-c75a-4e7d-b618-24bb31b03ac9:
+      id: 'block_content:308108a8-ca4d-4114-8c05-5e1571837cba'
+      label: 'Intro CTAs'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      context_mapping: {  }
+      region: middle
+      uuid: c3130eb0-c75a-4e7d-b618-24bb31b03ac9
+      weight: 2
+    ccd819d7-0aad-4147-a904-4c784e54dd86:
+      id: 'views_block:testimonials-homepage_testimonials'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      context_mapping: {  }
+      region: middle
+      uuid: ccd819d7-0aad-4147-a904-4c784e54dd86
+      weight: 5
+    5d9f6e79-b140-4c8f-8609-9af08c9eef91:
+      id: 'block_content:c2342a6d-194f-47f1-9b08-8c129f72d3c1'
+      label: 'Homepage Slideshow'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      context_mapping: {  }
+      region: middle
+      uuid: 5d9f6e79-b140-4c8f-8609-9af08c9eef91
+      weight: 1
+  id: panels_variant
+  uuid: 965a91d7-7685-481c-8f43-67bf27748168
+  label: null
+  weight: 0
+  layout: foundation_1col
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: homepage_variant
+  builder: ipe
+page: dfs_fin_home
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

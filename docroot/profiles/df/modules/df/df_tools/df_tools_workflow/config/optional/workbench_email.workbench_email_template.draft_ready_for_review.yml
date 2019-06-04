@@ -1,0 +1,19 @@
+uuid: 006b8e06-371c-4714-b93a-c65c9abaeb35
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.article
+    - user.role.reviewer
+id: draft_ready_for_review
+label: 'Draft ready for review'
+subject: '[[site:name]] "[node:title]" draft ready for review'
+roles:
+  reviewer: reviewer
+bundles:
+  'node:article': 'node:article'
+fields: {  }
+author: true
+body:
+  value: '<p>Hello,</p>\r\n\r\n<p>A draft of \"[node:title]\" has been sent for review by [node:latest_author], to view the draft please <a href=\"[node:latest_url]\">click here</a>.</p>\r\n'
+  format: full_html

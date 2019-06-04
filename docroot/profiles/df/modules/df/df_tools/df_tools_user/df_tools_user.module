@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Set up the Demo user base migrations.
+ */
+
+/**
+ * Implements hook_migration_plugins_alter().
+ */
+function df_tools_user_migration_plugins_alter(&$definitions) {
+  $migrations = [
+    'import_file_demo_user_pictures',
+    'import_user_demo_users'
+  ];
+  foreach ($migrations as $id) {
+    $definitions[$id]['source']['path'] = str_replace('..', dirname(__FILE__), $definitions[$id]['source']['path']);
+  }
+}

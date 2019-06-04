@@ -1,0 +1,8 @@
+name: DF Tools Theming
+type: module
+description: Provides tools for custom theming.
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - asset_injector
+  - custom_body_class

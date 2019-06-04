@@ -1,0 +1,4 @@
+services:
+  as_platform_registry:
+    class: Drupal\as_platform\ASPlatformRegistry
+    arguments: ['@config.factory']

@@ -1,0 +1,17 @@
+name: DFS FIN Location
+type: module
+description: Provides the Location content type, along with the /locations and /locations/map sub-pages.
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - address
+  - content_browser
+  - content_translation
+  - geocoder
+  - geofield
+  - image
+  - leaflet_views
+  - path
+  - text
+  - user
+  - content_moderation

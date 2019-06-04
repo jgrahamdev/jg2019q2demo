@@ -1,0 +1,81 @@
+uuid: b605bec7-e7d6-4d73-b2c7-02ea71ab17fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.landing_page.body
+    - field.field.node.landing_page.panelizer
+    - node.type.landing_page
+  module:
+    - df_tools_panelizer
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    ipe_always_custom: true
+    displays:
+      default:
+        blocks:
+          bc396094-60e7-49da-8b05-5fa3d0eb4083:
+            id: 'entity_field:node:title'
+            label: Title
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: string
+              settings:
+                link_to_entity: false
+              third_party_settings: {  }
+              weight: 0
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            region: middle
+            uuid: bc396094-60e7-49da-8b05-5fa3d0eb4083
+            weight: 1
+        id: panels_variant
+        uuid: 66454ba9-dca2-4264-bd09-9beeb133bd80
+        label: ''
+        weight: 0
+        layout: foundation_1col
+        layout_settings: {  }
+        page_title: '[node:title]'
+        storage_type: panelizer_default
+        storage_id: 'node:landing_page:full:default'
+        builder: ipe
+    allow: false
+    default: default
+_core:
+  default_config_hash: cnnxsH8maTdSbpjMoVG6EuOvk3VYOk2REBvhwbo3xzA
+id: node.landing_page.card
+targetEntityType: node
+bundle: landing_page
+mode: card
+content:
+  body:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    type: text_summary_or_trimmed
+    region: content
+  panelizer:
+    type: panelizer_thumbnail
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      responsive_image_style: card_wide
+      image_link: true
+    third_party_settings: {  }
+hidden:
+  addtoany: true
+  field_meta_tags: true
+  langcode: true
+  links: true
+  content_moderation_control: true

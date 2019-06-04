@@ -1,0 +1,256 @@
+# Spanish translation of Bayside Associates
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-08-28 20:47+0000\n"
+"PO-Revision-Date: 2015-08-28 20:47+0000\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Products"
+msgstr "Produits"
+
+msgid "Our Company"
+msgstr "Notre Compagnie"
+
+msgid "Contact us"
+msgstr "Contactez nous"
+
+msgid "Contact"
+msgstr "Contacter"
+
+msgid "View Profile"
+msgstr "Voir le Profil"
+
+msgid "Account"
+msgstr "Compte"
+
+msgid "My account"
+msgstr "Mon compte"
+
+msgid "All rights reserved."
+msgstr "Tous les droits sont réservés."
+
+msgid "Get Started"
+msgstr "Commencer"
+
+msgid "Get a quote"
+msgstr "Obtenez un devis"
+
+msgid "Find a location"
+msgstr "Trouver un emplacement"
+
+msgid "Frequently asked questions"
+msgstr "Questions fréquemment posées"
+
+msgid "Search..."
+msgstr "Chercher..."
+
+msgid "Auto"
+msgstr "Auto"
+
+msgid "Disability"
+msgstr "Invalidité"
+
+msgid "Home"
+msgstr "Accueil"
+
+msgid "Life"
+msgstr "La vie"
+
+msgid "History"
+msgstr "Histoire"
+
+msgid "Terms & Conditions"
+msgstr "Termes et Conditions"
+
+msgid "Our Story"
+msgstr "Notre Histoire"
+
+msgid "Sign up for our newsletter"
+msgstr "Inscrivez-vous à notre newsletter"
+
+msgid "We will keep your address safe"
+msgstr "Nous conserverons votre adresse sûre!"
+
+msgid "we promise!"
+msgstr "on promet!"
+
+msgid "your email address"
+msgstr "votre adresse email"
+
+msgid "Subscribe"
+msgstr "Souscrire"
+
+msgid "Bundle & Save"
+msgstr "Regroupez et économisez"
+
+msgid "Bundle your bayside Insurance policies and see the savings roll in."
+msgstr "Regroupez vos polices d'assurance de Bayside et de voir le rouleau d'épargne."
+
+msgid "Start A Quote"
+msgstr "Lancer un devis"
+
+msgid "Question:"
+msgstr "Question:"
+
+msgid "Answer:"
+msgstr "Répondre:"
+
+msgid "Welcome to Resource Center — the one-stop shop where you can learn about all things insurance. No matter what you're looking to get covered, find all the tips, resources, and insights you'll need here."
+msgstr "Bienvenue au Centre de ressources - le guichet unique où vous pouvez en apprendre davantage sur toutes les assurances de choses. Peu importe ce que vous cherchez à obtenir couvert, trouver tous les conseils, les ressources et les idées que vous aurez besoin d'elle."
+
+msgid "Read More"
+msgstr "Lire la suite"
+
+msgid "Quote Type"
+msgstr "Type de soumission"
+
+msgid "Do you currently have this insurance?"
+msgstr "Avez-vous actuellement cette assurance?"
+
+msgid "I am interested in..."
+msgstr "Je suis intéressé par ..."
+
+msgid "Personal Information"
+msgstr "Informations personnelles"
+
+msgid "First Name"
+msgstr "Prénom"
+
+msgid "Last Name"
+msgstr "Nom de famille"
+
+msgid "Phone"
+msgstr "Téléphone"
+
+msgid "Street"
+msgstr "Rue"
+
+msgid "Postal Code"
+msgstr "Code Postal"
+
+msgid "Additional Information"
+msgstr "Information additionnelle"
+
+msgid "Do you have other policies with Bayside Insurance?"
+msgstr "Avez-vous d'autres politiques avec Bayside Insurance?"
+
+msgid "No existing policy"
+msgstr "Aucune politique existante"
+
+msgid "Auto Insurance"
+msgstr "Assurance automobile"
+
+msgid "Home Insurance"
+msgstr "Assurance Habitation"
+
+msgid "Disability Insurance"
+msgstr "L'assurance Invalidité"
+
+msgid "Life Insurance"
+msgstr "Assurance-vie"
+
+msgid "Additional information we should know about your request"
+msgstr "Des informations supplémentaires que nous devrions savoir sur votre demande"
+
+msgid "Additional Interests"
+msgstr "Intérêts Supplémentaires"
+
+msgid "Advisory Services"
+msgstr "Services Consultatifs"
+
+msgid "Auto Policies"
+msgstr "Conditions de l'Auto"
+
+msgid "Employee benefit and retention services"
+msgstr "Services de prestations et de rétention des employés"
+
+msgid "Estate strategies"
+msgstr "Stratégies immobilières"
+
+msgid "Insurance Strategies"
+msgstr "Stratégies d'assurance"
+
+msgid "Investment Strategies"
+msgstr "Stratégies de placement"
+
+msgid "Property and estate strategies"
+msgstr "Stratégies de propriété et de succession"
+
+msgid "Renters Insurance"
+msgstr "Assurance des locataires"
+
+msgid "Retirement analysis"
+msgstr "Analyse de la retraite"
+
+msgid "Venture Capital Investment Strategy"
+msgstr "Stratégie d'investissement de capital-risque"
+
+msgid "Wealth Management"
+msgstr "Gestion de Patrimoine"
+
+msgid "Select up to three additional areas you are interested in."
+msgstr "Sélectionnez jusqu'à trois domaines supplémentaires qui vous intéresse."
+
+msgid "Has claims adjuster"
+msgstr "A sinistres"
+
+msgid "East"
+msgstr "Est"
+
+msgid "West"
+msgstr "Ouest"
+
+msgid "What our customers are saying"
+msgstr "Ce que disent nos clients"
+
+msgid "Learn More"
+msgstr "Apprendre Encore Plus"
+
+msgid "Apprendre Encore Plus >"
+msgstr "Apprendre Encore Plus >"
+
+msgid "Share:"
+msgstr "Partager:"
+
+msgid "You may also be interested in:"
+msgstr "Vous pouvez également être intéressé par:"
+
+msgid "Log Out"
+msgstr "Se Déconnecter"
+
+msgid "Read"
+msgstr "Lire"
+
+msgid "Do you have a question you'd like answered?"
+msgstr "Avez-vous une question que vous aimeriez répondu?"
+
+msgid "Click here to ask one of our Bayside Agents today."
+msgstr "Cliquez ici pour demander un de nos Agents Bayside aujourd'hui."
+
+msgid "No agent or policy information found. Would you like to"
+msgstr "Aucun agent ou d'une politique d'information trouvée. Voudriez-vous"
+
+msgid "request a quote"
+msgstr "demander une citation"
+
+msgid "for insurance?"
+msgstr "pour l'assurance?"
+
+msgid "No members found."
+msgstr "Aucun membres trouvés."
+
+msgid "No pending quote requests."
+msgstr "Aucune demande de devis en attente."
+
+msgid "Find an insurance professional near you"
+msgstr "Trouver un professionnel de l'assurance près de chez vous"
+
+msgid "Enter your address or zip code."
+msgstr "Entrez votre adresse ou code postal"

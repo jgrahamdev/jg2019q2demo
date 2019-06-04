@@ -1,0 +1,34 @@
+<?php
+
+use Drupal\Core\Mail\MailFormatHelper;
+use Drupal\user\Entity\User;
+
+/**
+ * @file
+ * Contains dfs_fin_quotes.module.
+ */
+
+function dfs_fin_quotes_mail($key, &$message, $params) {
+  $account = \Drupal::entityTypeManager()->getStorage('user')->loadByProperties(['mail' => $message['to']]);
+  $account = reset($account);
+  $first_name = $account->get('field_first_name')->getValue();
+  $first_name = reset($first_name);
+  $variables = array(
+    '%first_name' => $first_name['value'],
+  );
+  $auto_login_url = auto_login_url_create($account->id(), 'user', $absolute = TRUE);
+  switch($key) {
+    case 'quote_approved':
+      $subject = 'Bayside Associates - %first_name, here is your Quote as requested!';
+      $body = "Hi %first_name,\n\nYou have a reply waiting for your quote request.\n\nCheck on your quote here: $auto_login_url";
+      break;
+    case 'quote_rejected':
+      $subject = 'Thanks for your interest, $first_name. We are unable to return a quote from Bayside Associates.';
+      $body = "Hi %first_name,\n\nUnfortunately your request for a Quote was not processed.\n\nPlease call 1-555-BAY-SIDE for more information.";
+      break;
+  }
+  $subject = strtr($subject, $variables);
+  $body = strtr($body, $variables);
+  $message['subject'] = $subject;
+  $message['body'][] = MailFormatHelper::htmlToText($body);
+}

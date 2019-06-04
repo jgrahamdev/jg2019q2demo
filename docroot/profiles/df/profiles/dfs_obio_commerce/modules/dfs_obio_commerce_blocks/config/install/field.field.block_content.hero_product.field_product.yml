@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_product
+    - commerce_product.commerce_product_type.collection
+    - commerce_product.commerce_product_type.individual
+    - field.storage.block_content.field_product
+id: block_content.hero_product.field_product
+field_name: field_product
+entity_type: block_content
+bundle: hero_product
+label: Products
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:commerce_product'
+  handler_settings:
+    target_bundles:
+      collection: collection
+      individual: individual
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: collection
+field_type: entity_reference

@@ -1,0 +1,25 @@
+uuid: fe207ce3-ad71-4bbb-a061-97aa19090161
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.get_a_quote
+    - field.storage.contact_message.field_last_name
+  module:
+    - dfs_fin_contact
+  enforced:
+    module:
+      - dfs_fin_contact
+id: contact_message.get_a_quote.field_last_name
+field_name: field_last_name
+entity_type: contact_message
+bundle: get_a_quote
+label: 'Last Name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
+

@@ -1,0 +1,120 @@
+{
+    "name": "acquia/demo_framework",
+    "description": "Project template for Drupal 8 sites built with the Lightning distribution.",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require-dev": {
+        "drush/drush": "^9.0",
+        "drupal/console": "^1.7.0",
+        "acquia/lightning_dev": "dev-8.x-1.x#dec22c2d10d5bdbbb1f4b8b885edac3cc72368e2"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {   "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/acquia/lightning-dev"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "loopindex/ckeditor-track-changes",
+                "version": "dev-master",
+                "type": "drupal-library",
+                "source": {
+                    "url": "https://github.com/loopindex/ckeditor-track-changes.git",
+                    "type": "git",
+                    "reference": "dev-master"
+                }
+            }
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/acquia/lift-sdk-php"
+        }
+    ],
+    "scripts": {
+        "post-install-cmd": [
+            "PhantomInstaller\\Installer::installPhantomJS",
+            "@composer drupal-scaffold",
+            "@composer push"
+        ],
+        "post-update-cmd": [
+            "@composer push"
+        ],
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "post-drupal-scaffold-cmd": "cat robots-replace.txt > docroot/robots.txt",
+        "nuke": "rm -r -f docroot vendor modules/contrib themes/contrib",
+        "push": "./vendor/bin/phing push"
+    },
+    "extra": {
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
+        "installer-paths": {
+            "docroot/core": [
+                "type:drupal-core"
+            ],
+            "docroot/profiles/{$name}": [
+                "type:drupal-profile"
+            ],
+            "docroot/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
+            ],
+            "docroot/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "docroot/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ]
+        },
+        "enable-patching": true,
+        "patches": {
+            "drupal/object_log": {
+                "2854348 - Change call to kprint_r() to kpr() to resolve PHP Fatal": "https://www.drupal.org/files/issues/use_kpr_to_print_logs-2854348-2.patch"
+            }
+        },
+        "patches-ignore": {
+            "drupal/lightning_media": {
+                "drupal/entity_browser": {
+                    "2877751 - Inform users how many items they can add to a field that uses an entity browser": "https://www.drupal.org/files/issues/2877751-27-8.x-2.x.patch"
+                }
+            }
+        }
+    },
+    "require": {
+        "acquia/df": "dev-8.x-3.x",
+        "drupal/auto_login_url": "1.3.0",
+        "drupal/basic_data": "1.x-dev",
+        "drupal/commerce": "2.13.0",
+        "drupal/connection": "1.x-dev",
+        "drupal/inline_entity_form_preview": "1.x-dev",
+        "drupal/key_value_field": "^1.0@beta",
+        "drupal/object_log": "1.x-dev",
+        "drupal/slick": "^1.0",
+        "drupal/social_login": "2.83.0",
+        "loopindex/ckeditor-track-changes": "dev-master#a7df5c6b685385713e8aaf2df3f44c82e3bf823a",
+        "npm-asset/blazy": "1.8.2",
+        "npm-asset/lightbox2": "2.10",
+        "npm-asset/tablesaw": "3.0.0-beta3",
+        "cweagans/composer-patches": "1.x-dev as 1.6.5",
+        "phing/phing": "^2.14"
+
+    },
+    "autoload": {
+        "psr-4": {
+            "Acquia\\DF\\": "src",
+            "Acquia\\DFExtension\\": "src/DFExtension"
+        }
+    }
+}

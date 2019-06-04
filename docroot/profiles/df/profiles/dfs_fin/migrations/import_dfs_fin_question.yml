@@ -1,0 +1,26 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_fin_question
+label: 'Import dfs_fin:node:question'
+source:
+    plugin: article_node
+    path: '../data/dfs_fin.node.question.csv'
+    header_row_count: 1
+    keys: [Title]
+    csvColumns: { 2: Question, 3: Tags, 0: UUID, 1: Title }
+destination:
+    plugin: 'entity:node'
+process:
+    type: { plugin: default_value, default_value: question }
+    title: Title
+    body/value: Body
+    field_image: Image
+    field_tags: { plugin: migration, migration: import_dfs_fin_tags, source: Tags }
+    body/format: { plugin: default_value, default_value: rich_text }
+    moderation_state: { plugin: default_value, default_value: published }
+    uuid: UUID
+    uid: UID
+    field_question: Question
+provider: import
+migration_dependencies:
+    required: [import_dfs_fin_tags]
+    optional: {  }

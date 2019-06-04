@@ -1,0 +1,92 @@
+<?php
+
+/**
+ * @file
+ * Contains as_journey.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function as_journey_form_dfs_obio_subscribe_form_alter(array &$form, FormStateInterface $form_state) {
+  $form['#submit'][] = '_as_journey_form_dfs_obio_subscribe_form_submit';
+}
+
+/**
+ * Form submit callback for pushing a new event to Journey.
+ *
+ * @param array $form
+ *   The form render array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state.
+ */
+function _as_journey_form_dfs_obio_subscribe_form_submit(array &$form, FormStateInterface $form_state) {
+  $address = $form_state->getValue('email');
+  $client = \Drupal::httpClient();
+  $tracking = $_COOKIE['tc_ptid'];
+  $touch_identifier = $_COOKIE['tc_ttid'];
+  $source = \Drupal::request()->getHost();
+  $url = \Drupal::config('as_journey.settings')->get('obio_subscribe_pixel') . "?email=$address&tracking=$tracking&touch_identifier=$touch_identifier&source=$source";
+  try {
+    $client->request('GET', $url);
+  }
+  catch (\Exception $e) {
+    drupal_set_message(t('Errors encountered when signing up for the newsletter. Please try again.'));
+    return;
+  }
+  $moduleHandler = \Drupal::service('module_handler');
+    if ($moduleHandler->moduleExists('dfs_obio_commerce')){
+      $link = \Drupal\Core\Link::fromTextAndUrl('View All Products >', \Drupal\Core\Url::fromUri("internal:/shop/products"))->toString();
+      $_SESSION['obio_modal'] = t('Thanks for signing up! An email confirmation has been sent to @address. <p> Meanwhile, browse our products </p> @link ', array('@address' => $address, '@link' => $link));
+    }
+     else {
+      $_SESSION['obio_modal'] = t('Thanks for signing up! An email confirmation has been sent to @address', array('@address' => $address));
+    }
+    _as_tracking_event('journey_newsletter');
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function as_journey_form_commerce_checkout_flow_multistep_default_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Retrieve the ID of the current step.
+  $step_id = $form['#step_id'];
+
+  switch ($step_id) {
+    case 'review':
+      $form['#submit'][] = '_as_journey_form_commerce_checkout_flow_multistep_default_submit';
+      break;
+  }
+}
+
+/**
+ * Form submit callback for pushing a new event to Journey.
+ *
+ * @param array $form
+ *   The form render array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state.
+ */
+function _as_journey_form_commerce_checkout_flow_multistep_default_submit(array &$form, FormStateInterface $form_state) {
+  /** @var \Drupal\commerce_checkout\Plugin\Commerce\CheckoutFlow\MultistepDefault $checkout_flow */
+  $checkout_flow = $form_state->getBuildInfo()['callback_object'];
+
+  /** @var \Drupal\commerce_order\Entity\OrderInterface $order */
+  $order = $checkout_flow->getOrder();
+
+  // Retrieve the email address associated with the order.
+  $address = $order->getEmail();
+
+  $tracking = $_COOKIE['tc_ptid'];
+  $touch_identifier = $_COOKIE['tc_ttid'];
+  $client = \Drupal::httpClient();
+  $url = \Drupal::config('as_journey.settings')->get('obio_purchase_pixel') . "?email=$address&tracking=$tracking&touch_identifier=$touch_identifier";
+  try {
+    $client->request('GET', $url);
+  }
+  catch (\Exception $e) {
+    return;
+  }
+}

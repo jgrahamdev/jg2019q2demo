@@ -1,0 +1,42 @@
+//
+// @file
+// Article content type styles (SMACSS).
+//
+
+.node--type-article {
+  &.node--view-mode-teaser {
+    margin-bottom: rhythm(3);
+
+    .field-name-field-article-subtitle {
+      text-transform: uppercase;
+    }
+
+    .content {
+      @media #{$large-up} {
+        padding-left: percentage(1 / 6);
+      }
+    }
+
+    .links {
+      margin: rhythm(1) 0 0;
+      overflow: hidden;
+    }
+
+    .links__item {
+      float: left;
+      margin-right: 1.75em;
+      text-transform: uppercase;
+    }
+
+    &:nth-child(even) > .row {
+      flex-direction: row-reverse;
+
+      .content {
+        @media #{$large-up} {
+          padding-right: percentage(1 / 6);
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}

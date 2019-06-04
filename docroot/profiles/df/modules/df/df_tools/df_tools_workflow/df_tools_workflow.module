@@ -1,0 +1,234 @@
+<?php
+
+/**
+ * @file
+ * Contains df_tools_workflow.module.
+ */
+
+use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+use Drupal\Core\Url;
+use Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_modules_installed().
+ */
+function df_tools_workflow_modules_installed(array $modules) {
+  // Don't do anything during config sync.
+  if (\Drupal::isConfigSyncing()) {
+    return;
+  }
+
+  // Grant 'Creators' the ability to create draft content and mark it for
+  // review.
+  if (in_array('df_tools_user', $modules)) {
+    $creator_permissions = [
+      'use moderation sidebar',
+      // 'use moderation dashboard',
+      'view latest version',
+      'use editorial transition archive',
+      'use editorial transition create_new_draft',
+      'use editorial transition archived_published',
+      'use editorial transition archived_draft',
+      'use editorial transition review',
+    ];
+    user_role_grant_permissions('creator', $creator_permissions);
+
+    // Grant 'Reviewers' the ability to review flagged content and publish it.
+    $reviewer_permissions = [
+      'use moderation sidebar',
+      // 'use moderation dashboard',
+      'view latest version',
+      'use editorial transition archive',
+      'use editorial transition create_new_draft',
+      'use editorial transition publish',
+      'use editorial transition archived_published',
+      'use editorial transition archived_draft',
+      'use editorial transition review',
+    ];
+    user_role_grant_permissions('reviewer', $reviewer_permissions);
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Add a form submission handler to the content moderation module's entity
+ * moderation form in order to redirect users to the latest version of the
+ * content when creating a new draft.
+ */
+function df_tools_workflow_form_content_moderation_entity_moderation_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['#submit'][] = 'df_tools_workflow_content_moderation_entity_moderation_form_submit';
+}
+
+/**
+ * Form submission callback for content_moderation_entity_moderation_form.
+ */
+function df_tools_workflow_content_moderation_entity_moderation_form_submit($form, FormStateInterface $form_state) {
+  /** @var ContentEntityInterface $entity */
+  $entity = $form_state->get('entity');
+
+  // Retrieve the content's new state.
+  $new_state = $form_state->getValue('new_state');
+
+  // When creating a new draft, redirect the user to the latest version of the
+  // content.
+  if ($new_state == 'draft') {
+    $form_state->setRedirectUrl($entity->toUrl('latest-version'));
+  }
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter();
+ */
+function df_tools_workflow_menu_local_tasks_alter(&$data, $route_name) {
+  // Runs when cache tag config:block.block.[ActiveTheme]_local_actions is invalidated.
+  if (isset($data['tabs'][0]['content_moderation.workflows:node.latest_version_tab'])) {
+    $url = $data['tabs'][0]['content_moderation.workflows:node.latest_version_tab']['#link']['url'];
+    $param = $url->getRouteParameters();
+    if (isset($param['node'])) {
+      $node = Node::load($param['node']);
+      $moderation_info = \Drupal::service('content_moderation.moderation_information');
+      $latest_node = $moderation_info->getLatestRevision('node', $node->id());
+      // Modify the tabs when the canonical route is the latest revision.
+      if ($latest_node->getRevisionId() == $node->getRevisionId()) {
+        // Highlight the 'View' tab at /node/%/latest.
+        if ($data['tabs'][0]['content_moderation.workflows:node.latest_version_tab']['#active']) {
+          $data['tabs'][0]['entity.node.canonical']['#active'] = TRUE;
+        }
+        // Remove the latest version tab.
+        unset($data['tabs'][0]['content_moderation.workflows:node.latest_version_tab']);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function df_tools_workflow_tokens($type, $tokens, array $data, array $options, \Drupal\Core\Render\BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+
+  if ($type == 'node' && !empty($data['node'])) {
+    $url_options = ['absolute' => TRUE];
+    if (isset($options['langcode'])) {
+      $url_options['language'] = \Drupal::languageManager()->getLanguage($options['langcode']);
+      $langcode = $options['langcode'];
+    }
+    else {
+      $langcode = NULL;
+    }
+
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $data['node'];
+    /** @var \Drupal\content_moderation\ModerationInformation $moderation_information */
+    $moderation_information = \Drupal::service('content_moderation.moderation_information');
+
+    /** @var \Drupal\node\NodeInterface $latest */
+    if (!($latest = $moderation_information->getLatestRevision('node', $node->id()))) {
+      $latest = $node;
+    }
+
+    if ($langcode) {
+      $latest = $latest->getTranslation($langcode);
+    }
+
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'latest_author':
+          $replacements[$original] = $latest->getRevisionUser()->label();
+          break;
+        case 'latest_url':
+          if ($node->getRevisionId() !== $latest->getRevisionId()) {
+            $replacements[$original] = Url::fromRoute('entity.node.latest_version', [
+              'node' => $node->id(),
+            ], $url_options)->toString();
+          }
+          else {
+            $replacements[$original] = $latest->toUrl('canonical', $url_options)->toString();
+          }
+          break;
+      }
+    }
+
+    $token_service = \Drupal::token();
+    if ($author_tokens = $token_service->findWithPrefix($tokens, 'latest_author')) {
+      $replacements += $token_service->generate('user', $author_tokens, ['user' => $latest->getRevisionUser()], $options, $bubbleable_metadata);
+    }
+  }
+
+  return $replacements;
+}
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function df_tools_workflow_library_info_alter(&$libraries, $extension) {
+  if ($extension === 'moderation_note') {
+    unset($libraries['main']['dependencies']);
+  }
+}
+
+/**
+ * Implements hook_moderation_sidebar_alter().
+ *
+ * Integrate the Type Style Moderation and Moderation Sidebar modules.
+ *
+ * Display type style colors and icons associated with content moderation
+ * transitions on their moderation sidebar buttons.
+ */
+function df_tools_workflow_moderation_sidebar_alter(array &$build, \Drupal\Core\Entity\EntityInterface $entity) {
+  /** @var \Drupal\content_moderation\ModerationInformationInterface $moderation_info */
+  $moderation_info = \Drupal::service('content_moderation.moderation_information');
+
+  // Verify that the moderation sidebar is being displayed on a content entity
+  // and that it has an associated workflow.
+  if ($entity instanceof ContentEntityInterface && $workflow = $moderation_info->getWorkflowForEntity($entity)) {
+    // Ensure that the sidebar's quick draft form is available.
+    if (isset($build['actions']['quick_draft_form'])) {
+      // Each of the quick draft form's buttons represents a moderation state
+      // transition for the current workflow, such as 'create_new_draft' or
+      // 'archive.'
+      // Retrieve these buttons to build an array of transitions.
+      $transition_ids = Element::getVisibleChildren($build['actions']['quick_draft_form']);
+
+      // Only proceed if one or more transitions is available.
+      if (count($transition_ids)) {
+        // Type style colors and icons are stored as configuration on the
+        // workflow.
+        $type_plugin = $workflow->getTypePlugin();
+        $config = $type_plugin->getConfiguration();
+
+        // Loop through each of the available transitions, altering the markup
+        // of each moderation sidebar button to add an icon and change its
+        // background color where necessary.
+        foreach ($transition_ids as $id) {
+          // Retrieve the Type Style settings for the current transition.
+          $settings = isset($config['transitions'][$id]['type_style']) ? $config['transitions'][$id]['type_style'] : [];
+
+          if (!empty($settings)) {
+            // Use the Type Style color as the button's background color.
+            if (!empty($settings['color'])) {
+              $build['actions']['quick_draft_form'][$id]['#attributes']['style'] = 'background-color: ' . $settings['color'];
+            }
+
+            // Add the Type Style icon to the button.
+            if (!empty($settings['icon'])) {
+              $build['actions']['quick_draft_form'][$id] = [
+                '#type' => 'container',
+                $build['actions']['quick_draft_form'][$id],
+                [
+                  '#markup' => '<i class="material-icons">' . $settings['icon'] . '</i>'
+                ],
+                '#attributes' => [
+                  'class' => ['moderation-sidebar-button-wrapper'],
+                ],
+              ];
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_has_claims_adjuster
+    - node.type.agent_location
+  module:
+    - dfs_fin_location
+  enforced:
+    module:
+      - dfs_fin_location
+id: node.agent_location.field_has_claims_adjuster
+field_name: field_has_claims_adjuster
+entity_type: node
+bundle: agent_location
+label: 'Has Claims Adjuster'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

@@ -1,0 +1,52 @@
+//
+// @file
+// Additional theming for the cart page.
+//
+
+.layout-main {
+  clear: both;
+}
+
+.layout-region-checkout-secondary {
+  position: relative;
+
+  section {
+    margin-top: 1.5rem;
+  }
+
+  .block-obio-commerce-cart-submit-button {
+    display: none;
+
+    @media #{$medium-up} {
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 100%;
+      left: 0;
+    }
+
+    @at-root .toolbar-vertical.toolbar-tray-open #{&} {
+      @media #{$medium-only} {
+        display: none;
+      }
+    }
+  }
+}
+
+.form-base__id-views-form-commerce-cart-form-default {
+  .order-summary {
+    margin-top: 4.5rem;
+  }
+
+  .form-actions {
+    text-align: right;
+
+    .button {
+      width: 100%;
+
+      @media #{$medium-up} {
+        width: auto;
+      }
+    }
+  }
+}

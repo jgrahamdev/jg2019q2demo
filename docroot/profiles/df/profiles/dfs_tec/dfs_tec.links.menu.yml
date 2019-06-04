@@ -1,0 +1,20 @@
+dfs_tec.our_philosophy:
+  title: 'Our Philosophy'
+  url: 'internal:/content/our-philosophy'
+  menu_name: main
+  weight: 0
+dfs_tec.services:
+  title: 'Services'
+  url: 'internal:/services'
+  menu_name: main
+  weight: 1
+dfs_tec.team:
+  title: 'Our Team'
+  url: 'internal:/team'
+  menu_name: main
+  weight: 2
+dfs_tec.contact:
+  title: 'Contact Us'
+  url: 'internal:/contact'
+  menu_name: main
+  weight: 3

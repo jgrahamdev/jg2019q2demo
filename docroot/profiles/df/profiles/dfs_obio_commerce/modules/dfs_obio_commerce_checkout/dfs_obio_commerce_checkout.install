@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the dfs_obio_commerce_checkout module.
+ */
+
+use Drupal\commerce_checkout\Entity\CheckoutFlow;
+
+/**
+ * Implements hook_install().
+ */
+function dfs_obio_commerce_checkout_install() {
+  // Simplify checkout process.
+  $checkout_flow = CheckoutFlow::load('default');
+  $plugin = $checkout_flow->getPlugin();
+  $configuration = $plugin->getConfiguration();
+  $configuration['panes']['dfs_obio_commerce_checkout_completion_message']['step'] = 'complete';
+  $configuration['panes']['billing_information']['step'] = '_disabled';
+  $configuration['panes']['contact_information']['double_entry'] = FALSE;
+  $configuration['panes']['completion_message']['step'] = '_disabled';
+  $plugin->setConfiguration($configuration);
+  $checkout_flow->save();
+}

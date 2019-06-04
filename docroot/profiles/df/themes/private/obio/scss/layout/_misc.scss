@@ -1,0 +1,101 @@
+//
+// @file
+// Miscallaneaus layout helpers.
+//
+
+// Spacing helpers.
+// Browser default [px] * $global-font-size [percentage] * $global-lineheight [unitless]
+$rhythm: (16px * ($global-font-size / 100%)) * $global-lineheight;
+.spacing-default {
+  margin-top: rem-calc($rhythm);
+  margin-bottom: rem-calc($rhythm);
+}
+
+.spacing-narrow {
+  margin-top: rem-calc(1.5 * $rhythm);
+  margin-bottom: rem-calc(1.5 * $rhythm);
+}
+
+.spacing-narrow-bottom {
+  margin-bottom: rem-calc(1.5 * $rhythm);
+}
+
+.spacing-double {
+  margin-top: rem-calc(2 * $rhythm);
+  margin-bottom: rem-calc(2 * $rhythm);
+}
+
+//
+// Variable element width based on (content) entity type (and bundle) inside a
+// view display.
+//
+.l-classified-article-width {
+  // There is some problem with the flex-grid approach related to the max-width
+  // workaround, so I would use the default one here.
+  .view-content {
+    @include grid-row(null, nest);
+  }
+
+  .gutter-sizer {
+    width: 0;
+  }
+
+  // Let's say that this is the default.
+  // This applies to article nodes.
+  .l-card-elem,
+  .grid-sizer {
+    @include breakpoint(small) {
+      @include grid-column(12);
+    }
+
+    @include breakpoint(medium) {
+      @include grid-column(6);
+    }
+
+    @include breakpoint(large) {
+      @include grid-column(3);
+    }
+  }
+
+  // Collection, entity gallery.
+  .node--type-collection,
+  .entity-gallery {
+    @include breakpoint(small) {
+      @include grid-column(12);
+    }
+
+    @include breakpoint(medium) {
+      @include grid-column(6);
+    }
+
+    @include breakpoint(large) {
+      @include grid-column(6);
+    }
+  }
+}
+
+//
+// Masonry: hide only of js is enabled and available on client side.
+//
+html.js .js-obio-masonry {
+  .l-card-elem {
+    transition: $slider-transition;
+    opacity: 0;
+
+    &.obio-masonry-done {
+      opacity: 1;
+    }
+  }
+}
+
+//
+// Table trick.
+//
+.l-table {
+  display: table;
+  width: 100%;
+
+  @at-root #{&}__item {
+    display: table-cell;
+  }
+}

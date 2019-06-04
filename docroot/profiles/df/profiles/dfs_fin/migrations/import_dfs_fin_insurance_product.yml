@@ -1,0 +1,32 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_fin_insurance_product
+label: 'Import dfs_fin:node:insurance_product'
+source:
+    plugin: insurance_product_node
+    path: '../data/dfs_fin.node.insurance_product.csv'
+    header_row_count: 1
+    keys: [Title]
+    csvColumns: { 2: Subtitle, 3: 'Short title', 0: UUID, 1: Title, 4: Summary, 5: Body, 6: Image, 7: Icon, 8: 'Hero reference', 9: 'Hero promo reference', 10: Testimonials, 11: 'Promo text', 12: Tags }
+destination:
+    plugin: 'entity:node'
+process:
+    type: { plugin: default_value, default_value: insurance_product }
+    title: Title
+    body/value: Body
+    field_image: Image
+    field_tags: { plugin: migration, migration: import_dfs_fin_tags, source: Tags }
+    body/format: { plugin: default_value, default_value: rich_text }
+    moderation_state: { plugin: default_value, default_value: published }
+    uuid: UUID
+    uid: UID
+    field_associated_testimonials: { plugin: migration, migration: import_dfs_fin_testimonial, source: Testimonials }
+    field_hero_reference: 'Hero reference'
+    field_hero_promo_reference: 'Hero promo reference'
+    field_icon: Icon
+    field_promo_text: 'Promo text'
+    field_short_title: 'Short title'
+    field_subtitle: Subtitle
+provider: import
+migration_dependencies:
+    required: [import_dfs_fin_tags, import_dfs_fin_testimonial]
+    optional: {  }

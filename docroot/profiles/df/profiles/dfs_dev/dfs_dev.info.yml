@@ -1,0 +1,30 @@
+name: 'DFS DEV'
+type: profile
+description: 'Demo Framework Scenario for Development Testing.'
+core: 8.x
+package: 'Demo Framework Scenarios'
+'base profile': df
+dependencies:
+  - df_tools_articles
+  - df_tools_blocks
+  - df_tools_card
+  - df_tools_cache
+  - df_tools_config
+  - df_tools_display
+  - df_tools_editor
+  - df_tools_frontend
+  - df_tools_gallery
+  - df_tools_image
+  - df_tools_landing_page
+  - df_tools_layout
+  - df_tools_map
+  - df_tools_media
+  - df_tools_page
+  - df_tools_panelizer
+  - df_tools_scheduler
+  - df_tools_search
+  - df_tools_slideshow
+  - df_tools_translation
+  - df_tools_user
+  - df_tools_workflow
+  - dfs_dev_search

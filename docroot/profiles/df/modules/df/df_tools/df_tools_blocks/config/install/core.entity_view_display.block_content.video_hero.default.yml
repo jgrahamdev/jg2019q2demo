@@ -1,0 +1,47 @@
+uuid: 8701be1f-7625-4188-9df0-60b13e8ed209
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.video_hero
+    - field.field.block_content.video_hero.field_first_line
+    - field.field.block_content.video_hero.field_hero_link
+    - field.field.block_content.video_hero.field_media
+  module:
+    - link
+id: block_content.video_hero.default
+targetEntityType: block_content
+bundle: video_hero
+mode: default
+content:
+  field_first_line:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_hero_link:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_media:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: hero
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  langcode: true

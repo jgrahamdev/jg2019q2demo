@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - dfs_obio
+  theme:
+    - obio
+third_party_settings:
+  block_class:
+    classes: ''
+id: subscribeform
+theme: obio
+region: footer_middle
+weight: 0
+provider: null
+plugin: subscribe_form
+settings:
+  id: subscribe_form
+  label: 'Subscribe & Save'
+  provider: dfs_obio
+  label_display: visible
+visibility: {  }

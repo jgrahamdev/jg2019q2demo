@@ -1,0 +1,43 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.dfs_obio_individual_products
+    - views.view.obio_individual_product_search
+  module:
+    - search_api
+id: reset_link
+name: 'Reset link'
+facets:
+  color:
+    checked: true
+    label: Color
+    separator: ', '
+    weight: 0
+    show_count: false
+  tags:
+    checked: true
+    label: Tags
+    separator: ', '
+    weight: 0
+    show_count: false
+  types:
+    checked: true
+    label: Types
+    separator: ', '
+    weight: 0
+    show_count: false
+  price:
+    checked: true
+    label: Price
+    separator: ', '
+    weight: 0
+    show_count: false
+facet_source_id: 'search_api:views_block__obio_individual_product_search__block_1'
+processor_configs:
+  reset_facets:
+    processor_id: reset_facets
+    weights:
+      build: '-10'
+    settings:
+      link_text: 'Reset all'

@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: english_collection
+label: 'English collection'
+type: 'canonical_entities:node'
+pattern: '/collection/[node:title]'
+selection_criteria:
+  632621c4-d6be-4416-bbc2-5eb276c2f093:
+    id: node_type
+    bundles:
+      collection: collection
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 632621c4-d6be-4416-bbc2-5eb276c2f093
+  dbbace26-3beb-434c-a851-dc8c3093f73c:
+    id: language
+    langcodes:
+      en: en
+    negate: false
+    context_mapping:
+      language: 'node:langcode:language'
+    uuid: dbbace26-3beb-434c-a851-dc8c3093f73c
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

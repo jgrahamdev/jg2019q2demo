@@ -1,0 +1,69 @@
+uuid: 18f8b779-abdb-48e4-b172-6dfe15ecefa1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.page.body
+    - field.field.node.page.panelizer
+    - node.type.page
+  module:
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    displays:
+      default:
+        blocks:
+          197a21c8-479d-4d6b-9a05-5eaaf82b0e0e:
+            id: 'entity_field:node:body'
+            label: Body
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: text_default
+              settings: {  }
+              third_party_settings: {  }
+              weight: 0
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            region: middle
+            weight: 1
+            uuid: 197a21c8-479d-4d6b-9a05-5eaaf82b0e0e
+        id: panels_variant
+        uuid: df0d1b37-8cd5-46d3-b900-f18df4825325
+        label: ''
+        weight: 0
+        layout: layout_onecol
+        layout_settings: {  }
+        page_title: '[node:title]'
+        storage_type: panelizer_default
+        storage_id: 'node:page:full:default'
+        builder: ipe
+    allow: false
+    default: default
+id: node.page.card
+targetEntityType: node
+bundle: page
+mode: card
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 0
+    settings:
+      trim_length: 80
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  field_meta_tags: true
+  langcode: true
+  links: true
+  panelizer: true
+  scheduled_update: true
+  content_moderation_control: true

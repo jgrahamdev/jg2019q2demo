@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.get_a_quote
+    - field.storage.contact_message.field_phone_number
+  module:
+    - telephone
+id: contact_message.get_a_quote.field_phone_number
+field_name: field_phone_number
+entity_type: contact_message
+bundle: get_a_quote
+label: Phone
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone
+

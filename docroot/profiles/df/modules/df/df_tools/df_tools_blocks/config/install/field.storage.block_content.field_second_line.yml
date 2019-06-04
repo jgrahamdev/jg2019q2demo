@@ -1,0 +1,20 @@
+uuid: d06b4b8c-cdc5-4d00-bf00-ee23e4c63c83
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_second_line
+field_name: field_second_line
+entity_type: block_content
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false

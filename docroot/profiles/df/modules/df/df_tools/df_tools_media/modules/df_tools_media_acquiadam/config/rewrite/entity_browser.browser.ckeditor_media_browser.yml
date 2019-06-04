@@ -1,0 +1,12 @@
+dependencies:
+  module:
+    - media_acquiadam
+widgets:
+  c95f38f7-6ed0-4b59-9efa-62ca63191b35:
+    settings:
+      media_type: acquia_dam_asset
+      submit_text: 'Select assets'
+    uuid: c95f38f7-6ed0-4b59-9efa-62ca63191b35
+    weight: 4
+    label: 'Acquia DAM'
+    id: acquiadam

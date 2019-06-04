@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Contains as_kiosk.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_mail_alter().
+ *
+ * Makes sure our complex HTML response is unfiltered.
+ */
+function as_kiosk_mail_alter(&$message) {
+  if ($message['module'] === 'contact' && $message['key'] === 'page_autoreply' && isset($message['params']['contact_message'])) {
+    /** @var \Drupal\contact\ContactFormInterface $contact_form */
+    $config = \Drupal::config('as_kiosk.settings');
+    $contact_form = $message['params']['contact_form'];
+    if ($contact_form->id() === $config->get('settings.email_form_id')) {
+      $to = preg_split('/,/', $message['to'])[0];
+      $url = \Drupal::request()->getHost();
+      $campaign = 'identity=' . str_replace('@', '%40', $to) . '&identityType=email&utm_campaign=' . $config->get('settings.email_campaign');
+      if ($reply = $contact_form->getReply()) {
+        $temp = [
+          '#type' => 'inline_template',
+          '#template' => str_replace(['REPLACEME_SITENAME', 'REPLACEME_CAMPAIGN'],[$url, $campaign], $reply),
+        ];
+        $message['body'] = [render($temp)];
+        $message['headers']['Content-Type'] = 'text/html';
+        $message['params']['convert'] = TRUE;
+        $message['subject'] = $config->get('settings.email_subject');
+        $message['from'] = '"' . $config->get('settings.email_from_name') . '"' . '<' . $config->get('settings.email_from_address') . '>';
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function as_kiosk_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'mail_alter') {
+    // Move as_kiosk_mail_alter() to the end of the list.
+    $group = $implementations['as_kiosk'];
+    unset($implementations['as_kiosk']);
+    $implementations['as_kiosk'] = $group;
+  }
+}

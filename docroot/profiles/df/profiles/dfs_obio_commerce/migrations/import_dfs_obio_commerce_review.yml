@@ -1,0 +1,38 @@
+id: import_dfs_obio_commerce_review
+label: 'Import dfs_obio_commerce:comment:review'
+source:
+  plugin: csv
+  path: '../data/dfs_obio.comment.review.csv'
+  header_row_count: 1
+  keys: [UUID]
+destination:
+  plugin: 'entity:comment'
+process:
+  comment_type:
+    plugin: default_value
+    default_value: review
+  uuid: UUID
+  status:
+    plugin: default_value
+    default_value: true
+  subject: Subject
+  field_review: Review
+  field_rating: Rating
+  field_name:
+    plugin: default_value
+    default_value: field_collection_reviews
+  entity_type:
+    plugin: default_value
+    default_value: node
+  entity_id:
+    plugin: migration
+    migration: import_dfs_obio_commerce_collections
+    source: Product
+  uid:
+    plugin: migration
+    migration: import_dfs_obio_user
+    source: Reviewer
+provider: import
+migration_dependencies:
+  required: [import_dfs_obio_commerce_collections, import_dfs_obio_user]
+  optional: {  }

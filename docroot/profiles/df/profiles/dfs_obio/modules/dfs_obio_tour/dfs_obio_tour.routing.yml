@@ -1,0 +1,7 @@
+dfs_obio_tour.settings:
+  path: '/admin/config/services/dfs_obio_tour'
+  defaults:
+    _form: '\Drupal\dfs_obio_tour\Form\DFSObioTourSettingsForm'
+    _title: 'DFS Obio Tour Settings'
+  requirements:
+    _permission: 'administer site configuration'

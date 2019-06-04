@@ -1,0 +1,50 @@
+global:
+  version: VERSION
+  css:
+    base:
+      css/obio-main.css: {}
+      /libraries/tablesaw/dist/tablesaw.css: {}
+      css/obio-colors.css: {}
+  js:
+    js/obio.js: {}
+    /libraries/tablesaw/dist/tablesaw.js: {}
+    /libraries/tablesaw/dist/tablesaw.jquery.js: {}
+    /libraries/tablesaw/dist/tablesaw-init.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.one
+    - zurb_foundation/global
+
+masonry:
+  version: VERSION
+  js:
+    js/obio-masonry.js: {}
+  dependencies:
+    - df_tools_gallery/imagesloaded
+    - df_tools_gallery/masonry
+
+color.preview:
+  version: VERSION
+  css:
+    theme:
+      color/preview.css: {}
+  js:
+    color/preview.js: {}
+  dependencies:
+    - color/drupal.color
+
+pickadate:
+  version: VERSION
+  css:
+    theme:
+      css/datepicker/default.css: {}
+      css/datepicker/default.date.css: {}
+      css/datepicker/default.time.css: {}
+  js:
+    js/datepicker/picker.js: {}
+    js/datepicker/picker.date.js: {}
+    js/datepicker/picker.time.js: {}
+    js/datepicker/picker.init.js: {}
+  dependencies:
+    - core/jquery

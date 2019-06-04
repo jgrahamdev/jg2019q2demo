@@ -1,0 +1,20 @@
+uuid: edf4c655-9cac-451e-acac-edefd3ca073b
+langcode: en
+status: true
+dependencies: {  }
+template: new_order
+label: 'New Order'
+description: ''
+text:
+  -
+    value: 'Order #[message:field_message_order:entity:order_number] confirmed'
+    format: full_html
+  -
+    value: "<h2>Order Confirmation</h2>\r\nOrder #[message:field_message_order:entity:order_number]\r\n\r\n<h3>Hello [message:field_message_order:entity:uid:entity:display-name],</h3>\r\n\r\nThank you for booking a room with us. Your order details are indicated below. If you would like to view your order or make any changes to it, please visit <a href=\"[message:field_message_order:entity:uid:entity:url]/orders\">Your Orders</a>.\r\n\r\n<h2>Order Details</h2>\r\nOrder #[message:field_message_order:entity:order_number]\r\nPlaced on [message:field_message_order:entity:placed]\r\n\r\n[message:field_message_order:entity:order_items]\r\n\r\n[message:field_message_order:entity:total_price]\r\n\r\nThis email was sent from a notification-only address that cannot accept incoming email. Please do not reply to this message."
+    format: full_html
+settings:
+  'token options':
+    clear: false
+    'token replace': true
+  purge_override: false
+  purge_methods: {  }

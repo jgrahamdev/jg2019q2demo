@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * @file
+ * Contains dfs_obio_blocks.module.
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_view_alter().
+ */
+function dfs_obio_blocks_block_content_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  $block_bundle = Html::getClass($entity->bundle());
+  $block_viewmode = Html::getClass($build['#view_mode']);
+  $block_modifier = $block_bundle . '--' . $block_viewmode;
+
+  // Content attributes. We have to add them to the prefix as outside of a
+  // block (#theme => block) rendering context, #attributes are ignored.
+  $build['#prefix'] = "<div class=\"hero-block block-content__content block-content__content--$block_bundle block-content__content--$block_modifier\">";
+
+  if ($entity->bundle() == 'hero') {
+    // Undoing most of the unconfigurable render array modifications introduced
+    // by df_tools_blocks. Except the icon, we can solve it by field_groups.
+    // Icon output should be provided by a field formatter, but I don't want to
+    // touch it in the current scope.
+    if (isset($build['wrapper'])) {
+      // We lost field machine name key and only have delta here.
+      foreach (array_keys($build['wrapper']['#children']) as $delta) {
+        $array_key = !empty($build['wrapper']['#children'][$delta]['#field_name']) ?
+          $build['wrapper']['#children'][$delta]['#field_name'] :
+          'field_delta__' . $delta;
+        $build[$array_key] = $build['wrapper']['#children'][$delta];
+      }
+      unset($build['wrapper']);
+    }
+    // The gradient color is used to style the hero content in obio.
+    if (isset($build['field_hero_image']['#attributes']['style'])) {
+      unset($build['field_hero_image']['#attributes']['style']);
+    }
+  }
+}
+
+/**
+ * Implements hook_field_group_build_pre_render_alter().
+ */
+function dfs_obio_blocks_field_group_build_pre_render_alter(&$elements) {
+  if (isset($elements['#block_content'])) {
+    // Add matching alignment classes to the proper wrapper element.
+    // For classes, check
+    // https://foundation.zurb.com/sites/docs/flex-grid.html#column-alignment.
+    /* @var \Drupal\block_content\Entity\BlockContent $entity */
+    $entity = $elements['#block_content'];
+    if ($entity->hasField('field_hero_alignment')) {
+      $alignment = $entity->get('field_hero_alignment')->getString();
+      if (preg_match('/^[a-z_]+$/i', $alignment)) {
+        $elements['group_hero']['group_hero_image']['#attributes']['class'][] = Html::cleanCssIdentifier('hero-alignment-' . $alignment);
+        $elements['group_hero']['group_hero_content']['group_hero_inner_content']['#attributes']['class'][] = Html::cleanCssIdentifier('align-' . $alignment);
+      }
+      $color_regex = '/^#[0-9a-f]{6}$/i';
+      $gradient_color = $entity->get('field_gradient_color')->getString();
+      if (preg_match($color_regex, $gradient_color)) {
+        $elements['group_hero']['group_hero_content']['group_hero_inner_content']['group_hero_column']['group_hero_content_spanned']['#attributes']['style'] = 'background: ' . $gradient_color . ';';
+      }
+    }
+  }
+}

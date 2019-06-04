@@ -1,0 +1,56 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.agent_location.body
+    - field.field.node.agent_location.field_address
+    - field.field.node.agent_location.field_areas_of_focus
+    - field.field.node.agent_location.field_email_address
+    - field.field.node.agent_location.field_has_claims_adjuster
+    - field.field.node.agent_location.field_image
+    - field.field.node.agent_location.field_phone_number
+    - field.field.node.agent_location.field_region
+    - field.field.node.agent_location.field_tags
+    - node.type.agent_location
+  module:
+    - text
+    - user
+    - dfs_fin_location
+  enforced:
+    module:
+      - dfs_fin_location
+id: node.agent_location.teaser
+targetEntityType: node
+bundle: agent_location
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+  moderation_state:
+    label: hidden
+    type: string
+    weight: -5
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_address: true
+  field_areas_of_focus: true
+  field_email_address: true
+  field_has_claims_adjuster: true
+  field_image: true
+  field_phone_number: true
+  field_region: true
+  field_tags: true
+  langcode: true

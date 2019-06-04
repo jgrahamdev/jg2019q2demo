@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.notification
+label: Notification
+targetEntityType: node
+cache: true

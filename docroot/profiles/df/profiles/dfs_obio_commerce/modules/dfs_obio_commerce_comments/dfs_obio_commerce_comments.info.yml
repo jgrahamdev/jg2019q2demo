@@ -1,0 +1,7 @@
+name: 'DFS Obio Commerce Comments'
+type: module
+description: 'Comment overrides.'
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - df_tools_comment

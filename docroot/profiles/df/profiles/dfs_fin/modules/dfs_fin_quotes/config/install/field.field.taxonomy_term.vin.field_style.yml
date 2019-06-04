@@ -1,0 +1,24 @@
+uuid: 684b4a79-ee1e-48ee-9f89-04643c2a5a5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_style
+    - taxonomy.vocabulary.vin
+  module:
+    - dfs_fin_quotes
+  enforced:
+    module:
+      - dfs_fin_quotes
+id: taxonomy_term.vin.field_style
+field_name: field_style
+entity_type: taxonomy_term
+bundle: vin
+label: Style
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

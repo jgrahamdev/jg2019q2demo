@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.review_product
+    - field.storage.comment.field_rating
+id: comment.review_product.field_rating
+field_name: field_rating
+entity_type: comment
+bundle: review_product
+label: Rating
+description: 'The rating for this product. Any number between one and five is valid.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 1
+  max: !!float 5
+  prefix: ''
+  suffix: ''
+field_type: decimal

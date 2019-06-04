@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Default theme implementation for average rating 'rating_average'.
+ *
+ * Available variables:
+ * - min: Minimal value (int).
+ * - max: Maximal value (int).
+ * - value: Actual value (float).
+ * - count: number of reviews.
+ * - message: Message next to the rating.
+ * - url: Optional url.
+ *
+ * @see template_preprocess_rating_average()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if message -%}
+  {%- if link -%}
+    <a href="{{link}}">
+  {%- endif -%}
+
+  <span class="message">{{ message }}</span>
+
+  {%- if link -%}
+    </a>
+  {%- endif -%}
+{%- endif %}

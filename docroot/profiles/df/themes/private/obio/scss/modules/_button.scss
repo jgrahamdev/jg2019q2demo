@@ -1,0 +1,19 @@
+//
+// @file
+// Extra buttons for Obio theme.
+//
+
+// "Local task" style.
+.button--local-task {
+  display: block;
+  width: 100%;
+  color: $primary-color;
+  background: $body-background;
+  text-align: left;
+
+  @at-root .is-active #{&} {
+    background: $body-font-color;
+    color: $body-background;
+    pointer-events: none;
+  }
+}

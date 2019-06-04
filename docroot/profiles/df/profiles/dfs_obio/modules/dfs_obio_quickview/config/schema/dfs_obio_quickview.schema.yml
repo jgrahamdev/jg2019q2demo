@@ -1,0 +1,54 @@
+dfs_obio_quickview.settings:
+  type: mapping
+  label: 'Quick View congiguration'
+  mapping:
+    modal:
+      type: mapping
+      label: 'Quick View modal settings'
+      mapping:
+        width:
+          type: integer
+          label: 'Width of the modal'
+          nullable: true
+        height:
+          type: integer
+          label: 'Height of the modal'
+          nullable: true
+        resizable:
+          type: boolean
+          label: 'Resizable of fixed modal'
+
+block_content.type.*.third_party_settings.dfs_obio_quickview: &defaults
+  type: mapping
+  label: 'Quick View settings'
+  mapping:
+    status:
+      type: boolean
+      label: 'Quick View is enabled'
+    view_mode:
+      type: string
+      label: 'View mode for Quick View'
+
+commerce_order.commerce_order_item_type.*.third_party_settings.dfs_obio_quickview:
+  <<: *defaults
+
+commerce_product.commerce_product_type.*.third_party_settings.dfs_obio_quickview:
+  <<: *defaults
+
+commerce_store.commerce_store_type.*.third_party_settings.dfs_obio_quickview:
+  <<: *defaults
+
+entity_gallery.type.*.third_party_settings.dfs_obio_quickview:
+  <<: *defaults
+
+node.type.*.third_party_settings.dfs_obio_quickview:
+  <<: *defaults
+
+profile.type.*.third_party_settings.dfs_obio_quickview:
+  <<: *defaults
+
+shortcut.set.*.third_party_settings.dfs_obio_quickview:
+  <<: *defaults
+
+taxonomy.vocabulary.*.third_party_settings.dfs_obio_quickview:
+  <<: *defaults

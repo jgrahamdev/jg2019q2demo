@@ -1,0 +1,26 @@
+uuid: 4df3ffd3-c986-487b-8af2-b65f89287cbc
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - content_moderation
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  lightning_workflow:
+    enabled: true
+    workflow: editorial
+  type_style:
+    color: '#F44336'
+    icon: location_on
+name: Location
+type: location
+description: 'Obio showrooms that demonstrate the best of our collections and individual collection.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false
+

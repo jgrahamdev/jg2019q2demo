@@ -1,0 +1,151 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations for as_tracking.
+ */
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * @param array $attachments
+ */
+function as_tracking_page_attachments(array &$attachments) {
+  $api_key = _as_tracking_config('api_key');
+  $user_id = _as_tracking_config('user_id');
+  $attachments['#attached']['drupalSettings']['as_tracking'] = ['api_key' => $api_key, 'user_id' => $user_id];
+  $attachments['#attached']['library'][] = 'as_tracking/main';
+}
+
+/**
+ * Event logging global function used for tracking.
+ *
+ * @param $event_type
+ * @param null $user_id
+ *
+ * @return bool
+ */
+function _as_tracking_event($event_type, $user_id = null) {
+  $user_id = is_null($user_id) ? _as_tracking_config('user_id') : $user_id;
+  $disallowed_ids = ['demo@acquia.com', 'travis.ci@demodrupal.org', 'brant.wynn@acquia.com', 'kevin.funk@acquia.com'];
+  if (in_array($user_id, $disallowed_ids)) {
+    return FALSE;
+  }
+  $api_key = _as_tracking_config('api_key');
+  $client = \Drupal::httpClient();
+  $ip = \Drupal::request()->getClientIp();
+  $event_data = json_encode([
+    'user_id' => $user_id,
+    'event_type' => $event_type,
+    'user_properties' => [],
+    'ip' => $ip,
+    'time' => time()
+  ]);
+  try {
+    $client->post('https://api.amplitude.com/httpapi', ['form_params' => ['api_key' => $api_key, 'event' => $event_data]]);
+  }
+  catch (\Exception $e) {
+    watchdog_exception('as_tracking', $e);
+    return FALSE;
+  }
+  return TRUE;
+}
+
+/**
+ * Helper function for returning config data from this module.
+ *
+ * @param $key
+ *
+ * @return array|mixed|null
+ */
+function _as_tracking_config($key) {
+  return \Drupal::config('as_tracking.settings')->get($key);
+}
+
+
+/**
+ * Implements hook_user_login().
+ *
+ * @param $account
+ */
+function as_tracking_user_login($account) {
+  // Track when users login as anyone with a creator role as all reviewer and
+  // marketer users have this base role anyway.
+  $username = $account->getAccountName();
+  $roles = $account->getRoles();
+  $track_users = ['KatieAuthor', 'PaulSimon', 'EmilyPhillips'];
+  if (in_array('creator', $roles) && in_array($username, $track_users)) {
+    _as_tracking_event('login_as_'. $username);
+  }
+}
+
+/**
+ * Implements hook_node_insert().
+ *
+ * @param \Drupal\node\Entity\Node $node
+ */
+function as_tracking_node_insert($node) {
+  if ($node->getType() == 'landing_page') {
+    _as_tracking_event('created_landing_page');
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * @param array $form
+ *   The form array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state.
+ * @param string $form_id
+ *   The form ID.
+ */
+function as_tracking_form_alter(&$form, &$form_state, $form_id) {
+  if (strpos($form_id, 'commerce_checkout_flow_multistep_') === 0) {
+    $form['actions']['next']['#submit'] = array_merge($form['#submit'], ['as_tracking_commerce_form_submit']);
+  }
+  elseif (isset($form['actions']['submit']['#id']) && $form['actions']['submit']['#id'] == 'edit-submit-dfs-obio-search') {
+    $form['#submit'] = array_merge($form['#submit'], ['as_tracking_search_form_submit']);
+  }
+}
+
+/**
+ * Submit handler for the Commerce checkout form.
+ *
+ * @param array $form
+ *   The form array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state.
+ */
+function as_tracking_commerce_form_submit($form, &$form_state) {
+  _as_tracking_event('commerce_checkout');
+}
+
+/**
+ * Submit handler for the site Search form.
+ *
+ * @param array $form
+ *   The form array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state.
+ */
+function as_tracking_search_form_submit($form, &$form_state) {
+  $sent = &drupal_static('as_tracking_search_form_submit', FALSE);
+  if (!empty($form_state->getValues()['keywords']) && !$sent) {
+    _as_tracking_event('site_search');
+    $sent = TRUE;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ *
+ * @param $entity
+ */
+function as_tracking_contact_message_insert($entity) {
+  // Track when a check_in contact_message is created (only done via kiosk).
+  $bundle = $entity->bundle();
+  if ($bundle == 'check_in') {
+    _as_tracking_event('kiosk_check_in');
+  }
+}

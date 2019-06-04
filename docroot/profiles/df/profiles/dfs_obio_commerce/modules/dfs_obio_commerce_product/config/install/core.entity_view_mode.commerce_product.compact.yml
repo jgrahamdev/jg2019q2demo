@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    description: 'Used by e.g. the product hero block'
+id: commerce_product.compact
+label: Compact
+targetEntityType: commerce_product
+cache: true

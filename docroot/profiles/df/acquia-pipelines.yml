@@ -1,0 +1,71 @@
+# This file is used by Acquia Pipelines continuous integration. It builds
+# Demo Framework and runs its functional tests. Upon success, an artifact is
+# deployed to the demoframeworktests (adef0efb-9742-4158-9a17-3554db4c5e7c) sub
+# on Acquia cloud.
+version: 1.1.0
+services:
+  - mysql
+  - php:
+      version: 7.1
+
+variables:
+  global:
+    SCENARIO: dfs_obio
+
+events:
+  build:
+    steps:
+      - setup:
+          type: script
+          script:
+            # Add Composer's local bin directory to the PATH so that we will be
+            # running our installed versions of Drush, PHPCS, Behat, etc.
+            - export PATH="$HOME/.composer/vendor/bin:$SOURCE_DIR/vendor/bin:$PATH"
+            - composer validate --no-check-all --ansi --no-interaction
+            - composer install
+      - install:
+          type: script
+          script:
+            - cd $SOURCE_DIR
+            - mysql -u root -proot -e 'CREATE DATABASE drupal;'
+            - lightning install 'mysql\://root:root@localhost/drupal' $SCENARIO 'http://127.0.0.1:8080' --no-dev
+            - cd $SOURCE_DIR/docroot
+            - echo $SCENARIO > scenario.txt;
+      - test:
+          type: script
+          script:
+            - cd $SOURCE_DIR/docroot
+            - drush runserver --default-server=builtin 8080 &>/dev/null &
+            - phantomjs --webdriver=4444 > /dev/null &
+            - sleep 10
+            - cd $SOURCE_DIR
+            - behat --stop-on-failure --config .behat.yml --tags="df&&~javascript"
+            - if [[ "$SCENARIO" != df ]]; then behat --stop-on-failure --config .behat.yml --tags="$SCENARIO&&~javascript"; fi
+      - cleanup:
+          type: script
+          script:
+            - cd $SOURCE_DIR
+            # Setup settings file and codebase with minimum required for cloud.
+            - lightning configure:cloud
+            # Remove dev tools from the Cloud build.
+            - composer remove acquia/lightning_dev --dev
+      - deploy:
+          type: script
+          script:
+            # Deploy the build artifact to a Cloud on-demand environment.
+            - pipelines-deploy
+  # When a GitHub pull request is merged, this deletes the corresponding ODE.
+  pr-merged:
+    steps:
+      - deploy:
+          type: script
+          script:
+            - pipelines-deploy
+
+  # When a GitHub pull request is closed, this deletes the corresponding ODE.
+  pr-closed:
+    steps:
+      - deploy:
+          type: script
+          script:
+            - pipelines-deploy

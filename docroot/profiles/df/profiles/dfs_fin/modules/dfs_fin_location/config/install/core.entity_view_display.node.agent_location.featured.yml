@@ -1,0 +1,74 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.featured
+    - field.field.node.agent_location.body
+    - field.field.node.agent_location.field_address
+    - field.field.node.agent_location.field_areas_of_focus
+    - field.field.node.agent_location.field_email_address
+    - field.field.node.agent_location.field_geofield
+    - field.field.node.agent_location.field_has_claims_adjuster
+    - field.field.node.agent_location.field_image
+    - field.field.node.agent_location.field_phone_number
+    - field.field.node.agent_location.field_region
+    - field.field.node.agent_location.field_tags
+    - node.type.agent_location
+  module:
+    - image
+    - panelizer
+    - text
+    - user
+    - dfs_fin_location
+  enforced:
+    module:
+      - dfs_fin_location
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+id: node.agent_location.featured
+targetEntityType: node
+bundle: agent_location
+mode: featured
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_email_address:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_phone_number:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  field_address: true
+  field_areas_of_focus: true
+  field_geofield: true
+  field_has_claims_adjuster: true
+  field_region: true
+  field_tags: true
+  langcode: true
+  links: true

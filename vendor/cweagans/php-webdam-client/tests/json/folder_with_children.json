@@ -1,0 +1,182 @@
+{
+    "id": "2177680",
+    "type": "folder",
+    "metadatatemplateid": "23456",
+    "name": "GIS Data",
+    "parent": "0",
+    "status": "active",
+    "passwordprotected": "false",
+    "datecreated": "2017-03-28 09:58:01",
+    "date_created_unix": "1490720281",
+    "eventdate": "",
+    "date_event_unix": null,
+    "thumbnailurls": [
+        {
+            "size": 100,
+            "url": "https:\/\/static2.webdamdb.com\/images\/xml_100.png"
+        },
+        {
+            "size": 150,
+            "url": "https:\/\/static2.webdamdb.com\/images\/xml_150.png"
+        },
+        {
+            "size": 220,
+            "url": "https:\/\/static2.webdamdb.com\/images\/xml_220.png"
+        },
+        {
+            "size": 310,
+            "url": "https:\/\/static2.webdamdb.com\/images\/xml_310.png"
+        }
+    ],
+    "clientfolderid": null,
+    "numassets": "4",
+    "numchildren": "0",
+    "properties": {
+        "ALBENABLE_REQUESTRECIPIENT": "admin"
+    },
+    "permissions": {
+        "folders": [
+            "create",
+            "delete",
+            "move",
+            "edit"
+        ],
+        "assets": [
+            "edit",
+            "upload",
+            "move",
+            "delete",
+            "download"
+        ]
+    },
+    "user": {
+        "id": "275508",
+        "type": "user",
+        "email": "jdoe@example.com",
+        "name": "John Smith",
+        "username": "jdoe",
+        "status": "active"
+    },
+    "folders": [
+        {
+            "id": "2177680",
+            "type": "folder",
+            "metadatatemplateid": "23456",
+            "name": "GIS Data",
+            "parent": "0",
+            "status": "active",
+            "passwordprotected": "false",
+            "datecreated": "2017-03-28 09:58:01",
+            "date_created_unix": "1490720281",
+            "eventdate": "",
+            "date_event_unix": null,
+            "thumbnailurls": [
+                {
+                    "size": 100,
+                    "url": "https:\/\/static2.webdamdb.com\/images\/xml_100.png"
+                },
+                {
+                    "size": 150,
+                    "url": "https:\/\/static2.webdamdb.com\/images\/xml_150.png"
+                },
+                {
+                    "size": 220,
+                    "url": "https:\/\/static2.webdamdb.com\/images\/xml_220.png"
+                },
+                {
+                    "size": 310,
+                    "url": "https:\/\/static2.webdamdb.com\/images\/xml_310.png"
+                }
+            ],
+            "clientfolderid": null,
+            "numassets": "4",
+            "numchildren": "0",
+            "properties": {
+                "ALBENABLE_REQUESTRECIPIENT": "admin"
+            },
+            "permissions": {
+                "folders": [
+                    "create",
+                    "delete",
+                    "move",
+                    "edit"
+                ],
+                "assets": [
+                    "edit",
+                    "upload",
+                    "move",
+                    "delete",
+                    "download"
+                ]
+            },
+            "user": {
+                "id": "275508",
+                "type": "user",
+                "email": "jdoe@example.com",
+                "name": "John Smith",
+                "username": "jdoe",
+                "status": "active"
+            }
+        },
+        {
+            "id": "2177680",
+            "type": "folder",
+            "metadatatemplateid": "23456",
+            "name": "GIS Data",
+            "parent": "0",
+            "status": "active",
+            "passwordprotected": "false",
+            "datecreated": "2017-03-28 09:58:01",
+            "date_created_unix": "1490720281",
+            "eventdate": "",
+            "date_event_unix": null,
+            "thumbnailurls": [
+                {
+                    "size": 100,
+                    "url": "https:\/\/static2.webdamdb.com\/images\/xml_100.png"
+                },
+                {
+                    "size": 150,
+                    "url": "https:\/\/static2.webdamdb.com\/images\/xml_150.png"
+                },
+                {
+                    "size": 220,
+                    "url": "https:\/\/static2.webdamdb.com\/images\/xml_220.png"
+                },
+                {
+                    "size": 310,
+                    "url": "https:\/\/static2.webdamdb.com\/images\/xml_310.png"
+                }
+            ],
+            "clientfolderid": null,
+            "numassets": "4",
+            "numchildren": "0",
+            "properties": {
+                "ALBENABLE_REQUESTRECIPIENT": "admin"
+            },
+            "permissions": {
+                "folders": [
+                    "create",
+                    "delete",
+                    "move",
+                    "edit"
+                ],
+                "assets": [
+                    "edit",
+                    "upload",
+                    "move",
+                    "delete",
+                    "download"
+                ]
+            },
+            "user": {
+                "id": "275508",
+                "type": "user",
+                "email": "jdoe@example.com",
+                "name": "John Smith",
+                "username": "jdoe",
+                "status": "active"
+            }
+        }
+    ]
+}

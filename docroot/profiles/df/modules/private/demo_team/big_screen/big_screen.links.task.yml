@@ -1,0 +1,5 @@
+big_screen.node.view:
+  base_route: entity.node.canonical
+  route_name: big_screen.view_output
+  title: 'Big Screen'
+  weight: 666

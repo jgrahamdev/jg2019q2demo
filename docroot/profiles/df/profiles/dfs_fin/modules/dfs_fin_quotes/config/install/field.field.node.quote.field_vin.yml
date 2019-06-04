@@ -1,0 +1,33 @@
+uuid: 80362d98-b98a-4a81-86a0-7ff8805ee46c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vin
+    - node.type.quote
+    - taxonomy.vocabulary.vin
+  module:
+    - dfs_fin_quotes
+  enforced:
+    module:
+      - dfs_fin_quotes
+id: node.quote.field_vin
+field_name: field_vin
+entity_type: node
+bundle: quote
+label: VIN
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      vin: vin
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

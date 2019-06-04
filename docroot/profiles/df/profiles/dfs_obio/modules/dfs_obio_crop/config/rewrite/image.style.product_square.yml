@@ -1,0 +1,8 @@
+effects:
+  aa1ecbd4-5b23-459c-b91e-5b080a7dca23:
+    uuid: aa1ecbd4-5b23-459c-b91e-5b080a7dca23
+    id: crop_crop
+    weight: -10
+    data:
+      crop_type: square
+

@@ -1,0 +1,241 @@
+# Spanish translation of Obio
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-08-28 20:47+0000\n"
+"PO-Revision-Date: 2015-08-28 20:47+0000\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "@site newsletter confirmation"
+msgstr "@site confirmación del boletín"
+
+msgid "Cart"
+msgstr "Carro"
+
+msgid "Login"
+msgstr "Iniciar sesión"
+
+msgid "Complete purchase"
+msgstr "Compra completa"
+
+msgid "Subscribe & Save"
+msgstr "Suscribirse y Guardar"
+
+msgid "Enter Email Address"
+msgstr "Introducir la dirección de correo electrónico"
+
+msgid "Sign Up"
+msgstr "Regístrate"
+
+msgid "Learn More"
+msgstr "Aprende más"
+
+msgid "Thanks for signing up! An email confirmation has been sent to @address"
+msgstr "Gracias por registrarte! Se ha enviado una confirmación por correo electrónico a @address"
+
+msgid "Background image"
+msgstr "Imagen de fondo"
+
+msgid "Image style"
+msgstr "Estilo de imagen"
+
+msgid "Sort by"
+msgstr "Ordenar por"
+
+msgid "not found"
+msgstr "extraviado"
+
+msgid "Subtotal"
+msgstr "Total parcial"
+
+msgid "Add to cart"
+msgstr "Añadir a la cesta"
+
+msgid "My Account"
+msgstr "Mi Cuenta"
+
+msgid "Add a review"
+msgstr "Agrega una reseña"
+
+msgid "Explore"
+msgstr "Explorar"
+
+msgid "View details"
+msgstr "Ver detalles"
+
+msgid "BROWSE ALL INSPIRATION"
+msgstr "BUSQUE TODA LA INSPIRACIÓN"
+
+msgid "Check out our <strong>@arguments.tid</strong> and get started creating your space."
+msgstr "Echa un vistazo a nuestro <strong>@arguments.tid</strong>  y comienza a crear tu espacio."
+
+msgid "Explore by Topic"
+msgstr "Explorar por Tema"
+
+msgid "Featured Products"
+msgstr "Productos Destacados"
+
+msgid "Latest Inspiration Post:"
+msgstr "Último mensaje de Inspiration:"
+
+msgid "make some space."
+msgstr "hacer un poco de espacio."
+
+msgid "Shop Office"
+msgstr "Para Oficina"
+
+msgid "About the Collection"
+msgstr "Acerca de la Colección"
+
+msgid "Features"
+msgstr "Caracteristicas"
+
+msgid "Success Stories"
+msgstr "Historias de éxito"
+
+msgid "Reviews"
+msgstr "Comentarios"
+
+msgid "Build Your Office"
+msgstr "Construye tu Oficina"
+
+msgid "How it Works"
+msgstr "Cómo Funciona"
+
+msgid "Our Locations"
+msgstr "Nuestras Ubicaciones"
+
+msgid "FEATURED"
+msgstr "DESTACADOS"
+
+msgid "Review"
+msgstr "Revisión"
+
+msgid "Complete"
+msgstr "Completar"
+
+msgid "Awesome, your order is complete!"
+msgstr "Impresionante, su pedido está completo!"
+
+msgid "Your order number is"
+msgstr "Tu numero de orden es"
+
+msgid "You can view your order on your account page when <a href=\"/user\">logged in.</a>"
+msgstr "Puede ver su pedido en la página de su cuenta cuando <a href=\"/user\">está conectado</a>"
+
+msgid "Based on your order, we matched you up with one of our professional designers,"
+msgstr "Basado en su orden, le emparejamos con uno de nuestros diseñadores profesionales,"
+
+msgid "You should expect to hear from Wendy in the next day, but if you just can't wait to get started, you can contact Wendy in the following ways:"
+msgstr "Usted debe esperar oír de Wendy en el día siguiente, pero si usted apenas no puede esperar para conseguir comenzado, usted puede entrar en contacto con Wendy de las maneras siguientes:"
+
+msgid "Phone:"
+msgstr "Teléfono:"
+
+msgid "Email:"
+msgstr "Email:"
+
+msgid "Here's what you can expect to happen now:"
+msgstr "Esto es lo que puede esperar que suceda ahora:"
+
+msgid "Wendy will contact you to learn more about your overall company persona and schedule a meeting at the space."
+msgstr "Wendy se pondrá en contacto con usted para obtener más información sobre su persona general de la compañía y programar una reunión en el espacio."
+
+msgid "After your initial conversation, Wendy will provide concepts for layouts and provide a list of ambiance items for your first package"
+msgstr "Después de su conversación inicial, Wendy proporcionará conceptos para diseños y proporcionará una lista de elementos de ambiente para su primer paquete"
+
+msgid "Next, arrange the office with the new collection!"
+msgstr "A continuación, organizar la oficina con la nueva colección!"
+
+msgid "If you have any questions in the meantime, please <a href=\"/contact\">email</a> and we'd be happy to help."
+msgstr "Si tiene alguna pregunta mientras tanto, <a href=\"/contact\"> correo electrónico </a> y estaremos encantados de ayudarle."
+
+msgid "The Obio Inspiration Blog"
+msgstr "El Blog de Inspiración de Obio"
+
+msgid "Inspiration"
+msgstr "Inspiración"
+
+msgid "Locations"
+msgstr "Ubicaciones"
+
+msgid "Price"
+msgstr "Precio"
+
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgid "Update cart"
+msgstr "Actualizar"
+
+msgid "Checkout"
+msgstr "Revisa"
+
+msgid "Total price"
+msgstr "Precio total"
+
+msgid "Order Summary"
+msgstr "Resumen del pedido"
+
+msgid "Select Office size"
+msgstr "Seleccione el tamaño de la oficina"
+
+msgid "Select Ambience package"
+msgstr "Seleccione el paquete Ambiance"
+
+msgid "Search Tags"
+msgstr "Etiquetas de búsqueda"
+
+msgid "Newest"
+msgstr "El más nuevo"
+
+msgid "Oldest"
+msgstr "Más antiguo"
+
+msgid "Proceed to checkout. You can optionally create an account at the end."
+msgstr "Pasar por la caja. Opcionalmente, puede crear una cuenta al final."
+
+msgid "Returning Customer"
+msgstr "Soy Cliente"
+
+msgid "Forgot password?"
+msgstr "Se te olvidó tu contraseña?"
+
+msgid "Guest checkout"
+msgstr "Salida del cliente"
+
+msgid "Continue as Guest"
+msgstr "Continua como invitado"
+
+msgid "Return to login"
+msgstr "Volver a inicio de sesión"
+
+msgid "Thank you for signing up for the @site newsletter!"
+msgstr "¡Gracias por inscribirse en el boletín @site!"
+
+msgid "You'll be the first to know about new collections, products, and sales."
+msgstr "Serás el primero en conocer nuevas colecciones, productos y ventas."
+
+msgid "See our current offerings now."
+msgstr "Vea nuestras ofertas actuales ahora."
+
+msgid "Ambiance package"
+msgstr " Paquete de ambiente"
+
+msgid "Office size"
+msgstr "Tamaño de la oficina"
+
+msgid "Sign up now and get 10% off!"
+msgstr "Regístrese ahora y obtenga un 10% de descuento."
+
+msgid "Shop by Collection"
+msgstr "Comprar por colección"
+
+msgid "All Products"
+msgstr "Todos los productos"

@@ -1,0 +1,40 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_edu_user
+label: 'Import dfs_edu:user:user'
+source:
+  plugin: csv
+  path: '../data/dfs_edu.user.user.csv'
+  header_row_count: 1
+  keys: [Name]
+destination:
+  plugin: 'entity:user'
+process:
+  type:
+    plugin: default_value
+    default_value: user
+  name: Name
+  mail: Mail
+  status:
+    plugin: default_value
+    default_value: 1
+  roles:
+    -
+      plugin: explode
+      delimiter: ','
+      source: Roles
+  user_picture:
+    plugin: migration
+    migration: import_dfs_edu_file
+    source: Picture
+  access:
+    plugin: default_value
+    default_value: 1474924254
+  login:
+    plugin: default_value
+    default_value: 1474924254
+  field_first_name: First
+  field_last_name: Last
+provider: import
+migration_dependencies:
+  required: [import_dfs_edu_file]
+  optional: {  }

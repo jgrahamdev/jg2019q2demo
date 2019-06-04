@@ -1,0 +1,9 @@
+//
+// @file
+// Enhancements for slideshows provided by the help of dfs_tools_slideshow.
+//
+
+// Slick FOUC fix for product slideshows.
+[data-df-tools-slideshow-instance-id] > .field-items > .field-item ~ .field-item {
+  display: none;
+}

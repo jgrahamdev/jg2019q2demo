@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.panelizer
+    - node.type.insurance_product
+  module:
+    - panelizer
+    - dfs_fin_products
+  enforced:
+    module:
+      - dfs_fin_products
+id: node.insurance_product.panelizer
+field_name: panelizer
+entity_type: node
+bundle: insurance_product
+label: Panelizer
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: panelizer

@@ -1,0 +1,22 @@
+uuid: 5c423e66-1ad9-4f43-9300-0d856f7e409d
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - fin
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: fin_help
+theme: fin
+region: content
+weight: -6
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,11 @@
+name: 'IP Anonymize'
+description: 'Implements an IP address retention policy.'
+# core: 8.x
+type: module
+configure: ip_anon.settings
+
+# Information added by Drupal.org packaging script on 2018-11-17
+version: '8.x-1.5'
+core: '8.x'
+project: 'ip_anon'
+datestamp: 1542486254

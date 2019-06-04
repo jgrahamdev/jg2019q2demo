@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - dfs_fin
+  module:
+    - block_class
+    - dfs_fin
+    - system
+  theme:
+    - fin
+third_party_settings:
+  block_class:
+    classes: 'columns block shrink'
+_core:
+  default_config_hash: cvvCmPzMGJMZZj9eK0z-ejpBsiAdQsb6rUgnp5Wppzg
+id: userdropdown
+theme: fin
+region: meta_header
+weight: -4
+provider: null
+plugin: user_dropdown
+settings:
+  id: user_dropdown
+  label: 'User Dropdown'
+  provider: df_tools_user
+  label_display: '0'
+visibility: {  }

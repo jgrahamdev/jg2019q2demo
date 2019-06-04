@@ -1,0 +1,54 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.insurance_product.body
+    - field.field.node.insurance_product.field_associated_testimonials
+    - field.field.node.insurance_product.field_hero_promo_reference
+    - field.field.node.insurance_product.field_hero_reference
+    - field.field.node.insurance_product.field_icon
+    - field.field.node.insurance_product.field_image
+    - field.field.node.insurance_product.field_promo_text
+    - field.field.node.insurance_product.field_short_title
+    - field.field.node.insurance_product.field_subtitle
+    - field.field.node.insurance_product.panelizer
+    - node.type.insurance_product
+  enforced:
+    module:
+      - dfs_fin_products
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: YG9caLPPJ6_Wt6Ymz6KnqUTBroYHNNTJEzpYVQs2u3c
+id: node.insurance_product.teaser
+targetEntityType: node
+bundle: insurance_product
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+  content_moderation_control:
+    weight: -20
+    region: content
+hidden:
+  field_associated_testimonials: true
+  field_hero_promo_reference: true
+  field_hero_reference: true
+  field_icon: true
+  field_image: true
+  field_promo_text: true
+  field_short_title: true
+  field_subtitle: true
+  langcode: true
+  panelizer: true

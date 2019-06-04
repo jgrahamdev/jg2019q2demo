@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Template override for quickview link.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - title_attributes: HTML attributes for the title.
+ * - content_attributes: HTML attributes for the link.
+ * - title: The title for the quickview link.
+ * - url: The url object of the quickview link.
+ *
+ * @see template_preprocess_quickview_link()
+ */
+#}
+{%
+  set classes = [
+    'quickview-link',
+    'text-center',
+  ]
+%}
+{%
+  set link_attributes = create_attribute(url.getOption('attributes') ? url.getOption('attributes') : []).setAttribute('href', url.toString())
+%}
+{%
+  set link_classes = [
+    'quickview-link__item',
+    'button',
+    'expanded',
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  <a{{ link_attributes.addClass(link_classes) }}>
+    <span{{ title_attributes }}>{{ title }}</span>
+  </a>
+</div>

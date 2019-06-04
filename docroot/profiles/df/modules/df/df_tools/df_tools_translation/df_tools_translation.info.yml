@@ -1,0 +1,11 @@
+name: DF Tools Translation
+type: module
+description: Contains configuration neccessary to enable entity translation.
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - config_translation
+  - content_translation
+  - df_core
+  - df_tools_migration
+  - menu_link_content

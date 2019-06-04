@@ -1,0 +1,17 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_obio_product_types
+label: 'Import dfs_obio:term:product_types'
+source:
+    plugin: csv
+    path: ../data/dfs_obio.term.product_types.csv
+    header_row_count: 1
+    keys: [Name, UUID]
+destination:
+    plugin: 'entity:taxonomy_term'
+process:
+    vid: { plugin: default_value, default_value: product_types }
+    uuid: UUID
+    name: Name
+    description: Details
+provider: import
+migration_dependencies: {  }

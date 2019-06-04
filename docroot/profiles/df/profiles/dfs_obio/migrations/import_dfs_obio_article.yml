@@ -1,0 +1,33 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_obio_article
+label: 'Import dfs_obio:node:article'
+source:
+    plugin: creator_article_node
+    path: ../data/dfs_obio.node.article.csv
+    header_row_count: 1
+    keys: [UUID]
+destination:
+    plugin: 'entity:node'
+process:
+    type: { plugin: default_value, default_value: article }
+    uuid: UUID
+    uid: UID
+    title: Title
+    field_article_subtitle: Subtitle
+    body/value: Body
+    field_image: Image
+    field_tags:
+      -
+        plugin: explode
+        delimiter: ','
+        source: Tags
+      -
+        plugin: migration
+        migration: import_dfs_obio_tags
+    body/format: { plugin: default_value, default_value: rich_text }
+    moderation_state: { plugin: default_value, default_value: published }
+    sticky: Sticky
+    created: Created
+provider: import
+migration_dependencies:
+    required: [import_dfs_obio_tags]

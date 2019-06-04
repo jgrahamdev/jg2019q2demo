@@ -1,0 +1,7 @@
+slick-helper:
+  js:
+    js/dfs_obio_commerce-slick_helper.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal

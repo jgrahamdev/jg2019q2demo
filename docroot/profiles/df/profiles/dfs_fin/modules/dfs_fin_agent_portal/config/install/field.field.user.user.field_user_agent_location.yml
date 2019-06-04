@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_user_agent_location
+  module:
+    - user
+    - dfs_fin_agent_portal
+  enforced:
+    module:
+      - dfs_fin_agent_portal
+id: user.user.field_user_agent_location
+field_name: field_user_agent_location
+entity_type: user
+bundle: user
+label: 'User Agent Location'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference
+

@@ -1,0 +1,52 @@
+name: Obio - Demo Framework Scenairo
+description: "Acquia - Demo Framework Scenario Theme for Obio"
+core: 8.x
+type: theme
+base theme: dfs_base
+
+# Image appears on admin/appearance
+screenshot: images/screenshot.jpg
+
+libraries:
+ - obio/global
+
+ckeditor_stylesheets:
+ - css/obio-main.css
+
+# Regions are output in the page.html.twig
+
+regions:
+  meta_header: 'Meta Header'
+  header: Header
+  header_right: 'Header Right'
+  help: Help
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  highlighted: Highlighted
+  content_prefix: 'Content top'
+  content: Content
+  sidebar_first: 'Left Sidebar'
+  sidebar_second: 'Right Sidebar'
+  footer_first: 'Footer first column'
+  footer_middle: 'Footer middle column'
+  footer_last: 'Footer last column'
+  left_off_canvas: 'Left off canvas'
+  right_off_canvas: 'Right off canvas'
+
+features:
+  - logo
+  - name
+  - slogan
+  - favicon
+  - comment_user_picture
+  - node_user_picture
+
+libraries-override:
+  commerce_checkout/form:
+    css:
+      theme:
+        css/commerce_checkout.form.css: css/commerce_checkout.form.css
+  commerce_order/total_summary:
+    css:
+      layout:
+        css/commerce_order.total_summary.css: css/commerce_order.total_summary.css

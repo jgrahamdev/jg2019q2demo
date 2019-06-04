@@ -1,0 +1,9 @@
+name: 'DFS Obio Blocks'
+type: module
+description: 'Block content overrides.'
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - config_rewrite
+  - df_tools_blocks
+  - field_group

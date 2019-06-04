@@ -1,0 +1,19 @@
+config_rewrite: replace
+uuid: 5896937b-bb22-4750-9e00-c427fb295513
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: hero_mobile
+label: 'Hero small (640x1028)'
+effects:
+  44bf5003-c672-4c77-a06f-e6338c526489:
+    uuid: 44bf5003-c672-4c77-a06f-e6338c526489
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 640
+      height: 1028
+      crop_type: focal_point
+

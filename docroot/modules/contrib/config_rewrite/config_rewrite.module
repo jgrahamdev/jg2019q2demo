@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Allows modules to rewrite configuration provided by other extensions.
+ */
+
+/**
+ * Implements hook_module_preinstall().
+ *
+ * Allow config to be rewritten before a module is installed.
+ */
+function config_rewrite_module_preinstall($module) {
+  if (!function_exists('install_invoke_finished_hooks') || !drupal_installation_attempted()) {
+    \Drupal::service('config_rewrite.config_rewriter')->rewriteModuleConfig($module);
+  }
+}
+
+/**
+ * Implements hook_site_install_finished().
+ */
+function config_rewrite_site_install_finished($install_state) {
+  $modules = \Drupal::moduleHandler()->getModuleList();
+  foreach ($modules as $name => $module) {
+    \Drupal::service('config_rewrite.config_rewriter')->rewriteModuleConfig($name);
+  }
+}

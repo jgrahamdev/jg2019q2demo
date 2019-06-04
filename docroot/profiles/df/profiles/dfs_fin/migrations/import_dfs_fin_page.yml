@@ -1,0 +1,19 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_fin_page
+label: 'Import dfs_fin:node:page'
+source:
+    plugin: creator_node
+    path: '../data/dfs_fin.node.page.csv'
+    header_row_count: 1
+    keys: [Title]
+destination:
+    plugin: 'entity:node'
+process:
+    type: { plugin: default_value, default_value: page }
+    title: Title
+    body/value: Body
+    body/format: { plugin: default_value, default_value: rich_text }
+    moderation_state: { plugin: default_value, default_value: published }
+    sticky: Sticky
+    uid: UID
+provider: import

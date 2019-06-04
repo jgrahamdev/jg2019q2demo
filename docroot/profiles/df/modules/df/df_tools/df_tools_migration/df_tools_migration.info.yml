@@ -1,0 +1,10 @@
+name: DF Tools Migration
+type: module
+description: Migration establishment patterns for DF Scenario installation.
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - df_core
+  - migrate_plus
+  - migrate_tools
+  - import

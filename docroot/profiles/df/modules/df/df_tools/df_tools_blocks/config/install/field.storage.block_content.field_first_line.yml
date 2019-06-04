@@ -1,0 +1,20 @@
+uuid: 4b268d06-2b83-43f4-8b00-b3aa87a7f387
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_first_line
+field_name: field_first_line
+entity_type: block_content
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false

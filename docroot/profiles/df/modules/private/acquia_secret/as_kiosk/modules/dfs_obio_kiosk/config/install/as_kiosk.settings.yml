@@ -1,0 +1,6 @@
+settings:
+  email_form_id: 'check_in'
+  email_subject: 'Obio: Save 20% on your order'
+  email_from_name: 'Obio'
+  email_from_address: 'admin@example.com'
+  email_campaign: 'obioboston'

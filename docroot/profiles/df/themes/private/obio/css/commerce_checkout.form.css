@@ -1,0 +1,38 @@
+@media screen and (min-width: 40em) {
+  /* line 9, scss/replacements/commerce_checkout.form.scss */
+  .layout-region-checkout-main,
+  .layout-region-checkout-footer {
+    float: left;
+    width: 65%;
+    padding-right: 2em; } }
+
+@media screen and (min-width: 40em) {
+  /* line 18, scss/replacements/commerce_checkout.form.scss */
+  [dir="rtl"] .layout-region-checkout-main,
+  [dir="rtl"] .layout-region-checkout-footer {
+    float: right;
+    padding-right: 0;
+    padding-left: 2em; } }
+
+@media screen and (min-width: 40em) {
+  /* line 28, scss/replacements/commerce_checkout.form.scss */
+  .layout-region-checkout-secondary {
+    float: right;
+    width: 35%; } }
+
+@media screen and (min-width: 40em) {
+  /* line 35, scss/replacements/commerce_checkout.form.scss */
+  [dir="rtl"] .layout-region-checkout-secondary {
+    float: left; } }
+
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+  /* line 45, scss/replacements/commerce_checkout.form.scss */
+  .toolbar-vertical.toolbar-tray-open .layout-region-checkout-main,
+  .toolbar-vertical.toolbar-tray-open .layout-region-checkout-secondary,
+  .toolbar-vertical.toolbar-tray-open .layout-region-checkout-footer {
+    float: none;
+    width: auto;
+    padding-right: 0;
+    padding-left: 0; } }
+
+/*# sourceMappingURL=../../sass */

@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * Contains df_tools_panelizer.module.
+ */
+
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+
+/**
+ * Implements hook_layout_alter().
+ */
+function df_tools_panelizer_layout_alter(&$definitions) {
+  $category_map = [
+    'Foundation: 1' => t('One Column'),
+    'Foundation: 2' => t('Two Columns'),
+    'Foundation: 3' => t('Three Columns'),
+    'Foundation: 4' => t('Four Columns'),
+    'Foundation: 6' => t('Six Columns'),
+    'Columns: 1' => t('Hidden'),
+    'Columns: 2' => t('Hidden'),
+    'Columns: 3' => t('Hidden'),
+    'Moderation Dashboard' => t('Hidden'),
+  ];
+
+  foreach ($definitions as $layout_name => $layout) {
+    $category = $definitions[$layout_name]->getCategory();
+    $label = $definitions[$layout_name]->getLabel();
+
+    if ($category instanceof TranslatableMarkup) {
+      $category = $category->getUntranslatedString();
+    }
+    if ($label instanceof TranslatableMarkup) {
+      $label = $label->getUntranslatedString();
+    }
+
+    if (isset($category_map[$category])) {
+      $definitions[$layout_name]->setCategory($category_map[$category]);
+    }
+
+    $replacements = [
+      'Foundation: ' => '',
+      '1 ' => 'one ',
+      '2 ' => 'two ',
+      '3 ' => 'three ',
+      '4 ' => 'four ',
+      '5 ' => 'five ',
+      '6 ' => 'six ',
+      '7 ' => 'seven ',
+      '8 ' => 'eight ',
+      '9 ' => 'nine ',
+    ];
+    $definitions[$layout_name]->setLabel(ucfirst(str_replace(array_keys($replacements), array_values($replacements), $label)));
+  }
+}

@@ -1,0 +1,26 @@
+<?php
+
+use Drupal\workflows\Entity\Workflow;
+
+/**
+ * Implements hook_modules_installed().
+ */
+function df_tools_page_modules_installed(array $modules) {
+  if (Drupal::isConfigSyncing()) {
+    return;
+  }
+
+  /**
+   * Add Basic Page to editorial workflow. 
+   * Correct changes to Lightning 3.1.5
+   * https://www.drupal.org/node/2984737 
+   */
+
+  if (in_array('df_tools_workflow', $modules, TRUE)) {
+    $workflow = Workflow::load('editorial');
+    /** @var \Drupal\content_moderation\Plugin\WorkflowType\ContentModerationInterface $plugin */
+    $plugin = $workflow->getTypePlugin();
+    $plugin->addEntityTypeAndBundle('node', 'page');
+    $workflow->save();
+  }
+}

@@ -1,0 +1,8 @@
+name: DF Tools GDPR
+type: module
+description: Addressing GDPR requirements.
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - eu_cookie_compliance
+  - ip_anon

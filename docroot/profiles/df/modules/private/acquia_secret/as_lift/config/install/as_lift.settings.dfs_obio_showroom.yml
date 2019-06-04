@@ -1,0 +1,113 @@
+entity_config:
+  node:
+    article:
+      enable_index: true
+      enable_viewmodes: true
+      rendering:
+        teaser: teaser
+        card: card
+      preview_image_field: field_image
+      preview_image_style: large
+    location:
+      enable_index: true
+      enable_viewmodes: true
+      rendering:
+        teaser: teaser
+      preview_image_field: 'field_location_media->thumbnail'
+      preview_image_style: large
+  block_content:
+    hero:
+      enable_index: true
+      enable_viewmodes: true
+      rendering:
+        full: full
+      preview_image_field: field_hero_image
+      preview_image_style: large
+  taxonomy_term:
+    tags:
+      enable_index: true
+      enable_viewmodes: false
+      rendering: []
+      preview_image_field: ''
+      preview_image_style: ''
+    media_tags:
+      enable_index: true
+      enable_viewmodes: false
+      rendering: []
+      preview_image_field: ''
+      preview_image_style: ''
+  media:
+    image:
+      enable_index: true
+      enable_viewmodes: false
+      rendering: []
+      preview_image_field: ''
+      preview_image_style: ''
+  file:
+    image:
+      enable_index: true
+      enable_viewmodes: false
+      rendering: []
+      preview_image_field: ''
+      preview_image_style: ''
+    audio:
+      enable_index: true
+      enable_viewmodes: false
+      rendering: []
+      preview_image_field: ''
+      preview_image_style: ''
+    document:
+      enable_index: true
+      enable_viewmodes: false
+      rendering: []
+      preview_image_field: ''
+      preview_image_style: ''
+    video:
+      enable_index: true
+      enable_viewmodes: false
+      rendering: []
+      preview_image_field: ''
+      preview_image_style: ''
+default_content:
+  file:
+    -
+      uri: 'public://location-boston.jpg'
+  media:
+    -
+      name: 'location-boston.jpg'
+  block_content:
+    -
+      info: Boston Home Hero
+      type: hero
+  node:
+    -
+      title: Boston
+      type: location
+slots:
+   97eaf325-81e7-4656-a7a8-3c53e5bc40f5:
+    landing_page_title: Showroom
+    block_plugin_uuid: 5dec915e-f647-4e52-a5a0-55eca3d585a6
+    block_plugin_weight: 0
+    block_plugin_full_width: true
+    block_plugin_region: middle
+    label: Obio Boston homepage slot
+    description: The default homepage slot for Obio Boston
+    rules:
+      boston-startup-rule:
+        segment: startup
+        label: Boston Startup Founders
+        description: A rule for startup founders
+        priority: 20
+        content:
+          -
+            info: Startups Hero
+            type: hero
+      boston-everyone-rule:
+        segment: ''
+        label: Boston Everyone
+        description: A rule for all visitors
+        priority: 10
+        content:
+          -
+            info: Boston
+            type: hero

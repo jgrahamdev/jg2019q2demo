@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.discover
+    - field.storage.contact_message.field_company
+id: contact_message.discover.field_company
+field_name: field_company
+entity_type: contact_message
+bundle: discover
+label: 'Company name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

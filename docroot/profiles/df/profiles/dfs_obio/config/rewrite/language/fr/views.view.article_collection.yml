@@ -1,0 +1,38 @@
+display:
+  default:
+    display_title: Maître
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Rechercher
+          reset_button_label: Réinitialiser
+          exposed_sorts_label: 'Trier par'
+          sort_asc_label: 'Le plus ancien'
+          sort_desc_label: Nouveautés
+      fields:
+        title: {  }
+  block_1:
+    display_options:
+      title: 'Derniers articles:'
+      footer:
+        area:
+          content:
+            value: "<div class=\"columns browse-articles-link\">\r\n  <a href=\"/inspiration\" class=\"inspiration-callout\">PARCOURIR TOUTE INSPIRATION</a>\r\n</div>"
+            format: full_html
+  main_block:
+    display_options:
+      filters:
+        field_tags_target_id:
+          expose:
+            label: 'Mots clés de recherche'
+      pager:
+        options:
+          tags:
+            previous: '‹ Précédent'
+            next: 'Suivant ›'
+          expose:
+            items_per_page_label: 'Éléments par page'
+            items_per_page_options_all_label: '- Tout -'
+            offset_label: Décalage
+          views_infinite_scroll:
+            button_text: 'Afficher plus'

@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.check_in
+    - field.storage.contact_message.field_collection
+    - node.type.collection
+id: contact_message.check_in.field_collection
+field_name: field_collection
+entity_type: contact_message
+bundle: check_in
+label: Products
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      collection: collection
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

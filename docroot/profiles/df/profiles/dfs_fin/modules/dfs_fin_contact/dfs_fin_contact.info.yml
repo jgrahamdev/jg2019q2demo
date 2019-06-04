@@ -1,0 +1,11 @@
+name: DFS FIN Contact
+type: module
+description: Provides small tweaks to and initial config for our Contact Forms.
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - config_rewrite
+  - contact
+  - telephone
+  - dfs_fin_quotes
+  - dfs_fin_agent_portal

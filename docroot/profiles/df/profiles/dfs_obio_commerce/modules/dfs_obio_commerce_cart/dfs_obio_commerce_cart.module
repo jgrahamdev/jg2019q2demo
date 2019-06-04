@@ -1,0 +1,169 @@
+<?php
+
+/**
+ * @file
+ * Contains dfs_obio_commerce_cart.module.
+ */
+
+use Drupal\commerce_product\Entity\ProductInterface;
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Block\BlockPluginInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+
+/**
+ * Implements hook_block_view_BASE_BLOCK_ID_alter().
+ */
+function dfs_obio_commerce_cart_block_view_commerce_cart_alter(array &$build, BlockPluginInterface $block) {
+  // Add a #pre_render callback to modify the cart build information before it
+  // is rendered.
+  $build['#pre_render'][] = 'dfs_obio_commerce_cart_cart_pre_render';
+}
+
+/**
+ * Pre_render callback for commerce cart.
+ *
+ * Alters the presentation of the Commerce cart block.
+ */
+function dfs_obio_commerce_cart_cart_pre_render(array $build) {
+  $count = $build['content']['#count'];
+
+  // Change the empty cart text from 'Count 0' to 'Cart'.
+  if ($count == 0) {
+    $build['content']['#count_text'] = t('Cart');
+  }
+
+  // Replace the default cart icon with the ion equivalent.
+  $build['content']['#icon'] = [
+    '#markup' => '<span class="meta-icon-size"><i class="icon ion-ios-cart"></i></span>',
+  ];
+
+  return $build;
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function dfs_obio_commerce_cart_form_commerce_order_item_add_to_cart_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Fixing duplicated id issue caused by 'Add to Cart' button's id by specify
+  // a more unique one:
+  //  - for anonymous users
+  //  - for the case if quickview modal is open.
+  $storage = $form_state->getStorage();
+  $prod_id = !empty($storage['product']) && ($storage['product'] instanceof ProductInterface) ?
+    $storage['product']->id() : '';
+  $storage += [
+    'view_mode' => '',
+    'selected_variation' => '',
+  ];
+
+  if (
+    !empty($prod_id) ||
+    !empty($storage['view_mode']) ||
+    !empty($storage['selected_variation'])) {
+    $form['actions']['submit']['#id'] = Html::getUniqueId('submit-' . implode('-', [$prod_id, $storage['view_mode'], $storage['selected_variation']]));
+  }
+  else {
+    $form['actions']['submit']['#id'] = Html::getUniqueId('sumbit-add-to-cart');
+  }
+
+  // Add a custom submit handler to the collection 'Add to Cart' form.
+  $form['actions']['submit']['#submit'][] = 'dfs_obio_commerce_cart_commerce_order_item_add_to_cart_form_submit';
+}
+
+/**
+ * Submit callback for the commerce 'Add to Cart' form which sets a redirect.
+ */
+function dfs_obio_commerce_cart_commerce_order_item_add_to_cart_form_submit($form, FormStateInterface $form_state) {
+  // Redirect users to the cart page after they've added a collection to their
+  // cart.
+  $form_state->setRedirect('commerce_cart.page');
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * @TODO:
+ * - You should implement hook_form_BASE_FORM_ID_alter() instead of this
+ *   general hook:
+ *   dfs_obio_commerce_form_commerce_order_item_add_to_cart_form_alter().
+ */
+function dfs_obio_commerce_cart_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (isset($form['#id']) && preg_match('/commerce-order-item.*add-to-cart.*form/', $form['#id'])) {
+    if ($form_state->getFormObject()->getEntity()->getPurchasedEntity()->bundle() === 'office') {
+      $form['purchased_entity']['widget']['#after_build'][] = '_dfs_obio_commerce_cart_process_add_to_cart_form';
+      if (!empty($form['purchased_entity']['widget']) && is_array($form['purchased_entity']['widget'])) {
+        $first_widget = &$form['purchased_entity']['widget'][0];
+        // Attributes key exist only if the ProductVariationAttributes widget is
+        // selected on form display ui.
+        if (!empty($first_widget['attributes'])) {
+          // Make ambiance package the second fieldset.
+          $first_widget['attributes']['attribute_ambiance_package']['#weight'] = 1;
+        }
+
+        if (!empty($form['actions']['submit'])) {
+          $form['actions']['submit']['#attached']['library'][] = 'dfs_obio_commerce_cart/submit_replicate';
+          $form['actions']['submit']['#attributes']['class'][] = 'visually-hidden';
+          $form['actions']['submit']['#attributes']['data-replicate'] = '.dfs-obio-product-submit';
+        }
+      }
+    }
+  }
+
+  // Product Browser form enhancement.
+  if ($form_id === 'entity_browser_product_form') {
+    // Attach content_browser's library.
+    $form['#attached']['library'][] = 'content_browser/view';
+
+    // Wrap actions so we can float them at the bottom of the browser.
+    $form['actions_wrap'] = [
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => 'content-browser-actions',
+      ],
+      0 => $form['widget']['actions'],
+    ];
+    unset($form['widget']['actions']);
+
+    // Add a class for generic styling.
+    $form['#attributes']['class'][] = 'content-browser-form';
+  }
+}
+
+/**
+ * Process callback for the commerce "add to cart" form.
+ *
+ * @TODO:
+ * - You should check which type of widget is used here before you do this
+ *   alteration: widget could be changed on UI!
+ */
+function _dfs_obio_commerce_cart_process_add_to_cart_form($element) {
+  $element[0]['#prefix'] = '<div class="add-to-cart-form row">';
+  $element[0]['#suffix'] = '</div>';
+  // Attributes key exist only if the ProductVariationAttributes widget is
+  // selected on form display ui.
+  // We want to alter that widget only.
+  if (!empty($element[0]['attributes'])) {
+    if (!empty($element[0]['attributes']) && is_array($element[0]['attributes'])) {
+      foreach (Element::children($element[0]['attributes'], FALSE) as $product_variation) {
+        // Sadly, product variation (config) translation isn't applied here.
+        // Because of that, maybe we may add the needed 'Select' prefix
+        // temporarily...
+        $element[0]['attributes'][$product_variation]['#title'] =
+          'Select ' . $element[0]['attributes'][$product_variation]['#title'];
+
+        // The followings alterations are frontend-specific, which means they
+        // should be inside the theme, not here.
+        //
+        // Adding the needed frontend classes.
+        $element[0]['attributes'][$product_variation]['#attributes']['class'][] = 'large-6';
+        $element[0]['attributes'][$product_variation]['#attributes']['class'][] = 'columns';
+      }
+    }
+
+    foreach ($element[0]['attributes']['attribute_ambiance_package']['#options'] as $key => $value) {
+      $element[0]['attributes']['attribute_ambiance_package']['#options'][$key] .= ' :: ' . $key;
+    }
+  }
+  return $element;
+}

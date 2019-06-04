@@ -1,0 +1,30 @@
+// Hide the nav because of FOUC makes things look bad. in fin.js it will add it
+// back in once DOM loads.
+#top-bar-sticky-container {
+    // JS is setting the height here but it takes too long, so set a min for
+    // medium up.
+    @include breakpoint(medium up) {
+        height:100px;
+        display: none;
+    }
+}
+
+.sticky {
+    -webkit-transform: translateZ(0)!important;
+}
+
+label {
+    @extend .label;
+}
+
+.contact-form .form-item {
+    @extend .vertical-padding-space;
+}
+
+.comment-form {
+    .field--name-subject,
+    .filter-wrapper,
+    #edit-preview {
+        display: none;
+    }
+}

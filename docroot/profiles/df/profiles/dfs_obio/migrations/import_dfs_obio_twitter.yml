@@ -1,0 +1,14 @@
+id: import_dfs_obio_twitter
+label: Import dfs_obio:media:twitter
+source:
+  plugin: csv
+  path: '../data/dfs_obio.media.twitter.csv'
+  header_row_count: 1
+  keys: [Name]
+destination:
+  plugin: entity:media
+process:
+  bundle: { plugin: default_value, default_value: tweet }
+  embed_code: Tweet
+  name: Name
+  uuid: UUID

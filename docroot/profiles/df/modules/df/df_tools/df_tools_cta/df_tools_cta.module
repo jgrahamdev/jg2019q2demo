@@ -1,0 +1,38 @@
+<?php
+/**
+ * @file
+ * Implements banner with optional call to action.
+ */
+
+/**
+ * Implements hook_page_attachments().
+ */
+function df_tools_cta_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'df_tools_cta/node--cta';
+}
+
+/**
+ * Implements hook_theme().
+ */
+function df_tools_cta_theme($existing, $type, $theme, $path) {
+  $theme = array();
+  $theme['node__cta'] = array(
+      'render element' => 'content',
+      'base hook' => 'node',
+      'template' => 'node--cta',
+      'path' => drupal_get_path('module', 'df_tools_cta') . '/templates',
+  );
+  $theme['node__cta__callout'] = array(
+      'render element' => 'content',
+      'base hook' => 'node',
+      'template' => 'node--cta--callout',
+      'path' => drupal_get_path('module', 'df_tools_cta') . '/templates',
+  );
+  $theme['node__cta__notification'] = array(
+      'render element' => 'content',
+      'base hook' => 'node',
+      'template' => 'node--cta--notification',
+      'path' => drupal_get_path('module', 'df_tools_cta') . '/templates',
+  );
+  return $theme;
+}

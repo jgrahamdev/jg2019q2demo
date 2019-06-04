@@ -1,0 +1,14 @@
+name: AS Lift
+type: module
+description: Contains custom functionality required for our Lift demo.
+core: 8.x
+package: Demo Framework Secret Modules
+dependencies:
+ - acquia_contenthub
+ - acquia_contenthub_subscriber
+ - acquia_lift
+ - acquia_lift_inspector
+ - block
+ - panels
+ - as_tracking
+ - as_platform

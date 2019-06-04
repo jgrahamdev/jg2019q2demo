@@ -1,0 +1,9 @@
+name: AS Messenger Bot
+type: module
+description: Provides build keys for demo with DF Messenger service only. If you need to set up a FB Bot for a custom pov talk to the demo team.
+core: 8.x
+package: Demo Framework Secret Modules
+dependencies:
+  - fb_messenger_bot
+  - object_log
+  - demo_fb_messenger_bot

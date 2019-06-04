@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: spanish_location
+label: 'Spanish Location'
+type: 'canonical_entities:node'
+pattern: '/ubicación/[node:title]'
+selection_criteria:
+  bcf0c17e-5206-43bb-a35f-e49aa02a6a12:
+    id: node_type
+    bundles:
+      location: location
+    negate: false
+    context_mapping:
+      node: node
+    uuid: bcf0c17e-5206-43bb-a35f-e49aa02a6a12
+  c84a0425-d835-4b42-a534-10b8561ed033:
+    id: language
+    langcodes:
+      es: es
+    negate: false
+    context_mapping:
+      language: 'node:langcode:language'
+    uuid: c84a0425-d835-4b42-a534-10b8561ed033
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

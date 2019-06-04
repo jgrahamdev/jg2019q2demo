@@ -1,0 +1,18 @@
+//
+//
+//
+//
+
+.entity-gallery--view-mode-card {
+  .field-name-entity-gallery-file {
+    > .field-items {
+      overflow: hidden;
+
+      > .field-item {
+        width: 50%;
+        float: left;
+      }
+    }
+  }
+}
+

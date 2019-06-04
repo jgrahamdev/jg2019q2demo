@@ -1,0 +1,111 @@
+//Article landing view blocks
+.articles-sticky, .articles-main {
+    @extend .full-block-spacing;
+}
+
+#search-block-form {
+    .form-item {
+        width: rem-calc(300px);
+        display: inline-block;
+        padding: 0 10px;
+         @include breakpoint(small only) {
+            width:rem-calc(250px);
+        }
+    }
+     .form-actions {
+        display: inline-block;
+        input.button {
+            background-color:$primary-color;
+            margin: 0;
+            max-height: rem-calc(39px);
+            color:$white;
+        }
+    }
+}
+
+#views-exposed-form-article-collection-main-block {
+    border-top: 2px solid $medium-gray;
+    padding: 0 rem-calc(map-get($grid-column-gutter, 'medium'));
+ @include breakpoint(small only) {
+           padding:0;
+        }
+    padding-top: 10px;
+    .form-item {
+        max-width: rem-calc(300px);
+        display: inline-block;
+        padding: 0 10px;
+        @include breakpoint(small only) {
+            width:rem-calc(250px);
+        }
+        input, select {
+            background-color: transparent;
+            border: 2px solid $black;
+        }
+        label {
+            color: $black;
+            background: transparent;
+        }
+    }
+    .form-item-sort-by {
+        display: none;
+    }
+    .form-item-field-tags-target-id {}
+    .form-actions {
+        display: inline-block;
+        input.button, .button.success {
+            background-color:$primary-color;
+            margin: 0;
+            max-height: rem-calc(39px);
+            color:$white;
+        }
+    }
+}
+
+.view-featured-collections, .view-article-collection {
+    .view-content {
+        li {
+            list-style: none;
+        }
+    }
+}
+
+.view-obio-topics {
+    .view-content {
+        li {
+            list-style: none;
+            .topic-wrapper {
+                position: relative;
+                @include breakpoint(small only) {
+                    margin-bottom: rem-calc(10px);
+                }
+                .topic-image {
+                    border: 1px solid $primary-color;
+                    img {
+                        width: 100%;
+                        max-width: 100%;
+                    }
+                }
+                .topic-link {
+                    position: absolute;
+                    border-left: 1px solid $primary-color;
+                    border-right: 1px solid $primary-color;
+                    z-index: 2;
+                    top: 40%;
+                    width: 100%;
+                    text-align: center;
+                    background: rgba(255, 255, 255, 0.8);
+                    transition: background .5s ease;
+                    text-transform: uppercase;
+                    padding: rem-calc(20px);
+                    &:hover {
+                        background: rgba(255, 255, 255, 1);
+                    }
+                    p {
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+}

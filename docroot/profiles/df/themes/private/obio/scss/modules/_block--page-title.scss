@@ -1,0 +1,12 @@
+//
+// @file
+// Page title block SMACSS.
+//
+
+.block-page-title-block {
+  margin-top: rem-calc(20px);
+
+  @media #{$large-up} {
+    margin-top: rem-calc(40px);
+  }
+}

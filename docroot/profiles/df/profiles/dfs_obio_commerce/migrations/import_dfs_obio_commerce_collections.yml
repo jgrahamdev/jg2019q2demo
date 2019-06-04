@@ -1,0 +1,74 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_obio_commerce_collections
+label: 'Import dfs_obio_commerce:node:collection'
+source:
+    plugin: collection_node
+    path: ../data/dfs_obio.node.collection.csv
+    header_row_count: 1
+    keys: [UUID]
+destination:
+    plugin: 'entity:node'
+process:
+    type:
+      plugin: default_value
+      default_value: collection
+    uuid: UUID
+    title: Title
+    uid: UID
+    field_collection_media:
+      -
+        plugin: explode
+        delimiter: ','
+        source: Media
+      -
+        plugin: migration
+        migration: import_dfs_obio_image
+    field_collection_description/value: Description
+    field_collection_description/format:
+      plugin: default_value
+      default_value: rich_text
+    field_collection_success_stories:
+      -
+        plugin: explode
+        delimiter: ','
+        source: 'Success Stories'
+      -
+        plugin: migration
+        migration: import_dfs_obio_article
+    field_collection_features:
+      -
+        plugin: deep_explode
+        delimiter: '|'
+        nested_delimiter: '~'
+        nested_keys: ['tab_title', 'value']
+        source: 'Features'
+      -
+        plugin: iterator
+        process:
+          format:
+            plugin: default_value
+            default_value: rich_text
+          tab_title: tab_title
+          value: value
+    field_tags:
+      -
+        plugin: explode
+        delimiter: ','
+        source: Tags
+      -
+        plugin: migration
+        migration: import_dfs_obio_tags
+    field_collection_product:
+      -
+        plugin: explode
+        delimiter: ','
+        source: Products
+      -
+        plugin: migration
+        migration: import_dfs_obio_commerce_collection
+    moderation_state:
+      plugin: default_value
+      default_value: published
+provider: import
+migration_dependencies:
+    required: [import_dfs_obio_image,import_dfs_obio_commerce_collection]

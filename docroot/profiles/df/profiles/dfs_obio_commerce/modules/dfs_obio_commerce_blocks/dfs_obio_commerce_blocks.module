@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Contains dfs_obio_commerce_blocks.module.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK() for slick_wrapper.
+ */
+function dfs_obio_commerce_blocks_preprocess_slick_wrapper(&$variables) {
+  $variables['#attached']['library'][] = 'dfs_obio_commerce_blocks/slick-helper';
+}

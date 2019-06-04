@@ -1,0 +1,5 @@
+services:
+  as_tracking_subscriber:
+    class: '\Drupal\as_tracking\EventSubscriber\AsTrackingSubscriber'
+    tags:
+      - { name: 'event_subscriber' }

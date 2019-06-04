@@ -1,0 +1,7 @@
+content:
+  body:
+    type: text_summary_or_trimmed
+    weight: 2
+    settings:
+      trim_length: 200
+    region: content

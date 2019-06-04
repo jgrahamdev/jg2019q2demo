@@ -1,0 +1,27 @@
+uuid: 239b338f-50b5-422e-a800-fbb23702f728
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - content_moderation
+    - dfs_fin_quotes
+  enforced:
+    module:
+      - dfs_fin_quotes
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  lightning_workflow:
+    enabled: true
+    workflow: editorial
+name: Quote
+type: quote
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true
+

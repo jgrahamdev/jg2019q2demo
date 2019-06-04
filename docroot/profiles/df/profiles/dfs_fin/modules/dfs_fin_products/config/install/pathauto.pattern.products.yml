@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - dfs_fin_products
+  enforced:
+    module:
+      - dfs_fin_products
+id: products
+label: Products
+type: 'canonical_entities:node'
+pattern: '/products/[node:title]'
+selection_criteria:
+  e4705685-359d-4149-9801-1c11165ae77a:
+    id: node_type
+    bundles:
+      insurance_product: insurance_product
+    negate: false
+    context_mapping:
+      node: node
+    uuid: e4705685-359d-4149-9801-1c11165ae77a
+selection_logic: and
+weight: -5
+relationships:
+  'node:langcode:language':
+    label: Language
+

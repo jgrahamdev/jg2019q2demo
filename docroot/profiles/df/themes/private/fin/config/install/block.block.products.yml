@@ -1,0 +1,31 @@
+uuid: 218d126a-ded9-421e-bd0c-127f7ecd1b16
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:258064c7-09a2-4520-ae3b-598e64805f87'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - fin
+third_party_settings:
+  block_class:
+    classes: ''
+_core:
+  default_config_hash: PDvt8VHqFcP_AoJks0fLkDfke2mIR53k7mhn_ORBgOo
+id: products
+theme: fin
+region: '-1'
+weight: -4
+provider: null
+plugin: 'block_content:258064c7-09a2-4520-ae3b-598e64805f87'
+settings:
+  id: 'block_content:258064c7-09a2-4520-ae3b-598e64805f87'
+  label: Products
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

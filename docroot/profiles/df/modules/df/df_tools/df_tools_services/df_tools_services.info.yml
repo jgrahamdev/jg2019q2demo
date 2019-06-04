@@ -1,0 +1,12 @@
+name: DF Tools Services
+type: module
+description: RESTful services demo assets.
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - df_core
+  - jsonapi
+  - rest
+  - hal
+  - basic_auth
+  - serialization

@@ -1,0 +1,53 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.notification
+    - field.field.node.cta.field_cta_background
+    - field.field.node.cta.field_cta_detail
+    - field.field.node.cta.field_cta_headline
+    - field.field.node.cta.field_cta_link
+    - node.type.cta
+  module:
+    - field_formatter_class
+    - link
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.cta.notification
+targetEntityType: node
+bundle: cta
+mode: notification
+content:
+  field_cta_headline:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: text_default
+    region: content
+  field_cta_link:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden:
+  field_cta_background: true
+  field_cta_detail: true
+  langcode: true
+  links: true

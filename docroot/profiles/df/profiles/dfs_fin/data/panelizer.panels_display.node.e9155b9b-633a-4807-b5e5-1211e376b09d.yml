@@ -1,0 +1,131 @@
+blocks:
+  b6e430ac-2c45-416f-a8cc-d1f72de1b9a9:
+    id: 'block_content:bcef0fce-2ab6-41fb-b536-6aae6e65da55'
+    label: 'Boston Hero'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: top
+    uuid: b6e430ac-2c45-416f-a8cc-d1f72de1b9a9
+    weight: 1
+  01741a3d-1d94-41fa-954b-570850306e33:
+    id: 'block_content:9ca6597f-e388-437d-9aeb-07fa22b3ee7b'
+    label: 'Boston Team Title'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: top
+    uuid: 01741a3d-1d94-41fa-954b-570850306e33
+    weight: 2
+  a93bb543-c7e5-4b31-8b1d-f22b8342429a:
+    id: content_embed
+    label: 'Boston Team 1'
+    provider: content_browser
+    label_display: 0
+    view_mode: featured
+    nids: {  }
+    uuids:
+      - 92C1410C-572A-4E9B-B492-F4C9314E05BB
+    status: true
+    info: ''
+    context_mapping: {  }
+    region: above_left
+    uuid: a93bb543-c7e5-4b31-8b1d-f22b8342429a
+    weight: 1
+  ced05828-fe45-465d-b2be-593b37a0ab05:
+    id: content_embed
+    label: 'Boston Team 2'
+    provider: content_browser
+    label_display: 0
+    view_mode: featured
+    nids: {  }
+    uuids:
+      - 6D90B188-FCF5-4BF6-A1E8-F507CF529F1D
+    status: true
+    info: ''
+    context_mapping: {  }
+    region: above_right
+    uuid: ced05828-fe45-465d-b2be-593b37a0ab05
+    weight: 1
+  13abeafb-937b-4af3-b9bb-bb02f3d52c96:
+    id: content_embed
+    label: 'Boston Team 3'
+    provider: content_browser
+    label_display: 0
+    view_mode: featured
+    nids: {  }
+    uuids:
+      - 88293B76-AD94-4505-B351-974989D3D7C2
+    status: true
+    info: ''
+    context_mapping: {  }
+    region: below_left
+    uuid: 13abeafb-937b-4af3-b9bb-bb02f3d52c96
+    weight: 1
+  e2ad9c24-c9f4-4b8d-b895-29e6342eb6b0:
+    id: content_embed
+    label: 'Boston Team 4'
+    provider: content_browser
+    label_display: 0
+    view_mode: featured
+    nids: {  }
+    uuids:
+      - DBBB75B3-86A2-4A42-B950-D37D5137E528
+    status: true
+    info: ''
+    context_mapping: {  }
+    region: below_right
+    uuid: e2ad9c24-c9f4-4b8d-b895-29e6342eb6b0
+  b3cf7278-f557-43ea-ad90-cb68ef2b59bb:
+    id: 'block_content:379c107d-36aa-477f-b832-065e89e72dc9'
+    label: 'Boston Hero Bottom'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: bottom
+    uuid: b3cf7278-f557-43ea-ad90-cb68ef2b59bb
+    weight: 1
+  e61fc533-35c1-4765-8c93-3d338d6a6832:
+    id: 'block_content:08c6e86c-5bac-4a5c-9c38-2e0a8826f488'
+    label: 'Boston Map Title'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: bottom
+    uuid: e61fc533-35c1-4765-8c93-3d338d6a6832
+    weight: 2
+  560e6193-4c3c-4339-af9d-91debf3d93e8:
+    id: 'views_block:location_finder-block_2'
+    label: ''
+    provider: views
+    label_display: 0
+    views_label: ''
+    items_per_page: none
+    context_mapping: {  }
+    region: bottom
+    uuid: 560e6193-4c3c-4339-af9d-91debf3d93e8
+    weight: 3
+id: panels_variant
+uuid: 66454ba9-dca2-4264-bd09-9beeb133bd80
+label: ''
+weight: 0
+layout: foundation_2col_bricks
+layout_settings:
+  css_id: ''
+  css_classes: ''
+page_title: '[node:title]'
+storage_type: panelizer_field
+storage_id: 'node:33:full:64'
+builder: ipe

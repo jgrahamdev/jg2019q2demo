@@ -1,0 +1,47 @@
+blocks:
+  a2093e95-79d8-4abe-ae2f-f027b3364636:
+    id: 'block_content:7de476f7-dc52-437a-8dcd-f8a5b4001765'
+    label: 'Obio Shop Office Title'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: a2093e95-79d8-4abe-ae2f-f027b3364636
+    weight: 1
+  f858a85f-829c-45c5-b616-e64301566c0e:
+    id: 'views_block:collection_feature-block_1'
+    label: 'Shop by Collection'
+    provider: views
+    label_display: visible
+    views_label: 'Shop by Collection'
+    items_per_page: none
+    context_mapping: {  }
+    region: middle
+    uuid: f858a85f-829c-45c5-b616-e64301566c0e
+    weight: 2
+  8f664083-c64d-43c6-a5ff-70adff5d3c2c:
+    id: 'block_content:2a9da6b1-dcd3-4480-a24b-43c7dd8637d9'
+    label: 'Obio Shop Office Hero'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 8f664083-c64d-43c6-a5ff-70adff5d3c2c
+    weight: 3
+id: panels_variant
+uuid: 66454ba9-dca2-4264-bd09-9beeb133bd80
+label: ''
+weight: 0
+layout: foundation_1col
+layout_settings: {  }
+page_title: '[node:title]'
+storage_type: panelizer_field
+storage_id: 'node:4:full:36'
+pattern: panelizer
+builder: ipe

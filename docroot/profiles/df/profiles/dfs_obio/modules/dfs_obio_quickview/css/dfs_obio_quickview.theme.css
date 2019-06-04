@@ -1,0 +1,12 @@
+/**
+ * @file
+ * Quickview modal theming.
+ */
+
+.quickview-modal {
+  z-index: 602 !important;
+}
+
+.quickview-modal--fixed {
+  max-width: 95%;
+}

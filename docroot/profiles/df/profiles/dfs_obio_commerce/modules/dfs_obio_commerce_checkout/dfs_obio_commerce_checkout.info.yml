@@ -1,0 +1,7 @@
+name: 'DFS Obio Commerce Checkout'
+type: module
+description: 'Checkout overrides.'
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - commerce_checkout

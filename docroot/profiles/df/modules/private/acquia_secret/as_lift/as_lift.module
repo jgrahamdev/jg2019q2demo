@@ -1,0 +1,224 @@
+<?php
+
+/**
+ * @file
+ * Contains as_lift.module.
+ */
+
+use Acquia\Hmac\Guzzle\HmacAuthMiddleware;
+use Acquia\Hmac\Key;
+use Acquia\LiftClient\Lift;
+use Acquia\LiftClient\Entity\Capture;
+use Acquia\LiftClient\Entity\CapturePayload;
+use Drupal\panels\Plugin\DisplayVariant\PanelsDisplayVariant;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\HandlerStack;
+
+require_once('as_lift.form.inc');
+
+/**
+ * Implements hook_page_attachments().
+ */
+function as_lift_page_attachments(array &$attachments) {
+  $user = \Drupal::currentUser();
+  if ($user->isAuthenticated() && $user->id() !== 1) {
+    $email = $user->getEmail();
+    $attachments['#attached']['drupalSettings']['as_lift_user'] = [
+      'email' => $email,
+    ];
+    $attachments['#attached']['library'][] = 'as_lift/capture_identity';
+  }
+  if ($user->isAuthenticated()) {
+    $attachments['#attached']['library'][] = 'as_lift/lift_overrides';
+  }
+}
+
+/**
+ * Implements hook_panels_build_alter().
+ */
+function as_lift_panels_build_alter(&$build, PanelsDisplayVariant $panels_display) {
+  $builder = $panels_display->getBuilder();
+
+  if ($builder->getPluginId() == 'ipe' && isset($build['#attached']) && in_array('panels_ipe/panels_ipe', $build['#attached']['library'])) {
+    $build['#attached']['library'][] = 'as_lift/panels_ipe';
+  }
+}
+
+/**
+ * Utility function to create new events in the Lift Data Management API.
+ *
+ * @param string $identity
+ *   The primary identity of this user (ex: A cookie ID or username).
+ * @param string $identity_source
+ *   The source of this identity (ex: "email").
+ * @param array $extra_identities
+ *   An associative array of other identities (ex: ['email' => $email]).
+ * @param string $event_name
+ *   The name of the event (ex: "Clicked the hero image").
+ * @param string $event_source
+ *   The source of the event (ex: E-mail, Web).
+ * @param array $event_data
+ *   An array of triples in the format [event_type, event_num, event_value].
+ * @param object $lift_config
+ *   A config instance to override the site-wide lift config (optional).
+ * @param object $content_hub_config
+ *   A config instance to override the site-wide content hub config (optional).
+ *
+ * @return \Psr\Http\Message\ResponseInterface|bool
+ *   The response, or FALSE if there was an error.
+ */
+function _as_lift_create_event($identity, $identity_source, $extra_identities, $event_name, $event_source, $event_data = [], $lift_config = null, $content_hub_config = null) {
+  if ($lift_config == null) {
+    $lift_config = \Drupal::config('acquia_lift.settings');
+  }
+
+  $site_id = $lift_config->get('credential.site_id');
+  if (empty($site_id)) {
+    return FALSE;
+  }
+
+  if ($content_hub_config == null) {
+    $content_hub_config = \Drupal::config('acquia_contenthub.admin_settings');
+  }
+
+  $client = _as_lift_get_client(FALSE, $lift_config, $content_hub_config);
+
+  $touch_id = [];
+  if (isset($_COOKIE['tc_ttid'])) {
+    $touch_id = $_COOKIE['tc_ttid'];
+  }
+  if (empty($touch_id)) {
+    $touch_id = 'web' . date('dmYH');
+  }
+
+  $capturePayload = new CapturePayload();
+  $capturePayload
+    ->setDoNotTrack(FALSE)
+    ->setIdentity($identity)
+    ->setTouchIdentifier($touch_id)
+    ->setIdentitySource($identity_source)
+    ->setReturnSegments(TRUE);
+
+  $capture = new Capture();
+  $capture->setAuthor('Demo');
+  $capture->setEventName($event_name);
+  $capture->setEventSource($event_source);
+  $capture->setEventDate(new DateTime());
+
+  if(!empty($event_data)) {
+    foreach ($event_data as $event => $data) {
+      $event_type = $data[0];
+      $event_num = (int) $data[1];
+      $event_value = (string) $data[2];
+
+      if($event_type === 'person') {
+        $capture->setPersonUdf($event_num, $event_value);
+      }
+      elseif($event_type === 'event') {
+        $capture->setEventUdf($event_num, $event_value);
+      }
+      elseif($event_type === 'touch') {
+        $capture->setTouchUdf($event_num, $event_value);
+      }
+    }
+  }
+
+  if (!empty($extra_identities)) {
+    $capture->setIdentities($extra_identities);
+  }
+
+  $capturePayload->setCaptures([$capture]);
+  $manager = $client->getCaptureManager();
+  $response = $manager->add($capturePayload);
+
+  $body = (string) $response->json();
+  return json_decode($body, TRUE);
+}
+
+/**
+ * Utility function to send a request to the Lift Web API.
+ *
+ * @param string $method
+ *   The request method (ex: GET, POST, DELETE)
+ * @param string $path
+ *   The request path (ex: event_import)
+ * @param mixed $body
+ *   The request body, which will be encoded as JSON.
+ * @param bool $use_auth
+ *   Whether or not HMAC authentication is used.
+ *
+ * @return mixed
+ *   The decoded response from the server.
+ */
+function _as_lift_web_request($method, $path, $body = [], $use_auth) {
+  $lift_config = \Drupal::config('acquia_lift.settings');
+  $lift_account = $lift_config->get('credential.account_id');
+  $lift_api_url = \Drupal::configFactory()->get('as_lift.settings.lift')->get('lift_api');
+
+  $handlers = HandlerStack::create();
+
+  if ($use_auth) {
+    $content_hub_config = \Drupal::config('acquia_contenthub.admin_settings');
+    $api_key = $content_hub_config->get('api_key');
+    $secret_key = $content_hub_config->get('secret_key');
+
+    $key = new Key($api_key, $secret_key);
+    $middleware = new HmacAuthMiddleware($key);
+
+    $handlers->push($middleware);
+  }
+
+  $client = \Drupal::httpClient();
+
+  $options = [
+    'json' => $body,
+    'handler' => $handlers,
+  ];
+
+  $url = $lift_api_url . '/' . $lift_account . '/' . $path;
+  $request = new Request($method, $url);
+
+  $response = $client->send($request, $options);
+  $body = $response->getBody();
+  return json_decode($body, TRUE);
+}
+
+/**
+ * Utility method to get a new instance of the Acquia Lift Client.
+ *
+ * @param string|bool $lift_site_id
+ *   The site ID, or FALSE to use the default Site ID.
+ *
+ * @return \Acquia\LiftClient\Lift|bool
+ *   The Acquia Lift Client, or FALSE if the service is offline.
+ */
+function _as_lift_get_client($lift_site_id = FALSE, $lift_config = null, $content_hub_config = null) {
+  if ($lift_config == null) {
+    $lift_config = \Drupal::config('acquia_lift.settings');
+  }
+  $lift_account = $lift_config->get('credential.account_id');
+  if (!$lift_site_id) {
+    $lift_site_id = $lift_config->get('credential.site_id');
+  }
+  $url = $lift_config->get('credential.decision_api_url');
+
+  if ($content_hub_config == null) {
+    $content_hub_config = \Drupal::config('acquia_contenthub.admin_settings');
+  }
+  $api_key = $content_hub_config->get('api_key');
+  $secret_key = $content_hub_config->get('secret_key');
+
+  if (!$lift_account) {
+    return FALSE;
+  }
+
+  $client = new Lift($lift_account, $lift_site_id, $api_key, $secret_key, ['base_url' => $url]);
+
+  // Check if the server is functional
+  $pong = $client->ping();
+  if (!$pong) {
+    return FALSE;
+  }
+
+  return $client;
+}

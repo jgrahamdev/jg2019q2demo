@@ -1,0 +1,84 @@
+blocks:
+  a4864ebb-18f5-48c5-8b60-96cc5336a2a2:
+    id: 'entity_field:node:body'
+    label: Body
+    provider: ctools_block
+    label_display: '0'
+    formatter:
+      label: hidden
+      type: text_default
+      settings: {  }
+      third_party_settings: {  }
+      weight: 0
+    context_mapping:
+      entity: '@panelizer.entity_context:entity'
+    region: middle
+    weight: 3
+    uuid: a4864ebb-18f5-48c5-8b60-96cc5336a2a2
+  beaeb733-fbeb-4d85-8a00-fb1cfbf31299:
+    id: 'views_block:product_bundle_callout-product_bundle_block'
+    label: ''
+    provider: views
+    label_display: '0'
+    views_label: ''
+    items_per_page: none
+    context_mapping: {  }
+    region: middle
+    uuid: beaeb733-fbeb-4d85-8a00-fb1cfbf31299
+    weight: 5
+  ee0a625f-4054-4a75-9600-f2a8c5ae1be6:
+    id: 'block_content:d55931bb-61f0-4ae4-a300-e12ec2ae0e8c'
+    label: 'Life Hero'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: ee0a625f-4054-4a75-9600-f2a8c5ae1be6
+    weight: 1
+  232cd16d-9ced-4ca5-be57-879122dab913:
+    id: 'entity_field:node:field_promo_text'
+    label: 'Promo Text'
+    provider: ctools_block
+    label_display: 0
+    formatter:
+      label: hidden
+      type: string
+      settings:
+        link_to_entity: 0
+      third_party_settings: {  }
+      weight: 0
+    context_mapping:
+      entity: '@panelizer.entity_context:entity'
+    region: middle
+    uuid: 232cd16d-9ced-4ca5-be57-879122dab913
+    weight: 2
+  42a3bb07-0778-465c-b800-d67642a13813:
+    id: 'entity_field:node:field_associated_testimonials'
+    label: 'Associated Testimonials'
+    provider: ctools_block
+    label_display: 0
+    formatter:
+      label: hidden
+      type: entity_reference_entity_view
+      settings:
+        view_mode: teaser
+      third_party_settings: {  }
+      weight: 0
+    context_mapping:
+      entity: '@panelizer.entity_context:entity'
+    region: middle
+    uuid: 42a3bb07-0778-465c-b800-d67642a13813
+    weight: 4
+id: panels_variant
+uuid: 91249ee3-27cf-424e-915c-92becd79eb47
+label: ''
+weight: 0
+layout: foundation_1col
+layout_settings: {  }
+page_title: '[node:title]'
+storage_type: panelizer_field
+storage_id: 'node:12:full:38'
+builder: ipe

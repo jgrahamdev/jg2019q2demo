@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - as_platform
+id: my_dashboard
+label: 'My Dashboard'
+description: 'An administrative dashboard for demo users.'
+use_admin_theme: true
+path: /admin/dashboard
+access_logic: and
+access_conditions: {  }
+parameters: {  }
+

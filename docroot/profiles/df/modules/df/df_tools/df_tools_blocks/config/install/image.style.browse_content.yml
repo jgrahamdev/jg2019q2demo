@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - crop
+    - focal_point
+name: browse_content
+label: 'Browse Content'
+effects:
+  f877f421-62b5-4d01-9500-b5b0003263a4:
+    uuid: f877f421-62b5-4d01-9500-b5b0003263a4
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 345
+      height: 345
+      crop_type: focal_point

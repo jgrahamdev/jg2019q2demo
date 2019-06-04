@@ -1,0 +1,14 @@
+name: 'DFS EDU'
+type: profile
+description: 'Higher Education scenario built on OBIO.'
+core: 8.x
+package: 'Demo Framework Scenarios'
+'base profile': dfs_obio
+exclude:
+  - lightning_api
+  - lightning_contact_form
+  - lightning_preview
+  - lightning_roles
+  - bartik
+  - seven
+  - dfs_obio_content

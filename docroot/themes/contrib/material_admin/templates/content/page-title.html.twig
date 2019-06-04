@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Theme override for page titles.
+ *
+ * Available variables:
+ * - title_attributes: HTML attributes for the page title element.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title: The page title, for use in the actual content.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ */
+#}
+{{ title_prefix }}
+
+  {% if (title and logo_url is null) or (portal) %}
+    <h1{{ title_attributes.addClass('page-title') }}>{{ site_name_page_title }} {{ title }}</h1>
+  {% endif %}
+
+  {% if logo_url and title is null %}
+    <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="site-logo">
+      <img src="{{ logo_url }}" alt="{{ 'Home'|t }}" />
+    </a>
+  {% endif %}
+  {% if (title and logo_url) and (portal == false) %}
+    <div class="row ehb">
+      <div class="col s12 l9">
+        <h1{{ title_attributes.addClass('page-title') }}>{{ site_name_page_title }} {{ title }}</h1>
+      </div>
+      <div class="col s12 l3 valign-wrapper right-align">
+        <div class="logo hide-on-med-and-down">
+          <img src="{{ logo_url }}" alt="{{ 'Home'|t }}" />
+        </div>
+    </div>
+  {% endif %}
+{{ title_suffix }}

@@ -1,0 +1,16 @@
+uuid: ed499be9-b52e-45ef-8000-fb7f46246937
+langcode: en
+status: true
+dependencies: {  }
+id: user
+label: User
+use_admin_theme: false
+path: '/user/{user}'
+access_logic: and
+access_conditions: {  }
+parameters:
+  user:
+    machine_name: user
+    type: 'entity:user'
+    label: User
+

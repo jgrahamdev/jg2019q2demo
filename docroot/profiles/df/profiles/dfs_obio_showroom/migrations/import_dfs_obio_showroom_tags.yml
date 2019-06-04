@@ -1,0 +1,26 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_obio_showroom_tags
+label: 'Import dfs_obio_showroom:term:tags'
+source:
+    plugin: csv
+    path: ../data/dfs_obio_showroom.term.tags.csv
+    header_row_count: 1
+    keys: [Name, UUID]
+destination:
+    plugin: 'entity:taxonomy_term'
+process:
+    vid: { plugin: default_value, default_value: tags }
+    uuid: UUID
+    name: Name
+    description: Details
+    field_image:
+      -
+        plugin: explode
+        delimiter: ','
+        source: Media
+      -
+        plugin: migration
+        migration: import_dfs_obio_showroom_image
+provider: import
+migration_dependencies:
+    required: [import_dfs_obio_showroom_image]

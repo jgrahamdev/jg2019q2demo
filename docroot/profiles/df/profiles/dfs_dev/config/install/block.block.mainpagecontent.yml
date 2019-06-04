@@ -1,0 +1,20 @@
+uuid: db8f20b2-8860-44ac-a88b-abbaf52d7729
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - dfs_base
+id: mainpagecontent
+theme: dfs_base
+region: content
+weight: 1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

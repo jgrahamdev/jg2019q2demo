@@ -1,0 +1,195 @@
+<?php
+
+/**
+ * @file
+ * Contains dfs_obio_commerce_user.module.
+ */
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\user\Entity\User;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_user_format_name_alter().
+ *
+ * Alter the username that is displayed for a user.
+ */
+function dfs_obio_commerce_user_user_format_name_alter(&$name, $account) {
+  /** @var \Drupal\Core\Session\AccountInterface $account */
+  /** @var \Drupal\user\UserInterface $user */
+  if ($account->id()) {
+    $user = $account instanceof UserInterface ? $account : User::load($account->id());
+
+    $nameMapping = [
+      'first_name' => 'field_first_name',
+      'last_name' => 'field_last_name',
+    ];
+    $nameParts = array_fill_keys(array_keys($nameMapping), '');
+
+    foreach ($nameMapping as $nameKey => $fieldName) {
+      $field = $user->hasField($fieldName) ? $user->get($fieldName) : NULL;
+      if (!$field || $field->isEmpty()) {
+        continue;
+      }
+
+      $nameParts[$nameKey] = $field->first()->getString();
+    }
+
+    if (!empty(array_filter($nameParts))) {
+      $name = t('@first_name @last_name', [
+        '@first_name' => $nameParts['first_name'],
+        '@last_name' => $nameParts['last_name'],
+      ]);
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function dfs_obio_commerce_user_entity_extra_field_info() {
+  $fields['user']['user']['display']['user_mail'] = [
+    'label' => t('Email'),
+    'description' => t("User's email address"),
+    'weight' => 7,
+    'visible' => FALSE,
+  ];
+  $fields['user']['user']['display']['user_name'] = [
+    'label' => t('Account name'),
+    'description' => t("User's login name"),
+    'weight' => 8,
+    'visible' => FALSE,
+  ];
+  $fields['user']['user']['display']['user_roles'] = [
+    'label' => t('User roles'),
+    'description' => t('The roles the user has.'),
+    'weight' => 9,
+    'visible' => FALSE,
+  ];
+
+  return $fields;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view() for user.
+ */
+function dfs_obio_commerce_user_user_view(&$build, UserInterface $account, EntityViewDisplayInterface $display, $view_mode) {
+  // User mail.
+  if ($display->getComponent('user_mail')) {
+    $userIsLoggedIn = \Drupal::currentUser()->isAuthenticated();
+    $item = [
+      '#markup' => $account->getEmail(),
+    ];
+    $build['user_mail'] = _dfs_obio_commerce_user_extra_field_sceleton($item, $account, 'mail');
+    $build['user_mail']['#title'] = t('Email');
+    $build['user_mail']['#label_display'] = 'inline';
+    $build['user_mail']['#access'] = $userIsLoggedIn;
+    $build['user_mail']['#cache']['contexts'][] = 'user.roles:authenticated';
+  }
+
+  // Account name.
+  if ($display->getComponent('user_name')) {
+    $item = [
+      '#markup' => $account->getUsername(),
+    ];
+    $build['user_name'] = _dfs_obio_commerce_user_extra_field_sceleton($item, $account, 'name');
+    $build['user_name']['#title'] = t('Username');
+    $build['user_name']['#label_display'] = 'inline';
+  }
+
+  // User roles.
+  if ($display->getComponent('user_roles')) {
+    $item = [];
+
+    foreach ($account->getRoles(TRUE) as $role_id) {
+      if ($role_id === 'administrator' && !$userIsLoggedIn) {
+        continue;
+      }
+      $role = \Drupal::service('entity_type.manager')->getStorage('user_role')->load($role_id);
+      // @TODO
+      // There is a "marketer" role which is migrated for some users, but the
+      // Role itself (the config entity) does not exist.
+      // We filter it out here.
+      if ($role) {
+        $item[] = [
+          '#markup' => $role->label(),
+        ];
+      }
+    }
+
+    if (!empty($item)) {
+      $build['user_roles'] = _dfs_obio_commerce_user_extra_field_sceleton($item, $account, 'roles');
+      $build['user_roles']['#title'] = count($item) === 1 ? t('Role') : t('Roles');
+      $build['user_roles']['#label_display'] = 'inline';
+      $build['user_mail']['#cache']['contexts'][] = 'user.roles:authenticated';
+    }
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view_alter() for user.
+ */
+function dfs_obio_commerce_user_user_view_alter(&$build, UserInterface $account, EntityViewDisplayInterface $display) {
+  if ($display->getComponent('member_for')) {
+    $items = [
+      '#markup' => t('for @date-since', [
+        '@date-since' => \Drupal::service('date.formatter')->formatTimeDiffSince($account->getCreatedTime()),
+      ]),
+    ];
+
+    unset($build['member_for']['#type']);
+    unset($build['member_for']['#markup']);
+
+    $build['member_for'] += _dfs_obio_commerce_user_extra_field_sceleton($items, $account, 'created');
+    $build['member_for']['#title'] = t('Member');
+    $build['member_for']['#label_display'] = 'inline';
+  }
+}
+
+/**
+ * Helper callback which returns sceleton for extra field renderable array.
+ *
+ * @param array[] $items
+ *   The renderable field item markup.
+ * @param Drupal\Core\Entity\EntityInterface $entity
+ *   The entity object.
+ * @param string $fieldName
+ *   The name of the original source field. May left empty.
+ * @param string $viewMode
+ *   The view mode of the entity field.
+ *
+ * @return array
+ *   The sceleton of the field renderable array.
+ *   Missing keys: #title and #label_display.
+ */
+function _dfs_obio_commerce_user_extra_field_sceleton(array $items, EntityInterface $entity, $fieldName, $viewMode = '_custom') {
+  $sceleton = [
+    '#theme' => 'field',
+    '#view_mode' => $viewMode,
+    '#language' => $entity->language()->getId(),
+    '#field_name' => $fieldName,
+    '#field_type' => 'extra',
+    '#formatter' => '_extra',
+    '#field_translatable' => FALSE,
+    '#entity_type' => $entity->getEntityTypeId(),
+    '#bundle' => $entity->bundle(),
+    '#object' => $entity,
+    '#is_multiple' => FALSE,
+    '#items' => [$items],
+    0 => $items,
+  ];
+
+  if (count($items) > 1) {
+    $sceleton['#is_multiple'] = TRUE;
+    $sceleton['#items'] = $items;
+    $i = 0;
+
+    foreach ($items as $renderableItem) {
+      $sceleton[$i] = $renderableItem;
+      $i++;
+    }
+  }
+
+  return $sceleton;
+}

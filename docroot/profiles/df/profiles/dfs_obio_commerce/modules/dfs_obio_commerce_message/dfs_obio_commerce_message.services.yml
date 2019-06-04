@@ -1,0 +1,6 @@
+services:
+  dfs_obio_commerce_message.order_receipt_subscriber:
+    class: Drupal\dfs_obio_commerce_message\EventSubscriber\OrderReceiptSubscriber
+    arguments: ['@entity_type.manager', '@language_manager', '@message_notify.sender']
+    tags:
+      - { name: 'event_subscriber' }

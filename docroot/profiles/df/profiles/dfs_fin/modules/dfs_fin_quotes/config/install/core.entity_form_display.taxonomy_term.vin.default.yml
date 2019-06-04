@@ -1,0 +1,84 @@
+uuid: a7403d06-8f0c-46c4-a0b2-687c962d3d05
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.vin.field_drive
+    - field.field.taxonomy_term.vin.field_image
+    - field.field.taxonomy_term.vin.field_make
+    - field.field.taxonomy_term.vin.field_model
+    - field.field.taxonomy_term.vin.field_style
+    - field.field.taxonomy_term.vin.field_year
+    - image.style.thumbnail
+    - taxonomy.vocabulary.vin
+  module:
+    - image
+    - dfs_fin_quotes
+  enforced:
+    module:
+      - dfs_fin_quotes
+id: taxonomy_term.vin.default
+targetEntityType: taxonomy_term
+bundle: vin
+mode: default
+content:
+  field_drive:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_image:
+    weight: 2
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_make:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_model:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_style:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_year:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  description: true
+  langcode: true
+  path: true

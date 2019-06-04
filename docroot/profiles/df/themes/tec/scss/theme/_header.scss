@@ -1,0 +1,101 @@
+/* Theme for the header region */
+
+.header-wrap {
+    background-color: rgba(255,255,255,.7);
+    #block-tec-mainnavigation {
+        .menu-wrap {
+            ul {
+                text-align: center;
+                padding-top: rem-calc(30px);
+                li {
+                    display: inline-block;
+                    padding-right: rem-calc(40px);
+                     &.main-menu-logo a:hover{
+                            border-bottom:none;
+                            color:transparent;
+                        }
+                    @media #{$medium-only},#{$small-only} {
+                        padding-right: rem-calc(10px);
+                    }
+                    a {
+                        text-transform: uppercase;
+                        color: $black;
+                        &.is-active, &:hover {
+                            color:$secondary-color;
+                            border-bottom:1px solid $secondary-color;
+                        }
+                    }
+                    &.main-menu-logo {
+                        @media #{$medium-only},#{$small-only} {
+                            float: left;
+                            padding-bottom: rem-calc(20px);
+                        }
+                    }
+                    &.menu-item {
+                        padding-top: rem-calc(20px);
+                        @media #{$small-only} {
+                            display: none;
+                        }
+                        &:hover {
+                            background-color: transparent;
+                        }
+                    }
+                }
+            }
+        }
+        .menu-mobile-wrap {
+            display: none;
+            @media #{$small-only} {
+                display: block;
+            }
+            .main-menu-logo {
+                display: none;
+            }
+            .menu-icon {
+                color: black;
+                font-size: rem-calc(20px);
+            }
+        }
+    }
+}
+
+/* Theme for the meta region */
+.meta-wrap {
+    max-width: none;
+    margin: 0;
+    background-color: $primary-alt-color;
+    padding: rem-calc(10px);
+    position:relative;
+    a {
+        color: $white;
+    }
+    .meta-login {
+        .account-link {
+            position:relative;
+            &:before {
+                background-image: url(../images/user.svg);
+                background-size: 20px;
+                width: 20px;
+                height: 20px;
+                content: "";
+                position: absolute;
+                left: -25px;
+                top: 1px;
+            }
+        }
+        a {
+            padding-right: rem-calc(10px);
+        }
+        .language-link {
+            &:before {
+                background-size: 20px;
+                width: 20px;
+                height: 20px;
+                content: "";
+                position: absolute;
+                left: -10px;
+                top: 1px;
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+name: 'DFS Obio Articles'
+type: module
+description: 'Article content type overrides and associated views.'
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - df_tools_articles

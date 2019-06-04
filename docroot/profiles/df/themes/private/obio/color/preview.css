@@ -1,0 +1,200 @@
+/**
+ * @file
+ * Styles the preview of Obio theme (Color module integration).
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400');
+
+.color-preview {
+    font-family: "Work Sans",sans-serif;
+    line-height: 1.59375;
+    font-weight: 400;
+    font-size: 17px;
+}
+
+
+.color-preview .flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.color-preview a:hover {
+    text-decoration: none;
+}
+
+.color-preview .header-wrapper.row {
+    padding: 0;
+}
+
+.color-preview .logo {
+    font-size: 2.64706rem;
+    display: table-cell;
+    vertical-align: middle;
+    font-weight: 700;
+    letter-spacing: 3px;
+    max-width: 275px;
+    overflow: hidden;
+}
+
+.color-preview ul.main-menu li{
+    display: inline;
+    letter-spacing: 1px;
+    padding: 1rem 0;
+    margin: 0 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.color-preview ul.main-menu li:hover {
+    border-bottom: 2px solid;
+}
+
+
+.color-preview ul.secondary-menu li{
+    display: inline;
+    letter-spacing: 1px;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.color-preview .material-icons {
+    vertical-align: middle;
+    padding-right: 5px;
+}
+
+.color-preview ul.footer-menu li{
+    letter-spacing: 1px;
+    padding: .5rem;
+    font-size: .9rem;
+    text-transform: uppercase;
+}
+
+.color-preview .card__media img {
+    width: 100%;
+}
+
+.color-preview .row.hero {
+    padding: 0;
+}
+
+.color-preview .hero {
+    width: 100%!important;
+    height: 450px!important;
+    min-height: 450px!important;
+    position: relative;
+    background: url("/profiles/df/themes/private/obio/images/preview-obio-theme-hero.jpg") center center no-repeat;
+}
+
+.color-preview .hero-content {
+    padding: 1.8rem 2rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    background: #fff;
+    text-align: center;
+    line-height: 1.2;
+    font-weight: 300;
+}
+
+.color-preview .hero-content .title {
+    font-size: 3.17647rem;
+}
+
+.color-preview .hero-content .body {
+    font-size: 1rem;
+}
+
+.color-preview .hero-content .body,
+.color-preview .hero-content .link {
+    padding: 1.5rem 0;
+}
+
+.color-preview .hero-content .link a {
+    font-size: 1rem;
+    border: 1px solid;
+    min-width: 14.88235rem;
+    padding: 0.8533333rem 1rem;
+}
+
+.color-preview .hero-content .link a:hover {
+    color: #ffffff!important;
+}
+
+.color-preview .card-title a {
+    font-size: 1.29412rem;
+    font-weight: 300;
+    line-height: 1.2;
+    text-rendering: optimizeLegibility;
+    font-style: normal;
+}
+
+.color-preview .card-content {
+    line-height: 1.2;
+    font-weight: 300;
+}
+
+.color-preview .footer {
+    color: #ffffff;
+}
+
+.color-preview .footer-logo-wrapper {
+    width: 100%;
+    line-height: 0;
+}
+
+.color-preview .footer-logo {
+    width: 120px;
+}
+
+.color-preview .footer-slogan {
+    font-weight: 300;
+}
+
+.color-preview ul.footer-menu li{
+    letter-spacing: 1px;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.color-preview ul.footer-menu li a:hover {
+    border-bottom: 2px solid #0a0a0a;
+    padding-bottom: .5rem
+}
+
+.color-preview .signup .body {
+    line-height: 1;
+    padding-bottom: 18px;
+    font-weight: 300;
+}
+
+.color-preview .form {
+    width: 100%;
+}
+.color-preview .form .email,
+.color-preview .form .submit {
+    border: 1px solid #ffffff;
+    padding: 10px;
+    display: inline-block;
+}
+
+.color-preview .form .email {
+    width: 70%;
+    color: #ffffff;
+    font-weight: 300;
+}
+
+.color-preview .form .submit {
+    width: 25%;
+    background: #ffffff;
+    text-align: center;
+    color: #0a0a0a;
+    margin-left: -6px;
+}
+
+.color-preview .form .submit:hover {
+    background: #0a0a0a;
+    color: #ffffff;
+}

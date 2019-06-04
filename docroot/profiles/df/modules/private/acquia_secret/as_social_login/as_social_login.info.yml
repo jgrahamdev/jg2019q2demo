@@ -1,0 +1,7 @@
+name: AS Social Login
+type: module
+description: Contains default configuration for the Oneall Social Login module.
+core: 8.x
+package: Demo Framework Secret Modules
+dependencies:
+  - social_login

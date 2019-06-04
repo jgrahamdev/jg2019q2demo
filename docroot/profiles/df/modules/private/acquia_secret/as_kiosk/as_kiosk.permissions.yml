@@ -1,0 +1,3 @@
+'as_kiosk_permissions':
+  title: 'Access to AS Kiosk settings'
+  description: 'Give permission to change AS Kiosk settings'

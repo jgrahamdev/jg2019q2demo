@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Install routine for the FIN Insurance Products.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function dfs_fin_products_install() {
+  user_role_grant_permissions('creator', ['administer panelizer node insurance_product content', 'administer panelizer node insurance_product layout']);
+}

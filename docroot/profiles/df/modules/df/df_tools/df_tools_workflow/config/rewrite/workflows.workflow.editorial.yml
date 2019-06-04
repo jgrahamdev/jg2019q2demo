@@ -1,0 +1,39 @@
+type_settings:
+  states:
+    archived:
+      type_style:
+        color: '#00897b'
+        icon: archive
+    draft:
+      type_style:
+        color: '#ef6c00'
+        icon: edit
+    published:
+      type_style:
+        color: '#689f38'
+        icon: public
+    review:
+      type_style:
+        color: '#ff8f00'
+        icon: speaker_notes
+  transitions:
+    archive:
+      type_style:
+        color: '#00897b'
+        icon: archive
+    archived_published:
+      type_style:
+        color: '#7cb342'
+        icon: public
+    create_new_draft:
+      type_style:
+        color: '#ef6c00'
+        icon: edit
+    publish:
+      type_style:
+        color: '#689f38'
+        icon: public
+    review:
+      type_style:
+        color: '#ff8f00'
+        icon: speaker_notes

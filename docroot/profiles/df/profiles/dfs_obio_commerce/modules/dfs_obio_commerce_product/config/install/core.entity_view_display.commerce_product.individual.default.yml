@@ -1,0 +1,246 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.individual
+    - core.entity_view_display.comment.review_product.default
+    - field.field.commerce_product.individual.body
+    - field.field.commerce_product.individual.field_assembly_instructions
+    - field.field.commerce_product.individual.field_assembly_video
+    - field.field.commerce_product.individual.field_featured_product
+    - field.field.commerce_product.individual.field_features
+    - field.field.commerce_product.individual.field_media
+    - field.field.commerce_product.individual.field_product_types
+    - field.field.commerce_product.individual.field_reviews
+    - field.field.commerce_product.individual.field_success_stories
+    - field.field.commerce_product.individual.field_tags
+    - field.field.commerce_product.individual.panelizer
+    - field.field.commerce_product.individual.stores
+    - field.field.commerce_product.individual.variations
+  module:
+    - comment
+    - commerce_product
+    - df_tools_tabs
+    - panelizer
+    - text
+third_party_settings:
+  panelizer:
+    enable: true
+    custom: true
+    allow: false
+    default: default
+    displays:
+      default:
+        blocks:
+          4fe216ca-d288-4ff9-8224-9c7a48637d6b:
+            id: 'entity_view:commerce_product'
+            label: Product
+            provider: ctools
+            label_display: '0'
+            view_mode: add_to_cart
+            region: content
+            weight: -4
+            uuid: 4fe216ca-d288-4ff9-8224-9c7a48637d6b
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+          fb282502-a9a0-46cc-b426-3e818c81ea32:
+            id: magellan
+            label: Magellan
+            provider: df_tools_blocks
+            label_display: '0'
+            region: content
+            weight: -3
+            uuid: fb282502-a9a0-46cc-b426-3e818c81ea32
+            context_mapping: {  }
+          bd47c86f-f602-4433-8249-df4959c86569:
+            id: 'entity_field:commerce_product:body'
+            label: 'The Backstory'
+            provider: ctools_block
+            label_display: visible
+            formatter:
+              label: hidden
+              type: text_default
+              settings: {  }
+              third_party_settings: {  }
+              weight: 0
+            region: content
+            weight: -2
+            uuid: bd47c86f-f602-4433-8249-df4959c86569
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+          f8260f63-7f9e-4563-8b0e-b3b7e4390361:
+            id: 'entity_field:commerce_product:field_reviews'
+            label: Reviews
+            provider: ctools_block
+            label_display: visible
+            formatter:
+              label: hidden
+              type: comment_default
+              settings:
+                view_mode: default
+                pager_id: 7
+              third_party_settings: {  }
+              weight: 0
+            region: content
+            weight: 2
+            uuid: f8260f63-7f9e-4563-8b0e-b3b7e4390361
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+          9155e4ea-c812-4209-8f5b-c17cd52465b5:
+            id: 'block_content:5e773021-741c-4315-b623-a1695ccdfb7d'
+            label: Promotion
+            provider: block_content
+            label_display: '0'
+            status: true
+            info: ''
+            view_mode: full
+            region: content
+            weight: 0
+            uuid: 9155e4ea-c812-4209-8f5b-c17cd52465b5
+            context_mapping: {  }
+          758b46a9-d482-46b7-8411-1d72fd0c6688:
+            id: 'entity_field:commerce_product:field_features'
+            label: Specs
+            provider: ctools_block
+            label_display: visible
+            formatter:
+              label: hidden
+              type: obio_text_with_tab
+              settings: {  }
+              third_party_settings: {  }
+              weight: 0
+            region: content
+            weight: 1
+            uuid: 758b46a9-d482-46b7-8411-1d72fd0c6688
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+          b217c73f-b974-4442-81df-d719f52f28d3:
+            id: 'entity_field:commerce_product:field_success_stories'
+            label: 'Success stories'
+            provider: ctools_block
+            label_display: visible
+            formatter:
+              label: hidden
+              type: entity_reference_entity_view
+              settings:
+                view_mode: teaser
+              third_party_settings: {  }
+              weight: 0
+            region: content
+            weight: 4
+            uuid: b217c73f-b974-4442-81df-d719f52f28d3
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+          0c3149ec-41ae-4ddc-8e8d-e28fe6a7406f:
+            id: 'views_block:related_products-block'
+            label: ''
+            provider: views
+            label_display: visible
+            views_label: ''
+            items_per_page: none
+            region: content
+            weight: 3
+            uuid: 0c3149ec-41ae-4ddc-8e8d-e28fe6a7406f
+            context_mapping: {  }
+          e4d25e77-0f81-4e17-ae8d-665f413017b7:
+            id: 'entity_field:commerce_product:field_assembly_video'
+            label: 'Our Process'
+            provider: ctools_block
+            label_display: visible
+            formatter:
+              label: hidden
+              type: assembly_instructions
+              settings:
+                view_mode: embedded
+              third_party_settings: {  }
+              weight: 0
+            region: content
+            weight: -1
+            uuid: e4d25e77-0f81-4e17-ae8d-665f413017b7
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+        id: panels_variant
+        label: Default
+        uuid: 7df5e623-8310-4784-9a21-4129ad5091bb
+        weight: 0
+        layout: layout_onecol
+        layout_settings: {  }
+        page_title: '[commerce_product:title]'
+        storage_type: panelizer_default
+        storage_id: 'commerce_product:individual:default:default'
+        builder: ipe
+        pattern: panelizer
+id: commerce_product.individual.default
+targetEntityType: commerce_product
+bundle: individual
+mode: default
+content:
+  field_assembly_instructions:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_assembly_video:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_featured_product:
+    weight: 6
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_features:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_with_tab
+    region: content
+  field_reviews:
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  field_success_stories:
+    weight: 3
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  variations:
+    type: commerce_add_to_cart
+    weight: 0
+    label: hidden
+    settings:
+      combine: true
+    third_party_settings: {  }
+    region: content
+hidden:
+  body: true
+  created: true
+  dfs_obio_quickview: true
+  field_media: true
+  field_product_types: true
+  field_tags: true
+  langcode: true
+  panelizer: true
+  product_read_more: true
+  stores: true
+  uid: true

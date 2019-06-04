@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: english_location
+label: 'English Location'
+type: 'canonical_entities:node'
+pattern: '/location/[node:title]'
+selection_criteria:
+  8e5081db-c6a4-4cc3-a6a1-3b94e1c85254:
+    id: node_type
+    bundles:
+      location: location
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 8e5081db-c6a4-4cc3-a6a1-3b94e1c85254
+  e2d1e4e0-426e-461e-a633-c16b5fc92dde:
+    id: language
+    langcodes:
+      en: en
+    negate: false
+    context_mapping:
+      language: 'node:langcode:language'
+    uuid: e2d1e4e0-426e-461e-a633-c16b5fc92dde
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

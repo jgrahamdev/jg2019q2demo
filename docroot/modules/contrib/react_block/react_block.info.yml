@@ -1,0 +1,13 @@
+name: React blocks
+type: module
+description: Create blocks for React components.
+# core: 8.x
+package: PDB
+dependencies:
+  - pdb
+
+# Information added by Drupal.org packaging script on 2019-02-18
+version: '8.x-1.0-alpha1'
+core: '8.x'
+project: 'react_block'
+datestamp: 1550449385

@@ -1,0 +1,240 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_product
+    - field.field.block_content.hero_product.field_first_line
+    - field.field.block_content.hero_product.field_media_single
+    - field.field.block_content.hero_product.field_product
+    - field.field.block_content.hero_product.field_second_line
+  module:
+    - field_group
+third_party_settings:
+  field_group:
+    group_product_hero:
+      children:
+        - group_product_hero_image
+        - group_product_hero_content
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        label: 'Product hero'
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'full-width-row l-over-each color-inverse'
+      label: 'Product hero'
+    group_product_hero_image:
+      children:
+        - field_media_single
+      parent_name: group_product_hero
+      weight: 1
+      format_type: html_element
+      format_settings:
+        label: 'Product hero image'
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'l-over-each__item l-over-each__item--prodhero-img'
+      label: 'Product hero image'
+    group_product_hero_content:
+      children:
+        - group_inner_content
+      parent_name: group_product_hero
+      weight: 2
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: ' l-over-each__item'
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Product hero content'
+    group_inner_content:
+      children:
+        - group_inner_content_column
+      parent_name: group_product_hero_content
+      weight: 20
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: full-width-inner
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Inner content'
+    group_title_row:
+      children:
+        - group_title_column
+      parent_name: group_inner_content_column
+      weight: 20
+      format_type: html_element
+      format_settings:
+        label: 'Title row'
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'row align-center'
+      label: 'Title row'
+    group_title_column:
+      children:
+        - field_first_line
+      parent_name: group_title_row
+      weight: 20
+      format_type: html_element
+      format_settings:
+        label: 'Title column'
+        element: h1
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'medium-10 large-8 column text-center'
+      label: 'Title column'
+    group_subtitle_row:
+      children:
+        - group_subtitle_column
+      parent_name: group_inner_content_column
+      weight: 22
+      format_type: html_element
+      format_settings:
+        label: 'Subtitle row'
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'row align-center'
+      label: 'Subtitle row'
+    group_subtitle_column:
+      children:
+        - field_second_line
+      parent_name: group_subtitle_row
+      weight: 21
+      format_type: html_element
+      format_settings:
+        label: 'Subtitle column'
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'medium-7 large-5 column text-center'
+      label: 'Subtitle column'
+    group_products_row:
+      children:
+        - field_product
+      parent_name: group_inner_content_column
+      weight: 23
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: row
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Products row'
+    group_inner_content_column:
+      children:
+        - group_title_row
+        - group_subtitle_row
+        - group_products_row
+      parent_name: group_inner_content
+      weight: 20
+      format_type: html_element
+      format_settings:
+        label: 'Inner content column'
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'l-over-each__content content small-12 column'
+      label: 'Inner content column'
+id: block_content.hero_product.default
+targetEntityType: block_content
+bundle: hero_product
+mode: default
+content:
+  field_first_line:
+    weight: 21
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_media_single:
+    weight: 6
+    label: hidden
+    settings:
+      view_mode: hero
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_product:
+    weight: 22
+    label: visually_hidden
+    settings:
+      optionset: product_hero
+      skin: classic
+      view_mode: compact
+      cache: '0'
+      current_view_mode: default
+      override: 0
+      overridables:
+        arrows: 0
+        autoplay: 0
+        dots: 0
+        draggable: 0
+        infinite: 0
+        mouseWheel: 0
+        randomize: 0
+        variableWidth: 0
+      skin_arrows: ''
+      skin_dots: ''
+      style: ''
+    third_party_settings: {  }
+    type: obio_entity_reference_carousel
+    region: content
+  field_second_line:
+    weight: 24
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  langcode: true

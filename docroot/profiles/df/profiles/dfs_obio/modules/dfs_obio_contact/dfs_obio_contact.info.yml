@@ -1,0 +1,11 @@
+name: 'DFS Obio Contact'
+type: module
+description: 'Contains Contact Message related config and code.'
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - contact_storage
+  - contact_message_rest
+  - dfs_obio_collection
+  - dfs_obio_locations
+  - dfs_obio_kiosk

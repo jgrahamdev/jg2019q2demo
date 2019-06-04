@@ -1,0 +1,38 @@
+uuid: d231bbbe-118e-4a22-9308-8aa76aad178f
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.similar_content
+  module:
+    - block_class
+    - ctools
+    - views
+    - dfs_fin
+  enforced:
+    module:
+      - dfs_fin
+third_party_settings:
+  block_class:
+    classes: ''
+id: views_block__similar_content_block_1
+theme: fin
+region: sidebar_second
+weight: -14
+provider: null
+plugin: 'views_block:similar_content-block_1'
+settings:
+  id: 'views_block:similar_content-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      article: article
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

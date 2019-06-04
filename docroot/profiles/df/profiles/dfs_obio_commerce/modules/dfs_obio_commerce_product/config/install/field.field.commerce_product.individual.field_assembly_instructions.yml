@@ -1,0 +1,37 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.individual
+    - field.storage.commerce_product.field_assembly_instructions
+  module:
+    - better_formats
+    - text
+third_party_settings:
+  better_formats:
+    allowed_formats_toggle: 0
+    allowed_formats:
+      rich_text: rich_text
+      full_html: full_html
+    default_order_toggle: 0
+    default_order_wrapper:
+      formats:
+        rich_text:
+          weight: '1'
+        full_html:
+          weight: '5'
+id: commerce_product.individual.field_assembly_instructions
+field_name: field_assembly_instructions
+entity_type: commerce_product
+bundle: individual
+label: 'Assembly instructions'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: "<p><strong>Our commitment is to sustainability and durability</strong></p>\n<p>All of our products are made developed to last a lifetime. Our wood is sustainably sourced, our fabrics are free from harmful chemical treatments, and our packaging is made from recycled materials.</p>\n<p><a href=\"/about\" class=\"button\">Learn more</a></p>"
+    format: rich_text
+default_value_callback: ''
+settings: {  }
+field_type: text_long

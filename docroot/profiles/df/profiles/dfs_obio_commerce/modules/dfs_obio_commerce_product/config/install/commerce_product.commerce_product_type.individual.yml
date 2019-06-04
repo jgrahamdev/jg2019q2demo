@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - dfs_obio_quickview
+third_party_settings:
+  dfs_obio_quickview:
+    status: true
+    view_mode: quickview
+id: individual
+label: 'Individual product'
+description: 'An individual product that can be purchased without a collection subscription.'
+variationType: individual
+injectVariationFields: true

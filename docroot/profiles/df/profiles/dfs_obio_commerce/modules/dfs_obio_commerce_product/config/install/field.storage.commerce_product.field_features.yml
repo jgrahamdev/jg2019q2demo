@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - df_tools_tabs
+id: commerce_product.field_features
+field_name: field_features
+entity_type: commerce_product
+type: text_with_tab
+settings: {  }
+module: df_tools_tabs
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

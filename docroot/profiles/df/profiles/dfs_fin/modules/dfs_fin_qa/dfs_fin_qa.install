@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file dfs_fin_qa.install
+ */
+
+/**
+ * Implements hook_install().
+ */
+function dfs_fin_qa_install() {
+  // Grant permissions to create Questions for all users.
+  $roles = user_roles();
+  foreach ($roles as $rid => $role) {
+    user_role_grant_permissions($rid, ['create question content']);
+  }
+
+  // Grant Agents the permission to answer and approve questions.
+  user_role_grant_permissions('agent', [
+    'answer questions',
+    'delete any question content',
+    'edit any question content',
+    'revert question revisions',
+    'view question revisions',
+    'edit own question content',
+    'delete own question content'
+  ]);
+}

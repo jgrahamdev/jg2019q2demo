@@ -1,0 +1,5 @@
+name: 'DFS Obio Quickview'
+type: module
+description: 'Provides Quick View feature for Content entities'
+core: 8.x
+package: Demo Framework Scenarios - Submodules

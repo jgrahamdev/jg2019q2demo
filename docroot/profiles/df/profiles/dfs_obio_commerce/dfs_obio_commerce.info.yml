@@ -1,0 +1,28 @@
+name: 'DFS Obio Commerce'
+type: profile
+description: 'Commerce integration and configuration on top of OBIO.'
+core: 8.x
+package: 'Demo Framework Scenarios'
+'base profile': dfs_obio
+dependencies:
+  - dfs_obio_commerce_articles
+  - dfs_obio_commerce_blocks
+  - dfs_obio_commerce_cart
+  - dfs_obio_commerce_checkout
+  - dfs_obio_commerce_collection
+  - dfs_obio_commerce_comments
+  - dfs_obio_commerce_image
+  - dfs_obio_commerce_individual_product_search
+  - dfs_obio_commerce_media
+  - dfs_obio_commerce_message
+  - dfs_obio_commerce_product
+  - dfs_obio_commerce_user
+exclude:
+  - lightning_api
+  - lightning_contact_form
+  - lightning_preview
+  - lightning_roles
+  - bartik
+  - seven
+  - dfs_obio_content
+  - dfs_obio_commerce_workflow

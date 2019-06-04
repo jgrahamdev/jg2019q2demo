@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Contains dfs_obio_contact.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ */
+function dfs_obio_contact_form_contact_message_book_appointment_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($query_collection = \Drupal::request()->query->get('collection')) {
+    $default_collection = ucwords(strtolower($query_collection));
+    $collection_id = \Drupal::entityQuery('node')
+      ->condition('type', 'collection')
+      ->condition('title', $default_collection, 'STARTS_WITH')
+      ->execute();
+    if (is_array($collection_id) && !empty($collection_id)) {
+      $form['field_collection']['widget']['#default_value'] = $collection_id;
+    }
+  }
+  if ($query_showroom = \Drupal::request()->query->get('showroom')) {
+    $default_showroom = ucwords(strtolower($query_showroom));
+    $showroom_id = \Drupal::entityQuery('node')
+      ->condition('type', 'location')
+      ->condition('title', $default_showroom, 'STARTS_WITH')
+      ->execute();
+    if (is_array($showroom_id) && !empty($showroom_id)) {
+      $form['field_showroom']['widget']['#default_value'] = $showroom_id;
+    }
+  }
+
+}

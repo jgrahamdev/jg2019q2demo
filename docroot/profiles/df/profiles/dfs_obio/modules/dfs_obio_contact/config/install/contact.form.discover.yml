@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact_storage
+third_party_settings:
+  contact_storage:
+    submit_text: 'Contact us'
+    show_preview: false
+    disabled_form_message: 'This contact form has been disabled.'
+    maximum_submissions_user: 0
+id: discover
+label: Discover
+recipients:
+  - admin@example.com
+reply: ''
+weight: 0
+message: 'We got it! One of our designers will reach out to you shortly.'
+redirect: /

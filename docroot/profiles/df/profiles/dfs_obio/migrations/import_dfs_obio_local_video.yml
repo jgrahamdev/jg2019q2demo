@@ -1,0 +1,14 @@
+id: import_dfs_obio_local_video
+label: Import dfs_obio:media:local_video
+source:
+  plugin: media_image
+  path: '../data/dfs_obio.media.local_video.csv'
+  header_row_count: 1
+  keys: [Image]
+destination:
+  plugin: entity:media
+process:
+  bundle: { plugin: default_value, default_value: video_file }
+  field_media_video_file: File
+  name: Name
+  uuid: UUID

@@ -1,0 +1,48 @@
+langcode: en
+status: true
+dependencies: {  }
+id: product_hero
+name: product_hero
+label: 'Product hero carousel'
+weight: 0
+group: ''
+skin: default
+breakpoints: 3
+optimized: true
+options:
+  options__active_tab: edit-options-responsives
+  settings:
+    mobileFirst: true
+    infinite: false
+    lazyLoad: anticipated
+    slidesToShow: 1
+    swipeToSlide: true
+  responsives:
+    responsive:
+      -
+        breakpoint: 639
+        unslick: false
+        settings:
+          infinite: false
+          slidesToShow: 2
+          slidesToScroll: 2
+          swipeToSlide: true
+          waitForAnimate: false
+      -
+        breakpoint: 869
+        unslick: false
+        settings:
+          infinite: false
+          slidesToShow: 3
+          slidesToScroll: 3
+          swipeToSlide: true
+          waitForAnimate: false
+      -
+        breakpoint: 1139
+        unslick: false
+        settings:
+          infinite: false
+          slidesToShow: 4
+          slidesToScroll: 4
+          swipeToSlide: true
+          waitForAnimate: false

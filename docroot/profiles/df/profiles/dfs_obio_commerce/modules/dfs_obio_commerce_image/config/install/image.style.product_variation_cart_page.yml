@@ -1,0 +1,42 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_effects
+name: product_variation_cart_page
+label: 'Product variation (Cart page)'
+effects:
+  f9ec3201-909d-47b4-a27c-3b3fb8ff1deb:
+    uuid: f9ec3201-909d-47b4-a27c-3b3fb8ff1deb
+    id: image_scale
+    weight: 1
+    data:
+      width: 166
+      height: null
+      upscale: true
+  b5ca61b6-054d-41a9-b2e1-97edf1ffab43:
+    uuid: b5ca61b6-054d-41a9-b2e1-97edf1ffab43
+    id: image_scale
+    weight: 2
+    data:
+      width: null
+      height: 166
+      upscale: false
+  5531079b-af03-4af5-86b3-df9fcf580a65:
+    uuid: 5531079b-af03-4af5-86b3-df9fcf580a65
+    id: image_effects_set_canvas
+    weight: 3
+    data:
+      canvas_size: exact
+      exact:
+        width: '166'
+        height: '166'
+        placement: center-center
+        x_offset: 0
+        y_offset: 0
+      relative:
+        left: 0
+        right: 0
+        top: 0
+        bottom: 0
+      canvas_color: '#FFFFFFFF'

@@ -1,0 +1,8 @@
+name: 'DFS Obio Commerce Message'
+type: module
+description: 'Message integration and configuration.'
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - df_tools_message
+  - commerce_order

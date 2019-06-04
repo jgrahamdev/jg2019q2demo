@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function dfs_obio_showroom_install() {
+  // Copy CSS from the scenario into public dir and set up colors. 
+  $source = drupal_get_path('profile', 'dfs_obio_showroom') . '/css';
+  $files = file_scan_directory($source, '/.*\.(css)$/');
+  $destination = 'public://';
+  $file_list = [];
+  foreach ($files as $file) {
+    $result = file_unmanaged_copy($file->uri, $destination, FILE_EXISTS_REPLACE);
+    if (!$result) {
+      throw new Exception("Unable to copy {$file->uri} to $destination.");
+    }
+    else {
+      $file_list[] = $result;
+    }
+  }
+  $config = \Drupal::configFactory()->getEditable('color.theme.obio');
+  $config->set('stylesheets', $file_list);
+  $config->set('files', $file_list);
+  $config->save();
+
+  // Import our custom .po files
+  df_tools_translation_import_translations('profile', 'dfs_obio');
+  df_tools_translation_import_translations('profile', 'dfs_obio_showroom');
+}

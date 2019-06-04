@@ -1,0 +1,3 @@
+configure big screen:
+  title: 'Configure Big Screen settings'
+  description: 'Use the Big Screen settings form at /admin/appearance/big-screen'

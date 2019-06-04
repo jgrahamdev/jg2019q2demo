@@ -1,0 +1,34 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.hero_product
+    - field.field.media.image.field_media_in_library
+    - field.field.media.image.field_tags
+    - field.field.media.image.image
+    - media.type.image
+    - responsive_image.styles.product_hero
+  module:
+    - responsive_image
+id: media.image.hero_product
+targetEntityType: media
+bundle: image
+mode: hero_product
+content:
+  image:
+    type: responsive_image
+    weight: 0
+    label: hidden
+    settings:
+      responsive_image_style: product_hero
+      image_link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_media_in_library: true
+  field_tags: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

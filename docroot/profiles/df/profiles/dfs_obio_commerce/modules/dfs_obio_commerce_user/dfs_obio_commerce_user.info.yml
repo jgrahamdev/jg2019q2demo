@@ -1,0 +1,7 @@
+name: 'DFS Obio Commerce Blocks'
+type: module
+description: 'Block content overrides.'
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - df_tools_user

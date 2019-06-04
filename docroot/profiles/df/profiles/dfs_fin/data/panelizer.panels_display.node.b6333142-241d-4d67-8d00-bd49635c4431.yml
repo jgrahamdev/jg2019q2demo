@@ -1,0 +1,84 @@
+blocks:
+  a4864ebb-18f5-48c5-8b60-96cc5336a2a2:
+    id: 'entity_field:node:body'
+    label: Body
+    provider: ctools_block
+    label_display: '0'
+    formatter:
+      label: hidden
+      type: text_default
+      settings: {  }
+      third_party_settings: {  }
+      weight: 0
+    context_mapping:
+      entity: '@panelizer.entity_context:entity'
+    region: middle
+    weight: 3
+    uuid: a4864ebb-18f5-48c5-8b60-96cc5336a2a2
+  beaeb733-fbeb-4d85-8a00-fb1cfbf31299:
+    id: 'views_block:product_bundle_callout-product_bundle_block'
+    label: ''
+    provider: views
+    label_display: 0
+    views_label: ''
+    items_per_page: none
+    context_mapping: {  }
+    region: middle
+    uuid: beaeb733-fbeb-4d85-8a00-fb1cfbf31299
+    weight: 5
+  38171f6f-4a8f-41c9-8004-4f13b53a5e8c:
+    id: 'block_content:2443b3ee-8145-4d68-b411-17a217a4ff41'
+    label: 'Auto Hero'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 38171f6f-4a8f-41c9-8004-4f13b53a5e8c
+    weight: 1
+  89e2477c-332b-433f-8b26-383f9baa88d1:
+    id: 'entity_field:node:field_promo_text'
+    label: 'Promo Text'
+    provider: ctools_block
+    label_display: 0
+    formatter:
+      label: hidden
+      type: string
+      settings:
+        link_to_entity: 0
+      third_party_settings: {  }
+      weight: 0
+    context_mapping:
+      entity: '@panelizer.entity_context:entity'
+    region: middle
+    uuid: 89e2477c-332b-433f-8b26-383f9baa88d1
+    weight: 2
+  4c2bb6cd-eac8-4f1c-9026-384d9136a310:
+    id: 'entity_field:node:field_associated_testimonials'
+    label: 'Associated Testimonials'
+    provider: ctools_block
+    label_display: 0
+    formatter:
+      label: hidden
+      type: entity_reference_entity_view
+      settings:
+        view_mode: teaser
+      third_party_settings: {  }
+      weight: 0
+    context_mapping:
+      entity: '@panelizer.entity_context:entity'
+    region: middle
+    uuid: 4c2bb6cd-eac8-4f1c-9026-384d9136a310
+    weight: 4
+id: panels_variant
+uuid: 91249ee3-27cf-424e-915c-92becd79eb47
+label: ''
+weight: 0
+layout: foundation_1col
+layout_settings: {  }
+page_title: '[node:title]'
+storage_type: panelizer_field
+storage_id: 'node:16:full:51'
+builder: ipe

@@ -1,0 +1,81 @@
+
+#comment-area,
+.path-comment {
+    @extend .full-block-spacing;
+    border-top: $absolute-item-border;
+    mark {
+        display: none;
+    }
+    .comment-author > a, .field-name-field-first-name, .field-name-field-last-name {
+        display: none;
+    }
+    .field-user--user-picture img {
+        @extend .profile-pic;
+        @extend .vertical-margin-space;
+    }
+    h4 {
+        border-bottom: 1px solid $secondary-bg;
+        margin-top: rem-calc(30px);
+        margin-bottom: rem-calc(30px);
+    }
+    .js-comment {
+        @extend .vertical-margin-space;
+    }
+    .comment-text {
+        border-left: $absolute-item-border;
+        @extend .arrowbox-left;
+        @include breakpoint (small only) {
+            //cant use @extend inside a media query so copying this here from common.scss
+            position: relative;
+            background: $bg-transparency-float;
+            border: $absolute-item-border;
+            padding: 10px;
+            &:after,
+            &:before {
+                top: 100%;
+                left: 50%;
+                right: inherit;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+            }
+            &:after {
+                border-color: transparent;
+                border-top-color: $white;
+                border-right-color: transparent;
+                border-left-color: transparent;
+                border-bottom-color: transparent;
+                border-width: 20px;
+                margin-left: -20px;
+                margin-top: inherit;
+                margin-right: inherit;
+                margin-bottom: inherit;
+            }
+            &:before {
+                border-color: transparent;
+                border-top-color: $dark-bg;
+                border-right-color: transparent;
+                border-left-color: transparent;
+                border-bottom-color: transparent;
+                border-width: 23px;
+                margin-left: -23px;
+                margin-top: inherit;
+                margin-right: inherit;
+                margin-bottom: inherit;
+            }
+        }
+        .links {
+            li {
+                @extend .button;
+                @extend .tiny;
+                margin: rem-calc(5px);
+                a {
+                    color: $white;
+                }
+            }
+        }
+    }
+}

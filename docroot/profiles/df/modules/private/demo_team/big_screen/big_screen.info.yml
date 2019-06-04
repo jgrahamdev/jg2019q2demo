@@ -1,0 +1,7 @@
+name: Big Screen
+type: module
+description: Provide the ability to designate a big screen theme and show content on the big screen with editorial previews.
+core: 8.x
+package: Custom
+dependencies:
+  - node

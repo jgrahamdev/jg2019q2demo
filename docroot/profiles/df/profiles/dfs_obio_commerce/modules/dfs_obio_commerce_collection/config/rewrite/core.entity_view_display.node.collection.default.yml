@@ -1,0 +1,55 @@
+dependencies:
+  config:
+    - field.field.node.collection.field_collection_product
+third_party_settings:
+  panelizer:
+    displays:
+      default:
+        blocks:
+          0441f2c9-aaa3-4587-9c57-0eaa990c17ab:
+            id: 'entity_field:node:field_collection_product'
+            label: 'Build Your Office'
+            provider: ctools_block
+            label_display: visible
+            formatter:
+              label: hidden
+              type: entity_reference_entity_view
+              settings:
+                view_mode: default
+              third_party_settings: {  }
+              weight: 8
+            region: middle
+            weight: 8
+            uuid: 0441f2c9-aaa3-4587-9c57-0eaa990c17ab
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+          7794de49-6f5c-44b1-bf66-8eeb5cc38c6f:
+            id: 'views_block:individual_products-block_1'
+            label: 'Products In This Collection'
+            provider: views
+            label_display: visible
+            views_label: 'Products In This Collection'
+            items_per_page: none
+            region: content
+            weight: 6
+            uuid: 7794de49-6f5c-44b1-bf66-8eeb5cc38c6f
+            context_mapping: {  }
+          a83cc12c-48b0-42a4-a9fc-a6883858aa66:
+            id: subscribe_form
+            label: 'Subscribe to Newsletter'
+            provider: dfs_obio
+            label_display: '0'
+            region: content
+            weight: 6
+            uuid: a83cc12c-48b0-42a4-a9fc-a6883858aa66
+            newsletter_description: 'Sign up to get startup news & tips'
+            context_mapping: {  }
+content:
+  field_collection_product:
+    weight: 106
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content

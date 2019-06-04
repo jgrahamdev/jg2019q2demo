@@ -1,0 +1,8 @@
+name: AS Media Acquia DAM
+type: module
+description: Proprietary Acquia DAM setup.
+core: 8.x
+package: Demo Framework Secret Modules
+dependencies:
+  - df_tools_media_acquiadam
+  - as_tracking

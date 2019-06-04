@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Template override for product's compact view mode.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - product: The rendered product fields.
+ *   Use 'product' to print them all, or print a subset such as
+ *   'product.title'. Use the following code to exclude the
+ *   printing of a given field:
+ *   @code
+ *   {{ product|without('title') }}
+ *   @endcode
+ * - product_entity: The product entity.
+ * - product_url: The product URL.
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'card-compact',
+    'commerce-product',
+    'commerce-product--type-' ~ product_entity.bundle|clean_class,
+    not product_entity.isPublished() ? 'is-unpublished',
+    view_mode ? 'view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+  <div class="card-compact__image">
+    {{ product.field_media }}
+  </div>
+
+  <div class="card-compact__content">
+    <div class="card-compact__title">
+      <a href="{{product_url}}" rel="bookmark">
+        {{- product.title -}}
+      </a>
+    </div>
+
+    {{ product|without('variation_attributes', 'title', 'field_media') }}
+  </div>
+</article>

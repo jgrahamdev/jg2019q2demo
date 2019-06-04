@@ -1,0 +1,8 @@
+name: AS Tracking
+type: module
+description: Analytics provided by amplitude.
+core: 8.x
+package: Demo Framework Secret Modules
+configure: as_tracking.settings
+dependencies:
+ - as_platform

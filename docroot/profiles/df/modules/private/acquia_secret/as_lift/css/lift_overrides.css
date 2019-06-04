@@ -1,0 +1,11 @@
+/**
+ * @file lift_overrides.css
+ */
+
+body.lift.lift-tools-active .toolbar-oriented .toolbar-bar {
+    z-index: 2000002;
+}
+
+.lift-tools-active .sticky.is-stuck {
+    position: relative!important
+}

@@ -1,0 +1,20 @@
+content:
+  body:
+    settings:
+      trim_length: 200
+    region: content
+  field_image:
+    settings:
+      image_style: article_preview
+      image_link: content
+    region: content
+  field_tags:
+    type: entity_reference_label
+    weight: 4
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_tags: false

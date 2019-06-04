@@ -1,0 +1,37 @@
+//
+// @file
+// Account BEM (for user's full view mode).
+//
+
+.account {
+  @at-root #{&}__image {
+    float: left;
+    max-width: 100px;
+
+    @include -zf-breakpoint-value(auto, $grid-column-gutter) {
+      margin-right: rem-calc($-zf-bp-value);
+    };
+  }
+
+  @at-root #{&}__content {
+    overflow: hidden;
+  }
+
+  @at-root #{&}__display-name {
+    $small-fontsize-map: map-get($header-styles, small);
+    font-family: $header-font-family;
+    font-size: rem-calc(map-get(map-get($small-fontsize-map, 'h3'), 'font-size'));
+    font-weight: $header-font-weight;
+    line-height: $header-lineheight;
+    margin-bottom: 1rem;
+
+    @media #{$medium-up} {
+      $default-fontsize-map: map-get($header-styles, medium);
+      font-size: rem-calc(map-get(map-get($default-fontsize-map, 'h3'), 'font-size'));
+    }
+
+    > .field {
+      display: inline-block;
+    }
+  }
+}

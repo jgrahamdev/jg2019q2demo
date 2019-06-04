@@ -1,0 +1,16 @@
+content:
+  field_first_name:
+    weight: 1
+    region: content
+  field_last_name:
+    weight: 2
+    region: content
+  user_picture:
+    type: image
+    weight: 0
+    settings:
+      image_style: thumbnail
+      image_link: ''
+    third_party_settings: {  }
+    label: hidden
+    region: content

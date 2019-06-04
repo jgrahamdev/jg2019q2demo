@@ -1,0 +1,44 @@
+landing:
+  label: 'Landing Page'
+  category: 'Foundation: 1'
+  path: layouts/landing
+  icon: landing.png
+  template: landing
+  regions:
+    top:
+      label: Header
+    middle:
+      label: Main
+    callout_right:
+      label: Callout Right(3/4 Width)
+    aside_left:
+      label: Aside Left(1/4 Width)
+    callout_left:
+      label: Callout Left(3/4 Width)
+    aside_right:
+      label: Aside Right(1/4 Width)
+    footer:
+      label: Footer
+3col-alt:
+  label: '3 Column Alternate'
+  category: 'Foundation: 3'
+  path: layouts/3col-alt
+  icon: 3col-alt.png
+  template: 3col-alt
+  regions:
+    top:
+      label: Header
+    top_left:
+      label: Left - Top Three Column
+    top_right:
+      label: Right - Top Three Column
+    middle:
+      label: Main
+    bottom_left:
+      label: Left - Bottom Three Column
+    bottom_middle:
+      label: Middle - Bottom Three Column
+    bottom_right:
+      label: Right - Bottom Three Column
+    footer:
+      label: Footer

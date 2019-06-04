@@ -1,0 +1,4 @@
+logo:
+  use_default: 1
+  path: profiles/df/themes/private/obio/images/logo-sm.png
+material_admin_logo: 1

@@ -1,0 +1,6 @@
+as_tracking.amplitude_api_form:
+  title: 'Amplitude'
+  description: 'Configure Amplitude Analytics'
+  route_name: as_tracking.amplitude_api_form
+  parent: system.admin_config_system
+  weight: 50

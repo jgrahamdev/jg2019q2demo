@@ -1,0 +1,39 @@
+//
+// @file
+// Theme overrides for jQuery UI.
+//
+
+.ui-widget {
+  font-family: inherit;
+
+  input,
+  select,
+  textarea,
+  button {
+    font-family: "Work Sans", sans-serif;
+  }
+
+  button {
+    font-size: 80%;
+  }
+
+  @at-root #{&}-content {
+    a {
+      color: $anchor-color;
+
+      &:hover,
+      &:focus {
+        color: $anchor-color-hover;
+      }
+    }
+  }
+}
+
+.ui-dialog {
+  max-width: 90%;
+}
+
+.ui-widget-overlay {
+  background: $dark-bg;
+  opacity: 0.5;
+}

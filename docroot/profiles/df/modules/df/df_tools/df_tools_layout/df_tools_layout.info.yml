@@ -1,0 +1,9 @@
+name: 'DF Tools Layout'
+description: 'Provides the tools to take control of your layout.'
+type: module
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - df_core
+  - lightning_layout
+  - lightning_page

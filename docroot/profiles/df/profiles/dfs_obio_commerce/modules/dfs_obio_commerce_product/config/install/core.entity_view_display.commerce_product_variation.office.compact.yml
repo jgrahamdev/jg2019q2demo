@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.office
+    - core.entity_view_mode.commerce_product_variation.compact
+    - field.field.commerce_product_variation.office.attribute_ambiance_package
+    - field.field.commerce_product_variation.office.attribute_office_size
+id: commerce_product_variation.office.compact
+targetEntityType: commerce_product_variation
+bundle: office
+mode: compact
+content: {  }
+hidden:
+  attribute_ambiance_package: true
+  attribute_office_size: true
+  langcode: true
+  price: true
+  product_id: true
+  sku: true
+  title: true

@@ -1,0 +1,29 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_edu_landing_page
+label: 'Import dfs_edu:node:landing_page'
+source:
+    plugin: creator_article_node
+    path: '../data/dfs_edu.node.landing_page.csv'
+    header_row_count: 1
+    keys: [Title]
+destination:
+    plugin: 'entity:node'
+process:
+    type: { plugin: default_value, default_value: landing_page }
+    title: Title
+    uid: UID
+    path/pathauto:
+      plugin: default_value
+      default_value: 0
+    path/alias: Path
+    body/value: Body
+    field_image: Image
+    field_tags: { plugin: migration, migration: import_dfs_edu_tags, source: Tags }
+    body/format: { plugin: default_value, default_value: rich_text }
+    moderation_state: { plugin: default_value, default_value: published }
+    uuid: UUID
+    uid: UID
+provider: import
+migration_dependencies:
+    required: [import_dfs_edu_tags]
+    optional: {  }

@@ -1,0 +1,5 @@
+name: DF Tools Cache
+type: module
+description: Drush command for clearing permanent cache obejcts.
+core: 8.x
+package: Demo Framework Tools

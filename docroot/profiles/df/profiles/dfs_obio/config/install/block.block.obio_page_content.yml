@@ -1,0 +1,24 @@
+uuid: 5b6fdc00-7dab-4dbe-b148-80a3aa5ef805
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - system
+  theme:
+    - obio
+third_party_settings:
+  block_class:
+    classes: ''
+id: obio_page_content
+theme: obio
+region: content
+weight: 1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

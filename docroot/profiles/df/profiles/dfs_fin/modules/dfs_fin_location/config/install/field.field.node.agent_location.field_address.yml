@@ -1,0 +1,37 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_address
+    - node.type.agent_location
+  module:
+    - address
+    - dfs_fin_location
+  enforced:
+    module:
+      - dfs_fin_location
+id: node.agent_location.field_address
+field_name: field_address
+entity_type: node
+bundle: agent_location
+label: Address
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_countries:
+    US: US
+  fields:
+    administrativeArea: administrativeArea
+    locality: locality
+    dependentLocality: dependentLocality
+    postalCode: postalCode
+    sortingCode: sortingCode
+    addressLine1: addressLine1
+    addressLine2: addressLine2
+    organization: organization
+    recipient: recipient
+  langcode_override: ''
+field_type: address

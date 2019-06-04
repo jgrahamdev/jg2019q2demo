@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    description: 'Used on the cart page'
+id: commerce_product_variation.cart_page
+label: 'Cart page'
+targetEntityType: commerce_product_variation
+cache: true

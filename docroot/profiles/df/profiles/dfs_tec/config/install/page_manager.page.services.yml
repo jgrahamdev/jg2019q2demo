@@ -1,0 +1,12 @@
+uuid: 920b592f-2a92-4a17-a204-04674b1dee68
+langcode: en
+status: true
+dependencies: {  }
+id: services
+label: Services
+description: ''
+use_admin_theme: false
+path: /services
+access_logic: and
+access_conditions: {  }
+parameters: {  }

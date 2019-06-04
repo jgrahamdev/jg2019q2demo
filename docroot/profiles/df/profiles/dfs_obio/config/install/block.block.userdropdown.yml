@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - df_tools_user
+  theme:
+    - obio
+third_party_settings:
+  block_class:
+    classes: ''
+id: userdropdown
+theme: obio
+region: header_right
+weight: -2
+provider: null
+plugin: user_dropdown
+settings:
+  id: user_dropdown
+  label: 'User Dropdown'
+  provider: df_tools_user
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,25 @@
+name: 'DFS FIN Products'
+type: module
+description: 'Insurance product bundle and associated views.'
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - block_content
+  - content_browser
+  - content_translation
+  - df_tools_blocks
+  - df_tools_icons
+  - dfs_fin_testimonials
+  - entity_browser
+  - field
+  - file
+  - image
+  - node
+  - page_manager
+  - panelizer
+  - panels
+  - path
+  - text
+  - user
+  - views
+  - content_moderation

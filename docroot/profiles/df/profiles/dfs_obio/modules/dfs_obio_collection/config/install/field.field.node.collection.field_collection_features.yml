@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_collection_features
+    - node.type.collection
+  module:
+    - df_tools_tabs
+id: node.collection.field_collection_features
+field_name: field_collection_features
+entity_type: node
+bundle: collection
+label: Features
+description: 'A tabbed list of features for this collection'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_with_tab

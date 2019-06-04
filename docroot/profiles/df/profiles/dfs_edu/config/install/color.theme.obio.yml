@@ -1,0 +1,32 @@
+palette:
+  base: '#f2f2fa'
+  text: '#0a0a0a'
+  link: '#cb7f34'
+  logocolor: '#cb7f34'
+  linkrel: '#ffffff'
+  linkhover: '#945d26'
+  linkcolor: '#cb7f34'
+  linkcolorhover: '#945d26'
+  headerbg: '#ffffff'
+  headerbgmeta: '#010101'
+  headercolor: '#353535'
+  headerlinkcolor: '#353535'
+  headerlinkcolorhover: '#e2a971'
+  cardbg: '#ffffff'
+  cardcolor: '#0a0a0a'
+  cardlinkcolor: '#cb7f34'
+  cardlinkcolorhover: '#945d26'
+  footerbg: '#010101'
+  footercolor: '#ffffff'
+  footerlinkcolor: '#ffffff'
+  footerlinkcolorhover: '#e2a971'
+  label: '#cb7f34'
+_core:
+  default_config_hash: lYZDFiu9b7zFupAwLOlUBHyaMjnuqwyItwuNCH9xbVU
+logo: 'public://color/obio-798f438e/logo.svg'
+stylesheets:
+  - 'public://color/obio-798f438e/obio-colors.css'
+files:
+  - 'public://color/obio-798f438e/logo.svg'
+  - 'public://color/obio-798f438e/obio-colors.css'
+

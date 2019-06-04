@@ -1,0 +1,44 @@
+//
+// @file
+// Replaces Commerce Order 'total summary' theme.
+//
+
+@import '../settings';
+
+$summary-spacing-vertical: 1.5rem;
+$summary-total-spacing-top: 0.5rem;
+
+.order-summary {
+  display: table;
+  width: 100%;
+  margin-top: $summary-spacing-vertical;
+  margin-bottom: $summary-spacing-vertical;
+
+  @at-root #{&}__line {
+    display: table-row;
+    text-align: right;
+  }
+
+  @at-root #{&}__label {
+    display: table-cell;
+    font-weight: bold;
+
+    &::after {
+      content: ':';
+    }
+
+    @at-root #{&}--total {
+      border-top: $summary-total-spacing-top solid transparent;
+    }
+  }
+
+  @at-root #{&}__value {
+    display: table-cell;
+    width: 6em;
+    padding-left: 2em;
+
+    @at-root #{&}--total {
+      border-top: $summary-total-spacing-top solid transparent;
+    }
+  }
+}

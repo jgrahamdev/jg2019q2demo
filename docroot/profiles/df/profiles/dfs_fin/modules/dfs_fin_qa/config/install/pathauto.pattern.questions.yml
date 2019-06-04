@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - dfs_fin_qa
+  enforced:
+    module:
+      - dfs_fin_qa
+id: questions
+label: Questions
+type: 'canonical_entities:node'
+pattern: '/question/[node:title]'
+selection_criteria:
+  195d9899-65ca-467b-bb00-db0f41603fc0:
+    id: node_type
+    bundles:
+      question: question
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 63f7230c-7727-4e07-b635-53eefc88a824
+selection_logic: and
+weight: -6
+relationships:
+  'node:langcode:language':
+    label: Language
+

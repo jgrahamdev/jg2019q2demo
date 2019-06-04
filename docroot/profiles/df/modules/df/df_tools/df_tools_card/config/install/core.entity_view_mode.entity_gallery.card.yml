@@ -1,0 +1,14 @@
+uuid: b9bf62b4-f051-46a5-9ae7-f14a008bca6a
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_gallery
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    description: 'A compact view mode – similar to teaser.'
+id: entity_gallery.card
+label: Card
+targetEntityType: entity_gallery
+cache: true

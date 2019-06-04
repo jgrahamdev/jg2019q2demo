@@ -1,0 +1,124 @@
+<?php
+
+/**
+ * @file
+ *   Contains theme functions for the tec theme.
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\node\Entity\Node;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_preprocess_menu().
+ */
+function tec_preprocess_menu(&$variables) {
+  // Add our linked logo to all menus, in case we want to output it.
+  if (!isset($variables['linked_logo'])) {
+    $logo = theme_get_setting('logo');
+    $site_name = \Drupal::config('system.site')->get('name');
+
+    $title = strip_tags($site_name) . ' ' . t('Home');
+    $url = \Drupal\Core\Url::fromRoute('<front>');
+    $url->setOption('attributes', array('title' => $title));
+
+    $logo_img = array(
+      '#theme' => 'image',
+      '#attributes' => array(
+        'src' => $logo['url'],
+        'class' => array('logo'),
+      )
+    );
+
+    $variables['linked_logo'] = \Drupal::l($logo_img, $url);
+  }
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function tec_preprocess_block(&$variables) {
+  if ($variables['elements']['#plugin_id'] == 'system_menu_block:main') {
+    // $variables['attributes']['class'][] = 'top-bar';
+    // $variables['attributes']['data-options'] = array('sticky_on: large');
+    // $variables['attributes']['data-topbar'] = array();
+    // $variables['attributes']['role'] = 'navigation';
+  }
+  // Add helpful classes for theming the block
+  if (isset($variables['content']['#block_content'])) {
+    $bundle = $variables['content']['#block_content']->bundle();
+    $variables['attributes']['class'][] = 'block-bundle-' . Html::getClass($bundle);
+  }
+
+  // Force translation for block titles.
+  if (isset($variables['label'])) {
+    if (!is_array($variables['label'])) {
+      $variables['label'] = t($variables['label']);
+    }
+    elseif (isset($variables['label']['#markup'])) {
+      $variables['label']['#markup'] = t($variables['label']['#markup']);
+    }
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function tec_preprocess_node(&$variables) {
+  // Move hero images outside the normal <article> wrapper if present
+  if (isset($variables['content']['field_image'])) {
+    $variables['hero'] = $variables['content']['field_image'];
+    unset($variables['content']['field_image']);
+  }
+  elseif (isset($variables['content']['field_hero_image'])) {
+    $variables['hero'] = array();
+    $variables['hero'][] = $variables['content']['field_hero_image'];
+    $variables['hero'][] = $variables['content']['field_headline'];
+    $variables['hero'][] = $variables['content']['field_subheadline'];
+    unset($variables['content']['field_hero_image']);
+    unset($variables['content']['field_headline']);
+    unset($variables['content']['field_subheadline']);
+  }
+  // Add job title to label, if present
+  if (isset($variables['content']['field_title']) && !empty($variables['content']['field_title'][0]['#markup'])) {
+    // This swapping is required as Drupal 8 beta12 has taken some liberties with caching node titles
+    // See https://www.drupal.org/node/2507967 for more info
+    $markup = $variables['label'][0]['#markup'];
+    $markup .= ', ' . $variables['content']['field_title'][0]['#markup'];
+    unset($variables['label']);
+    $variables['label'] = array('#markup' => $markup);
+    unset($variables['content']['field_title']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function tec_preprocess_page(&$variables) {
+  // Add an extra helper variable so we can target pages for certain node types.
+  if (isset($variables['node'])) {
+    $node = $variables['node'];
+
+    // When viewing a revision $node will be numeric.
+    // @see https://www.drupal.org/node/2495703
+    if (is_numeric($node)) {
+      $node = Node::load($node);
+    }
+    if ($node instanceof NodeInterface) {
+      $variables['content_wrap_classes'] = 'node-' . $node->getType();
+    }
+
+    // We already display the title in node--full.html.twig
+    unset($variables['page']['content']['pagetitle']);
+  }
+
+  // Wrap tabs so we can float them above our hero images.
+  if (isset($variables['page']['content']['tabs'] )) {
+    $variables['page']['content']['tabs'] = [
+      '#type' => 'container',
+      '#attributes' => ['class' => ['tab-wrap']],
+      0 => $variables['page']['content']['tabs']
+    ];
+  }
+}

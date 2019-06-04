@@ -1,0 +1,14 @@
+id: import_dfs_obio_video
+label: Import dfs_obio:media:video
+source:
+  plugin: csv
+  path: '../data/dfs_obio.media.video.csv'
+  header_row_count: 1
+  keys: [Name]
+destination:
+  plugin: entity:media
+process:
+  bundle: { plugin: default_value, default_value: video }
+  field_media_video_embed_field: Video
+  name: Name
+  uuid: UUID

@@ -1,0 +1,120 @@
+uuid: a5890ee5-15a2-419e-a395-8b789f58664b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.tags.field_image
+    - taxonomy.vocabulary.tags
+  module:
+    - field_group
+    - text
+third_party_settings:
+  field_group:
+    group_hero:
+      children:
+        - group_hero_image
+        - group_hero_content
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        label: Hero
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'full-width-row l-over-each color-inverse'
+      label: Hero
+    group_hero_image:
+      children:
+        - field_image
+      parent_name: group_hero
+      weight: 0
+      format_type: html_element
+      format_settings:
+        label: 'Hero image'
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'l-over-each__item l-over-each__nested-img l-over-each__nested-img--hero-thin'
+      label: 'Hero image'
+    group_hero_content:
+      children:
+        - group_hero_inner_content
+      parent_name: group_hero
+      weight: 1
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: l-over-each__item
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Hero content'
+    group_hero_inner_content:
+      children:
+        - group_container
+      parent_name: group_hero_content
+      weight: 0
+      format_type: html_element
+      format_settings:
+        label: 'Hero inner content'
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'full-width-inner text-center'
+      label: 'Hero inner content'
+    group_container:
+      children:
+        - description
+      parent_name: group_hero_inner_content
+      weight: 0
+      format_type: html_element
+      format_settings:
+        label: Container
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'column spacing-double term__content'
+      label: Container
+id: taxonomy_term.tags.default
+targetEntityType: taxonomy_term
+bundle: tags
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: hero_thin
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  langcode: true

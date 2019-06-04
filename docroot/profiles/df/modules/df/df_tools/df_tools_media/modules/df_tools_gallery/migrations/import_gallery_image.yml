@@ -1,0 +1,17 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_gallery_image
+label: 'Import entity_gallery:image'
+source:
+    plugin: image_gallery
+    path: ../data/entity_gallery.image.csv
+    header_row_count: 1
+    keys: [UUID]
+    csvColumns: { 0: 'UUID', 1: 'Title', 2: 'Images' }
+destination:
+    plugin: 'entity:entity_gallery'
+process:
+    type: { plugin: default_value, default_value: image }
+    uuid: UUID
+    title: Title
+    entity_gallery_file: Images
+provider: df_tools_gallery

@@ -1,0 +1,256 @@
+# Spanish translation of Bayside Associates
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-08-28 20:47+0000\n"
+"PO-Revision-Date: 2015-08-28 20:47+0000\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Products"
+msgstr "Productos"
+
+msgid "Our Company"
+msgstr "Nuestra Compañía"
+
+msgid "Contact us"
+msgstr "Contáctenos"
+
+msgid "Contact"
+msgstr "Contacto"
+
+msgid "View Profile"
+msgstr "Ver Perfil"
+
+msgid "Account"
+msgstr "Cuenta"
+
+msgid "My account"
+msgstr "Mi Cuenta"
+
+msgid "All rights reserved."
+msgstr "Reservados todos los derechos."
+
+msgid "Get Started"
+msgstr "Cómo Comienzo"
+
+msgid "Get a quote"
+msgstr "Consigue una cotización"
+
+msgid "Find a location"
+msgstr "Encontrar una ubicación"
+
+msgid "Frequently asked questions"
+msgstr "Preguntas frecuentes"
+
+msgid "Search..."
+msgstr "Buscar..."
+
+msgid "Auto"
+msgstr "Auto"
+
+msgid "Disability"
+msgstr "Discapacidad"
+
+msgid "Home"
+msgstr "Inicio"
+
+msgid "Life"
+msgstr "La vida"
+
+msgid "History"
+msgstr "Historia"
+
+msgid "Terms & Conditions"
+msgstr "Términos y Condiciones"
+
+msgid "Our Story"
+msgstr "Nuestra Historia"
+
+msgid "Sign up for our newsletter"
+msgstr "Suscríbete a nuestro boletín de noticias"
+
+msgid "We will keep your address safe"
+msgstr "Vamos a mantener su dirección segura!"
+
+msgid "we promise!"
+msgstr "prometemos!"
+
+msgid "your email address"
+msgstr "su dirección de correo electrónico"
+
+msgid "Subscribe"
+msgstr "Suscribirse"
+
+msgid "Bundle & Save"
+msgstr "Bundle y Guardar"
+
+msgid "Bundle your bayside Insurance policies and see the savings roll in."
+msgstr "Bundle sus pólizas de seguro junto a la bahía y ver el rollo de ahorro en."
+
+msgid "Start A Quote"
+msgstr "Iniciar una cotización"
+
+msgid "Question:"
+msgstr "Pregunta:"
+
+msgid "Answer:"
+msgstr "Respuesta:"
+
+msgid "Welcome to Resource Center — the one-stop shop where you can learn about all things insurance. No matter what you're looking to get covered, find all the tips, resources, and insights you'll need here."
+msgstr "Bienvenido al Centro de Recursos - la ventanilla única donde se puede aprender de seguro sobre todas las cosas No importa lo que usted está mirando para conseguir cubierto, encontrar todos los consejos, recursos y conocimientos que van a necesitar aquí."
+
+msgid "Read More"
+msgstr "Leer más"
+
+msgid "Quote Type"
+msgstr "Tipo de cotización"
+
+msgid "Do you currently have this insurance?"
+msgstr "¿Actualmente tiene este seguro?"
+
+msgid "I am interested in..."
+msgstr "Estoy interesado en ..."
+
+msgid "Personal Information"
+msgstr "Información Personal"
+
+msgid "First Name"
+msgstr "Nombre"
+
+msgid "Last Name"
+msgstr "Apellido"
+
+msgid "Phone"
+msgstr "Teléfono"
+
+msgid "Street"
+msgstr "Calle"
+
+msgid "Postal Code"
+msgstr "Código Postal"
+
+msgid "Additional Information"
+msgstr "Información adicional"
+
+msgid "Do you have other policies with Bayside Insurance?"
+msgstr "¿Tiene otras políticas con Bayside seguro?"
+
+msgid "No existing policy"
+msgstr "No hay una política existente"
+
+msgid "Auto Insurance"
+msgstr "Seguro de automóvil"
+
+msgid "Home Insurance"
+msgstr "Seguros de Hogar"
+
+msgid "Disability Insurance"
+msgstr "Seguro de Incapacidad"
+
+msgid "Life Insurance"
+msgstr "Seguro de Vida"
+
+msgid "Additional information we should know about your request"
+msgstr "Información adicional que debe saber sobre su solicitud"
+
+msgid "Additional Interests"
+msgstr "Intereses Adicionales"
+
+msgid "Advisory Services"
+msgstr "Servicios de asesoramiento"
+
+msgid "Auto Policies"
+msgstr "Políticas de Auto"
+
+msgid "Employee benefit and retention services"
+msgstr "servicios de beneficios de empleado y retención"
+
+msgid "Estate strategies"
+msgstr "Estrategias raíces"
+
+msgid "Insurance Strategies"
+msgstr "Estrategias de Seguros"
+
+msgid "Investment Strategies"
+msgstr "Estrategias de Inversión"
+
+msgid "Property and estate strategies"
+msgstr "Estrategias de propiedad y raíces"
+
+msgid "Renters Insurance"
+msgstr "Seguro para inquilinos"
+
+msgid "Retirement analysis"
+msgstr "Análisis de Retiro"
+
+msgid "Venture Capital Investment Strategy"
+msgstr "Estrategia de Inversión de Capital de Riesgo"
+
+msgid "Wealth Management"
+msgstr "Gestión de patrimonios"
+
+msgid "Select up to three additional areas you are interested in."
+msgstr "Seleccionar hasta tres áreas adicionales que le interesan."
+
+msgid "Has claims adjuster"
+msgstr "Ha ajustador de reclamos"
+
+msgid "East"
+msgstr "Este"
+
+msgid "West"
+msgstr "Oeste"
+
+msgid "What our customers are saying"
+msgstr "Lo que nuestros clientes estan diciendo"
+
+msgid "Learn More"
+msgstr "Aprende Más"
+
+msgid "Learn More >"
+msgstr "Aprende Más >"
+
+msgid "Share:"
+msgstr "Compartir:"
+
+msgid "You may also be interested in:"
+msgstr "Usted también podría estar interesado en:"
+
+msgid "Log Out"
+msgstr "Cerrar Sesión"
+
+msgid "Read"
+msgstr "Leer"
+
+msgid "Do you have a question you'd like answered?"
+msgstr "¿Tiene una pregunta que le gustaría que respondió?"
+
+msgid "Click here to ask one of our Bayside Agents today."
+msgstr "Haga clic aquí para pedir a uno de nuestros agentes de Bayside hoy."
+
+msgid "No agent or policy information found. Would you like to"
+msgstr "Ningún agente o política de información encontrada. Te gustaria"
+
+msgid "request a quote"
+msgstr "solicitar presupuesto"
+
+msgid "for insurance?"
+msgstr "para el seguro?"
+
+msgid "No members found."
+msgstr "No se encontraron usuarios."
+
+msgid "No pending quote requests."
+msgstr "No hay pendientes solicitudes de presupuesto."
+
+msgid "Find an insurance professional near you"
+msgstr "Encontrar un profesional de seguros cerca de usted"
+
+msgid "Enter your address or zip code."
+msgstr "Introduzca su dirección o código postal"

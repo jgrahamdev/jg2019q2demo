@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Set up the Obio Contact forms.
+ */
+
+/**
+ * Implements hook_install();
+ */
+function dfs_obio_contact_install() {
+  if ($path = \Drupal::service('path.alias_storage')->save("/contact/book_appointment", "/book-apt", "en")) {
+    $message = t('Added the "/book-apt" url alias.');
+    \Drupal::logger('dfs_obio_contact')->info($message);
+  }
+}
+

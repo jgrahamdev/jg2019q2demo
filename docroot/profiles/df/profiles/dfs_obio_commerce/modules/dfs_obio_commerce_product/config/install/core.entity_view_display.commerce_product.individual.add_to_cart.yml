@@ -1,0 +1,55 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.individual
+    - core.entity_view_mode.commerce_product.add_to_cart
+    - field.field.commerce_product.individual.body
+    - field.field.commerce_product.individual.field_features
+    - field.field.commerce_product.individual.field_media
+    - field.field.commerce_product.individual.field_reviews
+    - field.field.commerce_product.individual.field_success_stories
+    - field.field.commerce_product.individual.field_tags
+    - field.field.commerce_product.individual.stores
+    - field.field.commerce_product.individual.variations
+  module:
+    - commerce_product
+    - panelizer
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: commerce_product.individual.add_to_cart
+targetEntityType: commerce_product
+bundle: individual
+mode: add_to_cart
+content:
+  field_reviews:
+    type: comment_average_rating_and_anchor
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      anchor: '1'
+      type: stars
+    third_party_settings: {  }
+  variations:
+    type: commerce_add_to_cart
+    weight: 1
+    label: hidden
+    settings:
+      combine: true
+    third_party_settings: {  }
+    region: content
+hidden:
+  body: true
+  created: true
+  field_features: true
+  field_media: true
+  field_success_stories: true
+  field_tags: true
+  langcode: true
+  stores: true
+  uid: true

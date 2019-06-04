@@ -1,0 +1,6 @@
+as-journey-lift:
+  version: 1.x
+  js:
+    js/as_journey_lift.js: {}
+  dependencies:
+    - core/jquery

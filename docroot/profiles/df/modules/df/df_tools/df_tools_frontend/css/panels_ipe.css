@@ -1,0 +1,33 @@
+/**
+ * @file panels_ipe.css
+ */
+
+ /**
+ * On landing page in DF, dont display the revert option. It works as intened, but since we have "Out of the box"
+ * Landing pages, revert shows a blank screen rather than the OOTB version.
+ */
+
+.node--type-landing-page li.ipe-tab[data-tab-id="revert"] {
+	display:none;
+
+}
+
+.node--type-landing-page li.ipe-tab[data-tab-id="revert"]:last-of-type(-n+2)  {
+	box-shadow: 2px -1px 2px rgba(0, 0, 0, 0.3333);
+	border-top-right-radius: 5px;
+}
+
+ /** In editing mode, make full width items contain to the grid. */
+.panels-ipe-active .full-width-row {
+	width:100%;
+	left:0;
+	transition: all 0.5s linear;
+}
+
+.ipe-form .tabledrag-handle {
+  margin-right: 10px;
+}
+
+.ipe-form .draggable td:first-child {
+  padding-left: 1.5rem;
+}

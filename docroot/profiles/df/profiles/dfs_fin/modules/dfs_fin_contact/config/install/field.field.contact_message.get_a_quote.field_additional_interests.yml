@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.get_a_quote
+    - field.storage.contact_message.field_additional_interests
+    - taxonomy.vocabulary.areas_of_focus
+  module:
+    - dfs_fin_contact
+  enforced:
+    module:
+      - dfs_fin_contact
+id: contact_message.get_a_quote.field_additional_interests
+field_name: field_additional_interests
+entity_type: contact_message
+bundle: get_a_quote
+label: 'Additional Interests'
+description: 'Select up to three additional areas you are interested in.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      areas_of_focus: areas_of_focus
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference
+

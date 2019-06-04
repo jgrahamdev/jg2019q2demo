@@ -1,0 +1,6 @@
+name: DFS Obio Tour
+type: module
+description: Provides Inlinemanual for OBIO tours.
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+configure: dfs_obio_tour.settings

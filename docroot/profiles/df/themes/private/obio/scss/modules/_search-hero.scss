@@ -1,0 +1,42 @@
+.block-plugin-id-search-form-hero {
+    position: relative;
+    z-index: 1;
+    h2.block-title {
+        position: absolute;
+        top: 30%;
+        text-align: center;
+        color: $white;
+        width: 100%;
+        z-index: 2;
+        margin-top: 0;
+    }
+    img.search-form-background {
+        width: 100%;
+    }
+    .search-form-wrapper {
+        position: absolute;
+        top: 45%;
+        @include breakpoint(small only) {
+               top: 40%;
+        }
+        z-index: 2;
+        text-align: center;
+        width:100%;
+        .search-block-form, .obio-form {
+            label{
+                display:none;
+            }
+            max-width: 20em;
+            width: 20em;
+            position: relative;
+            margin: 0 auto;
+            input.form-search, input.auto_submit {
+                display: inline;
+                border: 2px solid $black;
+            }
+            .form-actions {
+                visibility: hidden;
+            }
+        }
+    }
+}

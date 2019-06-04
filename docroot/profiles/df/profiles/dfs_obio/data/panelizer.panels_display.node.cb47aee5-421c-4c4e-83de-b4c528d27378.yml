@@ -1,0 +1,92 @@
+blocks:
+  b5d04d91-387e-4164-a947-4bd851d365ea:
+    id: 'block_content:f23e259b-6ebe-435c-8c67-be4cebb150a1'
+    label: 'Obio Home Hero'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: top
+    uuid: b5d04d91-387e-4164-a947-4bd851d365ea
+    weight: 1
+  09dd6f35-8079-41da-ac84-3d20044f5c5a:
+    id: 'block_content:c49c9224-35d0-4ffb-8ebc-f66a2af144a7'
+    label: 'Obio Subscription Hero'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 09dd6f35-8079-41da-ac84-3d20044f5c5a
+    weight: 2
+  e56ea84f-b4bb-4f7c-8c4d-393965788540:
+    id: 'views_block:featured_collections-collections_callout'
+    label: ''
+    provider: views
+    label_display: visible
+    views_label: ''
+    items_per_page: none
+    context_mapping: {  }
+    region: middle
+    uuid: e56ea84f-b4bb-4f7c-8c4d-393965788540
+    weight: 3
+  16987456-19fd-429c-8ed0-c3ed5d4fb990:
+    id: 'views_block:obio_topics-block_1'
+    label: ''
+    provider: views
+    label_display: visible
+    views_label: ''
+    items_per_page: none
+    context_mapping: {  }
+    region: middle
+    uuid: 16987456-19fd-429c-8ed0-c3ed5d4fb990
+    weight: 1
+  bc9bb140-cfea-4923-83b4-da011b88b8ca:
+    id: 'entity_block:block_content'
+    label: 'Custom block'
+    provider: entity_block
+    label_display: false
+    entity: '6'
+    entity_uuid: 59c3fd0b-128b-42a1-84fa-ca062bf6b4d5
+    view_mode: featured
+    context_mapping: {  }
+    region: callout_left
+    uuid: bc9bb140-cfea-4923-83b4-da011b88b8ca
+    weight: 1
+  33a36e2f-14e2-4563-8b1f-ea23aacbb9f8:
+    id: 'views_block:article_collection-block_1'
+    label: ''
+    provider: views
+    label_display: visible
+    views_label: ''
+    items_per_page: none
+    context_mapping: {  }
+    region: aside_right
+    uuid: 33a36e2f-14e2-4563-8b1f-ea23aacbb9f8
+    weight: 1
+  aeb82da0-1970-4b3e-ba53-0e1852aead1f:
+    id: 'views_block:featured_products-products_callout'
+    label: ''
+    provider: views
+    label_display: visible
+    views_label: ''
+    items_per_page: none
+    context_mapping: {  }
+    region: middle
+    uuid: aeb82da0-1970-4b3e-ba53-0e1852aead1f
+    weight: 4
+id: panels_variant
+uuid: 66654ba9-dca2-4264-bd09-9beeb133bd80
+label: ''
+weight: 0
+layout: landing
+layout_settings: {  }
+page_title: '[node:title]'
+storage_type: panelizer_field
+storage_id: 'node:25:full:106'
+pattern: panelizer
+builder: ipe

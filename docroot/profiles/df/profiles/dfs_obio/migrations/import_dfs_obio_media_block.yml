@@ -1,0 +1,25 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_obio_media_block
+label: 'Import dfs_obio:block_content:media'
+source:
+    plugin: csv
+    path: '../data/dfs_obio.block_content.media.csv'
+    header_row_count: 1
+    keys: [UUID]
+destination:
+    plugin: 'entity:block_content'
+process:
+    type: { plugin: default_value, default_value: media }
+    uuid: UUID
+    info: Info
+    field_media:
+      -
+        plugin: explode
+        delimiter: ','
+        source: Media
+      -
+        plugin: migration
+        migration: import_dfs_obio_image
+provider: import
+migration_dependencies:
+    required: [import_dfs_obio_image]

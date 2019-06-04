@@ -1,0 +1,285 @@
+<?php
+
+/**
+ * @file
+ * Contains dfs_fin_contact.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
+
+function dfs_fin_contact_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $default_forms = [
+    'contact_message_request_more_info_form',
+    'contact_message_feedback_form',
+    'contact_message_get_a_quote_form',
+  ];
+  if (in_array($form_id, $default_forms)) {
+    // Add default placeholders to known forms.
+    $form['name']['#attributes']['placeholder'] = 'Bob Smith';
+    $form['mail']['#attributes']['placeholder'] = 'bob.smith@example.com';
+    $placeholder_map = [
+      'field_first_name' => 'Bob',
+      'field_last_name' => 'Smith',
+      'field_phone_number' => '1-888-555-5555',
+      'field_street' => 'Street address',
+      'field_city' => 'City',
+      'field_postal_code' => 'Postal Code',
+      'field_additional_information' => 'Additional information we should know about your request'
+    ];
+    foreach ($placeholder_map as $field => $placeholder) {
+      if (isset($form[$field])) {
+        $form[$field]['widget'][0]['value']['#attributes']['placeholder'] = t($placeholder);
+      }
+    }
+    // Add submit handlers.
+    foreach (array_keys($form['actions']) as $action) {
+      if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+        if ($form_id == 'contact_message_get_a_quote_form') {
+          $form['actions'][$action]['#submit'][] = 'dfs_fin_contact_form_submit_quote';
+          $form['actions'][$action]['#value'] = t('Submit Quote');
+        }
+        $form['actions'][$action]['#submit'][] = 'dfs_fin_contact_form_submit';
+      }
+    }
+  }
+
+  $user = \Drupal::currentUser();
+
+  // Clean up the core "prefilled" fields.
+  if (!$user->isAnonymous() && in_array($form_id, $default_forms)) {
+    $fields = ['name', 'mail'];
+    foreach ($fields as $field) {
+      $form[$field]['#type'] = 'textfield';
+      $form[$field]['#disabled'] = TRUE;
+      unset($field);
+    }
+    unset($fields);
+  }
+
+  // Set up the customized Get a Quote form.
+  if ($form_id == 'contact_message_get_a_quote_form') {
+    // Fill in known details about the logged-in user.
+    if (!$user->isAnonymous()) {
+      $uid = $user->id();
+      $user = \Drupal::entityTypeManager()
+        ->getStorage('user')
+        ->loadByProperties(['uid' => $uid]);
+      $user = reset($user);
+      // Auto fill quote form fields with existing user information.
+      $auto_fill_fields = [
+        'field_first_name',
+        'field_last_name'
+      ];
+      foreach($auto_fill_fields as $auto_fill_field) {
+        if ($auto_fill_value = $user->get($auto_fill_field)->getValue()) {
+          $form[$auto_fill_field]['widget'][0]['value']['#default_value'] = $auto_fill_value[0]['value'];
+        }
+      }
+      // Auto-select an existing subscription.
+      if ($subscriptions = $user->get('field_subscriptions')->getValue()) {
+        $sub_nid = $subscriptions[0]['target_id'];
+        $sub_node = Node::load($sub_nid);
+        $sub_title = $sub_node->getTitle();
+        $sub_key = strtolower(str_replace(' ', '_', $sub_title));
+        $form['field_has_other_policies']['widget']['#default_value'] = [$sub_key];
+      }
+    }
+
+    $form['field_vin']['widget']['#title'] = '';
+    $form['field_vin']['widget']['actions']['ief_add']['#value'] = t('Add new information');
+    $form['field_vin']['widget']['actions']['ief_add_existing']['#value'] = t('Lookup VIN number');
+
+    // Add default styling to the inline form.
+    if (isset($form['field_vin']['widget']['form'])) {
+      if (isset($form['field_vin']['widget']['form']['actions']['ief_reference_save'])) {
+        $form['field_vin']['widget']['form']['#title'] = t('Add existing information');
+        $form['field_vin']['widget']['form']['actions']['ief_reference_save']['#value'] = t('Add');
+        $form['field_vin']['widget']['form']['entity_id']['#title'] = t('VIN Number');
+      }
+      else {
+        $form['field_vin']['widget']['form']['#title'] = t('Add new information');
+        $form['field_vin']['widget']['form']['inline_entity_form']['#ief_labels']['singular'] = t(' new record');
+        $form['field_vin']['widget']['form']['inline_entity_form']['#ief_labels']['plural'] = t(' new records');
+      }
+    }
+
+    // Group fields into fieldsets for the "Get a Quote" form.
+    $fieldset_map = [
+      'Quote Type' => [
+        ['field_interested_in', 'field_has_insurance']
+      ],
+      'Personal Information' => [
+        ['field_first_name', 'field_last_name'],
+        ['mail', 'field_phone_number'],
+        ['field_street', 'field_city', 'field_postal_code']
+      ],
+      'Additional Information' => [
+        ['field_has_other_policies'],
+        ['field_additional_information'],
+        ['field_additional_interests']
+      ],
+      'Vehicle Information' => [
+        ['field_vin'],
+      ],
+    ];
+    foreach ($fieldset_map as $title => $field_group) {
+      $fieldset_key = strtolower(str_replace(' ', '_', $title));
+      $form[$fieldset_key] = [
+        '#type' => 'fieldset',
+        '#title' => t($title),
+        '#attributes' => ['class' => ['fieldset']],
+      ];
+      foreach ($field_group as $fields) {
+        $field_group_container = [
+          '#type' => 'container',
+          '#attributes' => ['class' => ['row']],
+        ];
+        foreach ($fields as $field) {
+          $field_container = [
+            '#type' => 'container',
+            '#attributes' => ['class' => ['columns', 'small-12', 'medium-' . floor(12 / count($fields))]],
+          ];
+          // Add the auto-fill field and 'mail to "prefilled" list.
+          if (isset($auto_fill_fields)) {
+            $prefilled_fields = $auto_fill_fields;
+            $prefilled_fields[] = 'mail';
+            // Apply the "prefilled" cass to these fields.
+            if (in_array($field, $auto_fill_fields) && !$user->isAnonymous()) {
+              $field_container['#attributes']['class'][] = 'prefilled';
+            }
+          }
+          $field_container[$field] = $form[$field];
+          $field_group_container[] = $field_container;
+          unset($form[$field]);
+        }
+        $form[$fieldset_key][] = $field_group_container;
+      }
+    }
+
+    // @todo Figure out if we want these fields going forward.
+    $form['additional_information']['#attributes']['class'][] = 'visually-hidden';
+
+    // Modify the VIN number section of the form.
+    $form['vehicle_information']['#states'] = [
+      'visible' => [
+        'select[name="field_interested_in"]' => ['value' => 'auto_insurance'],
+      ],
+    ];
+
+    // Additional validation required.
+    $form['#validate'][] = 'dfs_fin_contact_form_validate_quote';
+  }
+}
+
+function dfs_fin_contact_form_validate_quote($form, FormStateInterface $form_state) {
+  $user = \Drupal::currentUser();
+  // Determine if requested email from anon user is already in system.
+  if ($user->isAnonymous()) {
+    $values = $form_state->getValues();
+    $email_requested = $values['mail'];
+    $request_user = \Drupal::entityTypeManager()
+      ->getStorage('user')
+      ->loadByProperties(['mail' => $email_requested]);
+    if (!empty($request_user)) {
+      $form_state->setErrorByName(0, t("The email address requested '%email' is already in use. If this is your email, please sign in before requesting a new quote.", array('%email' => $values[0])));
+    }
+  }
+}
+
+
+function dfs_fin_contact_form_submit_quote($form, FormStateInterface $form_state) {
+  if (!\Drupal::currentUser()->isAnonymous()) {
+    // Redirect Quote Form submission for authenticated users.
+    $form_state->setRedirect('user.page');
+  }
+}
+
+function dfs_fin_contact_mail_alter(&$message) {
+  if (!isset($message['params']['contact_message'])) {
+    return;
+  }
+
+  /** @var \Drupal\contact\Entity\Message $contact_message */
+  $contact_message = $message['params']['contact_message'];
+  if ($contact_message->getContactForm()->id() == 'get_a_quote') {
+    $user = \Drupal::currentUser();
+    // Create a new account for the anon user.
+    if ($user->isAnonymous()) {
+      $email_requested = $contact_message->get('mail')->getString();
+      $request_user = \Drupal::entityTypeManager()
+        ->getStorage('user')
+        ->loadByProperties(['mail' => $email_requested]);
+      if (empty($request_user)) {
+        $new_user = [
+          'uid' => NULL,
+          'type' => 'user',
+          'name' => $email_requested,
+          'status' => 1,
+          'created' => REQUEST_TIME,
+          'mail' => $email_requested,
+          'field_first_name' => $contact_message->get('field_first_name')->getString(),
+          'field_last_name' => $contact_message->get('field_last_name')->getString(),
+          'field_phone_number' => $contact_message->get('field_phone_number')->getString()
+        ];
+        $user = \Drupal::entityTypeManager()
+          ->getStorage('user')
+          ->create($new_user);
+        $user->save();
+        // Send the account activation email.
+        $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        _user_mail_notify('status_activated', $user, $langcode);
+      }
+    }
+    // Use the Quote Request form values to create a new Quote node.
+    $uid = $user->id();
+    $email = $user->getEmail();
+    $product_request = str_replace('_', ' ', $contact_message->get('field_interested_in')->getString());
+    $product_name = ucwords($product_request);
+    $product_found = \Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->loadByProperties(['title' => $product_name]);
+    reset($product_found);
+    $product = Node::load(key($product_found));
+    $interests = $contact_message->get('field_additional_interests')->getValue();
+    $areas_of_focus = [];
+    foreach ($interests as $tid) {
+      $taxonomy_term = \Drupal::entityTypeManager()
+        ->getStorage('taxonomy_term')
+        ->loadByProperties(['tid' => $tid->getString()]);
+      $areas_of_focus = array_merge($areas_of_focus, $taxonomy_term);
+    }
+    $title = $product->getTitle() . ' quote request from ' . $email;
+    $tags = explode(' ', $product_request);
+    $tag_name = $tags[0];
+    $tag = \Drupal::entityTypeManager()
+      ->getStorage('taxonomy_term')
+      ->loadByProperties(['name' => $tag_name]);
+    $body = $contact_message->get('field_additional_information')->getString();
+    $agent_user = \Drupal::entityTypeManager()
+      ->getStorage('user')
+      ->loadByProperties(['name' => 'BudMortenson']);
+    $node = Node::create([
+      'type' => 'quote',
+      'title' => $title,
+      'body' => [
+        'value' => $body,
+        'format' => 'basic_html'
+      ],
+      'field_associated_product' => [$product],
+      'field_areas_of_focus' => $areas_of_focus,
+      'field_tags' => [reset($tag)],
+      'field_vin' => $contact_message->get('field_vin')->getValue(),
+      'field_agent_assigned' => [reset($agent_user)],
+      'uid' => $uid
+    ]);
+    // Set new Quote node to 'review' for Agent review.
+    $node->moderation_state->target_id = 'review';
+    $node->save();
+  }
+}
+
+function dfs_fin_contact_form_submit($form, FormStateInterface $form_state) {
+  // Add a fancy modal message to inform the user of the successful form submit.
+  $_SESSION['fin_modal'] = t('We have received your request and a representative will contact you shortly.');
+}

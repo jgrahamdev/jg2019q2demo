@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.individual
+    - field.storage.commerce_product.field_success_stories
+    - node.type.article
+id: commerce_product.individual.field_success_stories
+field_name: field_success_stories
+entity_type: commerce_product
+bundle: individual
+label: 'Success stories'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 51d9f3f2-cbc7-4713-9fbb-f2e062165115
+  -
+    target_uuid: 917f8fd4-da66-4bfc-84c1-f5a8d1d49966
+  -
+    target_uuid: 6e67a931-4c13-4c0a-bcea-d5cb1cda64b2
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      article: article
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

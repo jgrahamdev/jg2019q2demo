@@ -1,0 +1,9 @@
+dfs_obio.subscribe:
+  path: '/subscribe/{js}'
+  defaults:
+    _controller: '\Drupal\dfs_obio\Controller\SubscribeController::subscribeForm'
+    _title_callback: '\Drupal\dfs_obio\Controller\SubscribeController::title'
+    js: nojs
+  requirements:
+    _permission: 'access content'
+    js: 'nojs|ajax'

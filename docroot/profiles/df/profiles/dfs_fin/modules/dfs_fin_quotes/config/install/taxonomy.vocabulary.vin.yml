@@ -1,0 +1,14 @@
+uuid: 1d038702-e3a9-438d-bfef-7223a3eb7967
+langcode: en
+status: true
+dependencies:
+  module:
+    - dfs_fin_quotes
+  enforced:
+    module:
+      - dfs_fin_quotes
+name: VIN
+vid: vin
+description: 'Car information based on a VIN'
+hierarchy: 0
+weight: 0

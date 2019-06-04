@@ -1,0 +1,12 @@
+uuid: c5d73f5d-2f39-44d5-8756-86840f4f1baf
+langcode: en
+status: true
+dependencies: {  }
+id: team_page
+label: 'Team Page'
+description: ''
+use_admin_theme: false
+path: /team
+access_logic: and
+access_conditions: {  }
+parameters: {  }

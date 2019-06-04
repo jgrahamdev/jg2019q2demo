@@ -1,0 +1,21 @@
+name: DFS FIN Agent Portal
+type: module
+description: 'Provides the Member and Agent portal screens at user/% page w/ views.'
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - address
+  - dfs_fin_location
+  - dfs_fin_quotes
+  - df_tools_user
+  - field
+  - image
+  - node
+  - page_manager
+  - panels
+  - path
+  - taxonomy
+  - telephone
+  - text
+  - user
+  - views

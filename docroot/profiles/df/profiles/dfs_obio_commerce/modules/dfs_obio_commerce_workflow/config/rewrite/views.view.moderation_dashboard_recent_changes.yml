@@ -1,0 +1,8 @@
+display:
+  block_2:
+    display_options:
+      arguments:
+        uid:
+          default_argument_type: user
+          default_argument_options:
+            user: false

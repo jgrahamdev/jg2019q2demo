@@ -1,0 +1,8 @@
+name: DF Tools Scheduler
+type: module
+description: Extends the Lightning Scheduler module to provide content scheduling capabilities.
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - df_core
+  - lightning_scheduler

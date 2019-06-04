@@ -1,0 +1,13 @@
+name: DF Tools Message
+type: module
+description: Adds the ability to create and send messages.
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - df_core
+  - mailsystem
+  - message
+  - message_notify
+  - rules
+  - swiftmailer
+  - typed_data

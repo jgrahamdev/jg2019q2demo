@@ -1,0 +1,12 @@
+uuid: 38f241c3-f4b3-40d4-9300-bc505747bb20
+langcode: en
+status: true
+dependencies: {  }
+id: dfs_tec_home
+label: 'DFS TEC Home'
+description: ''
+use_admin_theme: false
+path: /dfs-tec-home
+access_logic: and
+access_conditions: {  }
+parameters: {  }

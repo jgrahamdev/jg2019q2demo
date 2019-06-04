@@ -1,0 +1,42 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_effects
+name: card_product
+label: 'Product card'
+effects:
+  2c75bfb4-daf5-42b2-8237-74a826501c6e:
+    uuid: 2c75bfb4-daf5-42b2-8237-74a826501c6e
+    id: image_scale
+    weight: 1
+    data:
+      width: 320
+      height: null
+      upscale: true
+  5705bb23-0a51-4e9e-a53d-2983158207d3:
+    uuid: 5705bb23-0a51-4e9e-a53d-2983158207d3
+    id: image_scale
+    weight: 2
+    data:
+      width: null
+      height: 256
+      upscale: false
+  51553fb0-7053-4638-a269-f87504b40a56:
+    uuid: 51553fb0-7053-4638-a269-f87504b40a56
+    id: image_effects_set_canvas
+    weight: 3
+    data:
+      canvas_size: exact
+      exact:
+        width: '320'
+        height: '256'
+        placement: center-center
+        x_offset: 0
+        y_offset: 0
+      relative:
+        left: 0
+        right: 0
+        top: 0
+        bottom: 0
+      canvas_color: '#FFFFFFFF'

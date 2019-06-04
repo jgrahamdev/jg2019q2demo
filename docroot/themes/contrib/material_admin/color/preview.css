@@ -1,0 +1,31 @@
+/**
+ * @file
+ * Styles the preview of Material Admin theme (Color module integration).
+ */
+
+.color-preview .breadcrumb-nav ol li .material-icons {
+  color: #bbdefb;
+  font-size: 23px;
+  vertical-align: middle;
+}
+
+.color-preview .breadcrumb-nav ol li::before {
+  display: none;
+}
+
+.color-preview .breadcrumb-nav ol li:first-child a::before {
+  display: none;
+}
+
+.color-preview .breadcrumb-nav ol li:first-child a {
+    visibility: visible;
+    max-width: 25px;
+}
+
+.color-preview .breadcrumb-nav ol li a {
+  visibility: visible;
+    max-width: 160px;
+}
+.color-preview .breadcrumb-nav ol li a::before {
+  display: none;
+}

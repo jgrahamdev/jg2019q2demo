@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: french_location
+label: 'French Location'
+type: 'canonical_entities:node'
+pattern: '/emplacement/[node:title]'
+selection_criteria:
+  c0693a94-0b9c-43eb-bd69-1113efc13257:
+    id: node_type
+    bundles:
+      location: location
+    negate: false
+    context_mapping:
+      node: node
+    uuid: c0693a94-0b9c-43eb-bd69-1113efc13257
+  d69da72c-aedf-4235-9f7f-318665bc4547:
+    id: language
+    langcodes:
+      fr: fr
+    negate: false
+    context_mapping:
+      language: 'node:langcode:language'
+    uuid: d69da72c-aedf-4235-9f7f-318665bc4547
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

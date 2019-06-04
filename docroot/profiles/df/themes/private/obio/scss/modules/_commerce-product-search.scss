@@ -1,0 +1,148 @@
+//
+// @file
+// Custom styles for commerce product (SMACSS).
+//
+.view-obio-individual-product-search {
+  ul {
+    list-style: none;
+  }
+}
+
+.layout--individual-product-search {
+  .block-plugin-id-facet-block {
+    margin-right: 1rem;
+    border-width: 0px 1px 1px 1px;
+    border-style: solid;
+    border-color: $dark-gray;
+    width: 100%;
+    .block-title {
+      color: $dark-gray;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .facet-item {
+      width: 100%;
+      a {
+        letter-spacing: 1px;
+      }
+      .facet-item__value {
+        display:inline-block;
+        min-width:150px;
+      }
+    }
+    .facet-item .is-active .facet-item__value {
+      background: #36c;
+      &:hover {
+        background: #2199e8;
+      }
+      &:before {
+        content: "\f207";
+      }
+    }
+  }
+  .block--facet-block--price {
+    padding: 10px 20px;
+  }
+  .block-region-sidebar {
+    :first-child {
+      border-width: 1px;
+    }
+  }
+  .block-facets .accordion-title {
+    padding: 0.25rem 1rem;
+    &:hover, &:active, &:focus {
+      background-color: white;
+    }
+    &::before {
+      content: "\f10a";
+      font-family: "Ionicons";
+      font-size: 1rem;
+    }
+  }
+  .is-active > .accordion-title::before {
+    content: "\f104";
+    font-family: "Ionicons";
+  }
+  .facet-summary-item--clear {
+    background: #36c;
+    padding: 2px 10px 2px 10px;
+    border-radius: 5px;
+    font-size: .8rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    a {
+      color: #ffffff;
+    }
+    &:hover {
+      background: #2199e8;
+    }
+  }
+  .block-facets-summary {
+    .reset-link-label {
+      color: $dark-gray;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .layout--individual-product-search .reset-link-label {
+      display: inline-block;
+    }
+    ul {
+      display: inline-block;
+      position: relative;
+      li {
+        display: inline-block;
+      }
+
+    }
+    .contextual-links {
+      display: none;
+    }
+    ul li {
+      margin-right: 20px;
+    }
+  }
+  .block-facets-summary.border {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid $dark-gray;
+    padding: 0.25rem 1rem;
+  }
+}
+
+.facet-slider.ui-slider-horizontal {
+  margin: 50px 0;
+  max-width: 82%;
+  .ui-slider-pip-first.ui-slider-pip-label,
+  .ui-slider-pip-last.ui-slider-pip-label {
+    color: $dark-gray;
+  }
+  .ui-slider-tip {
+    width: 45px;
+  }
+}
+
+.facets-widget-links {
+  ul.item-list__links {
+    margin-left:0;
+    list-style:none;
+  }
+}
+
+.block--facets-summary-block--reset-link {
+  .facet-summary-item--clear {
+    margin-right: 0px !important;
+  }
+  .reset-ul {
+    margin-left: 0px !important;
+    .facet-summary-item--facet a {
+      &:hover {
+        color: #2199e8;
+      }
+    }
+  }
+}
+
+.facets-widget-dfs_range_slider li {
+  list-style: none;
+}

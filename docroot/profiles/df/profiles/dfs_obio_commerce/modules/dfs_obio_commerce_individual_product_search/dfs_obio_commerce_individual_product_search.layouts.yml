@@ -1,0 +1,14 @@
+layout_individual_product_search:
+  label: 'Individual search page'
+  path: layouts/individual_product_search
+  template: layout--individual-product-search
+  library: dfs_obio_commerce_individual_product_search/individual_product_search
+  category: Hidden
+  default_region: main
+  regions:
+    top:
+      label: Top
+    sidebar:
+      label: Sidebar
+    main:
+      label: Main

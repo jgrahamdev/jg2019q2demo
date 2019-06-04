@@ -1,0 +1,6 @@
+quickview.settings:
+  title: 'Quick View'
+  route_name: quickview.settings
+  description: 'Manage Quick View configuration'
+  parent: system.admin_config_content
+  weight: 99

@@ -1,0 +1,46 @@
+/**
+ * @file
+ * Styling for the acquia platform icons.
+ */
+
+/**
+ * Toolbar tab icon.
+ */
+.toolbar-bar .toolbar-icon-acquia-platform:before {
+  background-image: url(../icons/bebebe/acquia.svg);
+}
+.toolbar-bar .toolbar-icon-acquia-platform:active:before,
+.toolbar-bar .toolbar-icon-acquia-platform.is-active:before {
+  background-image: url(../icons/ffffff/acquia.svg);
+}
+
+/**
+ * Toolbar tray icons.
+ */
+.toolbar-bar .toolbar-icon-cloud:before {
+  background-image: url(../icons/27A9E0/cloud.svg);
+}
+
+.toolbar-bar .toolbar-icon-cloud-site-factory:before {
+  background-image: url(../icons/27A9E0/acsf.svg);
+}
+
+.toolbar-bar .toolbar-icon-lift-web:before {
+  background-image: url(../icons/27A9E0/lift.svg);
+}
+
+.toolbar-bar .toolbar-icon-lift-client:before {
+  background-image: url(../icons/27A9E0/lift.svg);
+}
+
+.toolbar-bar .toolbar-icon-content-hub:before {
+  background-image: url(../icons/27A9E0/ch.svg);
+}
+
+.toolbar-bar .toolbar-icon-acquia-dam:before {
+  background-image: url(../icons/27A9E0/dam.svg);
+}
+
+#toolbar-item-acquia-platform-tray .toolbar-menu li {
+ border-left: 2px solid #dddddd;
+}

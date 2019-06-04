@@ -1,0 +1,16 @@
+UUID,Info,First Line,Second Line,Link,Link Title,Image,Nested Blocks,Icon
+c842ea03-fc8e-4162-b84c-994ab92c68ca,Homepage Hero,Since 1928,Bayside Associates Financial Group has been your partner to help protect what matters most.,,,homepage-hero.jpg,3d3e8fd3-1092-4a9c-ae1c-1824f06b1f66,
+2443b3ee-8145-4d68-b411-17a217a4ff41,Auto Hero,Auto Insurance,Get started with a car insurance quote and you could save up to $500 or more.,internal:/contact/get_a_quote,Start A Quote,auto-hero.jpg,NULL,fa-car
+aa8874e3-a77c-4a94-a000-c73eb9b9bbb7,Home Hero,Home Insurance,Protect your investment with homeowners insurance.,internal:/contact/get_a_quote,Start A Quote,home-insurance-hero.jpg,NULL,fa-home
+d55931bb-61f0-4ae4-a300-e12ec2ae0e8c,Life Hero,Life Insurance,Protect those who depend on you.,internal:/contact/get_a_quote,Start A Quote,life-hero.jpg,NULL,fa-heart
+11d2f248-2778-4361-893d-61c1f65b2b52,Disability Hero,Disability Insurance,Goes to work in your absence.,internal:/contact/get_a_quote,Start A Quote,disability-hero.jpg,NULL,fa-ambulence
+f61f1a8c-f35e-453f-ab00-f315eb1783fd,Auto Promo Hero,Looking for auto insurance?,Let us take the wheel,internal:/product/auto-insurance,Start A Quote,auto-hero.jpg,NULL,
+accc4b45-c69a-48b5-b600-e5c412fdde79,Home Promo Hero,It's your castle,Make sure it's covered,internal:/product/home-insurance,Learn More,home-insurance-hero.jpg,NULL,
+0118fc53-2f8c-4fde-bc00-d2be6aee3ae1,Life Promo Hero,Protect your loved ones,Secure your life today,internal:/product/life-insurance,Learn More,life-hero.jpg,NULL,
+e898f5ae-bb0e-46cc-8600-c3971b69906f,Disability Promo Hero,Protect from the unexpected,Let insurance work for you,internal:/product/disability-insurance,Learn More,disability-hero.jpg,NULL,
+da90147e-5b6f-40b8-9800-de73490149f1,Products Hero,Our Products,Tailoring insurance coverage around your needs is easier than you think. We strive to provide affordable options and personalized support. ,,,product-hero.jpg,NULL,fa-bank
+e834ce73-7029-4bff-8613-19b4b579bf56,Contact Hero,24 X 7 X 365,We are here to assist.,tel:1-408-555-5555,Call Us,contact-hero.jpg,NULL,fa-phone
+a92507c6-bf8b-4460-bf42-66b4a1fa890e,Quote Hero,Peace-Of-Mind Starts here.,It's quick and easy - and your information is secure,,,quote-hero.jpg,NULL,fa-file-text-o
+bc5cd050-336b-42b5-a300-cd6a85fe6a7a,Article Slide,Working with a Financial Professional,Why Go Alone?,internal:/article/working-financial-professional,Read Article,working-financial-pro.jpg,NULL,
+bcef0fce-2ab6-41fb-b536-6aae6e65da55,Boston Hero,Bayside Boston,Our first east coast office is open for business,,,boston.jpg,NULL,
+379c107d-36aa-477f-b832-065e89e72dc9,Boston Bottom Hero,Founded in San Fransisco,"Located where you need us most",internal:/contact/get_a_quote,Get a Quote Today,customer-testimonial.jpg,NULL,

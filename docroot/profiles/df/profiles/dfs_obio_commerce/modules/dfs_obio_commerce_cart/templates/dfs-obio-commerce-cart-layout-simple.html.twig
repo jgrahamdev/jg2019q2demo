@@ -1,0 +1,83 @@
+{#
+/**
+ * @file
+ * Default theme implementation for the simple layout.
+ *
+ * Available variables:
+ * - layout: Layout definition object.
+ * - settings: an array of custom settings
+ * - content: Content of regions, right now:
+ *   - top
+ *   - main
+ *   - secondary
+ *   - footer
+ * - attributes_default_wrapper: wrapper attributes.
+ * - attributes_default_main: main wrapper attributes.
+ * - attributes_region_top: top region attributes.
+ * - attributes_region_main: main region attributes.
+ * - attributes_region_secondary: secondary region attributes.
+ * - attributes_region_footer: footer region attributes.
+ *
+ * @see template_preprocess_dfs_obio_commerce_cart_layout_simple()
+ * @see template_preprocess_layout()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if content.top or content.main or content.secondary or content.footer -%}
+  {# Layout wrapper #}
+  {% if attributes_default_wrapper %}
+    <div{{ attributes_default_wrapper }}>
+  {% endif %}
+
+  {# Top region #}
+  {% if attributes_region_top and content.top %}
+    <div{{ attributes_region_top }}>
+  {% endif %}
+  {{ content.top }}
+  {% if attributes_region_top and content.top %}
+    </div>
+  {% endif %}
+
+  {# Layout main #}
+  {% if attributes_default_main %}
+    <div{{ attributes_default_main }}>
+  {% endif %}
+
+  {# Main region #}
+  {% if attributes_region_main and content.main  %}
+    <div{{ attributes_region_main }}>
+  {% endif %}
+  {{ content.main }}
+  {% if attributes_region_main and content.main  %}
+    </div>
+  {% endif %}
+
+  {# Secondary region #}
+  {% if attributes_region_secondary and content.secondary  %}
+    <div{{ attributes_region_secondary }}>
+  {% endif %}
+  {{ content.secondary }}
+  {% if attributes_region_secondary and content.secondary  %}
+    </div>
+  {% endif %}
+
+  {# Closing layout main #}
+  {% if attributes_default_main %}
+    </div>
+  {% endif %}
+
+  {# Footer region #}
+  {% if attributes_region_footer and content.footer  %}
+    <div{{ attributes_region_footer }}>
+  {% endif %}
+  {{ content.footer }}
+  {% if attributes_region_footer and content.footer %}
+    </div>
+  {% endif %}
+
+  {# Closing layout wrapper #}
+  {% if attributes_default_wrapper %}
+    </div>
+  {% endif %}
+{%- endif %}

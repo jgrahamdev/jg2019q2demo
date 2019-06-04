@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - content_moderation
+    - dfs_fin_products
+  enforced:
+    module:
+      - dfs_fin_products
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  lightning_workflow:
+    enabled: true
+    workflow: editorial
+name: 'Insurance Product'
+type: insurance_product
+description: 'Details a type of <em>Insurance Product</em> that is sold by the financial services company.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false
+

@@ -1,0 +1,55 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.check_in
+    - field.field.contact_message.check_in.field_collection
+id: contact_message.check_in.default
+targetEntityType: contact_message
+bundle: check_in
+mode: default
+content:
+  copy:
+    weight: 50
+    region: content
+  field_collection:
+    weight: 51
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  mail:
+    weight: -40
+    region: content
+  message:
+    type: string_textarea
+    weight: 0
+    settings:
+      rows: 12
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  name:
+    weight: -50
+    region: content
+  preview:
+    weight: 50
+    region: content
+  subject:
+    type: string_textfield
+    weight: -10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,24 @@
+uuid: 7ca746a1-7afb-4798-87a3-c6d8af2c926d
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.dfs_tec
+    - views.view.dfs_tec_search
+  module:
+    - views
+    - search_api_autocomplete
+id: dfs_tec_search
+label: 'DFS Tec Search'
+index_id: dfs_tec
+suggester_settings:
+  server:
+    fields: {  }
+suggester_weights: {  }
+suggester_limits: {  }
+search_settings:
+  'views:dfs_tec_search':
+    displays:
+      default: true
+      selected: {  }
+options: {  }

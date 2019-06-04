@@ -1,0 +1,22 @@
+uuid: 20f8dfbf-a4ca-44c8-bc00-e02e7b0be479
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - dfs_fin_qa
+  enforced:
+    module:
+      - dfs_fin_qa
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Question
+type: question
+description: 'A user-submitted question for our Agents to respond to. Appears at /faq once approved and answered.'
+help: 'Thanks for submitting a new question! Once answered and approved, your question will be published publicly on our "Frequently Asked Questions" page.'
+new_revision: false
+preview_mode: 0
+display_submitted: true

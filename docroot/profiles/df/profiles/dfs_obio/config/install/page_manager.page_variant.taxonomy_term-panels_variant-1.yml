@@ -1,0 +1,53 @@
+uuid: 07aa1cbb-3c0a-4320-a235-2ea78740f60e
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.taxonomy_term
+    - views.view.content_related_to_term
+  module:
+    - ctools
+    - panels
+    - views
+id: taxonomy_term-panels_variant-1
+label: 'Fallback (default)'
+variant: panels_variant
+variant_settings:
+  blocks:
+    f52c8ca2-830c-4339-8ab3-1a115b44e704:
+      id: 'entity_view:taxonomy_term'
+      label: 'Entity view (Taxonomy term)'
+      provider: ctools
+      label_display: '0'
+      view_mode: full
+      region: middle
+      weight: -10
+      uuid: f52c8ca2-830c-4339-8ab3-1a115b44e704
+      context_mapping:
+        entity: taxonomy_term
+    01025d18-03c3-4f68-b1d1-2011b23d3412:
+      id: 'views_block:content_related_to_term-block_default'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: 0
+      uuid: 01025d18-03c3-4f68-b1d1-2011b23d3412
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 19f3b8de-0efa-4e26-9c73-6f818448e67b
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: 'dd.. [term:name]'
+  storage_type: page_manager
+  storage_id: taxonomy_term-panels_variant-1
+  builder: standard
+page: taxonomy_term
+weight: 10
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

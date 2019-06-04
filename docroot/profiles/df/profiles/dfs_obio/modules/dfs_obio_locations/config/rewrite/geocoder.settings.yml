@@ -1,0 +1,7 @@
+cache: true
+plugins_options:
+  googlemaps:
+    apikey: AIzaSyA-NOizy4Hpd-sUWRK7njv1xF8jC88RG2w
+    locale: ''
+    region: ''
+    usessl: true

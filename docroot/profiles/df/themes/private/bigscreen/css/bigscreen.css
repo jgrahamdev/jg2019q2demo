@@ -1,0 +1,77 @@
+/* @file
+ * Big screen specific styling
+ *
+ */
+.no-style {
+  border: 0 !important;
+  margin: 0 !important; }
+
+html,
+body {
+  height: 100%; }
+
+hr {
+  max-width: 100%; }
+
+.positionBottomRight {
+  text-align: right;
+  padding-top: 20px; }
+
+.node--type-landing_page > .contextual {
+  display: none; }
+
+.no-style #block-mainpagecontent {
+  margin-top: 0px; }
+
+#block-mainpagecontent {
+  margin-top: 10px; }
+
+.each-img img {
+  width: 100%;
+  border-radius: 50%;
+  padding-bottom: 5px; }
+
+#bigscreen-wrapper h1 {
+  font-size: 85px;
+  line-height: 80px;
+  width: 100%; }
+
+#bigscreen-wrapper #bigscreen-frame {
+  border: 60px solid #333;
+  margin: 5px;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: table;
+  border-spacing: 0; }
+  #bigscreen-wrapper #bigscreen-frame #bigscreen-frame-inner {
+    border: 10px solid #ccc;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0;
+    height: 100%; }
+    #bigscreen-wrapper #bigscreen-frame #bigscreen-frame-inner .row {
+      max-width: 100%; }
+      #bigscreen-wrapper #bigscreen-frame #bigscreen-frame-inner .row .row {
+        margin-left: 0;
+        margin-right: 0; }
+  #bigscreen-wrapper #bigscreen-frame #bs-settings {
+    height: 30px;
+    width: 30px;
+    background-color: #efefef;
+    border: 1px solid red;
+    border-radius: 30px;
+    margin-left: 20px;
+    margin-top: 15px;
+    z-index: 110;
+    position: absolute;
+    bottom: 15px;
+    left: 60px; }
+    #bigscreen-wrapper #bigscreen-frame #bs-settings a.bs-settings-trigger {
+      width: 30px;
+      height: 30px;
+      float: left; }
+
+.panels-ipe-tabs-open #bs-settings {
+  display: none; }

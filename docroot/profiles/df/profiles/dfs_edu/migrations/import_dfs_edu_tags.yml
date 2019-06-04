@@ -1,0 +1,25 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_edu_tags
+label: 'Import dfs_edu:term:tags'
+source:
+    plugin: csv
+    path: ../data/dfs_edu.term.tags.csv
+    header_row_count: 1
+    keys: [Name]
+destination:
+    plugin: 'entity:taxonomy_term'
+process:
+    vid: { plugin: default_value, default_value: tags }
+    name: Name
+    description: Details
+    field_image:
+      -
+        plugin: explode
+        delimiter: ','
+        source: Media
+      -
+        plugin: migration
+        migration: import_dfs_edu_image
+provider: import
+migration_dependencies:
+    required: [import_dfs_edu_image]

@@ -1,0 +1,13 @@
+submit_replicate:
+  js:
+    js/dfs_obio_commerce-sumbit_replicate.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+cart-submit-button:
+  js:
+    js/dfs_obio_commerce-cart_submit_button.js: {}
+  dependencies:
+    - core/jquery.once
+    - core/drupal

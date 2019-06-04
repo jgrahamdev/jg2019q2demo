@@ -1,0 +1,187 @@
+uuid: f7646ef2-0b3a-483d-b542-c67a9153ddcf
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment.default
+    - field.field.node.article.body
+    - field.field.node.article.comment
+    - field.field.node.article.field_image
+    - field.field.node.article.field_tags
+    - field.field.node.article.panelizer
+    - node.type.article
+    - image.style.article
+  module:
+    - comment
+    - image
+    - panelizer
+    - taxonomy
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: true
+    custom: true
+    allow: false
+    default: default
+    displays:
+      default:
+        blocks:
+          cb643bbf-3df3-4ee4-a0ff-8739de89705d:
+            id: 'entity_field:node:body'
+            label: Body
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: text_default
+              settings: {  }
+              third_party_settings: {  }
+              weight: 0
+            region: middle
+            weight: 1
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: cb643bbf-3df3-4ee4-a0ff-8739de89705d
+          5ec7c4fb-9575-4dfc-a5ce-fd05a71a0833:
+            id: 'entity_field:node:comment'
+            label: Comments
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: comment_default
+              settings:
+                pager_id: 0
+                view_mode: default
+              third_party_settings: {  }
+              weight: 0
+            region: middle
+            weight: 3
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: 5ec7c4fb-9575-4dfc-a5ce-fd05a71a0833
+          62be1e21-d13f-4109-aa68-167e7192ca7a:
+            id: 'entity_field:node:field_image'
+            label: Image
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: image
+              settings:
+                image_style: article
+                image_link: ''
+              third_party_settings: {  }
+              weight: 0
+            region: middle
+            weight: -2
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: 62be1e21-d13f-4109-aa68-167e7192ca7a
+          5d108d02-0a6b-45cc-b8f6-deabc08b1483:
+            id: 'entity_field:node:field_tags'
+            label: Tags
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: above
+              type: entity_reference_rss_category
+              settings: {  }
+              third_party_settings: {  }
+              weight: 0
+            region: middle
+            weight: 2
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: 5d108d02-0a6b-45cc-b8f6-deabc08b1483
+          f69a5c31-38e9-4773-bef6-f64afed07d18:
+            id: 'views_block:article_meta-block_1'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            region: middle
+            weight: -3
+            uuid: f69a5c31-38e9-4773-bef6-f64afed07d18
+            context_mapping: {  }
+          ff68d174-3725-4970-bc8f-58c8fbc38aad:
+            id: 'entity_field:node:title'
+            label: Title
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: above
+              type: string
+              settings:
+                link_to_entity: false
+              third_party_settings: {  }
+              weight: 0
+            region: middle
+            weight: -1
+            uuid: ff68d174-3725-4970-bc8f-58c8fbc38aad
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+        id: panels_variant
+        label: Default
+        uuid: aa555828-694f-4974-bc39-6beb416596f5
+        weight: 0
+        layout: foundation_1col
+        layout_settings: {  }
+        page_title: ''
+        storage_type: panelizer_default
+        storage_id: 'node:article:default:default'
+        builder: ipe
+        pattern: panelizer
+id: node.article.default
+targetEntityType: node
+bundle: article
+mode: default
+content:
+  body:
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    label: hidden
+    region: content
+  comment:
+    label: hidden
+    type: comment_default
+    weight: 20
+    settings:
+      pager_id: 0
+      view_mode: default
+    third_party_settings: {  }
+    region: content
+  field_image:
+    type: image
+    weight: -1
+    settings:
+      image_style: article
+      image_link: ''
+    third_party_settings: {  }
+    label: hidden
+    region: content
+  field_tags:
+    type: entity_reference_rss_category
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  panelizer: true

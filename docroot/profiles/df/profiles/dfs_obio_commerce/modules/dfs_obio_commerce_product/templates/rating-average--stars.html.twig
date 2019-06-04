@@ -1,0 +1,59 @@
+{#
+/**
+ * @file
+ * Default theme implementation for average rating 'rating_average_stars'.
+ *
+ * Available variables:
+ * - min: Minimal value (int).
+ * - max: Maximal value (int).
+ * - value: Actual value (float).
+ * - count: number of reviews.
+ * - message: Message next to the rating.
+ * - url: Optional url.
+ *
+ * @see template_preprocess_rating_average_stars()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if count %}
+<span class="stars">
+  {% set stars = 0 %}
+  {% if min > 1 %}
+    {% for i in 1..min %}
+      {% set stars = stars + 1 %}
+      <i class="ion-ios-star"></i>
+    {% endfor %}
+  {% endif %}
+
+  {% for i in min..value|round(0, 'floor') %}
+    {% set stars = stars + 1 %}
+    <i class="ion-ios-star"></i>
+  {% endfor %}
+
+  {% if value|round(0, 'floor') < value %}
+    {% set stars = stars + 1 %}
+    <i class="ion-ios-star-half"></i>
+  {% endif %}
+
+  {% if stars < (max - 1) %}
+    {% for i in stars..(max - 1) %}
+      <i class="ion-ios-star-outline"></i>
+    {% endfor %}
+  {% elseif (stars == (max - 1)) %}
+    <i class="ion-ios-star-outline"></i>
+  {% endif %}
+</span>
+{% endif %}
+
+{% if message -%}
+  {%- if link -%}
+    <a href="{{link}}">
+  {%- endif -%}
+
+  <span class="message">{{ message }}</span>
+
+  {%- if link -%}
+    </a>
+  {%- endif -%}
+{%- endif %}

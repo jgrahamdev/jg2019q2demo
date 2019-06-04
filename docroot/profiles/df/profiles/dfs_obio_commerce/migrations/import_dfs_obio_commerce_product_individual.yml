@@ -1,0 +1,66 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_obio_commerce_product_individual
+label: 'Import dfs_obio_commerce:commerce_product:individual'
+source:
+    plugin: csv
+    path: ../data/dfs_obio_commerce.commerce_product.individual.csv
+    header_row_count: 1
+    keys: [UUID]
+destination:
+    plugin: 'entity:commerce_product'
+process:
+    type: { plugin: default_value, default_value: individual }
+    uuid: UUID
+    uid: UID
+    title: Title
+    body/value: Body
+    body/format: { plugin: default_value, default_value: rich_text }
+    field_featured_product: Featured
+    stores:
+      -
+        plugin: explode
+        delimiter: ','
+        source:  'Stores'
+      -
+        plugin: migration
+        migration: import_dfs_obio_commerce_store
+    variations:
+      -
+        plugin: explode
+        delimiter: ','
+        source:  'Variations'
+      -
+        plugin: migration
+        migration: import_dfs_obio_commerce_variation_individual
+    field_media:
+      -
+        plugin: explode
+        delimiter: ','
+        source: Media
+      -
+        plugin: migration
+        migration: import_dfs_obio_commerce_image
+    field_tags:
+      -
+        plugin: explode
+        delimiter: ','
+        source: Tags
+      -
+        plugin: migration
+        migration: import_dfs_obio_tags
+    field_product_types:
+      -
+        plugin: explode
+        delimiter: ','
+        source: Types
+      -
+        plugin: migration
+        migration: import_dfs_obio_product_types
+provider: dfs_obio_commerce
+migration_dependencies:
+    required:
+      - import_dfs_obio_commerce_store
+      - import_dfs_obio_commerce_variation_individual
+      - import_dfs_obio_commerce_image
+      - import_dfs_obio_tags
+      - import_dfs_obio_product_types

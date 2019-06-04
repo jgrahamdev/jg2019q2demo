@@ -1,0 +1,133 @@
+<?php
+
+/**
+ * @file
+ * Adds the ability to create and send messages.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Menu\MenuTreeParameters;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_mail().
+ */
+function df_tools_message_mail($key, &$message, $params) {
+  // Use HTML formatting for this email so we can use utm_* parameters
+  $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed';
+
+  $site_name = \Drupal::configFactory()->get('system.site')->get('name');
+  $message['subject'] = $params['subject'];
+
+  $query_options = [
+    'utm_source' => 'subscription',
+    'utm_medium' => 'email',
+  ];
+
+  // Build out template variables to render the main menu link.
+  $parameters = new MenuTreeParameters();
+  $parameters->setTopLevelOnly();
+  $header_links = [];
+  $menu = \Drupal::menuTree()->load('main', $parameters);
+  foreach ($menu as $id => $tree) {
+    $url = $tree->link->getUrlObject();
+    $url->setOption('query', $query_options);
+    $header_links[] = [
+      'url' => $url->setAbsolute(TRUE)->toString(),
+      'title' => $tree->link->getTitle(),
+      'id' => $id,
+    ];
+  }
+
+  // Inline the logo image as a data URL.
+  $theme = \Drupal::config('system.theme')->get('default');
+  $logo = DRUPAL_ROOT . '/' . theme_get_setting('logo.url', $theme);
+  $mime = \Drupal::service('file.mime_type.guesser')->guess($logo);
+  $allowed_mime = ['image/svg+xml', 'image/png', 'image/jpeg', 'image/gif'];
+  if (in_array($mime, $allowed_mime, TRUE)) {
+    $data = base64_encode(file_get_contents($logo));
+    $logo_url = 'data: ' . $mime . ';base64,' . $data;
+  }
+  else {
+    $logo_url = FALSE;
+  }
+
+  // Use the current theme's template is available.
+  $template_file = drupal_get_path('theme', $theme) . '/inky_templates/compiled/styled_email.html.twig';
+  if (file_exists($template_file)) {
+    $template = str_replace(["'{{","}}'"], ['{{','}}'], file_get_contents($template_file));
+  }
+  else {
+    $template = '{{ message }}';
+  }
+
+  $url = new Url('<front>');
+  $url = $url->setOption('query', $query_options)->setAbsolute(TRUE)->toString();
+
+  // Render the body.
+  $build = [
+    '#type' => 'inline_template',
+    '#template' => $template,
+    '#context' => [
+      'site' => $site_name,
+      'palette' => color_get_palette($theme),
+      'logo_url' => $logo_url,
+      'url' => $url,
+      'header_links' => $header_links,
+      'message' => [
+        '#type' => 'processed_text',
+        '#text' => $params['message'],
+        '#format' => $params['format'],
+      ],
+    ],
+  ];
+  $message['body'][] = render($build);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function df_tools_message_form_rules_expression_edit_alter(&$form, FormStateInterface $form_state) {
+  // Allow users to enter their message using WYSIWYG.
+  if ($form_state->get('action_id') === 'df_tools_message_send_styled_email' && isset($form['context'])) {
+    if ($form_state->get('context_message') === 'input') {
+      $form['context']['message']['setting']['#type'] = 'text_format';
+      $form['context']['message']['setting']['#format'] = $form['context']['format']['setting']['#default_value'];
+    }
+    $form['context']['format']['#access'] = FALSE;
+    if (!in_array('df_tools_message_styled_email_form_submit', $form['#submit'], TRUE)) {
+      array_unshift($form['#submit'], 'df_tools_message_styled_email_form_submit');
+    }
+  }
+}
+
+/**
+ * Form submit callback for the df_tools_message_send_styled_email action.
+ */
+function df_tools_message_styled_email_form_submit(&$form, FormStateInterface $form_state) {
+  $values = $form_state->getValues();
+  // We conditionally swap out the "message" form element with CKEditor,
+  // (text_format), which returns an array as its value. Our context expects a
+  // string, so we split that value into the message and the text format.
+  if (is_array($values['context']['message']['setting'])) {
+    $values['context']['format']['setting'] = $values['context']['message']['setting']['format'];
+    $values['context']['message']['setting'] = $values['context']['message']['setting']['value'];
+    $form_state->setValues($values);
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function df_tools_message_form_rules_reaction_rule_edit_form_alter(&$form, FormStateInterface $form_state) {
+  // Clear rules cache on form submit, to avoid confusion.
+  // @todo Remove when https://www.drupal.org/node/2769511 is resolved.
+  $form['actions']['submit']['#submit'][] = 'df_tools_message_reaction_rule_edit_form_submit';
+}
+
+/**
+ * Form submit callback for all Rules actions.
+ */
+function df_tools_message_reaction_rule_edit_form_submit(&$form, FormStateInterface $form_state) {
+  \Drupal::cache('rules')->invalidateAll();
+}

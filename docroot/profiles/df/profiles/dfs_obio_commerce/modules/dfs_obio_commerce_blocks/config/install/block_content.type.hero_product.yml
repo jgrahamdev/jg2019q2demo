@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - type_style
+third_party_settings:
+  type_style:
+    color: '#000000'
+    icon: ''
+id: hero_product
+label: 'Product hero'
+revision: 1
+description: 'Provides a hero block which can display up to four products'

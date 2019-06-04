@@ -1,0 +1,215 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.individual
+    - entity_browser.browser.browse_content
+    - field.field.commerce_product.individual.body
+    - field.field.commerce_product.individual.field_assembly_instructions
+    - field.field.commerce_product.individual.field_assembly_video
+    - field.field.commerce_product.individual.field_featured_product
+    - field.field.commerce_product.individual.field_features
+    - field.field.commerce_product.individual.field_media
+    - field.field.commerce_product.individual.field_product_types
+    - field.field.commerce_product.individual.field_reviews
+    - field.field.commerce_product.individual.field_success_stories
+    - field.field.commerce_product.individual.field_tags
+    - field.field.commerce_product.individual.panelizer
+    - field.field.commerce_product.individual.stores
+    - field.field.commerce_product.individual.variations
+  module:
+    - comment
+    - commerce
+    - df_tools_tabs
+    - entity_browser
+    - field_group
+    - inline_entity_form
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_review_settings:
+      children:
+        - field_reviews
+      parent_name: ''
+      weight: 20
+      format_type: details
+      format_settings:
+        label: 'Review settings'
+        id: ''
+        classes: ''
+        open: false
+        required_fields: false
+      label: 'Review settings'
+_core:
+  default_config_hash: ngTfp-bPJ3TU7G5xRVpBGRio8iKzuIUoRznix_iW4Iw
+id: commerce_product.individual.default
+targetEntityType: commerce_product
+bundle: individual
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 2
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_assembly_instructions:
+    weight: 22
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_assembly_video:
+    type: entity_browser_entity_reference
+    weight: 21
+    settings:
+      entity_browser: media_browser_in_modal
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: media_browser
+    region: content
+    third_party_settings: {  }
+  field_featured_product:
+    weight: 94
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_features:
+    weight: 11
+    settings:
+      rows: '5'
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_with_tab
+    region: content
+  field_media:
+    type: entity_browser_entity_reference
+    weight: 9
+    settings:
+      entity_browser: media_browser_in_modal
+      field_widget_display: rendered_entity
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: thumbnail
+      field_widget_edit: false
+    region: content
+    third_party_settings: {  }
+  field_product_types:
+    weight: 93
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete_tags
+    region: content
+  field_reviews:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  field_success_stories:
+    weight: 12
+    settings:
+      entity_browser: browse_content
+      field_widget_display: label
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_edit: false
+      field_widget_display_settings: {  }
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_tags:
+    weight: 10
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete_tags
+    region: content
+  langcode:
+    type: language_select
+    weight: 3
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 8
+    region: content
+    third_party_settings: {  }
+  stores:
+    type: commerce_entity_select
+    weight: 0
+    settings:
+      hide_single_entity: true
+      autocomplete_threshold: 7
+      autocomplete_size: 60
+      autocomplete_placeholder: ''
+    third_party_settings: {  }
+    region: content
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  variations:
+    type: inline_entity_form_complex
+    weight: 6
+    settings:
+      override_labels: true
+      label_singular: variation
+      label_plural: variations
+      form_mode: default
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+    third_party_settings: {  }
+    region: content
+hidden:
+  panelizer: true

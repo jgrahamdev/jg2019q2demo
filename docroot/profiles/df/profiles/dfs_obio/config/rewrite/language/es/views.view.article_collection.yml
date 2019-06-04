@@ -1,0 +1,38 @@
+display:
+  default:
+    display_title: Máster
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Buscar
+          reset_button_label: Restablecer
+          exposed_sorts_label: 'Ordenar por'
+          sort_asc_label: 'Más antiguo'
+          sort_desc_label: 'El más nuevo'
+      fields:
+        title: {  }
+  block_1:
+    display_options:
+      title: 'Último mensaje de Inspiration:'
+      footer:
+        area:
+          content:
+            value: "<div class=\"columns browse-articles-link\">\r\n  <a href=\"/inspiration\" class=\"inspiration-callout\">BUSCAR TODA LA INSPIRACIÓN</a>\r\n</div>"
+            format: full_html
+  main_block:
+    display_options:
+      filters:
+        field_tags_target_id:
+          expose:
+            label: 'Etiquetas de búsqueda'
+      pager:
+        options:
+          tags:
+            previous: '‹ Anterior'
+            next: 'Siguiente >'
+          expose:
+            items_per_page_label: 'Elementos por página'
+            items_per_page_options_all_label: '- Todo -'
+            offset_label: Desplazamiento
+          views_infinite_scroll:
+            button_text: 'Cargar más'

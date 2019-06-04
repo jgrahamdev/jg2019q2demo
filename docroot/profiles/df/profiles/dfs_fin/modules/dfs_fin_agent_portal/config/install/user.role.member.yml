@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - dfs_fin_agent_portal
+  enforced:
+    module:
+      - dfs_fin_agent_portal
+id: member
+label: Member
+weight: 5
+is_admin: null
+permissions: {  }

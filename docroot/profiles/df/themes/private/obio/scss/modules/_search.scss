@@ -1,0 +1,9 @@
+.facet-item .is-active .facet-item__value {
+  background: #36c;
+  &:hover {
+    background: #2199e8;
+  }
+  &:before {
+    content: "\f207";
+  }
+}

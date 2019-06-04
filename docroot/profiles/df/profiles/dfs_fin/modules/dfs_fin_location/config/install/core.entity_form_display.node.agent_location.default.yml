@@ -1,0 +1,164 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.agent_location.body
+    - field.field.node.agent_location.field_address
+    - field.field.node.agent_location.field_areas_of_focus
+    - field.field.node.agent_location.field_email_address
+    - field.field.node.agent_location.field_geofield
+    - field.field.node.agent_location.field_has_claims_adjuster
+    - field.field.node.agent_location.field_image
+    - field.field.node.agent_location.field_phone_number
+    - field.field.node.agent_location.field_region
+    - field.field.node.agent_location.field_tags
+    - node.type.agent_location
+  module:
+    - address
+    - dfs_fin_location
+    - entity_browser
+    - path
+    - text
+    - content_moderation
+    - dfs_fin_location
+  enforced:
+    module:
+      - dfs_fin_location
+id: node.agent_location.default
+targetEntityType: node
+bundle: agent_location
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 8
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_address:
+    weight: 9
+    settings:
+      default_country: null
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_areas_of_focus:
+    weight: 15
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_email_address:
+    weight: 11
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_geofield:
+    weight: 10
+    settings:
+      source_field: field_address
+      show_coordinates: '1'
+    third_party_settings: {  }
+    type: df_tools_map_simple_geocoder
+    region: content
+  field_has_claims_adjuster:
+    weight: 14
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_image:
+    weight: 7
+    settings:
+      entity_browser: image_browser
+      field_widget_edit: '1'
+      field_widget_remove: '1'
+      view_mode: thumbnail
+      field_widget_display: ''
+      open: 0
+      field_widget_display_settings: {  }
+    third_party_settings: {  }
+    type: entity_browser_file
+    region: content
+  field_phone_number:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_region:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_tags:
+    weight: 16
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  langcode:
+    type: language_select
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    third_party_settings: {  }
+    region: content
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    third_party_settings: {  }
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

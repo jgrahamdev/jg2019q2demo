@@ -1,0 +1,217 @@
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.collection.field_collection_description
+    - field.field.node.collection.field_collection_features
+    - field.field.node.collection.field_collection_media
+    - field.field.node.collection.field_collection_reviews
+    - field.field.node.collection.field_collection_success_stories
+    - field.field.node.collection.field_tags
+    - field.field.node.collection.panelizer
+    - node.type.collection
+  module:
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+    displays:
+      default:
+        blocks:
+          3368781d-7be1-4f9d-8ea2-1f881bdb974e:
+            id: 'entity_field:node:title'
+            label: Title
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: above
+              type: string
+              settings:
+                link_to_entity: false
+              third_party_settings: {  }
+              weight: 0
+            region: middle
+            weight: 1
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: 3368781d-7be1-4f9d-8ea2-1f881bdb974e
+          a4d01f14-9429-4cb2-a17e-1dc562ae888b:
+            id: 'entity_field:node:field_collection_media'
+            label: Media
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: entity_reference_slideshow
+              settings:
+                view_mode: hero
+                slick:
+                  arrows: 0
+                  draggable: 1
+                  dots: 0
+                  accessibility: 0
+                  adaptiveHeight: 0
+                  variableWidth: 0
+                  autoplay: 0
+                  centerMode: 0
+                  infinite: 1
+                  useCSS: 0
+                  mobileFirst: 0
+                  rtl: 0
+                  fade: 0
+                  pauseOnDotsHover: 0
+                  vertical: 0
+                use_view_mode_pager: 1
+                pager_view_mode: teaser
+              third_party_settings: {  }
+              weight: 0
+            region: middle
+            weight: 2
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: a4d01f14-9429-4cb2-a17e-1dc562ae888b
+          3da37f59-3662-4c05-987e-adcdac207988:
+            id: 'entity_field:node:field_collection_description'
+            label: 'About the Collection'
+            provider: ctools_block
+            label_display: visible
+            formatter:
+              label: hidden
+              type: text_default
+              settings: {  }
+              third_party_settings: {  }
+              weight: 0
+            region: middle
+            weight: 4
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: 3da37f59-3662-4c05-987e-adcdac207988
+          62805048-e101-476a-b8f2-2f85bb8147b0:
+            id: magellan
+            label: Magellan
+            provider: df_tools_blocks
+            label_display: '0'
+            region: middle
+            weight: 3
+            context_mapping: {  }
+            uuid: 62805048-e101-476a-b8f2-2f85bb8147b0
+          dc6ba0f5-215c-43be-9079-5986b12505ba:
+            id: 'entity_field:node:field_collection_features'
+            label: Features
+            provider: ctools_block
+            label_display: visible
+            formatter:
+              label: hidden
+              type: text_with_tab
+              settings: {  }
+              third_party_settings: {  }
+              weight: 0
+            region: middle
+            weight: 5
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: dc6ba0f5-215c-43be-9079-5986b12505ba
+          9eac4050-2572-489f-977e-974509571f4f:
+            id: 'entity_field:node:field_collection_success_stories'
+            label: 'Success Stories'
+            provider: ctools_block
+            label_display: visible
+            formatter:
+              label: hidden
+              type: entity_reference_entity_view
+              settings:
+                view_mode: teaser
+              third_party_settings: {  }
+              weight: 0
+            region: middle
+            weight: 6
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: 9eac4050-2572-489f-977e-974509571f4f
+          8ef00071-fa26-446a-9940-e7d7af022655:
+            id: 'entity_field:node:field_collection_reviews'
+            label: Reviews
+            provider: ctools_block
+            label_display: visible
+            formatter:
+              label: hidden
+              type: comment_default
+              settings:
+                view_mode: default
+                pager_id: 0
+              third_party_settings: {  }
+              weight: 0
+            region: middle
+            weight: 7
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: 8ef00071-fa26-446a-9940-e7d7af022655
+          db47a06a-9c10-4c29-8a9b-103ad1c4bf50:
+            id: 'block_content:a864cee4-aa4a-4219-85a2-a8aecbed0329'
+            label: 'How it Works'
+            provider: block_content
+            label_display: visible
+            status: true
+            info: ''
+            view_mode: full
+            region: middle
+            weight: 9
+            context_mapping: {  }
+            uuid: db47a06a-9c10-4c29-8a9b-103ad1c4bf50
+          c9cdb57e-8188-4803-8e90-ae3cd3c652e1:
+            id: configurator
+            label: 'Build Your Office'
+            provider: dfs_obio_products
+            label_display: visible
+            region: middle
+            weight: 8
+            context_mapping: {  }
+            uuid: c9cdb57e-8188-4803-8e90-ae3cd3c652e1
+        id: panels_variant
+        label: Default
+        uuid: 564155de-fefa-4358-b712-8383ba8a1a58
+        weight: 0
+        layout: layout_onecol
+        layout_settings: {  }
+        page_title: '[node:title]'
+        storage_type: panelizer_default
+        storage_id: 'node.collection:default:default'
+        builder: ipe
+        pattern: panelizer
+id: node.collection.card
+targetEntityType: node
+bundle: collection
+mode: card
+content:
+  field_collection_description:
+    weight: 1
+    label: visually_hidden
+    settings:
+      trim_length: 60
+    third_party_settings: {  }
+    type: text_trimmed
+    region: content
+  field_collection_media:
+    weight: 0
+    label: visually_hidden
+    settings:
+      view_mode: card
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  addtoany: true
+  field_collection_features: true
+  field_collection_reviews: true
+  field_collection_success_stories: true
+  field_tags: true
+  langcode: true
+  links: true
+  panelizer: true
+  content_moderation_control: true

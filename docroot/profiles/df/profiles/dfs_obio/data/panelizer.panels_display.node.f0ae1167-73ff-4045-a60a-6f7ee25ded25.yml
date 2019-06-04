@@ -1,0 +1,45 @@
+blocks:
+  efd1ead8-9eda-4e52-a1bb-87ba9be2661a:
+    id: 'views_block:article_collection-top_block'
+    label: ''
+    provider: views
+    label_display: 0
+    views_label: ''
+    items_per_page: none
+    context_mapping: {  }
+    region: middle
+    uuid: efd1ead8-9eda-4e52-a1bb-87ba9be2661a
+    weight: 2
+  e03ddfae-d4d6-4744-9e35-7e51c2ab91bf:
+    id: 'views_block:article_collection-main_block'
+    label: ''
+    provider: views
+    label_display: 0
+    views_label: ''
+    items_per_page: none
+    context_mapping: {  }
+    region: middle
+    uuid: e03ddfae-d4d6-4744-9e35-7e51c2ab91bf
+    weight: 3
+  2cc37b18-e329-4808-9f65-8ca1c2e489ce:
+    id: search_form_hero
+    label: 'The Obio Inspiration Blog'
+    provider: dfs_obio
+    label_display: visible
+    uuid: 95673A35-7017-4B07-B98C-D336F91C456F
+    responsive_image_style: responsive_hero
+    context_mapping: {  }
+    region: middle
+    uuid: 2cc37b18-e329-4808-9f65-8ca1c2e489ce
+    weight: 1
+id: panels_variant
+uuid: 66454ba9-dca2-4264-bd09-9beeb133bd80
+label: ''
+weight: 0
+layout: foundation_1col
+layout_settings: {  }
+page_title: '[node:title]'
+storage_type: panelizer_field
+storage_id: 'node:2:full:29'
+pattern: panelizer
+builder: ipe

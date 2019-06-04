@@ -1,0 +1,6 @@
+content:
+  fake_moderation_state:
+    weight: 50
+    settings: {  }
+    third_party_settings: {  }
+    region: content

@@ -1,0 +1,25 @@
+uuid: 4da02fda-932c-4ce6-ae00-bf3836adb544
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - dfs_fin
+  enforced:
+    module:
+      - dfs_fin
+third_party_settings:
+  block_class:
+    classes: ''
+id: newsletterform
+theme: fin
+region: meta_footer
+weight: -10
+provider: null
+plugin: newsletter_form
+settings:
+  id: newsletter_form
+  label: 'Newsletter Form'
+  provider: dfs_fin
+  label_display: '0'
+visibility: {  }

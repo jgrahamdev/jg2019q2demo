@@ -1,0 +1,14 @@
+uuid: 0f25b83c-9d2a-46a1-aceb-074ab0699d89
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - media
+third_party_settings:
+  lightning_core:
+    description: ''
+id: media.hero_thin
+label: 'Thin hero'
+targetEntityType: media
+cache: true

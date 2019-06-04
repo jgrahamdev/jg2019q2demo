@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+id: obio_individual_product_search
+label: 'Obio Individual Product Search'
+description: ''
+use_admin_theme: false
+path: /shop/products
+access_logic: and
+access_conditions: {  }
+parameters: {  }

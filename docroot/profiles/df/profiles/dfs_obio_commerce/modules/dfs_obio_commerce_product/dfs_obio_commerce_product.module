@@ -1,0 +1,117 @@
+<?php
+
+/**
+ * @file
+ * Contains dfs_obio_commerce_product.module.
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function dfs_obio_commerce_product_theme($existing, $type, $theme, $path) {
+  return [
+    'rating_average' => [
+      'variables' => [
+        'min' => 0,
+        'max' => 0,
+        'value' => 0,
+        'count' => 0,
+        'message' => NULL,
+        'link' => NULL,
+      ],
+    ],
+    'rating_average__stars' => [
+      'base hook' => 'rating_average',
+    ],
+    'product_read_more' => [
+      'render element' => 'element',
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for average rating templates.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - min: Minimal rating value.
+ *   - max: Maximal rating value.
+ *   - value: Actual rating.
+ *   - count: number of reviews.
+ *   - message: message.
+ *   - link: link for message.
+ */
+function template_preprocess_rating_average(array &$variables) {
+  // Logically massaging rating values.
+  $min = $variables['min'] < 0 ? 0 : (int) $variables['min'];
+  $max = $variables['max'] < $min ? $min : (int) $variables['max'];
+  $value = (float) $variables['value'];
+  if ($value < $min) {
+    $value = $min;
+  }
+  if ($value > $max) {
+    $value = $max;
+  }
+  $variables['min'] = $min;
+  $variables['max'] = $max;
+  $variables['value'] = (float) $value;
+}
+
+/**
+ * Prepares variables for quickview link templates.
+ */
+function template_preprocess_product_read_more(&$variables) {
+  $element = $variables['element'];
+
+  // Creating variables for the template.
+  $variables['url'] = $element['#url'];
+  $variables['title'] = !empty($element['#title']) ?
+    $element['#title'] : t('View Product Details');
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function dfs_obio_commerce_product_entity_extra_field_info() {
+  $productBundleInfo = \Drupal::service('entity_type.bundle.info')
+    ->getBundleInfo('commerce_product');
+
+  foreach (array_keys($productBundleInfo) as $productBundle) {
+    $fields['commerce_product'][$productBundle]['display']['product_read_more'] = [
+      'label' => t('Read more'),
+      'weight' => 0,
+      'visible' => FALSE,
+    ];
+  }
+
+  return $fields;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view() for commerce_product.
+ */
+function dfs_obio_commerce_product_commerce_product_view(&$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  // Read more link.
+  if ($display->getComponent('product_read_more')) {
+    $build['product_read_more'] = [
+      '#theme' => 'product_read_more',
+      '#url' => $entity->toUrl(),
+    ];
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for field.
+ */
+function dfs_obio_commerce_product_preprocess_field(&$variables) {
+  if ($variables['element']['#entity_type'] === 'commerce_product_variation' &&
+    !empty($variables['element']['#view_mode'])) {
+    $variables['attributes']['class'][] = Html::getClass('fvm-' . $variables['element']['#view_mode']);
+    // Trigger Quick Edit to skip this field.
+    $variables['element']['#view_mode'] = '_custom';
+  }
+}

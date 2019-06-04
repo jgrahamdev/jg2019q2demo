@@ -1,0 +1,363 @@
+//
+// @file
+//
+// Helper CSS template for the Obio Theme color module integration.
+//
+// Please avoid including external @import here, as those could lead to
+// high memory usage which makes CSS processing impossible.
+// scss-lint:disable all
+//
+@charset "utf-8";
+
+// If you have to prevent automated color shifting, uncomment the following
+// import. Note that if you do that, every color-override should be defined in
+// this file.
+//@import 'obio-base';
+// If you don't want to have the whole CSS to be altered, you'll have to import
+// settings.
+@import "settings";
+
+// ============================================================================
+//
+// Real color templating with value placeholders for this theme.
+//
+// ============================================================================
+
+// //
+// // A sample color var which could be handled by gulp's replace.
+// //
+// // This is just a basic idea, not a working solution.
+// //
+// // For more information check obio/gulpfile.js and obio/color/color.inc.
+// //
+// .a-sample-selector {
+//   color: $color--sample-color-placeholder--var;
+// }
+
+//
+// Main colors.
+//
+.site-wrap {
+  background: #__body-bg__;
+  color: #__body-color__;
+}
+
+.color-inverse {
+  background: #__body-color__;
+  color: #__body-bg__;
+}
+.l-over-each__nested-img--hero-thin .field-type-image .field-item::after {
+  background: #__body-color__;
+  opacity: 0.5;
+}
+
+// Simple links.
+a {
+  color: #__primary__;
+
+  &:focus,
+  &:hover {
+    color: #__primary-hover__;
+  }
+}
+
+#block-sitebranding > div:not(.contextual) a {
+  color: #__logocolor__;
+}
+
+// @TODO every similar case you should use ".button" and modify that.
+// Try to use (as base at least) the set provided by the framework instead of
+// defining custom selectors like this one.
+.latest-block-post .browse-articles-link {
+  background: #__primary__;
+
+  a {
+    color: #__primary-rel__;
+  }
+}
+
+// ...or this (hero link).
+.hero-content .field-name-field-hero-link a {
+  border-color: #__primary__;
+  color: #__primary__;
+
+  &:focus,
+  &:hover {
+    border-color: #__primary__;
+    background: #__primary__;
+    color: #__primary-rel__;
+  }
+
+  &:active {
+    border-color: #__primary-hover__;
+    background: #__primary-hover__;
+    color: #__primary-rel__;
+  }
+}
+
+// Button.
+.button {
+  background: #__primary__;
+  color: #__primary-rel__;
+
+  &:focus,
+  &:hover {
+    background: #__primary-hover__;
+  }
+}
+
+//
+// Card.
+//
+.card {
+  background: #__card-bg__;
+  color: #__card-color__;
+
+  @at-root #{&}__content {
+    a {
+      color: #__card-link-color__;
+
+      &:focus,
+      &:hover {
+        color: #__card-link-color-hover__;
+      }
+    }
+  }
+}
+
+//magellen menu
+.df-tools-magellan-block .menu > li > a:hover, .df-tools-magellan-block .menu > li > a.active {
+  background-color: #__header-bg-meta__;
+}
+
+
+//
+// Header color scheme.
+//
+.header-wrap {
+  background: #__header-bg__ linear-gradient(to left, #__header-bg-meta__ 50%, #__header-bg__ 50%);
+
+  .menu-icon::after {
+    color: #__header-color__;
+    background: #__header-color__;
+    box-shadow: 0 7px 0 #__header-color__, 0 14px 0 #__header-color__;
+  }
+
+  @include breakpoint(small only) {
+    background: #__header-bg__;
+
+    .title-bar {
+      background: #__header-bg__;
+    }
+  }
+  .header-left {
+    background-color:#__header-bg__;
+  }
+
+  .header-right {
+    background-color: #__header-bg-meta__;
+
+    a {
+      color: #__footer-link-color__;
+
+      &:focus,
+      &:hover {
+        color: #__footer-link-color-hover__;
+      }
+    }
+
+    .user-links a {
+      color: #__footer-link-color__;
+
+      &:focus,
+      &:hover {
+        color: #__footer-link-color-hover__;
+      }
+    }
+  }
+
+  &.overflow {
+    background: #__header-bg__;
+
+    .header-right {
+      a {
+        color: #__header-link-color__;
+        &:focus,
+        &:hover {
+            color: #__header-link-color-hover__;
+        }
+      }
+    }
+  }
+}
+
+//
+// Main menu.
+//
+#main-menu {
+  background-color: #__header-bg__;
+
+  .top-bar-right {
+    background-color: #__footer-bg__;
+
+    .menu a {
+      color: #__footer-link-color__;
+
+      &:focus,
+      &:hover {
+        color: #__footer-link-color-hover__;
+      }
+
+      @include breakpoint(small only) {
+        &,
+        &:focus,
+        &:hover {
+          color: #__header-link-color__;
+        }
+      }
+    }
+  }
+
+  .menu.dropdown.topbar-toplevel li > a {
+    color: #__header-link-color__;
+
+    &:focus,
+    &:hover {
+      color: #__header-link-color-hover__;
+
+      &::before {
+        border-bottom-color: #__header-link-color-hover__;
+      }
+    }
+
+    &.is-active::before {
+      border-bottom-color: #__header-link-color-hover__;
+    }
+  }
+}
+
+.header-bar ul {
+  background-color: #__header-bg__;
+
+  li {
+    a {
+      color: #__header-link-color__;
+
+      &:focus,
+      &:hover {
+        color: #__header-link-color-hover__;
+
+        &::after {
+          border-left-color: #__header-link-color-hover__;
+        }
+      }
+    }
+
+    &.is-active a {
+      color: #__header-link-color-hover__;
+    }
+  }
+
+  ul.is-dropdown-submenu {
+    background: #__header-bg__;
+
+    li {
+      &:hover {
+        background: #__body-bg__;
+      }
+
+      a {
+        color: #__header-link-color__;
+
+        &:focus,
+        &:hover {
+          color: #__header-link-color-hover__;
+        }
+      }
+    }
+  }
+}
+
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after {
+  border-top-color: inherit;
+}
+
+a.standard-icon.login-dropdown-button:hover {
+  i:before,
+  span:before,
+  span {
+    color: #__footer-link-color-hover__;
+  }
+}
+
+//
+// Footer color scheme.
+//
+#footer.dark-bg,
+.bottom-bar.dark-bg {
+  background: #__footer-bg__;
+  color: #__footer-color__;
+}
+
+#block-footer {
+  a {
+    color: #__footer-link-color__;
+
+    &:focus,
+    &:hover {
+      color: #__footer-link-color__;
+      border-color: #__footer-link-color-hover__;
+    }
+  }
+}
+
+#footer .form__id-dfs-obio-subscribe-form {
+  input[type="submit"] {
+    background: #__footer-bg__;
+    color: #__footer-link-color__;
+    border: 2px solid #__footer-link-color__;
+    &:focus,
+    &:hover {
+      border-color: #__footer-link-color-hover__;
+      color: #__footer-link-color-hover__;
+    }
+    &:active {
+      border-color: #__footer-link-color-hover__;
+      color: #__footer-link-color-hover__;
+    }
+  }
+}
+
+.form__id-dfs-obio-subscribe-form {
+  input[type="text"] {
+    color: #__header-bg-meta__;
+    border: 2px solid #__primary__;
+  }
+  input[type="submit"] {
+    border-color: #__primary__;
+    color: #__primary__;
+    &:focus,
+    &:hover {
+      border-color: #__primary__;
+      background: #__primary__;
+      color: #__primary-rel__;
+    }
+    &:active {
+      border-color: #__primary-hover__;
+      background: #__primary-hover__;
+      color: #__primary-rel__;
+    }
+  }
+}
+
+label, .label {
+  background:#__label-bg__;
+}
+
+p.footer-slogan {
+  color: #__footer-color__;
+}
+
+#main-menu .top-bar-left .is-drilldown {
+  background: #__header-bg__;
+}

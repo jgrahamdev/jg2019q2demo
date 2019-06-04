@@ -1,0 +1,13 @@
+name: DF Tools Slideshow
+type: module
+description: Provides a Slideshow block type.
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - df_core
+  - df_tools_migration
+  - df_tools_translation
+  - node
+  - image
+  - link
+  - inline_entity_form

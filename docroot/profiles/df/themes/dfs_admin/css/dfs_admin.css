@@ -1,0 +1,240 @@
+/**
+ * @file
+ * Simple overrides on top of the Material Admin theme.
+ *
+ */
+
+.content-browser-card .card-image .field__item:not(:first-child) {
+  display: none;
+}
+
+.node-form .form-actions .button {
+  margin-bottom: 10px;
+}
+
+.node-form .form-actions .dropbutton-wrapper {
+  vertical-align: top;
+}
+
+
+.toolbar-horizontal .toolbar-tray .menu-item + .menu-item {
+  border-left: inherit;
+}
+
+.toolbar-horizontal .toolbar-tray {
+  border-bottom: inherit;
+}
+
+.toolbar-horizontal .toolbar-tray .menu-item:last-child {
+  border-right: inherit;
+}
+
+.adminimal-admin-toolbar .toolbar .toolbar-tray {
+  box-shadow: inherit;
+}
+
+.adminimal-admin-toolbar .toolbar-oriented .user-toolbar-tab {
+  float: left;
+}
+
+.toolbar .toolbar-bar .toolbar-tab.contextual-toolbar-tab {
+  display: none;
+}
+
+.entity-gallery-browser-card .file {
+  padding-left: 0;
+  display: block;
+}
+
+.entity-gallery-browser-card .row,
+.entity-gallery-browser-card .col {
+  padding: 0;
+  overflow: hidden;
+}
+
+.entity-gallery-browser-card .card-main-media {
+  max-height: 150px;
+  overflow: hidden;
+}
+
+.entity-gallery-browser-card .card-extra-media {
+  max-height: 50px;
+  overflow: hidden;
+}
+/* Fix for Lightning Scheduler component*/
+div.scheduled-transition {
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  margin-bottom:0.5rem;
+ }
+
+div.scheduled-transition select {
+  display:block;
+  font-size:1rem;
+}
+
+div.scheduled-transition > span {
+  display:inline-block;
+}
+
+div.scheduled-transition a {
+  color:#f77;
+  float:right;
+}
+
+div.scheduled-transition span a {
+  float:none;
+}
+
+div.scheduled-transition button {
+  text-decoration: none;
+  color: #FFFFFF;
+  background-color: #999;
+  text-align: center;
+  letter-spacing: .5px;
+  transition: .2s ease-out;
+  cursor: pointer;
+  padding:0.25rem 0.5rem;
+  border-radius: 4px
+}
+
+@media only screen and (max-width: 992px) {
+    body.logo #notification-wrapper {
+        top: 0;
+        bottom: unset;
+        margin-top: 1.5em;
+    }
+}
+
+/* Color module integration*/
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-base.form-item-palette-base.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-text.form-item-palette-text.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-link.form-item-palette-link.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-logocolor.form-item-palette-logocolor.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-linkrel.form-item-palette-linkrel.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-linkhover.form-item-palette-linkhover.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-linkcolor.form-item-palette-linkcolor.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-linkcolorhover.form-item-palette-linkcolorhover.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-headerbg.form-item-palette-headerbg.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-headerbgmeta.form-item-palette-headerbgmeta.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-headercolor.form-item-palette-headercolor.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-headerlinkcolor.form-item-palette-headerlinkcolor.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-headerlinkcolorhover.form-item-palette-headerlinkcolorhover.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-cardbg.form-item-palette-cardbg.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-cardcolor.form-item-palette-cardcolor.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-cardlinkcolor.form-item-palette-cardlinkcolor.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-cardlinkcolorhover.form-item-palette-cardlinkcolorhover.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-footerbg.form-item-palette-footerbg.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-footercolor.form-item-palette-footercolor.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-footerlinkcolor.form-item-palette-footerlinkcolor.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-footerlinkcolorhover.form-item-palette-footerlinkcolorhover.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-label.form-item-palette-label.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-pagetitle.form-item-palette-pagetitle.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-tabs.form-item-palette-tabs.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-tabsactive.form-item-palette-tabsactive.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-breadcrumbbg.form-item-palette-breadcrumbbg.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-breadcrumb.form-item-palette-breadcrumb.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-breadcrumbtitle.form-item-palette-breadcrumbtitle.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-button.form-item-palette-button.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-buttontext.form-item-palette-buttontext.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-buttonhover.form-item-palette-buttonhover.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-buttonhovertext.form-item-palette-buttonhovertext.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-buttonaction.form-item-palette-buttonaction.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-buttonactiontext.form-item-palette-buttonactiontext.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-buttonactionhover.form-item-palette-buttonactionhover.form-has-label.input-field,
+.js-form-type-textfield.form-type-textfield.js-form-item-palette-buttonactionhovertext.form-item-palette-buttonactionhovertext.form-has-label.input-field {
+  margin: 0 0 5px; 0;
+}
+
+/* Default colors needs set for Color module integration*/
+header.header-wrapper {
+  background: #0e68a7;
+}
+
+header.header-wrapper h1.page-title {
+  color: #ffffff;
+}
+
+.highlighted-wrapper,
+.layout-container > main {
+  background: #ffffff;
+}
+
+body {
+  color: #0a0a0a;
+}
+
+a {
+  color: #168ec4;
+}
+
+.breadcrumb-section-wrapper {
+  background: #168ec4;
+}
+
+.breadcrumb-nav ol li a, .breadcrumb-nav ol li::before {
+  color: #cccccc;
+}
+
+.breadcrumb-nav ol li span {
+  color: #ffffff;
+}
+
+.tabs.tabs-transparent .tab a:hover, .tabs.tabs-transparent .tab a.active {
+  color: #ffffff;
+}
+
+.tabs.tabs-transparent .tab a, .tabs.tabs-transparent .tab.disabled a, .tabs.tabs-transparent .tab.disabled a:hover {
+  color: #cccccc;
+}
+
+.tabs.tabs-transparent .indicator {
+  background: #ffffff;
+}
+
+.pagination li.active {
+  background-color: #168ec4;
+}
+
+/* Color Preview*/
+.btn.color-preview-preview {
+  margin: 10px 0;
+}
+
+.btn.color-preview-preview:hover {
+  text-decoration: none;
+}
+
+.color-preview.ui-dialog-content {
+  padding: 0;
+}
+
+.color-preview a:focus {
+  outline: none;
+}
+
+/* Fixes for Font Your Face*/
+body.fontyourface .fontyourface-header h4 {
+  font-size: 1.154em;
+}
+
+body.fontyourface .fontyourface-header h5 {
+  font-size: 1.077em;
+}
+
+body.fontyourface .fontyourface-operations a {
+  border: 0;
+  left: 1px;
+  height: 30px;
+  bottom: -19px;
+}
+
+body.fontyourface .view-fontyourface-font-manager .fontyourface-font-manager-item {
+  margin: 0 10px 35px;
+}
+
+body.fontyourface #edit-imports .button {
+  margin: 5px;
+  padding: 0 2em;
+  height: 100%;
+}

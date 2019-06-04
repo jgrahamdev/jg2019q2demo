@@ -1,0 +1,57 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.request_more_info
+    - field.field.contact_message.request_more_info.field_phone_number
+  enforced:
+    module:
+      - dfs_fin_contact
+  module:
+    - telephone
+id: contact_message.request_more_info.default
+targetEntityType: contact_message
+bundle: request_more_info
+mode: default
+content:
+  copy:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_last_name:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_phone_number:
+    weight: 2
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  mail:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  message:
+    type: string_textarea
+    weight: 3
+    settings:
+      rows: 12
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  name:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  subject: true

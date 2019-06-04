@@ -1,0 +1,8 @@
+name: DFS Obio Crop
+type: module
+description: Provides cropping for OBIO image styles.
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - config_rewrite
+  - df_tools_crop

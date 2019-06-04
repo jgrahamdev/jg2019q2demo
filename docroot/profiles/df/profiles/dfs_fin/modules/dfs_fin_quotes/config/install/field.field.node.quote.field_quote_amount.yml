@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quote_amount
+    - node.type.quote
+  module:
+    - dfs_fin_quotes
+  enforced:
+    module:
+      - dfs_fin_quotes
+id: node.quote.field_quote_amount
+field_name: field_quote_amount
+entity_type: node
+bundle: quote
+label: 'Quote Amount'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
+

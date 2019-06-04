@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Contains installation and update routines for the DSF Obio ACM module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function dfs_obio_acm_install() {
+  // Remove reference to Drupal commerce products, reference to SKUs is added
+  // via configuration.
+  $entityFieldManager = \Drupal::service('entity_field.manager');
+  $fields = $entityFieldManager->getFieldDefinitions('node', 'collection');
+  if (isset($fields['field_collection_product'])) {
+    $fields['field_collection_product']->delete();
+  }
+
+  // Import our custom .po files
+  df_tools_translation_import_translations('profile', 'dfs_obio');
+}

@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.dfs_fin_search
+  module:
+    - block_class
+    - system
+    - views
+  theme:
+    - fin
+third_party_settings:
+  block_class:
+    classes: 'columns medium-3 block-searchform block'
+id: exposedformdfs_fin_searchblock_1
+theme: fin
+region: meta_header
+weight: -17
+provider: null
+plugin: 'views_exposed_filter_block:dfs_fin_search-block_1'
+settings:
+  id: 'views_exposed_filter_block:dfs_fin_search-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: "/search\r\n/search/*"
+    negate: true
+    context_mapping: {  }

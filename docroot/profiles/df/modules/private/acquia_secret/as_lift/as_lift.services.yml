@@ -1,0 +1,7 @@
+services:
+  as_lift_content_hub.subscriber:
+    class: Drupal\as_lift\EventSubscriber\ContentHubResponseSubscriber
+    tags:
+      - { name: event_subscriber }
+  as_lift.scenario:
+    class: Drupal\as_lift\ASLiftScenario

@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Contains as_media_acquiadam.install
+ */
+
+/*
+ * Implements hook_install().
+ */
+function as_media_acquiadam_install() {
+  _as_tracking_event('dam_enabled');
+}

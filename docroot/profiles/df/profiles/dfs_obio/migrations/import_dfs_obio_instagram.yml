@@ -1,0 +1,14 @@
+id: import_dfs_obio_instagram
+label: Import dfs_obio:media:instagram
+source:
+  plugin: csv
+  path: '../data/dfs_obio.media.instagram.csv'
+  header_row_count: 1
+  keys: [Name]
+destination:
+  plugin: entity:media
+process:
+  bundle: { plugin: default_value, default_value: instagram }
+  embed_code: Post
+  name: Name
+  uuid: UUID

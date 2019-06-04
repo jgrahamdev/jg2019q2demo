@@ -1,0 +1,148 @@
+<html>
+<head>
+    <link rel="shortcut icon" href="/profiles/df/modules/private/acquia_secret/as_journey/images/fb.ico" />
+    <title> Facebook </title>
+    <link type="text/css" rel="stylesheet" href="/profiles/df/modules/private/acquia_secret/as_journey/styles/styles.css" media="all" />
+    <script type='text/javascript'>
+      var interval = setInterval(function () {
+        if (window.AcquiaLift && window.AcquiaLift.currentSegments) {
+          var segments = [];
+          window.AcquiaLift.currentSegments.forEach(function (segment) {
+            segments.push(segment.id);
+            console.log(segments);
+          });
+        if (segments.includes('did_not_visit_showroom')) {
+            document.getElementById('showroom-ad').style.display = 'block';
+        };
+        if (segments.includes('current_customer')){
+            document.getElementById('customer-ad').style.display = 'block';
+        };
+
+          document.getElementById('load').classList.remove("loader");
+          document.getElementById('feed-article').style.opacity = "1";
+          document.getElementById('showroom-ad').style.opacity = "1";
+          document.getElementById('customer-ad').style.opacity = "1";
+          clearInterval(interval);
+        }
+      }, 100);
+    </script>
+    <!--LIFT_REPLACEME-->
+</head>
+
+<body>
+    <div class="topbar-wrapper">
+        <div class="topbar">
+            <img src="/profiles/df/modules/private/acquia_secret/as_journey/images/fb_alt_topbar.png" />
+        </div>
+    </div>
+    <div class="content">
+        <aside>
+            <img src="/profiles/df/modules/private/acquia_secret/as_journey/images/fb_alt_sidebar.png" />
+        </aside>
+        <article>
+            <img src="/profiles/df/modules/private/acquia_secret/as_journey/images/fb_alt_update.png" />
+             <span id="load" class="loader"></span>
+               <!-- card! -->
+            <div class="card fadeIn hide" id="showroom-ad">
+                <span class="card-type">Suggested Post </span>
+                <div class="card-header">
+                    <div class="logo"><img src="/profiles/df/modules/private/acquia_secret/as_journey/images/obio-logo.jpg" /></div>
+                    <div class="name"><a href="#">OBIO</a>
+                        <br /><span class="sponsored">Sponsored</span></div>
+                    <button class="likebtn"><i class="like-icon"></i> Like Page </button>
+                </div>
+                <div class="card-body">
+                    <p>Boston Showroom now open! Meet with a design specialist to get started.</p>
+                   <a href="https://obioinspiration.acquia-demo.com" target="_blank">  <img src="/profiles/df/modules/private/acquia_secret/as_journey/images/showroom-visit.jpg" /> </a>
+                    <div class="teaser">
+                        <h4 class="teaser-title"><a href="https://obioinspiration.acquia-demo.com" target="_blank"> OBIO BOSTON </a></h4>
+                        <p class="teaser-text">Locations </p>
+                        <p class="teaser-url"><a href="/locations" target="_blank">OBIO.CO.UK</a></p>
+                        <button class="likebtn" href="/locations" target="_blank"> GET INFO </button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-count">
+                        <span class="like-count"><i class="like-count"></i>221</span>
+                        <span class="comment-count">5 Comments</span>
+                    </div>
+                    <div class="card-actions">
+                        <span class="like-btn"><a href="#">Like</a></span>
+                        <span class="comment-btn"><a href="#">Comment</a></span>
+                        <span class="share-btn"><a href="#">Share</a></span>
+                    </div>
+                </div>
+            </div>
+             <!-- end card -->
+            <!-- card! -->
+            <div class="card fadeIn hide" id="customer-ad">
+                <span class="card-type">Suggested Post </span>
+                <div class="card-header">
+                    <div class="logo"><img src="/profiles/df/modules/private/acquia_secret/as_journey/images/obio-logo.jpg" /></div>
+                    <div class="name"><a href="#">OBIO</a>
+                        <br /><span class="sponsored">Sponsored</span></div>
+                    <button class="likebtn"><i class="like-icon"></i> Like Page </button>
+                </div>
+                <div class="card-body">
+                    <p>Introducing the Obio Inspiration App - Get the latest design trends, view order status, and much more! </p>
+                   <a href="https://obioinspiration.acquia-demo.com" target="_blank">  <img src="/profiles/df/modules/private/acquia_secret/as_journey/images/office-img.jpg" /> </a>
+                    <div class="teaser">
+                        <h4 class="teaser-title"><a href="https://obioinspiration.acquia-demo.com" target="_blank"> OBIO Inspiration App </a></h4>
+                        <p class="teaser-text">Make some space. </p>
+                        <p class="teaser-url"><a href="/content/3-office-design-trends-every-founder-must-know" target="_blank">OBIO.CO.UK</a></p>
+                        <button class="likebtn" href="https://obioinspiration.acquia-demo.com" target="_blank"> GET APP </button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-count">
+                        <span class="like-count"><i class="like-count"></i>344</span>
+                        <span class="comment-count">22 Comments</span>
+                    </div>
+                    <div class="card-actions">
+                        <span class="like-btn"><a href="#">Like</a></span>
+                        <span class="comment-btn"><a href="#">Comment</a></span>
+                        <span class="share-btn"><a href="#">Share</a></span>
+                    </div>
+                </div>
+            </div>
+             <!-- end card -->
+
+               <!-- card! -->
+            <div class="card fadeIn" id="feed-article">
+                <div class="card-header">
+                    <div class="logo"><img src="/profiles/df/modules/private/acquia_secret/as_journey/images/user-3.png" /></div>
+                    <div class="name"><a href="#">Sara Williams</a>
+                        <br /><span class="sponsored">2 hrs</span></div>
+                </div>
+                <div class="card-body">
+                    <p>A great read for anyone starting a business! </p>
+                    <a class="inherit-style" href="/content/3-office-design-trends-every-founder-must-know" target="_blank"><img src="/profiles/df/modules/private/acquia_secret/as_journey/images/3-design-trends.jpg" /></a>
+                    <div class="teaser">
+                        <h4 class="teaser-title"><a class="inherit-style" href="/content/3-office-design-trends-every-founder-must-know" target="_blank"> Three Design Trends Every Founder Must Know | OBIO</a></h4>
+                        <p class="teaser-text">As a startup founder, one of the main responsibilities is to ensure your team performs at maximum efficency. </p>
+                        <p class="teaser-url"><a class="inherit-style" href="/content/3-office-design-trends-every-founder-must-know" target="_blank">OBIO.CO.UK</a></p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-count">
+                        <span class="like-count"><i class="like-count"></i>66</span>
+                        <span class="comment-count">12 Comments</span>
+                    </div>
+                    <div class="card-actions">
+                        <span class="like-btn"><a href="#">Like</a></span>
+                        <span class="comment-btn"><a href="#">Comment</a></span>
+                        <span class="share-btn"><a href="#">Share</a></span>
+                    </div>
+                </div>
+            </div>
+             <!-- end card -->
+           
+            <img id="feed" class="fadeIn" src="/profiles/df/modules/private/acquia_secret/as_journey/images/fb_alt_feed.png" />
+        </article>
+        <aside>
+            <img src="/profiles/df/modules/private/acquia_secret/as_journey/images/fb_rightbar.png" />
+        </aside>
+    </div>
+</body>
+
+</html>

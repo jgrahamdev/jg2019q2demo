@@ -1,0 +1,9 @@
+UUID,Title,Description,Path,State
+f9c8a67a-1bc1-4f05-a1bf-43de70dec29b,Accueil,"<p>Explorez ce que Ohio a à offrir sur notre page d'accueil.</p>",/obio,published
+f0ae1167-73ff-4045-a60a-6f7ee25ded25,Inspiration,"<p>Inspirez-vous des derniers articles de l'Ohio.</p>",/inspiratio,published
+102a2d1c-d869-43cb-a6f1-435409863171,Emplacements,"<p>Trouvez un emplacement d'exposition Obio près de chez vous.</p>",/locations,published
+fea94828-3622-413f-a9ce-4871894991b8,Boutique Bureau,"<p>Parcourez notre gamme de produits et découvrez le style adapté à votre lieu de travail.</p>",/shop/office,published
+f4144f20-255f-4e29-8a40-ecee47971106,A propos,"<p>Rencontrez l'équipe de design chez Obio et voyez ce qui nous pousse à créer de beaux espaces.</p>",/about,published
+d7f33238-aed9-4b90-a71e-92f2f3112303,Test du système,"<p>Une page interne utilisée pour tester différents composants du site.</p>",/system-test,draft
+0dc99f32-dd9c-4fae-bc02-61b34b08c644,"Le API","<p>Une page interne montrant comment le contenu peut être consommé avec notre API.</p>",/api-demo,published
+cb47aee5-421c-4c4e-83de-b4c528d27378,"Accueil (Commerce)","<p>Explorez ce que Ohio a à offrir sur notre page d'accueil.</p>",/home,published

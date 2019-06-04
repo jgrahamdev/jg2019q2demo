@@ -1,0 +1,14 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_fin_media_image
+label: Import dfs_fin:media:image entities
+source:
+  plugin: media_image
+  path: '../data/dfs_fin.media.image.csv'
+  header_row_count: 1
+  keys:
+    - Image
+destination:
+  plugin: entity:media
+process:
+  bundle: { plugin: default_value, default_value: image }
+  image: File

@@ -1,0 +1,14 @@
+uuid: null
+permissions:
+  - 'create location content'
+  - 'delete own location content'
+  - 'edit own location content'
+  - 'view location revisions'
+  - 'create collection content'
+  - 'delete own collection content'
+  - 'edit own collection content'
+  - 'view collection revisions'
+  - 'administer panelizer node location content'
+  - 'administer panelizer node location layout'
+  - 'administer panelizer node collection content'
+  - 'administer panelizer node collection layout'

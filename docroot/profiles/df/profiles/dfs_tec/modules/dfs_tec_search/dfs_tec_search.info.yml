@@ -1,0 +1,8 @@
+name: DFS Tec Search
+type: module
+description: Adds search capabilities to the DFS Tec scenario.
+core: 8.x
+package: Demo Framework Scenarios
+dependencies:
+  - df_tools_display
+  - df_tools_search

@@ -1,0 +1,23 @@
+uuid: d6d56a54-bd07-4874-a000-c0cb82903a0c
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - dfs_fin_qa
+  enforced:
+    module:
+      - dfs_fin_qa
+id: comment.field_answer
+field_name: field_answer
+entity_type: comment
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

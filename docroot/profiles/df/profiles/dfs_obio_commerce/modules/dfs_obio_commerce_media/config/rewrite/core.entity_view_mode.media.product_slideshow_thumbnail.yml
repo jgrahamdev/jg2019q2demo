@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - media
+third_party_settings:
+  lightning_core:
+    description: ''
+id: media.product_slideshow_thumbnail
+label: 'Product slideshow thumbnail'
+targetEntityType: media
+cache: true

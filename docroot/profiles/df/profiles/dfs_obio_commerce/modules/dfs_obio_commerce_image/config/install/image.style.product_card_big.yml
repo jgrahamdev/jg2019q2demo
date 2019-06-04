@@ -1,0 +1,42 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_effects
+name: product_card_big
+label: 'Product card (big, square)'
+effects:
+  64645118-b939-45d1-a07f-b3d6616a7d47:
+    uuid: 64645118-b939-45d1-a07f-b3d6616a7d47
+    id: image_scale
+    weight: 1
+    data:
+      width: 400
+      height: null
+      upscale: true
+  59e8e540-4807-4a5f-87b7-45c0fe4144cf:
+    uuid: 59e8e540-4807-4a5f-87b7-45c0fe4144cf
+    id: image_scale
+    weight: 2
+    data:
+      width: null
+      height: 400
+      upscale: false
+  a0cec7d1-ec03-4e81-8572-ccbb30eec542:
+    uuid: a0cec7d1-ec03-4e81-8572-ccbb30eec542
+    id: image_effects_set_canvas
+    weight: 3
+    data:
+      canvas_size: exact
+      exact:
+        width: '400'
+        height: '400'
+        placement: center-center
+        x_offset: 0
+        y_offset: 0
+      relative:
+        left: 0
+        right: 0
+        top: 0
+        bottom: 0
+      canvas_color: '#FFFFFFFF'

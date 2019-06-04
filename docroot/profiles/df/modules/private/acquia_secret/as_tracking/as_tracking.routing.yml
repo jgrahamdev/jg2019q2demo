@@ -1,0 +1,7 @@
+as_tracking.amplitude_api_form:
+  path: '/admin/config/services/amplitude'
+  defaults:
+    _form: '\Drupal\as_tracking\Form\AmplitudeApiForm'
+    _title: 'Amplitude Analytics'
+  requirements:
+    _permission: 'administer site configuration'

@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.product_browser
+  module:
+    - views
+name: product
+label: 'Product browser'
+display: modal
+display_configuration:
+  width: 1100
+  height: 650
+  link_text: 'Select products'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  bdc05723-43f1-4148-97b9-cfbcb020d79c:
+    settings:
+      view: product_browser
+      view_display: library
+      submit_text: Place
+      auto_select: false
+    uuid: bdc05723-43f1-4148-97b9-cfbcb020d79c
+    weight: 1
+    label: Library
+    id: view

@@ -1,0 +1,9 @@
+name: DF Tools Panelizer
+type: module
+description: Contains helpers to assist in dealing with migrated Panelizer data.
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - df_core
+  - panelizer
+  - panelizer_quickedit

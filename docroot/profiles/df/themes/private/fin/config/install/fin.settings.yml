@@ -1,0 +1,33 @@
+features:
+  comment_user_picture: 1
+  favicon: 1
+  logo: true
+  name: true
+  node_user_picture: 1
+langcode: en
+_core:
+  default_config_hash: FZbQ1du3SmKFf1ymWDE2aOWLuyI6_B447UrkLq3MePI
+zurb_foundation_page_site_name: 0
+zurb_foundation_page_site_logo: 0
+zurb_foundation_page_account_info: 0
+zurb_foundation_top_bar_enable: '1'
+zurb_foundation_top_bar_sticky: 1
+zurb_foundation_disable_base_css: 1
+zurb_foundation_disable_base_js: 1
+logo:
+  use_default: 1
+  path: ''
+favicon:
+  use_default: 1
+  path: ''
+zurb_foundation_status_in_reveal: 0
+zurb_foundation_use_respondjs: 0
+zurb_foundation_meta_header_grid: 0
+zurb_foundation_top_bar_grid: 0
+zurb_foundation_top_bar_is_hover: 1
+zurb_foundation_top_bar_menu_text: ''
+zurb_foundation_top_bar_custom_back_text: 0
+zurb_foundation_top_bar_back_text: ''
+zurb_foundation_top_bar_search: 0
+fin_page_site_logo_reversed: 1
+fin_page_desktop_mobile_menu_icon: 0

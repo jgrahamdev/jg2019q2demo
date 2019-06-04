@@ -1,0 +1,37 @@
+uuid: 6ef6e635-aa0d-433d-bd00-efc57c3b5242
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:hero:d55931bb-61f0-4ae4-a300-e12ec2ae0e8c'
+  module:
+    - block_class
+    - block_content
+    - system
+  theme:
+    - fin
+third_party_settings:
+  block_class:
+    classes: ''
+_core:
+  default_config_hash: 5BN3sqE06J4AGQLWLHVD6wTIOsOSxqpwkj5-9ww5DZE
+id: lifehero
+theme: fin
+region: '-1'
+weight: -8
+provider: null
+plugin: 'block_content:d55931bb-61f0-4ae4-a300-e12ec2ae0e8c'
+settings:
+  id: 'block_content:d55931bb-61f0-4ae4-a300-e12ec2ae0e8c'
+  label: 'Life Hero'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /node/17
+    negate: false
+    context_mapping: {  }

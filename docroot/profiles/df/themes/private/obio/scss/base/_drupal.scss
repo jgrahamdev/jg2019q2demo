@@ -1,0 +1,645 @@
+// Place any Drupal-related quirks here.
+//Commmon stuff for extends
+@import "dfs_base/scss/base/common";
+@import "dfs_base/scss/base/fonts/ionicons-variables";
+.ion {
+  display: inline-block;
+  font-family: $ionicons-font-family;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@import "dfs_base/scss/base/fonts/ionicons-icons";
+article.node--unpublished {
+  background-color: $white;
+}
+
+article.node--type-collection:not(.node--view-mode-full),
+article.node--type-location:not(.node--view-mode-full) {
+  overflow: hidden;
+}
+
+.cart-block--summary__count {
+  vertical-align: text-bottom;
+  padding-left: 3px;
+}
+
+i.icon {
+  font-style: normal;
+}
+
+// hide contextual links when they dont make sense for a demo and for views
+// contextual links because there is a caching bug in panelizer
+.region-header-right {
+  div.contextual {
+    display: none;
+  }
+}
+
+//views contextual links dont work when on a panalizer page, so hide them to avoid clickinf
+.region-content .views-element-container {
+  .contextual {
+    display: none;
+  }
+}
+
+// Hide contextual links when IPE is open.
+.panels-ipe-active .contextual {
+  opacity: 0;
+  transition: inherit;
+}
+
+.collection-node-type-teaser {
+  // Set a max width to align with the max width of the article_preview image
+  // style
+  position: relative;
+  max-width:400px;
+  margin-right: auto;
+  margin-left: auto;
+
+  .columns {
+    position: relative;
+  }
+  .collection-teaser-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .collection-teaser-title {
+    font-size: rem-calc(16px);
+    text-transform: uppercase;
+    font-weight: normal;
+    a {
+      color: $white;
+      position: absolute;
+      top: 0;
+      width: calc(100% - 20px);
+      height: calc(100% - 20px);
+      margin: 10px;
+      border: 2px solid $primary-color;
+      display: -ms-flexbox;
+      display: flex;
+      flex-basis: initial;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: transparent;
+      transition: background 0.2s;
+      &:hover {
+        background: $primary-color;
+      }
+    }
+  }
+}
+
+.node--type-article.node--view-mode-full {
+  section:nth-child(1) .field-node--field-image {
+    @extend .full-width-row;
+    margin-bottom: -5%;
+    img {
+      width: 100%;
+    }
+  }
+  section:not(:nth-child(1)) {
+    position: relative;
+    background: $white;
+    display: flex;
+    flex-wrap: wrap;
+    border-left: rem-calc(1px) solid $light-gray;
+    border-right: rem-calc(1px) solid $light-gray;
+  }
+  section > div {
+    width: 100%;
+  }
+  .field-name-field-tags {
+    position: absolute;
+    width: inherit;
+    bottom: 100%;
+    left: 0;
+    text-transform: uppercase;
+    color: $white;
+    font-weight: bold;
+    background: $black;
+    padding: rem-calc(5px) rem-calc(15px) rem-calc(5px) rem-calc(15px);
+    a {
+      color: inherit;
+    }
+    .field-item:not(:first-child) {
+      display: none;
+    }
+  }
+  .node-title {
+    margin: rem-calc(20px) rem-calc(20px) rem-calc(15px) rem-calc(20px);
+    display: block;
+    max-width: 20em;
+    @include breakpoint (small only) {
+      margin-bottom: 0;
+    }
+  }
+  .field-name-field-article-subtitle {
+    margin: 0 rem-calc(20px) 0 rem-calc(20px);
+    padding-bottom: rem-calc(20px);
+    border-bottom: rem-calc(1px) solid $light-gray;
+    font-weight: bold;
+    font-size: rem-calc(18px);
+  }
+  .field-name-body {
+    margin: rem-calc(20px) rem-calc(20px) 0 rem-calc(20px);
+    padding-bottom: rem-calc(60px);
+    border-bottom: rem-calc(1px) solid $light-gray;
+    @include breakpoint(large up) {
+      > div.field-items > div.field-item > *:not(.embedded-entity), > div.field-items > div.field-item > .embedded-entity:not(.align-center) {
+        max-width: 75%;
+        margin-left: 10%;
+      }
+    }
+    .embedded-entity {
+      @extend .vertical-margin-space;
+      @extend .vertical-padding-space;
+      &.align-center {
+        .media-image {
+          margin: 0 rem-calc(-20px);
+        }
+      }
+    }
+  }
+  section.block-plugin-id-addtoany-block {
+    display: block;
+    .addtoany_list {
+      @include breakpoint (large up) {
+        float: right;
+        margin-top: rem-calc(-60px);
+      }
+      display: flex;
+      margin-right: rem-calc(20px);
+      margin-left: 1.25rem;
+      margin-top: .5rem;
+      margin-bottom: .5rem;
+    }
+  }
+}
+
+
+/* Review comment type styles */
+
+.collection-review > div {
+  border: 1px solid $light-gray;
+  padding: rem-calc(20px);
+  height: rem-calc(350px);
+  .review-rating {
+    text-align: center;
+    font-size: rem-calc(20px);
+    margin-bottom: rem-calc(15px);
+  }
+  .field-name-field-review .field-item {
+    text-align: center;
+    min-height: 80px;
+    &:before {
+      content: "“";
+    }
+    &:after {
+      content: "”";
+    }
+    margin-bottom: rem-calc(15px);
+  }
+  .field-name-field-first-name, .field-name-field-last-name {
+    display: inline-block;
+    margin-right: rem-calc(5px);
+  }
+  .field-name-user-picture {
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: rem-calc(15px);
+  }
+  .review-author > article {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+#collection-review-form {
+  border: 1px solid $light-gray;
+  padding: rem-calc(10px);
+  margin-top: rem-calc(10px);
+  summary {
+    text-transform: uppercase;
+    font-size: 20px;
+    color: $dark-bg-font-color;
+    &::-webkit-details-marker {
+      display: none;
+    }
+    .arrow {
+      margin-left: rem-calc(20px);
+    }
+  }
+  .arrow {
+    @extend .ion-chevron-right;
+    font-size: 16px;
+  }
+  &[open] {
+    display: inline-block;
+    .arrow {
+      @extend .ion-chevron-down;
+    }
+    summary {
+      margin-bottom: rem-calc(20px);
+    }
+  }
+  .description {
+    display: none;
+  }
+  .form-item > label {
+    background: none;
+    &:after {
+      content: ":";
+    }
+  }
+  .form-item {
+    display: flex;
+  }
+  .details-wrapper {
+    padding-left: 2rem;
+  }
+  .success {
+    float: right;
+  }
+}
+
+.collection-review-form-wrap {
+  width: 100%;
+}
+
+
+/* Credit for the stars goes to https://codepen.io/jamesbarnett/pen/vlpkh */
+
+.simple-rating {
+  float: left;
+}
+
+.simple-rating > input {
+  display: none;
+}
+
+.simple-rating > label:before {
+  margin: rem-calc(5px);
+  font-size: rem-calc(20px);
+  @extend .ion-ios-star;
+}
+
+.simple-rating > [for*=".5"]:before {
+  @extend .ion-ios-star-half;
+  position: absolute;
+  padding-left: rem-calc(5px);
+  margin-left: 0;
+}
+
+.simple-rating > label {
+  color: $off-white;
+  float: right;
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.simple-rating > input:checked ~ label,
+/* show gold star when clicked */
+
+.simple-rating:not(:checked) > label:hover,
+/* hover current star */
+
+.simple-rating:not(:checked) > label:hover ~ label {
+  color: $black;
+}
+
+
+/* hover previous stars in list */
+
+.simple-rating > input:checked + label:hover,
+/* hover current star when changing rating */
+
+.simple-rating > input:checked ~ label:hover, .simple-rating > label:hover ~ input:checked ~ label,
+/* lighten current selection */
+
+.simple-rating > input:checked ~ label:hover ~ label {
+  color: $dark-gray;
+}
+
+
+/* Location content type styles. */
+
+.location-view {
+  margin-top: 1em;
+  @include breakpoint(small only) {
+    padding: 0 rem-calc(15px) 0 rem-calc(15px);
+  }
+  .views-row {
+    display: inline-block;
+    margin-right: 1em;
+    vertical-align: top;
+    max-width: 300px;
+  }
+  ul {
+    list-style: none;
+  }
+}
+
+.location-node-type-teaser {
+  .node-title {
+    font-size: rem-calc(30px);
+    font-weight: normal;
+    margin: 0.5em 0;
+  }
+  .field-name-field-location-hours {
+    .field-label {
+      font-weight: bold;
+      &:after {
+        content: ":";
+      }
+    }
+    table, tr, td, th, tbody {
+      background: transparent;
+      border: 0;
+      padding: 0;
+    }
+    p {
+      margin: 0;
+    }
+  }
+  .view-details {
+    text-transform: uppercase;
+    font-size: 25px;
+  }
+}
+
+
+/* Panels IPE styles. */
+
+.ipe-block-form input[type="submit"] {
+  @extend .button;
+  &:hover {
+    border-color: inherit;
+  }
+  &[value="Add"] {
+    @extend .success;
+  }
+}
+
+.ipe-actions h5 {
+  color: $black;
+}
+
+
+/* Offcanvas styles. */
+
+.ui-dialog-offcanvas .button {
+  text-transform: inherit;
+  letter-spacing: inherit;
+}
+
+
+/* Content browser styles. */
+
+.checkout-progress {
+  border-bottom: 1px solid $medium-gray;
+  @extend .vertical-padding-space;
+}
+
+.completion-purchase-message {
+  li {
+    padding-bottom: rem-calc(10px);
+  }
+}
+
+.field-name-field-location-hours, .field-node--field-location-address {
+  .field-label {
+    @extend .vertical-padding-space;
+    @extend .vertical-margin-space;
+    padding-left: rem-calc(10px);
+    font-weight: bold;
+  }
+}
+
+.field-node--field-location-address {
+  .field-item {
+    padding-left: rem-calc(10px);
+  }
+}
+
+.main-wrap .block-plugin-id-subscribe-form {
+  @extend .columns;
+  padding: rem-calc(20px);
+  .block-title {}
+}
+
+.df-tools-magellan-block.sticky-container {
+  z-index: auto;
+}
+
+#block-showroomheader {
+  h1 {
+    font-size: rem-calc(20px);
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.node--type-location.node--view-mode-full {
+    h2.node-title {
+        margin:rem-calc(30px) 0;
+        border-bottom:1px solid $black;
+    }
+    .field-name-body {
+            @extend .vertical-padding-space;
+            @extend .vertical-margin-space;
+    }
+}
+
+/* Tour overrides */
+
+.joyride-tip-guide {
+  background: #333333;
+  color: #FFFFFF;
+  display: none;
+  font-family: inherit;
+  font-weight: normal;
+  position: absolute;
+  .button {
+    text-transform: none;
+    letter-spacing: inherit;
+    font-size: inherit;
+  }
+  .joyride-close-tip {
+    color: #777777;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: .5;
+    position: absolute;
+    text-decoration: none;
+    top: 10px;
+    right: 12px;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+.ui-dialog-outside-in .button {
+  text-transform: none;
+  letter-spacing: inherit;
+}
+
+footer .newsletter-intro-text {
+color:#fff;
+text-align:left;
+}
+
+.newsletter-intro-text {
+color:#000;
+width:100%;
+text-align:center;
+}
+
+/* Search page (/search) styles */
+
+.dfs-obio-search-results {
+  .card {
+    height: 350px;
+    max-height: 350px;
+    overflow: hidden;
+  }
+  .view-content {
+    @extend .row;
+  }
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      li:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+
+.block-plugin-id-facet-block {
+  display: inline-block;
+  margin-right: 2rem;
+  .block-title {
+    margin-top: 1rem;
+    text-align: left;
+    font-size: 1.5rem;
+  }
+  > ul {
+    list-style: none;
+    display: inline-block;
+    margin-left: 0;
+  }
+  .facet-item {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+  .facet-item .facet-item__value {
+    background: $dark-gray;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    font-size: .8rem;
+    color: $white;
+    &:hover {
+      background: #2199e8;
+    }
+    transition: .2s;
+  }
+  .facet-item .js-facet-deactivate {
+    display: none;
+  }
+  .facet-item .js-facet-deactivate + .facet-item__value {
+    @extend .ion-minus-circled;
+    background: #2199e8;
+    &:before {
+      margin-right: .5rem;
+    }
+    &:hover {
+      background: #1e83c8;
+    }
+  }
+  .facet-item .facet-item__value {
+    @extend .ion-plus-circled;
+    &:before {
+      margin-right: .5rem;
+    }
+  }
+  .facets-soft-limit-link {
+    @extend .ion-more;
+    display: inline-block;
+    color: transparent;
+    &.open {
+      display: none;
+    }
+    &:before {
+      color: #2199e8;
+      vertical-align: middle;
+      margin-left: 10px;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.ui-autocomplete {
+  .ui-menu-item-wrapper {
+    display: block;
+  }
+}
+
+
+.view-individual-products {
+   ul{
+    list-style:none;
+  }
+}
+
+a[data-block-type="hero_product"]::before {
+  content: "\f147";
+  font-family: "Ionicons";
+  display: inline-block;
+  float: left;
+  padding-right: .5em;
+  font-size: 40px;
+  width: 100%;
+  text-align: center;
+  line-height: 60px;
+  height: 60px;
+}
+
+/* Moderation note hotfix */
+
+#drupal-off-canvas .moderation-note-form .button {
+  background: transparent;
+  color: white;
+  font-size: 13px;
+  font-weight: normal;
+  margin: 0;
+  display: inline-block;
+  padding: 10px;
+  width: initial;
+  border-radius: 0;
+  border: 0;
+  transition: .2s ease;
+}

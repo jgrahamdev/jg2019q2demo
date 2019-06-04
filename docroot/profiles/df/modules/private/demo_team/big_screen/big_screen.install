@@ -1,0 +1,39 @@
+<?php
+
+/*
+ * Implements hook_install()
+ */
+function big_screen_install() {
+  // Attempt to install the default theme.
+  $default = \Drupal::config('big_screen.settings')->get('theme');
+  $theme_handler = \Drupal::service('theme_handler');
+  $themes = $theme_handler->rebuildThemeData();
+  // Ensure the theme is available and not already installed.
+  if (!empty($themes[$default]) && !$theme_handler->themeExists($default)) {
+    if ($theme_handler->install([$default])) {
+      $replace = ['@theme' => $default];
+      drupal_set_message(t('The default Big Screen theme: @theme was installed.', $replace), 'notice');
+    }
+  }
+
+  // Create field storage for the 'Always Big' base field.
+  $storage_definition = \Drupal::service('entity_field.manager')->getFieldStorageDefinitions('node')['always_big'];
+  \Drupal::service('field_storage_definition.listener')->onFieldStorageDefinitionCreate($storage_definition);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function big_screen_uninstall() {
+  // Delete field storage for the 'Always Big' base field.
+  $storage_definition = \Drupal::service('entity_field.manager')->getFieldStorageDefinitions('node')['always_big'];
+  \Drupal::service('field_storage_definition.listener')->onFieldStorageDefinitionDelete($storage_definition);
+}
+
+/**
+ * Update the field definition schema ensuring 'always_big' column is added.
+ */
+function big_screen_update_8001(&$sandbox) {
+  \Drupal::entityTypeManager()->clearCachedDefinitions();
+  \Drupal::service('entity.definition_update_manager')->applyUpdates();
+}

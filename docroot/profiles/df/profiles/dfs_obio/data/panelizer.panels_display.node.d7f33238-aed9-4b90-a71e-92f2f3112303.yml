@@ -1,0 +1,274 @@
+blocks:
+  bc396094-60e7-49da-8b05-5fa3d0eb4083:
+    id: 'entity_field:node:title'
+    label: Title
+    provider: ctools_block
+    label_display: '0'
+    formatter:
+      label: hidden
+      type: string
+      settings:
+        link_to_entity: false
+      third_party_settings: {  }
+      weight: 0
+    context_mapping:
+      entity: '@panelizer.entity_context:entity'
+    region: middle
+    uuid: bc396094-60e7-49da-8b05-5fa3d0eb4083
+    weight: 1
+  13a9b10b-a101-4809-b502-952a943c1e9f:
+    id: 'block_content:a864cee4-aa4a-4219-85a2-a8aecbed0329'
+    label: 'HTML Blocks'
+    provider: block_content
+    label_display: visible
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 13a9b10b-a101-4809-b502-952a943c1e9f
+    weight: 21
+  314575ed-7545-4934-8df0-7bdac826b9f9:
+    id: 'block_content:37b9646d-b4e1-4341-bc50-fc8b3ea89f75'
+    label: 'About Us'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 314575ed-7545-4934-8df0-7bdac826b9f9
+    weight: 22
+  03f27c45-fce2-4381-aad7-2ff548d6911c:
+    id: 'block_content:75ed7d29-36d8-452a-8120-0a642274c0a5'
+    label: 'Team Blocks'
+    provider: block_content
+    label_display: visible
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 03f27c45-fce2-4381-aad7-2ff548d6911c
+    weight: 3
+  ffcb84f0-4813-4534-9102-3dc751da084a:
+    id: 'block_content:c0f5ab80-df7f-48a7-aca3-663a0ea31622'
+    label: 'CEO Bio'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: ffcb84f0-4813-4534-9102-3dc751da084a
+    weight: 4
+  81f7d90a-719f-4b87-b8de-ebfcc311daa2:
+    id: 'block_content:c9a61183-7913-4779-b4b8-0bc5e448c020'
+    label: 'CMO Bio'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 81f7d90a-719f-4b87-b8de-ebfcc311daa2
+    weight: 6
+  3eb4acc8-4e05-4965-94df-efbde1c35eca:
+    id: 'block_content:3079dac9-e78e-483f-9484-53f0587427f6'
+    label: 'CTO Bio'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 3eb4acc8-4e05-4965-94df-efbde1c35eca
+    weight: 5
+  5bcc5e90-a9fc-4a4c-918d-8636a7fed3eb:
+    id: 'block_content:c6f9c2cb-7647-4670-80ca-a4d0d25631cd'
+    label: 'Ambience Text'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 5bcc5e90-a9fc-4a4c-918d-8636a7fed3eb
+    weight: 23
+  f0367d84-e748-43cb-b2ea-206f5d7aba31:
+    id: 'block_content:d0c5ff13-67a6-4b16-82ba-896213321c6f'
+    label: Media
+    provider: block_content
+    label_display: visible
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: f0367d84-e748-43cb-b2ea-206f5d7aba31
+    weight: 24
+  ef55a702-79aa-4fca-bb7d-4f0bc95e8759:
+    id: 'block_content:6c3b01a2-acfe-47e7-8ece-47b78ee75c6d'
+    label: 'Hero Blocks'
+    provider: block_content
+    label_display: visible
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: ef55a702-79aa-4fca-bb7d-4f0bc95e8759
+    weight: 8
+  df6b75e5-b8a2-4392-b335-60e685d63e27:
+    id: 'block_content:7de476f7-dc52-437a-8dcd-f8a5b4001765'
+    label: 'Shop Office Title'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: df6b75e5-b8a2-4392-b335-60e685d63e27
+    weight: 12
+  5b81c012-c752-406e-a14e-3f9afc32009e:
+    id: 'block_content:f23e259b-6ebe-435c-8c67-be4cebb150a1'
+    label: 'Inspiring Office'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 5b81c012-c752-406e-a14e-3f9afc32009e
+    weight: 9
+  5c96769a-2183-49dc-9b53-5776408a25cf:
+    id: 'block_content:2a9da6b1-dcd3-4480-a24b-43c7dd8637d9'
+    label: 'Shop office Hero'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 5c96769a-2183-49dc-9b53-5776408a25cf
+    weight: 11
+  7936150c-d0d2-423b-95af-a22f90fbc5dc:
+    id: 'block_content:b90504e1-9093-48ce-90ed-9af0460cd0fe'
+    label: 'Recruiter Persona CTA Hero'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 7936150c-d0d2-423b-95af-a22f90fbc5dc
+    weight: 13
+  e20d4d5e-3083-4026-9624-afb0339b70e8:
+    id: 'block_content:c49c9224-35d0-4ffb-8ebc-f66a2af144a7'
+    label: 'Subscription CTA Hero'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: e20d4d5e-3083-4026-9624-afb0339b70e8
+    weight: 15
+  ccf58aca-b877-4ad9-8e55-bb753266f61e:
+    id: 'block_content:e98eaf64-bd71-4d80-bade-e24b29bc9188'
+    label: 'Recruiter Persona Alt CTA Hero'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: ccf58aca-b877-4ad9-8e55-bb753266f61e
+    weight: 10
+  77d7801f-5439-4e5c-8523-e6da2b38d8f5:
+    id: 'block_content:59c3fd0b-128b-42a1-84fa-ca062bf6b4d5'
+    label: 'Design CTA Hero'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 77d7801f-5439-4e5c-8523-e6da2b38d8f5
+    weight: 18
+  1e641e50-d624-4207-8326-4d6a02b9a8eb:
+    id: 'block_content:b5c679d0-19e2-4835-8143-371876c4f463'
+    label: 'About Hero'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 1e641e50-d624-4207-8326-4d6a02b9a8eb
+    weight: 19
+  a3e621f3-1ce2-45aa-8395-de209e539428:
+    id: 'block_content:8de0c34d-3203-47d0-9c27-d4375db1883c'
+    label: 'Location Hero'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: a3e621f3-1ce2-45aa-8395-de209e539428
+    weight: 20
+  a35bae46-3cfc-4400-81df-5746245cee4d:
+    id: 'block_content:cbef9266-b724-4782-a5f2-9cc193a3e382'
+    label: 'HR Persona CTA Hero'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: a35bae46-3cfc-4400-81df-5746245cee4d
+    weight: 16
+  fae1c181-0f7e-4e10-98f6-eaf7f9e1aea9:
+    id: search_form_block
+    label: 'Search form'
+    provider: search
+    label_display: visible
+    context_mapping: {  }
+    region: middle
+    uuid: fae1c181-0f7e-4e10-98f6-eaf7f9e1aea9
+    weight: 7
+  e9fe6187-aff9-44db-b4c7-b2645ba5ca3d:
+    id: magellan
+    label: Magellan
+    provider: df_tools_blocks
+    label_display: 0
+    context_mapping: {  }
+    region: middle
+    uuid: e9fe6187-aff9-44db-b4c7-b2645ba5ca3d
+    weight: 2
+id: panels_variant
+uuid: 66454ba9-dca2-4264-bd09-9beeb133bd80
+label: ''
+weight: 0
+layout: foundation_1col
+layout_settings: {  }
+page_title: '[node:title]'
+storage_type: panelizer_field
+storage_id: 'node:6:full:108'
+builder: ipe

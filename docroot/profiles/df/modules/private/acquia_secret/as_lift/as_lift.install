@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Contains as_lift.install
+ */
+
+use Symfony\Component\Yaml\Yaml;
+
+/**
+ * Imports as_lift config if it does not already exist.
+ */
+function as_lift_update_8001() {
+  $base_dir = __DIR__ . '/config/install';
+  $config_factory = \Drupal::configFactory();
+  if ($files = file_scan_directory($base_dir, '/^as_lift\.settings.*\.yml$/i', ['recurse' => FALSE])) {
+    foreach ($files as $file) {
+      $new_data = Yaml::parse(file_get_contents($base_dir . DIRECTORY_SEPARATOR . $file->name . '.yml'));
+      $config = $config_factory->getEditable($file->name);
+      $old_data = $config->getRawData();
+      if (empty($old_data)) {
+        $config->setData($new_data)->save();
+      }
+    }
+  }
+}
+
+/*
+ * Implements hook_install().
+ */
+function as_list_install() {
+  _as_tracking_event('lift_enabled');
+}

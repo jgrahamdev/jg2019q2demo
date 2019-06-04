@@ -1,0 +1,28 @@
+name: React Block Sample 1
+machine_name: rb-sample-1
+type: pdb
+description: 'React Block Sample 1'
+package: React
+# version: '1.0.0'
+# core: '8.x'
+module_status: active
+presentation: react-block
+configuration:
+  text:
+    type: textfield
+    title: 'What do you want to say?'
+    default_value: 'Hello world!'
+add_css:
+  header:
+    component:
+      'sample-1.css': {}
+add_js:
+  footer:
+    'sample-1.js': {}
+
+
+# Information added by Drupal.org packaging script on 2019-02-18
+version: '8.x-1.0-alpha1'
+core: '8.x'
+project: 'react_block'
+datestamp: 1550449385

@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Install routine for FIN Quotes.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function dfs_fin_quotes_install() {
+  // Allow users to login via the Auto-Login URL.
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('use auto login url'));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('use auto login url'));
+}

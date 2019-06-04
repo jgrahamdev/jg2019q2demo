@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Set up the DF Tools Translation module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function df_tools_translation_install() {
+  // Enable translation for our core entities/bundles.
+  $entities = [
+    'menu_link_content' => ['menu_link_content']
+  ];
+  df_tools_translation_enable_translation($entities);
+
+  // Download the newest config translations from Drupal.org.
+  df_tools_translation_update_config_translation();
+}

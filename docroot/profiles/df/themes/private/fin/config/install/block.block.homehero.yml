@@ -1,0 +1,37 @@
+uuid: 4f17a43c-96d3-402a-b200-e554850516fd
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:hero:aa8874e3-a77c-4a94-a000-c73eb9b9bbb7'
+  module:
+    - block_class
+    - block_content
+    - system
+  theme:
+    - fin
+third_party_settings:
+  block_class:
+    classes: ''
+_core:
+  default_config_hash: 6hrc4eWFSlEs95Y8G4Pn6G06x1Kgm8x_UicyrS8Fj2U
+id: homehero
+theme: fin
+region: '-1'
+weight: -5
+provider: null
+plugin: 'block_content:aa8874e3-a77c-4a94-a000-c73eb9b9bbb7'
+settings:
+  id: 'block_content:aa8874e3-a77c-4a94-a000-c73eb9b9bbb7'
+  label: 'Home Hero'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /node/16
+    negate: false
+    context_mapping: {  }

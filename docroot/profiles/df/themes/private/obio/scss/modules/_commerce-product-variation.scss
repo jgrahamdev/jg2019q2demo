@@ -1,0 +1,148 @@
+//
+// @file
+// Commerce product variation SMACCS and BEM.
+//
+
+.commerce-product-variation {
+  .field-label-inline {
+    .field-label,
+    .field-items {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .field-label {
+      &::after {
+        content: ':';
+      }
+    }
+  }
+}
+
+.cart-item {
+  $image-size-small: 80px;
+  $image-size: 166px;
+  $cart-border: 2px;
+  $extra-up: unquote('screen and (min-width: 21em)');
+
+  position: relative;
+  background: $white;
+  box-shadow: 0 0 10px 5px rgba($off-white, 1);
+
+  @at-root #{&}__media {
+    display: none;
+
+    @media #{$extra-up} {
+      display: block;
+      width: $image-size-small;
+      height: 100%;
+    }
+
+    @media #{$medium-up} {
+      width: $image-size;
+    }
+
+    .field {
+      position: absolute;
+      width: $image-size-small;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+
+      @media #{$medium-up} {
+        width: $image-size;
+      }
+    }
+  }
+
+  @at-root #{&}__header {
+    display: table;
+    width: 100%;
+  }
+
+  @at-root #{&}__title {
+    display: table-cell;
+    color: $primary-color;
+  }
+
+  @at-root #{&}__price {
+    display: table-cell;
+    padding-left: 0.5em;
+    text-align: right;
+  }
+
+  .field-name-sku {
+    font-size: 70%;
+    line-height: 1.5rem;
+  }
+
+  @at-root #{&}__content {
+    min-height: $image-size;
+    padding: 1rem;
+
+    @at-root .cart-item__media ~ #{&} {
+      @media #{$extra-up} {
+        margin-left: $image-size-small;
+        min-height: $image-size-small;
+        border-left: 2px solid $off-white;
+      }
+
+      @media #{$medium-up} {
+        margin-left: $image-size;
+        min-height: $image-size;
+      }
+    }
+  }
+
+  @at-root .view-commerce-cart-form #{&}__content {
+    padding-bottom: 4.75rem;
+  }
+
+  // Cart page — cart form enhancements.
+  ~ .views-field-remove-button {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin-left: 1rem;
+
+    .delete-order-item {
+      background: transparent;
+      color: $anchor-color;
+      padding-left: 0;
+
+      &:focus,
+      &:hover {
+        color: $anchor-color-hover;
+      }
+
+      &::before {
+        display: inline-block;
+        content: '\2715';
+        margin-right: 0.25rem;
+        transform: scale(1.5);
+      }
+    }
+  }
+
+  @at-root #{&}--with-media ~ .views-field-remove-button {
+    @media #{$extra-up} {
+      left: $image-size-small + $cart-border;
+    }
+
+    @media #{$medium-up} {
+      left: $image-size + $cart-border;
+    }
+  }
+
+  ~ .views-field-edit-quantity {
+    position: absolute;
+    bottom: 0;
+    right: 1rem;
+  }
+}
+
+.view-commerce-cart-form .views-row {
+  position: relative;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}

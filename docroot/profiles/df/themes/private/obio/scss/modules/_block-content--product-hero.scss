@@ -1,0 +1,68 @@
+//
+// @file
+// Custom styles for product hero blocks (SMACSS module).
+//
+
+.block-content__hero-product {
+  .l-over-each__item {
+    vertical-align: middle;
+
+    // @media #{$medium-up} {
+    //   vertical-align: middle;
+    // }
+  }
+
+  .row:first-child .field {
+    margin-top: 0;
+  }
+
+  .row:last-child .field {
+    margin-bottom: 0;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  .column {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .content {
+    margin-top: l-rhythm(1);
+    margin-bottom: l-rhythm(0.5);
+
+    @media #{$medium-up} {
+      margin-top: l-rhythm(1.5);
+      margin-bottom: l-rhythm(1);
+    }
+  }
+
+  .field-name-field-first-line {
+    $small-fontsize-map: map-get($header-styles, small);
+    font-family: $header-font-family;
+    font-size: rem-calc(map-get(map-get($small-fontsize-map, 'h2'), 'font-size'));
+    font-weight: $header-font-weight;
+    line-height: $header-lineheight;
+
+    @media #{$medium-up} {
+      $default-fontsize-map: map-get($header-styles, medium);
+      font-size: rem-calc(map-get(map-get($default-fontsize-map, 'h1'), 'font-size'));
+    }
+  }
+
+  .field-name-field-second-line {
+    margin-top: l-rhythm(0.5);
+    margin-bottom: l-rhythm(0.5);
+  }
+
+  .field-name-field-product {
+    margin-top: l-rhythm(0.5);
+    width: 100%;
+  }
+
+  .quickedit-form {
+    color: $black;
+  }
+}

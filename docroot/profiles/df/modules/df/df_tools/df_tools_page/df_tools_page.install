@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Contains install and update routines for df_tools_page.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function df_tools_page_install() {
+  // Enable translation for Pages.
+  $entities = ['node' => ['page']];
+  df_tools_translation_enable_translation($entities);
+}

@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Template to render a card.
+ */
+#}
+{% set _card_media = block('card_media') %}
+{% set _card_label = block('card_label') %}
+{% set card_content = card_content | default(content) %}
+{% set classes = classes | default([]) %}
+{% set card_classes = card_classes | default([]) %}
+{% set card_classes = card_classes|merge(['card']) %}
+{% set card_classes = _card_media is empty ? card_classes|merge(['card--no-media']) : card_classes %}
+
+<article{{ attributes.addClass(classes).addClass('l-card-elem') }}>
+  <div class="{{ card_classes|join(' ') }}">
+    {# block card_media #}
+    {% if _card_media is not empty -%}
+    <div class="card__media">
+      {{ _card_media|raw }}
+    </div>
+    {%- endif %}
+    {# endblock card_media #}
+
+    <div{{ content_attributes.addClass('card__content-wrapper') }}>
+      {# block card_label #}
+      {% if _card_label is not empty -%}
+        <div class="card__label">
+          {{ _card_label|raw }}
+        </div>
+      {%- endif %}
+      {# endblock card_label #}
+
+      <div class="card__content">
+        {% block card_content -%}
+          {{ card_content }}
+        {%- endblock card_content %}
+      </div>
+    </div>
+  </div>
+</article>

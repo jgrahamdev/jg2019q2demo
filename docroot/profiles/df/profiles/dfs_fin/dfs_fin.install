@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Set up the FIN Scenario.
+ */
+
+use Drupal\shortcut\Entity\Shortcut;
+
+/**
+ * Implements hook_install().
+ */
+function dfs_fin_install() {
+  // Enable translation for all of our entities/bundles.
+  $entities = [
+    'node' => ['article', 'testimonial', 'question', 'insurance_product', 'agent_location']
+  ];
+  df_tools_translation_enable_translation($entities);
+
+  // Add Theme Page to the default shortcut set.
+  if (!\Drupal::service('config.installer')->isSyncing()) {
+    $shortcut = Shortcut::create([
+      'shortcut_set' => 'default',
+      'title' => t('Theme Settings'),
+      'weight' => 10,
+      'link' => ['uri' => 'internal:/admin/appearance/settings/fin'],
+    ]);
+    $shortcut->save();
+  }
+
+  // Import our custom .po files
+  df_tools_translation_import_translations('profile', 'dfs_fin');
+}

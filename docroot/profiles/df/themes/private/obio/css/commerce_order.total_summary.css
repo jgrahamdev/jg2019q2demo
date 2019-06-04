@@ -1,0 +1,30 @@
+/* line 11, scss/replacements/commerce_order.total_summary.scss */
+.order-summary {
+  display: table;
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem; }
+  /* line 17, scss/replacements/commerce_order.total_summary.scss */
+  .order-summary__line {
+    display: table-row;
+    text-align: right; }
+  /* line 22, scss/replacements/commerce_order.total_summary.scss */
+  .order-summary__label {
+    display: table-cell;
+    font-weight: bold; }
+    /* line 26, scss/replacements/commerce_order.total_summary.scss */
+    .order-summary__label::after {
+      content: ':'; }
+    /* line 30, scss/replacements/commerce_order.total_summary.scss */
+    .order-summary__label--total {
+      border-top: 0.5rem solid transparent; }
+  /* line 35, scss/replacements/commerce_order.total_summary.scss */
+  .order-summary__value {
+    display: table-cell;
+    width: 6em;
+    padding-left: 2em; }
+    /* line 40, scss/replacements/commerce_order.total_summary.scss */
+    .order-summary__value--total {
+      border-top: 0.5rem solid transparent; }
+
+/*# sourceMappingURL=../../sass */

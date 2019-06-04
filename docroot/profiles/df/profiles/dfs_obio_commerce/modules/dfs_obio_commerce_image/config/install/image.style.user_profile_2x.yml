@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: user_profile_2x
+label: 'User profile 2x'
+effects:
+  12851f8b-a8cb-46e4-93e2-8d76cd74604a:
+    uuid: 12851f8b-a8cb-46e4-93e2-8d76cd74604a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 200
+      height: 200

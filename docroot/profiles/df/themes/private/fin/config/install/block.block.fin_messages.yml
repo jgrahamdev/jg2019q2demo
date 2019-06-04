@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - fin
+_core:
+  default_config_hash: XmOXXO8hFr-NCLZD7qXFqwu7WuT--8gBqYyX8qD11eI
+id: fin_messages
+theme: fin
+region: highlighted
+weight: -6
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,90 @@
+<style type="text/css">
+  body,
+  html,
+  .body {
+    background: #ffffff !important;
+  }
+
+  .header {
+    background: "{{ palette.headerbg }}" !important;
+  }
+
+  .body-border {
+    border-top: 5px solid "{{ palette.link }}";
+    background: "{{ palette.base }}" !important;
+  }
+
+  .logo {
+    max-width: 30%;
+  }
+
+  .header-link a {
+    color: "{{ palette.headerlinkcolor }}" !important;
+    text-transform: uppercase;
+  }
+
+  .button td {
+    background: transparent !important;
+    border-color: "{{ palette.link }}";
+  }
+
+  .button a {
+    color: "{{ palette.link }}" !important;
+    font-weight: normal !important;
+  }
+
+  .sitename {
+    color: "{{ palette.link }}";
+    text-align: center !important;
+  }
+
+  .header-link a {
+    font-size: 15px;
+  }
+
+  h4,p,button {
+    color: "{{ palette.text }}";
+  }
+</style>
+
+<container class="header">
+  <row>
+    <columns>
+      <spacer size="16"></spacer>
+
+      <center>
+        {% if logo_url %}
+          <img class="logo" src="{{ logo_url }}" />
+        {% else %}
+          <h1 align="center" class="sitename">{{ site }}</h1>
+        {% endif %}
+      </center>
+
+      <spacer size="10"></spacer>
+
+      <center>
+        <menu class="text-center">
+          {% for link in header_links %}
+            {% if link.id != "dfs_obio.secondary_menu" %}
+              <item class="header-link" href="{{ link.url }}">{{ link.title }}</item>
+            {% endif %}
+          {% endfor %}
+        </menu>
+      </center>
+
+    </columns>
+  </row>
+</container>
+
+<container class="body-border">
+  <row>
+    <columns>
+      <spacer size="16"></spacer>
+
+      {{ message }}
+
+    </columns>
+  </row>
+
+  <spacer size="16"></spacer>
+</container>

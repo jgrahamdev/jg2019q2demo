@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Contains df_tools_gallery.module.
+ */
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function df_tools_gallery_library_info_alter(&$libraries, $extension) {
+  // Optionally use the Libraries module to determine our library paths.
+  if ($extension == 'df_tools_gallery' && \Drupal::moduleHandler()->moduleExists('libraries')) {
+    $imagesloaded_path = libraries_get_path('imagesloaded') . '/imagesloaded.pkgd.min.js';
+    $masonry_path = libraries_get_path('masonry') . '/dist/masonry.pkgd.min.js';
+    $lightbox2_path = libraries_get_path('lightbox2');
+
+    $libraries['lightbox2']['css']['theme'] = ['/' . $lightbox2_path . '/dist/css/lightbox.min.css' => []];
+    $libraries['lightbox2']['js'] = ['/' . $lightbox2_path . '/dist/js/lightbox.min.js' => ['minified' => 'true']];
+    $libraries['imagesloaded']['js'] = ['/' . $imagesloaded_path => ['minified' => 'true']];
+    $libraries['masonry']['js'] = ['/' . $masonry_path => ['minified' => 'true']];
+  }
+}
+
+/**
+ * Implements hook_migration_plugins_alter().
+ */
+function df_tools_gallery_migration_plugins_alter(&$definitions) {
+  $id = 'import_gallery_image';
+  if (isset($definitions[$id])) {
+    $definitions[$id]['source']['path'] = str_replace('..', dirname(__FILE__), $definitions[$id]['source']['path']);
+  }
+}

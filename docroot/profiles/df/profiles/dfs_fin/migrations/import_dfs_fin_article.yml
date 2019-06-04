@@ -1,0 +1,33 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_fin_article
+label: 'Import dfs_fin:node:article'
+source:
+    plugin: creator_article_node
+    path: '../data/dfs_fin.node.article.csv'
+    header_row_count: 1
+    keys: [Title]
+    csvColumns: { 2: Body, 3: Image, 0: UUID, 1: Title, 4: Tags, 5: Path }
+destination:
+    plugin: 'entity:node'
+process:
+    type: { plugin: default_value, default_value: article }
+    title: Title
+    body/value: Body
+    field_image: Image
+    body/format: { plugin: default_value, default_value: rich_text }
+    field_tags:
+      -
+        plugin: explode
+        delimiter: ','
+        source: Tags
+      -
+        plugin: migration
+        migration: import_dfs_fin_tags
+    moderation_state: { plugin: default_value, default_value: published }
+    uuid: UUID
+    path: Path
+    uid: UID
+provider: import
+migration_dependencies:
+    required: [import_dfs_fin_tags]
+    optional: {  }

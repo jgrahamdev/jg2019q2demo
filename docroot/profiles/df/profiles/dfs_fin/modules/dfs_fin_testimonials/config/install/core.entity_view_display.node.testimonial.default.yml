@@ -1,0 +1,49 @@
+uuid: 52f1efb4-01ff-40f7-bf00-e51d3d4d85d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.testimonial.body
+    - field.field.node.testimonial.field_author
+    - field.field.node.testimonial.field_author_image
+    - field.field.node.testimonial.field_image
+    - node.type.testimonial
+  module:
+    - image
+    - panelizer
+    - text
+    - user
+    - dfs_fin_testimonials
+  enforced:
+    module:
+      - dfs_fin_testimonials
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+id: node.testimonial.default
+targetEntityType: node
+bundle: testimonial
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_author_image:
+    type: image
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_author: true
+  field_image: true
+  langcode: true
+  links: true

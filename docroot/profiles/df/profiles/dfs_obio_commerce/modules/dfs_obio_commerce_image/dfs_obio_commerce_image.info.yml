@@ -1,0 +1,9 @@
+name: 'DFS Obio Commerce Image'
+type: module
+description: 'Image overrides.'
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - blazy
+  - df_tools_image
+  - df_tools_crop

@@ -1,0 +1,24 @@
+uuid: 3c6e61e8-313d-422e-9d40-45994055cb02
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_make
+    - taxonomy.vocabulary.vin
+  module:
+    - dfs_fin_quotes
+  enforced:
+    module:
+      - dfs_fin_quotes
+id: taxonomy_term.vin.field_make
+field_name: field_make
+entity_type: taxonomy_term
+bundle: vin
+label: Make
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

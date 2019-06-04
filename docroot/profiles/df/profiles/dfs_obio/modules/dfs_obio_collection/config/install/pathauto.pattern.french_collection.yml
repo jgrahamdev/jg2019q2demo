@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: french_collection
+label: 'French collection'
+type: 'canonical_entities:node'
+pattern: '/collection/[node:title]'
+selection_criteria:
+  8a9eec5f-cd88-471a-aec9-9f2f594e8ea4:
+    id: node_type
+    bundles:
+      collection: collection
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 8a9eec5f-cd88-471a-aec9-9f2f594e8ea4
+  594b0105-d30f-401e-b3ff-c57787a7ac4b:
+    id: language
+    langcodes:
+      fr: fr
+    negate: false
+    context_mapping:
+      language: 'node:langcode:language'
+    uuid: 594b0105-d30f-401e-b3ff-c57787a7ac4b
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

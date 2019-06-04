@@ -1,0 +1,37 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_obio_commerce_office
+label: 'Import dfs_obio_commerce:commerce_product_variation:office'
+source:
+    plugin: csv
+    path: ../data/dfs_obio_commerce.commerce_product_variation.office.csv
+    header_row_count: 1
+    keys: [UUID]
+destination:
+    plugin: 'entity:commerce_product_variation'
+process:
+    type: { plugin: default_value, default_value: office }
+    uuid: UUID
+    sku: SKU
+    title: Title
+    status: { plugin: default_value, default_value: 1 }
+    price/number: Price
+    price/currency_code: { plugin: default_value, default_value: USD }
+    attribute_ambiance_package:
+      -
+        plugin: explode
+        delimiter: ','
+        source:  'Ambiance Package'
+      -
+        plugin: migration
+        migration: import_dfs_obio_commerce_ambiance_package
+    attribute_office_size:
+      -
+        plugin: explode
+        delimiter: ','
+        source:  'Office Size'
+      -
+        plugin: migration
+        migration: import_dfs_obio_commerce_office_size
+provider: dfs_obio_commerce
+migration_dependencies:
+    required: [import_dfs_obio_commerce_ambiance_package,import_dfs_obio_commerce_office_size]

@@ -1,0 +1,123 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.user
+    - views.view.agent_content
+    - views.view.agent_portal
+  content:
+    - 'block_content:basic:43BFED6B-2B6B-4764-9337-78E75727F064'
+  module:
+    - block_content
+    - panels
+    - user
+    - views
+    - dfs_fin_agent_portal
+  enforced:
+    module:
+      - dfs_fin_agent_portal
+id: agent_user
+label: 'Agent Portal'
+variant: panels_variant
+variant_settings:
+  blocks:
+    2234ca7d-990a-4c75-9800-cfcfd3fe8204:
+      id: 'views_block:agent_portal-notifications'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: tabs
+      weight: -9
+      uuid: 2234ca7d-990a-4c75-9800-cfcfd3fe8204
+      context_mapping: {  }
+    9c875662-abb3-437c-9549-7367027fe18e:
+      id: 'views_block:agent_portal-top_tabs'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: top
+      weight: -10
+      uuid: 9c875662-abb3-437c-9549-7367027fe18e
+      context_mapping: {  }
+    80cf0877-47d7-4c89-945b-91dcf7a02fb2:
+      id: 'views_block:agent_portal-member_search'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: tabs
+      weight: -8
+      uuid: 80cf0877-47d7-4c89-945b-91dcf7a02fb2
+      context_mapping: {  }
+    bc937119-3e48-4f96-ab00-c62e26ed9fa6:
+      id: 'views_block:agent_portal-my_profile'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: tabs
+      weight: -6
+      uuid: bc937119-3e48-4f96-ab00-c62e26ed9fa6
+      context_mapping: {  }
+    1aaceb63-a6db-4f55-912b-43cf63f60094:
+      id: 'views_block:agent_content-manage_content'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: tabs
+      weight: -7
+      uuid: 1aaceb63-a6db-4f55-912b-43cf63f60094
+      context_mapping: {  }
+    44dca052-520b-4ac3-9100-b1f6f9ce27ec:
+      id: 'block_content:43BFED6B-2B6B-4764-9337-78E75727F064'
+      label: 'Agent Portal Tabs'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: 44dca052-520b-4ac3-9100-b1f6f9ce27ec
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 5ef66168-6211-4e43-8900-c18489ae8a55
+  label: null
+  weight: 0
+  layout: onecoltabs
+  layout_settings: {  }
+  page_title: 'Agent Portal'
+  storage_type: page_manager
+  storage_id: agent_user
+  builder: standard
+page: user
+weight: -10
+selection_criteria:
+  10964361-09cb-4707-a800-0c6b0a93cfab:
+    id: user_role
+    roles:
+      agent: agent
+    negate: false
+    context_mapping:
+      user: user
+    uuid: 10964361-09cb-4707-a800-0c6b0a93cfab
+  6003f3f0-53d4-43b2-9d00-0eebcd2713f0:
+    id: user_role
+    roles:
+      administrator: administrator
+      agent: agent
+    negate: false
+    context_mapping:
+      user: current_user
+    uuid: 6003f3f0-53d4-43b2-9d00-0eebcd2713f0
+selection_logic: and
+static_context: {  }
+

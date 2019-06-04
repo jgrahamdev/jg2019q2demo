@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * @file
+ * Set up the Obio Scenario.
+ */
+
+use Drupal\shortcut\Entity\Shortcut;
+
+/**
+ * Implements hook_install().
+ */
+function dfs_obio_install() {
+  if (!\Drupal::moduleHandler()->moduleExists('dfs_obio_content')) {
+    return;
+  }
+
+  // Enable translation for all of our entities/bundles.
+  $entities = [
+    'comment' => ['review'],
+    'node' => [
+      'collection',
+      'location',
+    ],
+    'taxonomy_term' => [
+      'tags',
+    ],
+  ];
+  df_tools_translation_enable_translation($entities);
+
+  if (!\Drupal::service('config.installer')->isSyncing()) {
+    // Add Theme Page to the default shortcut set.
+    $shortcut = Shortcut::create(array(
+      'shortcut_set' => 'default',
+      'title' => t('Theme Settings'),
+      'weight' => 10,
+      'link' => array('uri' => 'internal:/admin/appearance/settings/obio'),
+  ));
+    $shortcut->save();
+  }
+
+  // Enable admin_login_path but dont require it as a dependency.
+  $module_data = system_rebuild_module_data();
+  if (isset($module_data['admin_login_path'])) {
+    \Drupal::service('module_installer')->install(['admin_login_path']);
+  }
+
+  // Import our custom .po files
+  df_tools_translation_import_translations('profile', 'dfs_obio');
+}

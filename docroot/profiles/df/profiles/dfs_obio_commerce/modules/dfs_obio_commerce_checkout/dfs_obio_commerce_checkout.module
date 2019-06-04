@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * @file
+ * Contains dfs_obio_commerce_checkout.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function dfs_obio_commerce_checkout_theme($existing, $type, $theme, $path) {
+  return [
+    'dfs_obio_commerce_checkout_completion_message' => [
+      'variables' => [
+        'order' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for OBIO completion message templates.
+ *
+ * Default template: dfs-obio-commerce-checkout-completion-message.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - order: The order object.
+ */
+function template_preprocess_dfs_obio_commerce_checkout_completion_message(array &$variables) {
+  /** @var Drupal\commerce_order\Entity\OrderInterface $order */
+  $order = $variables['order'];
+
+  $variables['order_number'] = $order->getOrderNumber();
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function dfs_obio_commerce_checkout_form_commerce_checkout_flow_multistep_default_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Retrieve the ID of the current step.
+  $step_id = $form['#step_id'];
+
+  switch ($step_id) {
+    case 'login':
+      // When guest checkout is enabled, remove the default 'Continue to review'
+      // button in order to simplify the login form as it duplicates the
+      // 'Continue as Guest' button.
+      if ($form_state->getFormObject()->getConfiguration()['panes']['login']['allow_guest_checkout']) {
+        $form['actions']['next']['#access'] = FALSE;
+      }
+
+      // Add the ability for customers to login with social login providers
+      // during the checkout process when the Social Login module is enabled.
+      if (\Drupal::moduleHandler()->moduleExists('social_login') && isset($form['login']['returning_customer'])) {
+        social_login_show_providers($form['login']['returning_customer'], $form_state, 'commerce_checkout_login');
+      }
+      break;
+
+    case 'review':
+      // Change the review step 'next' button text from
+      // 'Pay and complete purchase' to 'Complete purchase'.
+      $form['actions']['next']['#value'] = t('Complete purchase');
+      break;
+  }
+}

@@ -1,0 +1,11 @@
+dependencies:
+  module:
+    - crop
+effects:
+  b2c3cb9c-7d93-4006-b3ad-176ad17bbc47:
+    uuid: b2c3cb9c-7d93-4006-b3ad-176ad17bbc47
+    id: crop_crop
+    weight: -11
+    data:
+      crop_type: hero
+

@@ -1,0 +1,9 @@
+name: 'DF Tools Frontend'
+description: 'Provides frontend features and modifications for demos.'
+type: module
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - df_core
+  - quickedit
+  - image

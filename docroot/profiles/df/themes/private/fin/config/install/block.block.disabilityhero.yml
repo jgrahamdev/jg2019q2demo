@@ -1,0 +1,37 @@
+uuid: be0089b3-d866-4118-a92c-44fae22aee04
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:hero:11d2f248-2778-4361-893d-61c1f65b2b52'
+  module:
+    - block_class
+    - block_content
+    - system
+  theme:
+    - fin
+third_party_settings:
+  block_class:
+    classes: ''
+_core:
+  default_config_hash: h4H3cZFZ0kEKXeUTyOU98lUZgoE88q3p4T-5PnlsBVw
+id: disabilityhero
+theme: fin
+region: '-1'
+weight: -10
+provider: null
+plugin: 'block_content:11d2f248-2778-4361-893d-61c1f65b2b52'
+settings:
+  id: 'block_content:11d2f248-2778-4361-893d-61c1f65b2b52'
+  label: 'Disability Hero'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /node/19
+    negate: false
+    context_mapping: {  }

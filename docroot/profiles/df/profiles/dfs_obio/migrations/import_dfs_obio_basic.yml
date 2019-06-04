@@ -1,0 +1,17 @@
+class: \Drupal\Migrate\Plugin\Migration
+id: import_dfs_obio_basic
+label: 'Import dfs_obio:block_content:basic'
+source:
+    plugin: csv
+    path: '../data/dfs_obio.block_content.basic.csv'
+    header_row_count: 1
+    keys: [UUID]
+destination:
+    plugin: 'entity:block_content'
+process:
+    type: { plugin: default_value, default_value: basic }
+    uuid: UUID
+    info: Info
+    body/value: Body
+    body/format: { plugin: default_value, default_value: rich_text }
+provider: import

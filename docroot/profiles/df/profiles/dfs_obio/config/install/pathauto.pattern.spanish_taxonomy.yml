@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - language
+    - taxonomy
+id: spanish_taxonomy
+label: 'Spanish Taxonomy'
+type: 'canonical_entities:taxonomy_term'
+pattern: '/explorar/[term:description]'
+selection_criteria:
+  e37e8cd2-50f7-46d2-a9ca-91354c1faaa1:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      tags: tags
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: e37e8cd2-50f7-46d2-a9ca-91354c1faaa1
+  dddb3e41-7f42-4a96-9c16-9f1022e0f817:
+    id: language
+    langcodes:
+      es: es
+    negate: false
+    context_mapping:
+      language: 'taxonomy_term:langcode:language'
+    uuid: dddb3e41-7f42-4a96-9c16-9f1022e0f817
+selection_logic: and
+weight: -10
+relationships:
+  'taxonomy_term:langcode:language':
+    label: Language

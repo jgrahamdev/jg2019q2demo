@@ -1,0 +1,13 @@
+name: DFS Obio Content
+type: module
+description: Provides content for the Obio scenario.
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - dfs_obio_articles
+  - dfs_obio_blocks
+  - dfs_obio_contact
+  - dfs_obio_locations
+  - dfs_obio_collection
+  - dfs_obio_card
+  - dfs_obio_search

@@ -1,0 +1,49 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.collection.field_collection_description
+    - field.field.node.collection.field_collection_features
+    - field.field.node.collection.field_collection_media
+    - field.field.node.collection.field_collection_reviews
+    - field.field.node.collection.field_collection_success_stories
+    - field.field.node.collection.field_tags
+    - field.field.node.collection.panelizer
+    - image.style.collection_square
+    - node.type.collection
+  module:
+    - media
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.collection.teaser
+targetEntityType: node
+bundle: collection
+mode: teaser
+content:
+  field_collection_media:
+    type: media_thumbnail
+    weight: 0
+    label: hidden
+    settings:
+      image_style: collection_square
+      image_link: content
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  field_collection_description: true
+  field_collection_features: true
+  field_collection_reviews: true
+  field_collection_success_stories: true
+  field_tags: true
+  langcode: true
+  links: true
+  panelizer: true
+  content_moderation_control: true

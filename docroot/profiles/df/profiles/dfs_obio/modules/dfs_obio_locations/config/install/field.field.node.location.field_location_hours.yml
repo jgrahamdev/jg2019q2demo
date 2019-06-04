@@ -1,0 +1,37 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_hours
+    - node.type.location
+  module:
+    - better_formats
+    - text
+third_party_settings:
+  better_formats:
+    allowed_formats_toggle: 1
+    allowed_formats:
+      rich_text: rich_text
+      full_html: 0
+    default_order_toggle: 0
+    default_order_wrapper:
+      formats:
+        rich_text:
+          weight: '1'
+        full_html:
+          weight: '5'
+id: node.location.field_location_hours
+field_name: field_location_hours
+entity_type: node
+bundle: location
+label: Hours
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: "<table>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>TUE-FRI</td>\r\n\t\t\t<td>SAT</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>11am - 7pm</td>\r\n\t\t\t<td>10am - 6pm</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>"
+    format: rich_text
+default_value_callback: ''
+settings: {  }
+field_type: text_long

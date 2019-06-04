@@ -1,0 +1,38 @@
+id: import_dfs_obio_file
+label: 'Import dfs_obio:file:file'
+source:
+  plugin: csv
+  path: '../data/dfs_obio.file.file.csv'
+  constants:
+    source_base_path: '../data/images/'
+    destination_stream: 'public:'
+  header_row_count: 1
+  keys: [Filename]
+destination:
+  plugin: entity:file
+process:
+  uuid: UUID
+  filename: Filename
+  source:
+    -
+      plugin: concat
+      delimiter: '/'
+      source:
+        - constants/source_base_path
+        - '@filename'
+    -
+      plugin: urlencode
+  destination:
+    -
+      plugin: concat
+      delimiter: '//'
+      source:
+        - constants/destination_stream
+        - '@filename'
+    -
+      plugin: urlencode
+  uri:
+    plugin: file_copy
+    source:
+      - '@source'
+      - '@destination'

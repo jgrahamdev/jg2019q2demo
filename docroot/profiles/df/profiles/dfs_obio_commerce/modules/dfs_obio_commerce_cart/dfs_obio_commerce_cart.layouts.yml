@@ -1,0 +1,18 @@
+dfs_obio_commerce_cart_layout_simple:
+  label: 'Simple layout with four regions'
+  category: Hidden
+  template: templates/dfs-obio-commerce-cart-layout-simple
+  class: '\Drupal\dfs_obio_commerce_cart\Plugin\Layout\ObioCommerceLayoutBase'
+  library: 'commerce_checkout/form'
+  regions:
+    top:
+      label: Top
+    main:
+      label: Main
+    secondary:
+      label: Secondary
+    footer:
+      label: Footer
+  default_region: main
+  additional:
+    dfs_obio_base: true

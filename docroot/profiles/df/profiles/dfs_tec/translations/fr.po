@@ -1,0 +1,64 @@
+# French translation of Site-Install
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-08-28 20:47+0000\n"
+"PO-Revision-Date: 2015-08-28 20:47+0000\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Our Philosophy"
+msgstr "Notre Philosophie"
+
+msgid "Services"
+msgstr "Services"
+
+msgid "Our Team"
+msgstr "Notre équipe"
+
+msgid "Contact Us"
+msgstr "Contactez Nous"
+
+msgid "Account"
+msgstr "Considération"
+
+msgid "My Account"
+msgstr "Mon Compte"
+
+msgid "All rights reserved."
+msgstr "Tous droits réservés"
+
+msgid "Need to speak with someone?"
+msgstr "Besoin de parler avec quelqu'un?"
+
+msgid "Contact Us"
+msgstr "Contactez Nous"
+
+msgid "discover more"
+msgstr "découvrir plus"
+
+msgid "Learn More"
+msgstr "Apprendre Encore Plus"
+
+msgid "Contact Our Team"
+msgstr "Contactez Notre équipe"
+
+msgid "Sign Up"
+msgstr "Signer"
+
+msgid "Login"
+msgstr "Se Connecter"
+
+msgid "Latest articles"
+msgstr "Derniers articles"
+
+msgid "Your Team"
+msgstr "Ton équipe"
+
+msgid "Jump Start Your Business"
+msgstr "Aller Démarrer Votre Entreprise"

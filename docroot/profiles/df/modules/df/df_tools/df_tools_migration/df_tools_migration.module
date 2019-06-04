@@ -1,0 +1,75 @@
+<?php
+
+/**
+ * @file
+ * Contains df_tools_migration.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\ContentEntityInterface;
+
+/**
+ * Helper function to copy a migration.
+ *
+ * @param array $base_migration
+ *   The machine name of the migration you want to copy.
+ * @param string $prefix
+ *   The prefix to prepend to the new machine name (ex: dfs_tec).
+ * @param string $type
+ *   The Entity bundle, i.e. article or slideshow.
+ * @param $entity_type
+ *   The Entity Type (not bundle), i.e. node or block.
+ * @param string $path
+ *   A directory path that contains a properly named CSV for this migration.
+ *  @param boolean $local_csv
+ *   Override the original CSV file from the copied migration. Defaults to TRUE.
+ *
+ * @return array $migration
+ */
+function _df_migration_copy($base_migration, $prefix, $type, $entity_type, $path, $local_csv = TRUE) {
+  $migration = $base_migration;
+
+  $label = "Import $prefix:$entity_type:$type";
+  $migration['label'] = $label;
+  $migration['id'] = "import_{$prefix}_{$type}";
+
+  // Point source path to local CSV file.
+  if ($local_csv === TRUE) {
+    $migration['source']['path'] = $path . $prefix . "." . $entity_type  . "." . $type . '.csv';
+  }
+
+  // Set content type to current bundle.
+  if (isset($migration['process']['type'])) {
+    $migration['process']['type']['default_value'] = $type;
+  }
+
+  // Override default moderation state to 'Published' for imported nodes.
+  if ($entity_type == 'node') {
+    $migration['process']['moderation_state'] = [
+      'plugin' => 'default_value',
+      'default_value' => 'published'
+    ];
+  }
+
+  // Return the new migration.
+  return $migration;
+}
+
+/**
+ * Helper function to add or modify an existing field mapping on a migration.
+ *
+ * @param array &$migration
+ *   The migration that needs modification.
+ * @param array $columns
+ *   An array describing the order and name of CSV columns.
+ * @param array $fields
+ *   An associative array mapping field machine names to their CSV column name.
+ */
+function _df_migration_fields(&$migration, $columns, $fields) {
+  foreach ($columns as $column => $value) {
+    $migration['source']['csvColumns'][$column] = $value;
+  }
+  foreach ($fields as $field => $settings) {
+    $migration['process'][$field] = $settings;
+  }
+}

@@ -1,0 +1,60 @@
+{#
+/**
+ * @file
+ * Theme override to display a taxonomy term.
+ *
+ * Available variables:
+ * - url: URL of the current term.
+ * - name: Name of the current term.
+ * - content: Items for the content of the term (fields and description).
+ *   Use 'content' to print them all, or print a subset such as
+ *   'content.description'. Use the following code to exclude the
+ *   printing of a given child element:
+ *   @code
+ *   {{ content|without('description') }}
+ *   @endcode
+ * - attributes: HTML attributes for the wrapper.
+ * - page: Flag for the full page state.
+ * - term: The taxonomy term entity, including:
+ *   - id: The ID of the taxonomy term.
+ *   - bundle: Machine name of the current vocabulary.
+ * - view_mode: View mode, e.g. 'full', 'teaser', etc.
+ *
+ * @see template_preprocess_taxonomy_term()
+ */
+#}
+<div{{ attributes.addClass('vehicle-info') }}>
+  <div class="row align-center">
+  	<div class="large-6 small-12 columns">
+  		{{ content.field_image }}
+  	</div>
+  </div>
+  <div class="callout">
+  	<div class="row">
+  	<div class="columns small-12">
+  		  	<h2 class="text-center"> Details </h2>
+  		  	<div class="text-center vin-item">
+  		  		<p>VIN:</p>
+  		  {{ title_prefix}}
+    			{{ name|raw }}
+  			{{ title_suffix }}
+  			</div>
+  		</div>
+</div>
+  <div class="row small-up-2 medium-up-4 align-center">
+	  	<div class="columns">
+	  		{{ content.field_year }}
+		</div>
+		<div class="columns">
+			{{ content.field_make }}
+			
+		</div>
+		<div class="columns">
+			{{ content.field_model }}
+		</div>
+		<div class="columns">
+			{{ content.field_style }}
+		</div>		
+	</div>
+</div>
+</div>

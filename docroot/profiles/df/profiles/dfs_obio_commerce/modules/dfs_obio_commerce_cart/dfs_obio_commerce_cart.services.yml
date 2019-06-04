@@ -1,0 +1,4 @@
+services:
+  dfs_obio_commerce_cart.variation_field_renderer:
+    class: Drupal\dfs_obio_commerce_cart\ObioProductVariationFieldRenderer
+    arguments: ['@entity_type.manager', '@entity_field.manager']

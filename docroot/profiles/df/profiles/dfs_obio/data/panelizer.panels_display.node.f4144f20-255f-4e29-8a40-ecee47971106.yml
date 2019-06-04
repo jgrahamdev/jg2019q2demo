@@ -1,0 +1,107 @@
+blocks:
+  0e0b60c1-e7fd-48b6-975e-961889fd6dd2:
+    id: 'views_block:locations-block_1'
+    label: 'Our Locations'
+    provider: views
+    label_display: visible
+    views_label: 'Our Locations'
+    items_per_page: none
+    context_mapping: {  }
+    region: footer
+    uuid: 0e0b60c1-e7fd-48b6-975e-961889fd6dd2
+    weight: 1
+  bba317cc-0f09-4223-9dfd-7047ff841852:
+    id: 'block_content:d0c5ff13-67a6-4b16-82ba-896213321c6f'
+    label: 'Our Start'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: top_left
+    uuid: bba317cc-0f09-4223-9dfd-7047ff841852
+    weight: 1
+  4af7f784-878c-4c9e-91ca-6ff318d24bdb:
+    id: 'block_content:37b9646d-b4e1-4341-bc50-fc8b3ea89f75'
+    label: 'About Us'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: top_right
+    uuid: 4af7f784-878c-4c9e-91ca-6ff318d24bdb
+    weight: 1
+  2dd29c8f-78db-483e-98fd-6a3bca844737:
+    id: 'block_content:75ed7d29-36d8-452a-8120-0a642274c0a5'
+    label: 'Our Team Header'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 2dd29c8f-78db-483e-98fd-6a3bca844737
+    weight: 1
+  8595f848-fdd2-4da9-895f-9a4905bf632e:
+    id: 'block_content:c0f5ab80-df7f-48a7-aca3-663a0ea31622'
+    label: 'CEO Bio'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: bottom_left
+    uuid: 8595f848-fdd2-4da9-895f-9a4905bf632e
+    weight: 1
+  f7f1042f-4294-46a8-9568-beafc5e77689:
+    id: 'block_content:c9a61183-7913-4779-b4b8-0bc5e448c020'
+    label: 'CMO Bio'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: bottom_middle
+    uuid: f7f1042f-4294-46a8-9568-beafc5e77689
+    weight: 1
+  5e98e67f-b579-4b27-a489-50f1228886fb:
+    id: 'block_content:3079dac9-e78e-483f-9484-53f0587427f6'
+    label: 'CTO Bio'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: bottom_right
+    uuid: 5e98e67f-b579-4b27-a489-50f1228886fb
+    weight: 1
+  53365ad0-ddc8-4eb4-bfe8-7497e804c121:
+    id: 'block_content:b5c679d0-19e2-4835-8143-371876c4f463'
+    label: 'About Hero'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: top
+    uuid: 53365ad0-ddc8-4eb4-bfe8-7497e804c121
+    weight: 1
+id: panels_variant
+uuid: 66454ba9-dca2-4264-bd09-9beeb133bd80
+label: ''
+weight: 0
+layout: 3col-alt
+layout_settings: {  }
+page_title: '[node:title]'
+storage_type: panelizer_field
+storage_id: 'node:32:full:51'
+pattern: panelizer
+builder: ipe

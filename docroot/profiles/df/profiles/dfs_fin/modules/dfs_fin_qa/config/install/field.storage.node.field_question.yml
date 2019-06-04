@@ -1,0 +1,23 @@
+uuid: c15f50e3-edd1-420d-b000-b8654e455949
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - dfs_fin_qa
+  enforced:
+    module:
+      - dfs_fin_qa
+id: node.field_question
+field_name: field_question
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,27 @@
+config_rewrite: replace
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.square
+  module:
+    - crop
+    - focal_point
+name: medium
+label: 'Medium (350x350)'
+effects:
+  95c3cb9c-7d93-4006-b3ad-176ad17bbc47:
+    uuid: 95c3cb9c-7d93-4006-b3ad-176ad17bbc47
+    id: crop_crop
+    weight: -11
+    data:
+      crop_type: square
+  6d79e3ca-3558-4cd2-a8da-b1f38a790ac4:
+    uuid: 6d79e3ca-3558-4cd2-a8da-b1f38a790ac4
+    id: focal_point_scale_and_crop
+    weight: 3
+    data:
+      width: 350
+      height: 350
+      crop_type: focal_point
+

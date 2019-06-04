@@ -1,0 +1,27 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_fin_gallery_media
+label: 'Import dfs_fin:entity_gallery:media'
+source:
+    plugin: csv
+    path: ../data/dfs_fin.entity_gallery.media.csv
+    header_row_count: 1
+    keys: [UUID]
+    csvColumns: { 0: 'UUID', 1: 'Title', 2: 'Media' }
+destination:
+    plugin: 'entity:entity_gallery'
+process:
+  type: { plugin: default_value, default_value: media }
+  uuid: UUID
+  title: Title
+  entity_gallery_media:
+    -
+      plugin: explode
+      delimiter: ','
+      source: Media
+    -
+      plugin: migration
+      migration: import_dfs_fin_media_image
+provider: df_tools_gallery
+migration_dependencies:
+    required: [import_dfs_fin_media_image]
+    optional: {  }

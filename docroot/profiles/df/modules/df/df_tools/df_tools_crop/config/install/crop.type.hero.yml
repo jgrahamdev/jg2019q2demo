@@ -1,0 +1,13 @@
+uuid: 6e4371c0-ae20-4d73-920e-2979bf4550e3
+langcode: en
+status: true
+dependencies: {  }
+label: Hero
+id: hero
+description: ''
+aspect_ratio: '16:10'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: 320
+hard_limit_height: 200
+

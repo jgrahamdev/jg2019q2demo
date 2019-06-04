@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - language
+    - taxonomy
+id: french_taxonomy
+label: 'French Taxonomy'
+type: 'canonical_entities:taxonomy_term'
+pattern: '/explorer/[term:description]'
+selection_criteria:
+  1ef7b6f5-3f30-4d98-bf0b-efc59a41c0ca:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      tags: tags
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: 1ef7b6f5-3f30-4d98-bf0b-efc59a41c0ca
+  3d5b978a-3e03-4c28-bbaa-b79ae4d184d5:
+    id: language
+    langcodes:
+      fr: fr
+    negate: false
+    context_mapping:
+      language: 'taxonomy_term:langcode:language'
+    uuid: 3d5b978a-3e03-4c28-bbaa-b79ae4d184d5
+selection_logic: and
+weight: -10
+relationships:
+  'taxonomy_term:langcode:language':
+    label: Language

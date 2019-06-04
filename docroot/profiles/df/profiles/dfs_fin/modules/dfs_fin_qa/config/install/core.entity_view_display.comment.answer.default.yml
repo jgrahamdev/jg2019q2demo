@@ -1,0 +1,31 @@
+uuid: f351ad38-1758-4c2c-b20e-14312a852e6d
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.answer
+    - field.field.comment.answer.field_answer
+  module:
+    - dfs_fin_qa
+  enforced:
+    module:
+      - dfs_fin_qa
+id: comment.answer.default
+targetEntityType: comment
+bundle: answer
+mode: default
+content:
+  field_answer:
+    weight: 101
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

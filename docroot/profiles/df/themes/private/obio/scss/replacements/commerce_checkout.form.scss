@@ -1,0 +1,55 @@
+//
+// @file
+// Replaces Commerce Checkout 'form' layout.
+//
+
+@import '../settings';
+
+.layout-region-checkout {
+  @at-root #{&}-main,
+  #{&}-footer {
+    @media #{$medium-up} {
+      float: left;
+      width: 65%;
+      padding-right: 2em;
+    }
+  }
+
+  @at-root [dir="rtl"] #{&}-main,
+  [dir="rtl"] #{&}-footer {
+    @media #{$medium-up} {
+      float: right;
+      padding-right: 0;
+      padding-left: 2em;
+    }
+  }
+
+
+  @at-root #{&}-secondary {
+    @media #{$medium-up} {
+      float: right;
+      width: 35%;
+    }
+  }
+
+  @at-root [dir="rtl"] #{&}-secondary {
+    @media #{$medium-up} {
+      float: left;
+    }
+  }
+
+  // The vertical toolbar mode gets triggered for narrow screens, which throws off
+  // the intent of media queries written for the viewport width. When the vertical
+  // toolbar is on, we need to suppress layout for the original media width + the
+  // toolbar width (240px). In this case, 240px + 780px.
+  @at-root .toolbar-vertical.toolbar-tray-open #{&}-main,
+  .toolbar-vertical.toolbar-tray-open #{&}-secondary,
+  .toolbar-vertical.toolbar-tray-open #{&}-footer {
+    @media #{$medium-only} {
+      float: none;
+      width: auto;
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}

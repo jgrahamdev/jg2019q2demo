@@ -1,0 +1,15 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_obio_media_tags
+label: 'Import dfs_obio:term:media_tags'
+source:
+    plugin: csv
+    path: '../data/dfs_obio.term.media_tags.csv'
+    header_row_count: 1
+    keys: [Name]
+destination:
+    plugin: 'entity:taxonomy_term'
+process:
+    vid: { plugin: default_value, default_value: media_tags }
+    name: Name
+    description: Details
+provider: import

@@ -1,0 +1,6 @@
+settings:
+  email_form_id: 'check_in_seminar_event'
+  email_subject: 'Elsewhere Health: Thank You for Attending'
+  email_from_name: 'Elsewhere Health'
+  email_from_address: 'admin@example.com'
+  email_campaign: 'elsewherehealthseminar'

@@ -1,0 +1,8 @@
+// Fix the toolbar's font size being overridden by Foundation
+.toolbar-menu-administration ul, .toolbar-toggle-orientation{
+  font-size: rem-calc(13px);
+}
+
+.toolbar .toolbar-toggle-orientation {
+	padding: 0 0.6667em;
+}

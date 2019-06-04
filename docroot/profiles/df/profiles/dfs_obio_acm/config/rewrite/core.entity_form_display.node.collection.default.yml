@@ -1,0 +1,153 @@
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.browse_content
+    - field.field.node.collection.field_collection_description
+    - field.field.node.collection.field_collection_features
+    - field.field.node.collection.field_collection_media
+    - field.field.node.collection.field_collection_reviews
+    - field.field.node.collection.field_collection_success_stories
+    - field.field.node.collection.field_products
+    - field.field.node.collection.field_tags
+    - field.field.node.collection.panelizer
+    - node.type.collection
+  module:
+    - comment
+    - df_tools_tabs
+    - entity_browser
+    - path
+    - text
+    - content_moderation
+_core:
+  default_config_hash: HDSm290xvazjAGfGQxSZdwlXXxbNidFBDCMOSEw2UWU
+id: node.collection.default
+targetEntityType: node
+bundle: collection
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  fake_moderation_state:
+    weight: 17
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_collection_description:
+    weight: 11
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
+  field_collection_features:
+    weight: 15
+    settings:
+      rows: '5'
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_with_tab
+    region: content
+  field_collection_media:
+    weight: 1
+    settings:
+      entity_browser: media_browser_in_modal
+      field_widget_display: rendered_entity
+      field_widget_edit: false
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: teaser
+      open: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_collection_reviews:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  field_collection_success_stories:
+    weight: 12
+    settings:
+      entity_browser: browse_content
+      field_widget_display: label
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_edit: false
+      open: false
+      field_widget_display_settings: {  }
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_products:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: null
+    region: content
+  field_tags:
+    weight: 16
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    third_party_settings: {  }
+    region: content
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 7
+    third_party_settings: {  }
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  translation:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  uid:
+    type: entity_reference_autocomplete
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  panelizer: true

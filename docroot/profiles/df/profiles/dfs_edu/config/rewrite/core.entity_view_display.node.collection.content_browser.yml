@@ -1,0 +1,7 @@
+third_party_settings:
+  panelizer:
+    displays:
+      default:
+        blocks:
+          3da37f59-3662-4c05-987e-adcdac207988:
+            label: 'About the Program'

@@ -1,0 +1,65 @@
+//
+// @file
+// Custom styles for Hero blocks (SMACSS).
+//
+
+.block-content__content--hero {
+  .full-width-inner {
+    display: flex;
+    float: none;
+  }
+
+  .l-over-each__nested-img--hero > .field-name-field-hero-image.quickedit-field {
+    position: absolute !important;
+  }
+
+  .field-name-field-hero-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    .field-item {
+      z-index: -1;
+    }
+  }
+}
+
+// Set the alignment of the featured hero image to be the opposite of the
+// content alignment.
+.block-content__content--hero--featured {
+  .hero-alignment-left .field-name-field-hero-image .field-item {
+    text-align: right;
+  }
+  .hero-alignment-right .field-name-field-hero-image .field-item {
+    text-align: left;
+  }
+  .hero-alignment-center .field-name-field-hero-image .field-item {
+    text-align: center;
+  }
+  .field-name-field-hero-image .field-item {
+    img {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+}
+
+.df-tools-slideshow {
+  .l-over-each img {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .full-width-row {
+    width: inherit;
+    left: inherit;
+  }
+}
+
+.media-local-video.view-mode-hero {
+  @extend .full-width-row;
+  video {
+    width: 100%;
+  }
+}

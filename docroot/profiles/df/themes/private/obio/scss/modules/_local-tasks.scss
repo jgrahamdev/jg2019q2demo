@@ -1,0 +1,28 @@
+//
+// @file
+// Local tasks BEM.
+//
+
+.local-tasks {
+  @at-root #{&}__tabs {
+    margin: 0;
+    list-style: none;
+  }
+
+  @at-root #{&}__item {
+    float: left;
+
+    @at-root .vertical #{&} {
+      @media #{$medium-up} {
+        float: none;
+        margin-top: -1px;
+        border-top: 1px solid $tasks-border-color;
+        border-bottom: 1px solid $tasks-border-color;
+      }
+    }
+  }
+
+  @at-root #{&}__link {
+    margin: 0;
+  }
+}

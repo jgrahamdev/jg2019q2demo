@@ -1,0 +1,17 @@
+quickview:
+  path: 'quickview/{entityType}/{entityId}/{nojs}'
+  defaults:
+    _controller: '\Drupal\dfs_obio_quickview\Controller\QuickviewController::quickviewCallback'
+  requirements:
+    _permission: 'access content'
+    nojs: 'nojs|ajax'
+
+quickview.settings:
+  path: '/admin/config/content/quickview'
+  defaults:
+    _form: '\Drupal\dfs_obio_quickview\Form\QuickviewConfigForm'
+    _title: 'Quick View Settings'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE

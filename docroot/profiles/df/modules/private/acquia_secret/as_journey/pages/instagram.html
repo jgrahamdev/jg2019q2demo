@@ -1,0 +1,391 @@
+<html>
+
+<head>
+  <link rel="shortcut icon" href="/profiles/df/modules/private/acquia_secret/as_journey/images/instagram.ico" />
+  <link rel="apple-touch-icon-precomposed" href="/profiles/df/modules/private/acquia_secret/as_journey/images/instagram-apple.png">
+
+  <meta name="MobileOptimized" content="width" />
+  <meta name="HandheldFriendly" content="true" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="white">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Instagram </title>
+  <link type="text/css" rel="stylesheet" href="/profiles/df/modules/private/acquia_secret/as_journey/styles/instagram-styles.css" media="all" />
+  <script type='text/javascript'>
+  function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+  var identity = getParameterByName('identity');
+  console.log(identity);
+  var m = document.createElement('meta'); 
+  var a = document.createAttribute("itemprop");
+  a.value = "acquia_lift:identity:email";
+  m.setAttributeNode(a);
+  m.content = identity; 
+  document.head.appendChild(m);
+
+  var interval = setInterval(function() {
+    if (window.AcquiaLift && window.AcquiaLift.currentSegments) {
+      var segments = [];
+      window.AcquiaLift.currentSegments.forEach(function(segment) {
+        segments.push(segment.id);
+        console.log(segments);
+      });
+     if (segments.includes('signed_up_to_newsletter')) {
+        document.getElementById('obio-eco-ad').style.display = 'block';
+      };
+     if (segments.includes('customer_with_no_service_package')) {
+        document.getElementById('obio-service-ad').style.display = 'block';
+     };
+      document.getElementById('obio-eco-ad').style.opacity = "1";
+      document.getElementById('obio-service-ad').style.opacity = "1";
+      clearInterval(interval);
+    }
+    document.getElementById('feed-article').style.opacity = "1";
+    document.getElementById('feed-article-2').style.opacity = "1";
+  }, 100);
+
+  </script>
+
+  <!--LIFT_REPLACEME-->
+</head>
+
+<body>
+  <div class="topbar-wrapper">
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="logo-wrap">
+          <div class="logo-wrapper-inner">
+            <a class="_giku3 _8scx2 coreSpriteDesktopNavLogoAndWordmark _rujh3" href="/demo/instagram">Instagram</a>
+            <a class="_giku3 _8scx2 _e8tsh coreSpriteGlyphBlack" href="/demo/instagram">Instagram</a>
+          </div>
+        </div>
+        <div class="search">
+          <input type="text" class="_avvq0 _o716c" placeholder="Search" value="">
+          <div class="_jcvs2 _1nn6e">
+            <div class="_eduze _mknn3"><span class="_r86fw coreSpriteSearchIcon"></span><span class="_96n9j">Search</span></div>
+          </div>
+        </div>
+        <div class="topbar-icons">
+          <div class="insta-icon">
+            <a class="_8scx2 _gvoze coreSpriteDesktopNavExplore" href="#">Find People</a>
+          </div>
+          <div class="insta-icon">
+            <a class="_8scx2 _gvoze coreSpriteDesktopNavActivity" href="#">Activity Feed</a>
+          </div>
+          <div class="insta-icon">
+            <a class="_8scx2 _gvoze coreSpriteDesktopNavProfile" href="#">Profile</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <main>
+
+      <!-- ad card! -->
+      <article class="card fadeIn hide" id="obio-eco-ad">
+        <header class="card-header">
+          <div class="card-logo"><a class="card-logo-link" href="#" style="width: 30px; height: 30px;"><img class="_rewi8" src="/profiles/df/modules/private/acquia_secret/as_journey/images/obio-logo.jpg"></a></div>
+          <div class="card-user">
+            <div class="wrap">
+              <div class="card-username"><a class="_2g7d5 notranslate _iadoq" title="m22life" href="#">Obio</a></div>
+            </div>
+            <div class="card-location"><a class="_q8ysx _6y8ij" title="San Francisco" href="#">Sponsored</a></div>
+          </div>
+        </header>
+        <div class="card-body">
+          <div class="card-body-inner">
+            <div class="card-img"><img src="/profiles/df/modules/private/acquia_secret/as_journey/images/instagram-ad.jpg" style=""></div>
+          </div>
+        </div>
+        <section class="card-ad-url">
+          <a class="card-ad-button" href="http://m.me/obiosko"> Book Now <span class="ad-arrow">go</span> </a>
+        </section>
+        <div class="card-meta">
+          <section class="card-meta-inner">
+            <a class="icon-btn" href="#" role="button" aria-disabled="false">
+                    <span class="coreSpriteHeartOpen">
+                    Like
+                </span>
+            </a>
+            <a class="icon-btn" href="#" role="button">
+                <span class="coreSpriteComment">
+                Comment</span>
+            </a>
+          </section>
+          <section class="card-views">
+            <div class="card-views-inner">
+              <span class="card-views-text">
+                    <span>872</span> likes
+              </span>
+            </div>
+          </section>
+          <div class="card-descriptions">
+            <ul class="card-description-ul">
+              <li class="card-description-li"><a title="Obio" href="#">Obio</a><span>Introducing our revamped 'Eco Friendly Collection'. Book an appointment at a showroom near you</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card-post-date">
+            <a class="card-post-link" href="/p/BdoISpSBZjS/">
+              <time class="timestamp" datetime="2018-01-06T23:49:15.000Z" title="Jan 6, 2018">1 hour ago</time>
+            </a>
+          </div>
+          <section class="card-comment">
+            <form class="card-comment-form">
+              <textarea aria-label="Add a comment…" class="card-textarea" placeholder="Add a comment…"></textarea>
+            </form>
+          </section>
+        </div>
+        <div class="card-footer card-options">
+          <button class="card-option-button"><span class="coreSpriteOptionsEllipsis">More options</span></button>
+        </div>
+      </article>
+      <!-- end ad card -->
+      
+      <!-- service ad card! -->
+      <article class="card fadeIn hide" id="obio-service-ad">
+        <header class="card-header">
+          <div class="card-logo"><a class="card-logo-link" href="#" style="width: 30px; height: 30px;"><img class="_rewi8" src="/profiles/df/modules/private/acquia_secret/as_journey/images/obio-logo.jpg"></a></div>
+          <div class="card-user">
+            <div class="wrap">
+              <div class="card-username"><a class="_2g7d5 notranslate _iadoq" title="m22life" href="#">Obio</a></div>
+            </div>
+            <div class="card-location"><a class="_q8ysx _6y8ij" title="San Francisco" href="#">Sponsored</a></div>
+          </div>
+        </header>
+        <div class="card-body">
+          <div class="card-body-inner">
+            <div class="card-img"><img src="/profiles/df/modules/private/acquia_secret/as_journey/images/instagram-ad.jpg" style=""></div>
+          </div>
+        </div>
+        <section class="card-ad-url">
+          <a class="card-ad-button" href="/book-apt"> Add a service package <span class="ad-arrow">add</span> </a>
+        </section>
+        <div class="card-meta">
+          <section class="card-meta-inner">
+            <a class="icon-btn" href="#" role="button" aria-disabled="false">
+                    <span class="coreSpriteHeartOpen">
+                    Like
+                </span>
+            </a>
+            <a class="icon-btn" href="#" role="button">
+                <span class="coreSpriteComment">
+                Comment</span>
+            </a>
+          </section>
+          <section class="card-views">
+            <div class="card-views-inner">
+              <span class="card-views-text">
+                    <span>932</span> likes
+              </span>
+            </div>
+          </section>
+          <div class="card-descriptions">
+            <ul class="card-description-ul">
+              <li class="card-description-li"><a title="Obio" href="#">Obio</a><span>Add a service package to your Eco Friendly Collection and never worry about outdated ambience again.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card-post-date">
+            <a class="card-post-link" href="/p/BdoISpSBZjS/">
+              <time class="timestamp" datetime="2018-01-06T23:49:15.000Z" title="Jan 6, 2018">1 hour ago</time>
+            </a>
+          </div>
+          <section class="card-comment">
+            <form class="card-comment-form">
+              <textarea aria-label="Add a comment…" class="card-textarea" placeholder="Add a comment…"></textarea>
+            </form>
+          </section>
+        </div>
+        <div class="card-footer card-options">
+          <button class="card-option-button"><span class="coreSpriteOptionsEllipsis">More options</span></button>
+        </div>
+      </article>
+      <!-- end service ad card -->
+      
+      <!-- card! -->
+      <article class="card fadeIn" id="feed-article">
+        <header class="card-header">
+          <div class="card-logo"><a class="card-logo-link" href="#" style="width: 30px; height: 30px;"><img class="_rewi8" src="/profiles/df/modules/private/acquia_secret/as_journey/images/user-2.png"></a></div>
+          <div class="card-user">
+            <div class="wrap">
+              <div class="card-username"><a class="_2g7d5 notranslate _iadoq" title="m22life" href="#">Jill_e</a></div>
+            </div>
+            <div class="card-location"><a class="_q8ysx _6y8ij" title="San Francisco" href="#">San Francisco, CA</a></div>
+          </div>
+        </header>
+        <div class="card-body">
+          <div class="card-body-inner">
+            <div class="card-img"><img src="/profiles/df/modules/private/acquia_secret/as_journey/images/instagram-feed-1.jpg" style=""></div>
+          </div>
+        </div>
+        <div class="card-meta">
+          <section class="card-meta-inner">
+            <a class="icon-btn" href="#" role="button" aria-disabled="false">
+                    <span class="coreSpriteHeartFull">
+                    Like
+                </span>
+            </a>
+            <a class="icon-btn" href="#" role="button">
+                <span class="coreSpriteComment">
+                Comment</span>
+            </a>
+          </section>
+          <section class="card-views">
+            <div class="card-views-inner">
+              <span class="card-views-text">
+                    <span>72</span> likes
+              </span>
+            </div>
+          </section>
+          <div class="card-descriptions">
+            <ul class="card-description-ul">
+              <li class="card-description-li"><a title="Jill_e" href="#">Jill_e</a><span>Beautiful day for a walk!</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card-post-date">
+            <a class="card-post-link" href="/p/BdoISpSBZjS/">
+              <time class="timestamp" datetime="2018-01-06T23:49:15.000Z" title="Jan 6, 2018">1 day ago</time>
+            </a>
+          </div>
+          <section class="card-comment">
+            <form class="card-comment-form">
+              <textarea aria-label="Add a comment…" class="card-textarea" placeholder="Add a comment…"></textarea>
+            </form>
+          </section>
+        </div>
+        <div class="card-footer card-options">
+          <button class="card-option-button"><span class="coreSpriteOptionsEllipsis">More options</span></button>
+        </div>
+      </article>
+      <!-- end card -->
+
+      <!-- card! -->
+      <article class="card fadeIn" id="feed-article-2">
+        <header class="card-header">
+          <div class="card-logo"><a class="card-logo-link" href="#" style="width: 30px; height: 30px;"><img class="_rewi8" src="/profiles/df/modules/private/acquia_secret/as_journey/images/user-3.png"></a></div>
+          <div class="card-user">
+            <div class="wrap">
+              <div class="card-username"><a class="_2g7d5 notranslate _iadoq" title="m22life" href="#">Terra</a></div>
+            </div>
+            <div class="card-location"><a class="_q8ysx _6y8ij" title="San Francisco" href="#">Perros-Guirec, France</a></div>
+          </div>
+        </header>
+        <div class="card-body">
+          <div class="card-body-inner">
+            <div class="card-img"><img src="/profiles/df/modules/private/acquia_secret/as_journey/images/instagram-feed-2.jpg" style=""></div>
+          </div>
+        </div>
+        <div class="card-meta">
+          <section class="card-meta-inner">
+            <a class="icon-btn" href="#" role="button" aria-disabled="false">
+                    <span class="coreSpriteHeartOpen">
+                    Like
+                </span>
+            </a>
+            <a class="icon-btn" href="#" role="button">
+                <span class="coreSpriteComment">
+                Comment</span>
+            </a>
+          </section>
+          <section class="card-views">
+            <div class="card-views-inner">
+              <span class="card-views-text">
+                    <span>552</span> likes
+              </span>
+            </div>
+          </section>
+          <div class="card-descriptions">
+            <ul class="card-description-ul">
+              <li class="card-description-li"><a title="Terra" href="#">Terra</a><span>Le Phare De Ploumanac'h</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card-post-date">
+            <a class="card-post-link" href="/p/BdoISpSBZjS/">
+              <time class="timestamp" datetime="2018-01-06T23:49:15.000Z" title="Jan 6, 2018">3 days ago</time>
+            </a>
+          </div>
+          <section class="card-comment">
+            <form class="card-comment-form">
+              <textarea aria-label="Add a comment…" class="card-textarea" placeholder="Add a comment…"></textarea>
+            </form>
+          </section>
+        </div>
+        <div class="card-footer card-options">
+          <button class="card-option-button"><span class="coreSpriteOptionsEllipsis">More options</span></button>
+        </div>
+      </article>
+      <!-- end card -->
+
+    </main>
+    <aside>
+      <div class="logged-in-user">
+        <div class="logged-in-user-inner">
+          <div class="user-profile"><a class="_pg23k _gvoze" href="/demo/instagram" style="width: 50px; height: 50px;"><img class="_rewi8" src="/profiles/df/modules/private/acquia_secret/as_journey/images/paul.jpg"></a></div>
+          <div class="user-name-wrapper">
+            <div class="user-name"><a class="user-name-link" href="/demo/instagram">M.Jones</a></div>
+            <div class="real-name">Mike Jones</div>
+          </div>
+        </div>
+      </div>
+      <hr class="line">
+      <div class="story-header">
+        <span class="stories">Stories</span>
+        <a class="stories-watch" href="#">Watch All</a>
+      </div>
+      <div class="story-timeline" style="height: 272px; overflow-y: auto; overflow-x: hidden;">
+        <div class="story-timeline-inner" style="padding-top: 0px;>
+          <div style=" height: 68px; ">
+            <div class="logged-in-user ">
+              <div class="logged-in-user-inner ">
+                <div class="user-story-item ">
+                  <a class="_pg23k _gvoze " href="/demo/instagram " style="width: 50px; height: 50px; "><img class="insta-border " src="/profiles/df/modules/private/acquia_secret/as_journey/images/user-1.png "></a></div>
+                <div class="user-name-wrapper ">
+                  <div class="user-name "><a class="user-name-link " href="/demo/instagram ">R.O.B.B.I_Tech</a></div>
+                  <div class="time-stamp ">10 Hours ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="height: 68px; ">
+            <div class="logged-in-user ">
+              <div class="logged-in-user-inner ">
+                <div class="user-story-item ">
+                  <a class="_pg23k _gvoze " href="/demo/instagram " style="width: 50px; height: 50px; "><img class="insta-border " src="/profiles/df/modules/private/acquia_secret/as_journey/images/user-2.png "></a></div>
+                <div class="user-name-wrapper ">
+                  <div class="user-name "><a class="user-name-link " href="/demo/instagram ">Jill_e</a></div>
+                  <div class="time-stamp ">14 Hours ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="height: 68px; ">
+            <div class="logged-in-user ">
+              <div class="logged-in-user-inner ">
+                <div class="user-story-item ">
+                  <a class="_pg23k _gvoze " href="/demo/instagram " style="width: 50px; height: 50px; "><img class="insta-border " src="/profiles/df/modules/private/acquia_secret/as_journey/images/user-3.png "></a></div>
+                <div class="user-name-wrapper ">
+                  <div class="user-name "><a class="user-name-link " href="/demo/instagram ">Terra</a></div>
+                  <div class="time-stamp ">18 Hours ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+    </aside>
+    </div>
+</body>
+
+</html>

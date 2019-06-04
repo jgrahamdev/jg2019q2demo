@@ -1,0 +1,20 @@
+//
+// @file
+// Themes taxomomy terms.
+//
+
+.term__content {
+  position: relative;
+}
+
+// Bundle specific theming.
+.vocabulary-tags {
+  &.quickedit-entity-active {
+    z-index: 2;
+  }
+
+  .quickedit-form {
+    background: $white;
+    color: $black;
+  }
+}

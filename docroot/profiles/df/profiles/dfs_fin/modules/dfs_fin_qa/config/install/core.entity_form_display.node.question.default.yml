@@ -1,0 +1,43 @@
+uuid: 44f4d235-b5e9-4255-a522-340587bf5a86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.question.field_answer
+    - field.field.node.question.field_question
+    - node.type.question
+  module:
+    - content_moderation
+    - dfs_fin_qa
+  enforced:
+    module:
+      - dfs_fin_qa
+id: node.question.default
+targetEntityType: node
+bundle: question
+mode: default
+content:
+  field_question:
+    weight: 31
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_answer: true
+  langcode: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true

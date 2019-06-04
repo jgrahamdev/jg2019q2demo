@@ -1,0 +1,19 @@
+panels_ipe:
+  version: VERSION
+  js:
+    js/panels_ipe.js: {}
+  dependencies:
+    - panels_ipe/panels_ipe
+  css:
+    component:
+      css/panels_ipe.css: {}
+
+full_screen_modal:
+  version: VERSION
+  js:
+    js/full_screen_modal.js: {}
+  css:
+    component:
+      css/full_screen_modal.css: {}
+  dependencies:
+    - core/drupal.dialog

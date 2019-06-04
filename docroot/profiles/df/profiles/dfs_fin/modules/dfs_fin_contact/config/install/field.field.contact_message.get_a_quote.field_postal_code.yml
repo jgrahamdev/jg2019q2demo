@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.get_a_quote
+    - field.storage.contact_message.field_postal_code
+  module:
+    - dfs_fin_contact
+  enforced:
+    module:
+      - dfs_fin_contact
+id: contact_message.get_a_quote.field_postal_code
+field_name: field_postal_code
+entity_type: contact_message
+bundle: get_a_quote
+label: 'Postal Code'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,65 @@
+//
+// @file
+// Visual styles for (block content) hero (SMACSS module).
+//
+
+.hero-content {
+  position: relative;
+  margin-top: rem-calc(100px);
+  margin-bottom: rem-calc(100px);
+  padding: 1rem;
+  background: $white;
+  color: $body-font-color;
+  // Defining a higher level than the one that quick-edit feature uses (98).
+  z-index: 99;
+
+  @media #{$medium-up} {
+    padding: 1.8rem 2rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .field {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .field-name-field-first-line {
+    $small-fontsize-map: map-get($header-styles, small);
+    font-family: $header-font-family;
+    font-size: rem-calc(map-get(map-get($small-fontsize-map, "h2"), 'font-size'));
+    font-weight: $header-font-weight;
+    line-height: $header-lineheight;
+
+    > .field-items {
+      margin-bottom: -1rem;
+    }
+
+    @media #{$medium-up} {
+      $default-fontsize-map: map-get($header-styles, medium);
+      font-size: rem-calc(map-get(map-get($default-fontsize-map, "h1"), 'font-size'));
+
+      > .field-items {
+        margin-bottom: -0.4rem;
+      }
+    }
+  }
+
+  .field-name-field-second-line {
+    font-weight: $global-weight-light;
+  }
+
+  .field-name-field-hero-link a {
+    @extend .button.hollow;
+    display: inline-block;
+    width: 100%;
+    @include breakpoint(small only) {
+      padding: 1rem;
+    }
+    @media #{$medium-up} {
+      width: auto;
+      min-width: rem-calc(253px);
+      padding: 0.8533333rem 1rem;
+    }
+  }
+}

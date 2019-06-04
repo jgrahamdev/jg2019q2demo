@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.individual
+    - field.storage.commerce_product_variation.field_price_previous
+  module:
+    - commerce_price
+id: commerce_product_variation.individual.field_price_previous
+field_name: field_price_previous
+entity_type: commerce_product_variation
+bundle: individual
+label: 'Previous price'
+description: 'If variation has this price and it''s lower than the actual one, it will be displayed.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_currencies:
+    - USD
+field_type: commerce_price

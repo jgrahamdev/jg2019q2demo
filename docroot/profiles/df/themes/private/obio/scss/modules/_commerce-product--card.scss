@@ -1,0 +1,131 @@
+//
+// @file
+// Custom styles for commerce product (SMACSS).
+//
+
+$elem-background: $white;
+$elem-color: $black;
+$elem-padding: rem-calc(20px);
+
+.commerce-product.view-mode-card {
+  margin: 0 auto 1rem;
+}
+
+.individual-product-card {
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  transition: box-shadow 0.2s ease-in-out 0s;
+  position: relative;
+  background-color: $off-white;
+
+  &:hover {
+    box-shadow: 0 3px 6px rgba($body-font-color, 0.3);
+  }
+
+  .product-variation-card-image {
+    position: relative;
+    border: 1px solid $light-gray;
+    background-color: $white;
+
+    &:hover {
+      .quickview-link a {
+        opacity: 0.75;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      .card-image a::before {
+        opacity: 0.5;
+      }
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      height: 0;
+      padding-bottom: 100%;
+    }
+  }
+
+  .card-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    a::before {
+      transition: opacity 0.2s ease-in-out 0s;
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: $black;
+      opacity: 0;
+    }
+  }
+
+  .quickview-link {
+    transition: opacity 0.2s ease-in-out 0s;
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+
+    .button {
+      transition: opacity 0.2s ease-in-out 0s;
+      margin-bottom: 0;
+      opacity: 0;
+      background: $white;
+      border: 2px solid $anchor-color;
+      color: $anchor-color;
+
+      &:focus {
+        opacity: 0.75;
+      }
+
+      &:hover,
+      &:focus:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .card-section {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  .product-variation-card-title {
+    min-height: $global-lineheight * 2rem;
+  }
+
+  .field-name-price {
+    font-weight: bold;
+  }
+}
+
+// Related product item view display.
+.related-product-item {
+  max-width: $product-compact-card-max-width;
+  display: flex;
+  margin-right: -1px;
+  margin-left: -1px;
+
+  .commerce-product.view-mode-card {
+    @include -zf-breakpoint-value(auto, $grid-column-gutter) {
+      margin-bottom: rem-calc($-zf-bp-value);
+    }
+  }
+}

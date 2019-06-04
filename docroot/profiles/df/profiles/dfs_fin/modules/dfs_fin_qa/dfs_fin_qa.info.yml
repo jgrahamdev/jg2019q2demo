@@ -1,0 +1,8 @@
+name: DFS FIN Q&A
+type: module
+description: Demo Framework submodule for the "Questions and Answers" page.
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - content_browser
+  - node

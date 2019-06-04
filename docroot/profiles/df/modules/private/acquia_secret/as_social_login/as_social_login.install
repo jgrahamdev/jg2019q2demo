@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Install routines for as_social_login.
+ */
+
+use Drupal\Core\Form\FormState;
+
+/**
+ * Implements hook_install().
+ */
+function as_social_login_install() {
+  $form_state = new FormState();
+  $values = [
+    'http_handler' =>	'curl',
+    'http_protocol' => 'https',
+    'api_subdomain' => 'demoframework',
+    'api_key' => '11cc779f-81a2-47de-8348-c8a304c2614a',
+    'api_secret' => '3503b9dc-6784-48d0-8221-5582c68aeabb',
+    'registration_method' => 'auto_random_email',
+    'registration_approval' => 'disable',
+    'provider_google' => 1,
+    'provider_twitter' => 1,
+  ];
+  $form_state->setValues($values);
+  \Drupal::formBuilder()->submitForm('\Drupal\social_login\Form\SocialLoginAdminSettings', $form_state);
+}

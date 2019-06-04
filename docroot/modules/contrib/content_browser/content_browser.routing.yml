@@ -1,0 +1,7 @@
+content_browser.settings:
+  path: '/admin/config/content-browser/settings'
+  defaults:
+    _form: '\Drupal\content_browser\Form\ContentBrowserSettingsForm'
+    _title: 'Content Browser settings'
+  requirements:
+    _permission: 'administer entity browsers'

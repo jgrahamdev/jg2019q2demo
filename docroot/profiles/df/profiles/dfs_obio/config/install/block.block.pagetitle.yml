@@ -1,0 +1,29 @@
+uuid: 5eb9c6a9-9fe9-499b-9ef7-07424b9b9a0d
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - system
+  theme:
+    - obio
+third_party_settings:
+  block_class:
+    classes: ''
+id: pagetitle
+theme: obio
+region: content_prefix
+weight: -4
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/user\r\n/user/*\r\n/book-apt\r\n/subscribe\r\n/subscribe/*"
+    negate: false
+    context_mapping: {  }

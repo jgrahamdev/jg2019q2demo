@@ -1,0 +1,33 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the DF installation profile.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ *
+ * @see system_install()
+ */
+function df_install() {
+  // Set the default and admin theme.
+  \Drupal::configFactory()
+    ->getEditable('system.theme')
+    ->set('default', 'dfs_base')
+    ->set('admin', 'dfs_admin')
+    ->save(TRUE);
+
+  // Now that all modules are installed, make sure the entity storage and other
+  // handlers are up to date with the current entity and field definitions. For
+  // example, Path module adds a base field to nodes and taxonomy terms after
+  // those modules are already installed.
+  \Drupal::service('entity.definition_update_manager')->applyUpdates();
+
+  // Ensure Material Admin is installed correctly when using the base profile df
+  // opposed to Scenario profiles (e.g. dfs_dev) that run this via Scenarios API.
+  module_load_include('install', 'material_admin_support');
+  material_admin_support_install();
+}
+

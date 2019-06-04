@@ -1,0 +1,14 @@
+lf-landscape:
+  label: Large Format Landscape
+  category: Large Format
+  path: layouts/lf_landscape
+  icon: lf-landscape.png
+  css: lf-landscape.css
+  template: lf-landscape
+  regions:
+    bottom:
+      label: Full Bottom
+    left:
+      label: Left Half
+    right:
+      label: Right Half

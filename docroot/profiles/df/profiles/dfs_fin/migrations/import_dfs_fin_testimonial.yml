@@ -1,0 +1,27 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_fin_testimonial
+label: 'Import dfs_fin:node:testimonial'
+source:
+    plugin: testimonial_node
+    path: '../data/dfs_fin.node.testimonial.csv'
+    header_row_count: 1
+    keys: [Title]
+    csvColumns: { 2: Body, 3: Author, 0: UUID, 1: Title, 4: Image, 5: 'Author Image' }
+destination:
+    plugin: 'entity:node'
+process:
+    type: { plugin: default_value, default_value: testimonial }
+    title: Title
+    body/value: Body
+    field_image: Image
+    field_tags: { plugin: migration, migration: import_dfs_fin_tags, source: Tags }
+    body/format: { plugin: default_value, default_value: rich_text }
+    moderation_state: { plugin: default_value, default_value: published }
+    uuid: UUID
+    uid: UID
+    field_author: Author
+    field_author_image: 'Author Image'
+provider: import
+migration_dependencies:
+    required: [import_dfs_fin_tags]
+    optional: {  }

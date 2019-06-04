@@ -1,0 +1,1049 @@
+//client styles for the content region.
+//hero styling
+//container is full width so reset the grid centering
+.hero {
+  margin-bottom: rem-calc(15px);
+  .field-name-field-hero-image img {
+    width: 100%;
+    //avoid some jumpiness by setting min height before it loads
+    @include breakpoint(large up) {
+      min-height: 450px;
+    }
+  }
+}
+
+.article-teaser .article-image img {
+  width:100%;
+  max-width:100%;
+}
+
+//dont add margin on homepage, its handled differently
+.path-frontpage .hero {
+  margin-bottom: 0px;
+}
+
+.hero-block-fields {
+  z-index:$stacked-quick-edit;
+  .field-wrapper {
+    @extend .medium-7;
+    @extend .small-12;
+    @extend .columns;
+  }
+  .field-name-field-second-line {
+    font-size: map-get(map-get(map-get($header-styles, small), h4), 'font-size') * 1px;
+  }
+  .field-name-field-first-line {
+    position: relative;
+    @extend .vertical-padding-space;
+    .field-item {
+      text-transform: uppercase;
+      text-align: center;
+      @extend .center-focus-bar;
+    }
+  }
+  .field-name-field-hero-link {
+    a {
+      @extend .vertical-margin-space;
+      @extend .button;
+      @extend .hollow;
+      @extend .large;
+      @include breakpoint(small only) {
+        margin: .5rem;
+        padding: .5rem;
+        font-size: .8em;
+      }
+      transition: .2s;
+    }
+  }
+  .field-name-field-nested-block {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.contact-method i {
+  padding-right:10px;
+}
+
+.agent-node-type-teaser .teaser-wrap {
+  max-width:550px;
+  .agent-image .field-item img{
+    padding:5px;
+    border-radius:50%;
+  }
+}
+
+.our-history-wrapper {
+  background: url(../images/company-bg.jpg);
+  padding-top: rem-calc(50px);
+  padding-bottom: rem-calc(50px);
+  background-size: cover;
+}
+
+.product-selector {
+  max-width: rem-calc(600px);
+  background: $primary-color;
+  color: $white;
+  padding: rem-calc(20px);
+  position: relative;
+  margin-bottom: rem-calc(20px);
+  margin-top: rem-calc(30px);
+  @media #{$large-up} {
+    max-height: rem-calc(230px);
+  }
+  &:after {
+    clear: both;
+  }
+  h4 {
+    color: $white;
+    padding-bottom: rem-calc(15px);
+  }
+  .icons {
+    cursor: pointer;
+    a {
+      color: $white;
+      cursor: pointer;
+      > span {
+        padding: 20px;
+        border-radius: 100px;
+        border: 1px solid $white;
+        &.has-tip {
+          cursor: pointer;
+        }
+        &:hover {
+          background: $button-background-hover;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.manage-account-block {
+  @extend .full-block-spacing;
+  .square-cta {
+    padding: rem-calc(50px) 0px;
+  }
+  a {
+    padding: rem-calc(40px) 0px;
+    display: block;
+    &:hover {
+      color: $primary-font-hover-color;
+      span,
+      i {
+        color: $primary-font-hover-color
+      }
+    }
+    span {
+      display: block;
+      color: $primary-font-color;
+    }
+  }
+}
+
+.intro-cta {
+  @extend .full-block-spacing;
+  .top-region {
+    @extend .vertical-padding-space;
+    @extend .vertical-margin-space;
+  }
+}
+
+.testimonial-quotes {
+  @extend .full-block-spacing;
+  .tabs-content {
+    background: transparent;
+    border: none;
+  }
+  .tabs-panel {
+    h3 {
+      font-style: italic;
+      font-size: rem-calc(20px);
+      i {
+        padding-right: rem-calc(5px);
+      }
+    }
+  }
+  .tabs {
+    background: transparent;
+    border: none;
+    a span {
+      display: inline-block;
+    }
+    .tabs-title {
+      .author-image {
+        padding-right: rem-calc(10px);
+        img {
+          max-width: 50px;
+          max-height: 50px;
+          border-radius: 200px;
+          @include breakpoint(medium up) {
+            max-width: 100px;
+            max-height: 100px;
+          }
+          border:2px solid $primary-font-color;
+          -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+        }
+      }
+      .author-text {
+        font-weight: bold;
+        color: $primary-font-color;
+        &:hover {
+          color: $primary-font-hover-color;
+        }
+      }
+    }
+    .tabs-title > a[aria-selected='true'],
+    .tabs-title > a:hover {
+      background: inherit;
+      .author-image img {
+        border: 2px solid $primary-font-hover-color;
+        -webkit-filter: grayscale(0%);
+        filter: grayscale(0%);
+      }
+      .author-text {
+        color: $primary-font-hover-color;
+      }
+    }
+  }
+}
+
+.fin-modal-message {
+  text-align: center;
+  i {
+    color: $success-color;
+  }
+}
+
+.product-landing {
+  @extend .full-block-spacing;
+  .callout {
+    //make it a square
+    padding-top: 5em;
+    padding-bottom: 5em;
+    margin-bottom: 2rem;
+  }
+}
+
+main.shrink {
+  width: 100%;
+}
+
+
+/* Location styles. */
+
+.locationSelected .location-finder .view-filters {
+  position: relative;
+  top: 0;
+  left: 0;
+  background: $white;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  @include breakpoint(small only) {
+    -webkit-transition: top 0.5s ease-in-out;
+    -moz-transition: top 0.5s ease-in-out;
+    -o-transition: top 0.5s ease-in-out;
+    -ms-transition: top 0.5s ease-in-out;
+    transition: top 0.5s ease-in-out;
+  }
+  z-index: 2;
+  width: auto;
+  float: left;
+  margin: 0 10px 10px 10px;
+}
+
+.location-finder {
+  @extend .full-block-spacing;
+  .leaflet-container {
+    margin: 10px;
+  }
+  .view-filters {
+    h4 {
+      text-align: center;
+    }
+    margin-left: -30%;
+    top:20%;
+    width: 60%;
+    left: 50%;
+    position: absolute;
+    border: 1px solid $primary-color;
+    background: rgba(255, 255, 255, .9);
+    z-index: 10;
+    padding: 15px;
+    border-radius: 5px;
+    .simple-proximity-wrapper {
+      position: relative;
+    }
+    .simple-proximity-location {
+      margin-right: 40px;
+      height: 40px;
+      width: calc(100% - 40px);
+    }
+    .simple-proximity-location-button {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      margin: 0;
+      bottom: 0;
+      right: 0;
+    }
+    @include breakpoint(small only) {
+      float: inherit;
+      margin-right: inherit;
+      border-top-right-radius: 5px;
+    }
+  }
+  .leaflet-container {
+    border: 1px solid $light-gray;
+  }
+  .location-map-phone-number,
+  .location-map-email,
+  .address {
+    font-size: 14px;
+  }
+  .location-map-phone-number:before,
+  .location-map-email:before {
+    content: " ";
+    background-image: url("../images/phone.png");
+    background-size: 30px 30px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  .location-map-email:before {
+    background-image: url("../images/email.png");
+  }
+}
+
+.toolbar-horizontal #resource-nav .is-stuck {
+  //move the nav below the main nav + navbar module when its sticky
+  padding-top: rem-calc(180px);
+}
+
+#resource-nav .is-stuck {
+  //move the nav below the main nav when its sticky
+  padding-top: rem-calc(100px);
+}
+
+#resource-nav {
+  .block-title {
+    @extend h4;
+  }
+  li {
+    @extend .vertical-padding-space;
+  }
+  li a.active {
+    padding: rem-calc(10px);
+    background: $bg-hover;
+    color: $white;
+  }
+}
+
+.resource-section {
+  header {
+    border-bottom: $line-break;
+    @extend .vertical-padding-space;
+    @extend .vertical-margin-space;
+  }
+  .resource-item {
+    @extend .full-block-spacing;
+    border-bottom: $line-break;
+    .views-field-field-image {
+      position: relative;
+    }
+    .views-field-title {
+      text-align: center;
+      z-index: 2;
+      position: relative;
+      margin: -35px auto;
+      padding-bottom: rem-calc(50px);
+      width: 100%;
+      a {
+        text-align: center;
+        padding: 20px 20px 20px 20px;
+        @extend h2;
+        line-height: 2.2em;
+        background: $white;
+      }
+    }
+  }
+}
+
+//make the sidebar article nav not overlap the footer.
+.resources-path {
+  footer {
+    z-index: 5
+  }
+}
+
+//sidebar block config
+.block-addtoanybuttons,
+.block-views-block-similar-content-block-1 {
+  @extend .full-block-spacing;
+  border-bottom: $line-break;
+  .block-title {
+    @extend h4;
+  }
+  .views-field {
+    margin-top: rem-calc(10px);
+  }
+}
+
+.quickedit-on .author-quote-wrapper {
+  z-index: $stacked-quick-edit;
+}
+
+.quickedit-on .quickedit-form-container {
+  z-index: $stacked-quick-edit-form;
+}
+
+//product testimonials 
+.testimonial-teaser {
+  @extend .full-block-spacing-margin;
+  position: relative;
+  .testimonial-image {
+    z-index: 1;
+    img {
+      width: 100%;
+    }
+  }
+  .author-quote-wrapper {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    top: 90px;
+    @include breakpoint(large up) {
+      position: absolute;
+      top: 5%;
+      right: 10%;
+      width: 55%;
+    }
+    @include breakpoint(xlarge up) {
+      font-size: 1em;
+    }
+    @include breakpoint(medium only) {
+      margin: 0 auto;
+      top: 0%;
+      width: 80%;
+      font-size: .9em;
+    }
+    .author-quote-text {
+      @extend .arrowbox-bottom;
+      position: relative;
+      font-size: .9em;
+      text-align: center;
+    }
+    .author-quote-image {
+      margin-top: rem-calc(25px);
+      @include breakpoint(small only) {
+        bottom: -100px;
+      }
+      img {
+        @extend .profile-pic;
+      }
+    }
+  }
+}
+
+.node--type-insurance-product {
+  .field-node--field-promo-text {
+    width: 100%;
+    text-align: center;
+    .field-item {
+      @extend .center-focus-bar;
+      @extend .full-block-spacing;
+      margin: 0 auto;
+      @extend h4;
+    }
+  }
+  .field-node--body {
+    .field-item {
+      h4 {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.testimonial-featured {
+  @extend .full-block-spacing;
+  .field-name-body {
+    @extend .arrowbox-bottom;
+    .field-item {
+      padding-left: 1.3em;
+      &:before {
+        content: "\f10d";
+        font-family: FontAwesome;
+        display: inline-block;
+        float: left;
+        font-size: 2em;
+        padding-right: .5em;
+      }
+    }
+  }
+  .field-name-field-author-image {
+    width: 100%;
+    text-align: center;
+    margin-top: rem-calc(30px);
+    img {
+      @extend .profile-pic;
+    }
+  }
+}
+
+.contact-message-request-more-info-form {
+  @extend .full-block-spacing;
+}
+
+.author-info {
+  @include breakpoint (small only) {
+    position: relative;
+  }
+  font-size:.8em;
+  background:$bg-transparency-float;
+  padding:5px 10px;
+  position:absolute;
+  right:0%;
+  text-align:center;
+  img {
+    @extend .profile-pic;
+    width: rem-calc(50px);
+    margin-bottom: 5px;
+  }
+  p {
+    margin: 5px;
+  }
+  i {
+    padding-right: 5px;
+    padding-top: 2px;
+  }
+  .author-text-area {
+    padding-top: 5px;
+    span {
+      padding: 5px;
+    }
+  }
+  .views-field-user-picture,
+  .views-field-nothing {
+    float: left;
+  }
+}
+
+.article-title {
+  @extend .vertical-margin-space;
+}
+
+.latest-articles {
+  @extend .full-block-spacing;
+  .views-field-title {
+    @extend .vertical-padding-space;
+  }
+  .views-field-view-node {
+    a {
+      @extend .button;
+      @extend .tiny;
+    }
+  }
+}
+
+.prefilled label,
+.form-disabled label,
+.item-selected {
+  @extend .success;
+  &:before {
+    content: "\f00c"!important;
+    font-family: "FontAwesome"!important;
+    display: inline-block;
+    float: left;
+    padding-right: .5em;
+  }
+}
+
+legend.alert,
+.description.alert {
+  @extend .alert;
+  @extend label;
+  &:before {
+    content: "\f071";
+    font-family: FontAwesome;
+    display: inline-block;
+    float: left;
+    padding-right: .5em;
+  }
+}
+
+#edit-field-additional-interests-wrapper {
+  .js-form-type-checkbox {
+    float: left;
+    &:after {
+      clear: both;
+    }
+  }
+  #edit-field-additional-interests--wrapper--description {
+    clear: both;
+  }
+}
+
+.form-required {
+  &:before {
+    content: "\f314";
+    font-family: "Ionicons";
+    display: inline-block;
+    float: left;
+    padding-right: .5em;
+    font-size: .6em;
+  }
+}
+
+#edit-field-has-insurance-none,
+label[for=edit-field-has-insurance-none] {
+  display: none;
+}
+
+.bundle-callout {
+  .row {
+    @extend .vertical-margin-space;
+    .field-name-field-icon {
+      @extend .vertical-padding-space;
+      i {
+        color: $white;
+        background: $primary-color;
+        padding: rem-calc(20px);
+        border-radius: rem-calc(50px);
+      }
+    }
+  }
+}
+
+.path-user {
+  #main {
+    @extend .full-block-spacing;
+    @extend .large-10;
+  }
+  ul.tabs {
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    background: $secondary-bg-darken;
+    li {
+      a {
+        color: $primary-font-color;
+      }
+      position:relative;
+      &.is-active {
+        a {
+          color: $primary-color;
+        }
+        &:after {
+          content: "\f0d7";
+          font-family: FontAwesome;
+          position: absolute;
+          color: $secondary-bg;
+          font-size: 30px;
+          left: 40%;
+          top: 1em;
+        }
+      }
+    }
+  }
+  .profile-tabs {
+    .user-photo {
+      img {
+        @extend .profile-pic;
+      }
+    }
+    .address {
+      margin-left: rem-calc(30px);
+      font-size: .9em;
+    }
+  }
+}
+
+.node--type-agent-location {
+  #main {
+    @extend .full-block-spacing;
+    @extend .large-10;
+    @extend .columns;
+    #block-fin-page-title h1 {
+      border-bottom: 1px solid $primary-color;
+    }
+  }
+  .agent-wrapper {
+    @extend .vertical-margin-space;
+    .field-name-field-image {
+      float: left;
+      @extend .horizontal-padding-space;
+      @extend .vertical-padding-space;
+      img {
+        border-radius: 100%;
+        border: 1px solid #000;
+      }
+    }
+    .address {
+      .field-label {
+        @extend h4;
+        &:before {
+          content: "\f456";
+          font-family: "Ionicons";
+          display: inline-block;
+          float: left;
+          padding-right: .5em;
+        }
+      }
+    }
+    .field-name-field-areas-of-focus {
+      .field-label {
+        font-weight: bold;
+      }
+      .field-item {
+        @extend .label;
+        a {
+          color: $white;
+        }
+      }
+    }
+    .agent-contact-info {
+      @extend .vertical-padding-space;
+      @extend .vertical-margin-space;
+      float: left;
+      h4 {
+        border-bottom: 1px solid $dark-bg-border;
+      }
+      div.contact-method {
+        margin-bottom: 5px;
+        float: left;
+        width: 100%;
+        i {
+          display: inline;
+          float: left;
+          margin-right: 5px;
+        }
+        .field-wrapper {
+          float: left;
+          display: inline;
+          &:after {
+            clear: both;
+          }
+        }
+      }
+    }
+  }
+}
+
+.workbench-moderation-entity-moderation-form {
+  @extend .vertical-margin-space;
+  @extend .vertical-padding-space;
+  .form-item {
+    padding-bottom: rem-calc(10px);
+  }
+  background:#fff;
+  border: 1px solid $dark-bg-border;
+  .entity-moderation-form {
+    border: none;
+  }
+  #edit-submit {
+    @extend .success;
+  }
+  ul {
+    margin: 0;
+    @extend .horizontal-padding-space;
+    li {
+      width: 100%;
+    }
+  }
+}
+
+#block-agentquoteform {
+  @extend .full-block-spacing;
+  @extend .vertical-margin-space;
+  border: 1px solid $success-color;
+  .form-submit {
+    @extend .success;
+  }
+}
+
+.quote-box-wrapper {
+  @extend .full-block-spacing;
+  @extend .vertical-margin-space;
+  border-bottom: 1px solid $dark-bg-border;
+}
+
+.quote-box {
+  padding: rem-calc(15px);
+  border-bottom: 1px solid $secondary-color;
+  &:last-child {
+    border-bottom: none;
+  }
+  @include breakpoint (large up) {
+    border-right: 1px solid $secondary-color;
+    border-bottom: none;
+    &:last-child {
+      border-right: none;
+    }
+  }
+  .field-user--user-picture {
+    @extend .vertical-padding-space;
+    img {
+      @extend .profile-pic;
+    }
+  }
+  h2 {
+    font-size: 1.1em;
+  }
+  .field-name-field-first-name,
+  .field-name-field-last-name {
+    display: inline-block;
+  }
+  .field-name-field-icon .standard-icon {
+    padding: 12px;
+    border-radius: 100%;
+    border: 2px solid #000;
+  }
+}
+
+.quote-from-wrap {
+  @extend .vertical-margin-space;
+  @extend .vertical-padding-space;
+}
+
+.quote-more-info {
+  i {
+    padding-right: 5px;
+  }
+  float:left;
+  width:50%;
+  @extend .vertical-padding-space;
+  @include breakpoint(small only) {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+//what the user sees as part of the quotes 
+.section-user #dfs-fin-member-quote-form {
+  @extend .full-block-spacing;
+  h3 {
+    @extend .callout;
+    color: $success-color;
+    &:before {
+      content: "\f100";
+      font-family: "Ionicons";
+      display: inline-block;
+      float: left;
+      padding-right: .5em;
+      font-size: 1em;
+    }
+  }
+  h4 {
+    @extend .vertical-margin-space;
+    @extend .vertical-padding-space;
+    &:before {
+      content: "\f48d";
+      font-family: "Ionicons";
+      display: inline-block;
+      float: left;
+      padding-right: .5em;
+      font-size: 1em;
+    }
+  }
+  .form-item-quote-accept {
+    max-width: 500px;
+    overflow: hidden;
+    select {
+      overflow: hidden;
+    }
+  }
+}
+
+.agent-node-type-featured {
+  text-align: center;
+  border-bottom: 1px solid $dark-bg-border;
+  @extend .vertical-padding-space;
+  @extend .vertical-margin-space;
+  .agent-image {
+    img {
+      @extend .profile-pic;
+    }
+  }
+  h2.node-title {
+    font-size: 1.3em;
+    @extend .vertical-padding-space;
+  }
+  .about-agent {
+    @extend .vertical-padding-space;
+    a {
+      @extend .button;
+      @extend .small;
+    }
+  }
+  .contact-method {
+    i,
+    .field-name-field-email-address,
+    .field-name-field-phone-number {
+      display: inline-block;
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+//custom layout settings
+.block-region-left,
+.block-region-right {
+  .block-title {
+    text-align: center;
+    text-decoration: underline;
+    line-height: 2.5em;
+  }
+}
+
+.contact-message-get-a-quote-form {
+  input[value='Preview'] {
+    display: none;
+  }
+  input[value='Submit Quote'] {
+    @extend .large;
+  }
+}
+
+.ief-entity-table {
+  td {
+    display: block;
+  }
+  th:last-child {
+    display: none;
+  }
+  .ief-entity-operations {
+    float: right;
+    input {
+      @extend .tiny;
+    }
+    input[value='Remove'] {
+      background: $alert-color;
+    }
+  }
+}
+
+.vehicle-info {
+  .field-label {
+    font-weight: bold;
+    border-bottom: 1px solid $dark-bg-border;
+  }
+  .callout {
+    .field-item {
+      font-size: 1.2em;
+      @extend .vertical-padding-space;
+    }
+    .vin-item {
+      @extend .vertical-margin-space;
+      width: 100%;
+      p,
+      .field-name-name {
+        display: inline-block;
+      }
+      .field-name-name .field-item {
+        color: $success-color;
+        font-weight: bold;
+        font-size: 1em;
+        padding: 0;
+      }
+    }
+  }
+}
+
+ 
+//search atuocomplete styling
+.js input.form-autocomplete {
+    border: 1px solid #ccc;
+    background-position:85% center;
+    &.ui-autocomplete-loading {
+     background-position:85% center;
+    }
+}
+
+ul[data-sa-theme="minimal"].ui-widget-content {
+    background: #fff;
+    &:hover {
+        background: #fff;
+    }
+    min-width: 350px;
+    .ui-autocomplete-field-group {
+        &.ui-state-disabled {
+            background: #181a24;
+            opacity: 1;
+            &:hover {
+                background: #181a24;
+                .ui-state-focus {
+                    background: none!important;
+                    opacity: 1;
+                }
+            }
+        }
+        border-bottom: 1px solid #333;
+        background: #000;
+        color: #fff;
+        font-size: 17px;
+        padding-left: 10px;
+        margin-bottom:0px;
+        padding-bottom:10px;
+        &:hover {
+            background: #000;
+        }
+        &:before {
+            font-family: Ionicons;
+            padding-right: 10px;
+        }
+        &.insurance-product {
+            &:before {
+                content: "\f3f8";
+            }
+        }
+        &.basic-page {
+            &:before {
+                content: "\f12e";
+            }
+        }
+        &.landing-page {
+            &:before {
+                content: "\f3f0";
+            }
+        }
+        &.agent-location {
+            &:before {
+                content: "\f1ff";
+            }
+        }
+        &.article {
+            &:before {
+                content: "\f3e8";
+            }
+        }
+    }
+    .ui-menu-item {
+        list-style: none;
+        padding: 8px 1em 3px 10px;
+        &.ui-state-focus {
+            background: #efefef;
+            list-style: none;
+            border: 1px solid #efefef;
+        }
+        &:hover {
+            background: #eee;
+        }
+        a {
+            font-size: 14px;
+            color: #000;
+            &:hover {
+                background: #ccc;
+                color: #333;
+            }
+        }
+    }
+}

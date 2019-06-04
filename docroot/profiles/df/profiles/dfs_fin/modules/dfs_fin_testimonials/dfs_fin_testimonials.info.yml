@@ -1,0 +1,13 @@
+name: DFS FIN Testimonials
+type: module
+description: The Testimonial content type and related views.
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - content_browser
+  - content_translation
+  - image
+  - path
+  - text
+  - user
+  - content_moderation

@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains installation and update routines for DF Tools Landing Page.
+ */
+
+use Drupal\shortcut\Entity\Shortcut;
+
+/**
+ * Implements hook_install().
+ */
+function df_tools_landing_page_install() {
+  if (!\Drupal::service('config.installer')->isSyncing()) {
+    // Add Landing Page to the default shortcut set.
+    $shortcut = Shortcut::create(array(
+      'shortcut_set' => 'default',
+      'title' => t('Add Landing Page'),
+      'weight' => -3,
+      'link' => array('uri' => 'internal:/node/add/landing_page'),
+    ));
+    $shortcut->save();
+  }
+}

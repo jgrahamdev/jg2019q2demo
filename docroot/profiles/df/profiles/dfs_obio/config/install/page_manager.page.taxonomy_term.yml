@@ -1,0 +1,12 @@
+uuid: efc484d3-1947-40ea-b5f6-b99c04b35aa5
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_term
+label: 'Taxonomy Term'
+description: ''
+use_admin_theme: false
+path: /taxonomy/term/%
+access_logic: and
+access_conditions: {  }
+parameters: {  }

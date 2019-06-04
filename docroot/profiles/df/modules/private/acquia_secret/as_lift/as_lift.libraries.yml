@@ -1,0 +1,20 @@
+capture_identity:
+  version: VERSION
+  js:
+    js/capture_identity.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery.cookie
+
+panels_ipe:
+  version: VERSION
+  js:
+    js/lift_panels_ipe.js: {}
+  dependencies:
+    - panels_ipe/panels_ipe
+
+lift_overrides:
+  version: VERSION
+  css:
+    theme:
+      css/lift_overrides.css: {}

@@ -1,0 +1,116 @@
+<?php
+
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_toolbar().
+ */
+function as_platform_toolbar() {
+
+  $profile_manager = \Drupal::configFactory()->get('as_lift.settings.lift')->get('profile_manager');
+  $profile_manager_url = NULL !== $profile_manager ? Url::fromUri($profile_manager) : 'https://lift.acquia.com/';
+  $user = \Drupal::currentUser();
+
+  $links = [
+    'cloud' => [
+      'title' => t('Cloud'),
+      'url' => Url::fromUri('https://cloud.acquia.com'),
+      'attributes' => [
+        'title' => t('Cloud'),
+        'class' => ['toolbar-icon', 'toolbar-icon-cloud'],
+        'target' => '_blank'
+      ]
+    ],
+    'cloud_site_factory' => [
+      'title' => t('Cloud Site Factory'),
+      'url' => Url::fromUri('https://www.demo.acsitefactory.com'),
+      'attributes' => [
+        'title' => t('Cloud Site Factory'),
+        'class' => ['toolbar-icon', 'toolbar-icon-cloud-site-factory'],
+        'target' => '_blank'
+      ]
+    ],
+    'lift_web' => [
+      'title' => t('Lift Profile Manager'),
+      'url' => $profile_manager_url,
+      'attributes' => [
+        'title' => t('Lift Profile Manager'),
+        'class' => ['toolbar-icon', 'toolbar-icon-lift-web'],
+        'target' => '_blank'
+      ]
+    ],
+    'lift_client' => [
+      'title' => t('Use Lift'),
+      'url' => Url::fromUri('internal:/#lift'),
+      'attributes' => [
+        'title' => t('Use Lift'),
+        'class' => ['toolbar-icon', 'toolbar-icon-lift-client'],
+      ]
+    ],
+  ];
+
+  if (\Drupal::moduleHandler()->moduleExists('acquia_contenthub_subscriber')) {
+    $links['content_hub'] = [
+      'title' => t('Lift Content Syndication'),
+      'url' => Url::fromUserInput('/admin/content/acquia-contenthub'),
+      'attributes' => [
+        'title' => t('Lift Content Syndication'),
+        'class' => ['toolbar-icon', 'toolbar-icon-content-hub'],
+        'target' => '_self',
+      ],
+    ];
+  }
+
+  if (\Drupal::moduleHandler()->moduleExists('media_acquiadam')) {
+    $links['media_acquiadam'] = [
+      'title' => t('Acquia DAM User Sync'),
+      'url' => Url::fromRoute('entity.user.acquiadam_auth', ['user' => $user->id()]),
+      'attributes' => [
+        'title' => t('Acquia DAM User Sync'),
+        'class' => ['toolbar-icon', 'toolbar-icon-acquia-dam'],
+        'target' => '_self',
+      ],
+    ];
+  }
+
+  $items['acquia_platform'] = [
+    '#type' => 'toolbar_item',
+    'tab' => [
+      '#type' => 'link',
+      '#title' => 'Acquia Platform',
+      '#url' => Url::fromRoute('<front>'),
+      '#attributes' => [
+        'title' => t('Acquia Platform'),
+        'class' => ['toolbar-icon', 'toolbar-icon-acquia-platform']
+      ]
+    ],
+    'tray' => [
+      '#heading' => t('Acquia Platform'),
+      'user_links' => [
+        '#theme' => 'links__toolbar_acquia',
+        '#links' => $links,
+        '#attributes' => [
+          'class' => ['toolbar-menu']
+        ]
+      ]
+    ],
+    '#weight' => 100,
+    '#attached' => [
+      'library' => ['as_platform/acquia.platform.icons']
+    ]
+  ];
+
+  return $items;
+
+}
+
+/**
+ * Implements hook_toolbar_alter().
+ */
+function as_platform_toolbar_alter(&$items) {
+  // We already have an Acquia Lift link in the platform bar, so we disable the
+  // acquia_lift provided toolbar item if it's present.
+  if (isset($items['acquia_lift'])) {
+    unset($items['acquia_lift']);
+  }
+}

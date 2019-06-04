@@ -1,0 +1,26 @@
+uuid: 6f2ce752-d645-480c-8b05-5d7c640247e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_icon
+    - node.type.insurance_product
+  module: 
+    - dfs_fin_products
+  enforced:
+    module:
+      - dfs_fin_products
+id: node.insurance_product.field_icon
+field_name: field_icon
+entity_type: node
+bundle: insurance_product
+label: Icon
+description: 'reference to Font Awesome Icon. https://fortawesome.github.io/Font-Awesome/icons/. Use the HTML icon classes and the field will wrap it properly. For example: fa-home'
+required: false
+translatable: true
+default_value:
+  -
+    value: 'fa fa-'
+default_value_callback: ''
+settings: {  }
+field_type: string

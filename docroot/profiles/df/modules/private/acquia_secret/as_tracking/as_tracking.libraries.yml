@@ -1,0 +1,6 @@
+main:
+  version: VERSION
+  js:
+    js/amplitude.js: {}
+  dependencies:
+    - core/drupalSettings

@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.get_a_quote
+    - field.storage.contact_message.field_has_other_policies
+  module:
+    - options
+    - dfs_fin_contact
+  enforced:
+    module:
+      - dfs_fin_contact
+id: contact_message.get_a_quote.field_has_other_policies
+field_name: field_has_other_policies
+entity_type: contact_message
+bundle: get_a_quote
+label: 'Do you have other policies with Bayside Insurance?'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: no_policy
+default_value_callback: ''
+settings: {  }
+field_type: list_string

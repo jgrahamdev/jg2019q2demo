@@ -1,0 +1,5 @@
+services:
+  as_lift.commands:
+    class: \Drupal\as_lift\Commands\ASLiftCommands
+    tags:
+      - { name: drush.command }

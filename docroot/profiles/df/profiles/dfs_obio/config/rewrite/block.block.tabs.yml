@@ -1,0 +1,4 @@
+dependencies:
+  theme:
+    - obio
+theme: obio

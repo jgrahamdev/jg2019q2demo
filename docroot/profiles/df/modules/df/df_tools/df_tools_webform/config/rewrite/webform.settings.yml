@@ -1,0 +1,9 @@
+ui:
+  video_display: hidden
+  description_help: true
+  details_save: true
+  help_disabled: false
+  dialog_disabled: false
+  offcanvas_disabled: true
+  promotions_disabled: true
+  contribute_disabled: true

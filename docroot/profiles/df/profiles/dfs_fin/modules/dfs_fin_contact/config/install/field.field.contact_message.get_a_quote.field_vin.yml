@@ -1,0 +1,33 @@
+uuid: 20f2b320-b8c7-4165-9d6c-95a310fff0ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.get_a_quote
+    - field.storage.contact_message.field_vin
+    - taxonomy.vocabulary.vin
+  module:
+    - dfs_fin_contact
+  enforced:
+    module:
+      - dfs_fin_contact
+id: contact_message.get_a_quote.field_vin
+field_name: field_vin
+entity_type: contact_message
+bundle: get_a_quote
+label: VIN
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      vin: vin
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

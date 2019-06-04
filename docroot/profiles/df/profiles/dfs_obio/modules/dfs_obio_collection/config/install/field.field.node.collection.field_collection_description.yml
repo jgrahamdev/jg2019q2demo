@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_collection_description
+    - node.type.collection
+  module:
+    - better_formats
+    - text
+third_party_settings:
+  better_formats:
+    allowed_formats_toggle: 1
+    allowed_formats:
+      rich_text: rich_text
+      full_html: 0
+    default_order_toggle: 0
+    default_order_wrapper:
+      formats:
+        rich_text:
+          weight: '1'
+        full_html:
+          weight: '5'
+id: node.collection.field_collection_description
+field_name: field_collection_description
+entity_type: node
+bundle: collection
+label: Description
+description: 'The description for this collection. This is shown as a summary when listing collections and at the top of most individual collection pages.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

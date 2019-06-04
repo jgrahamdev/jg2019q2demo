@@ -1,0 +1,5 @@
+services:
+  dfs_obio_commerce.route_subscriber:
+    class: Drupal\dfs_obio_commerce\Routing\RouteSubscriber
+    tags:
+      - { name: 'event_subscriber' }

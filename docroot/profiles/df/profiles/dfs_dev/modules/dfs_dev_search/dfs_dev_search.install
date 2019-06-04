@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Install routine for dfs_dev_search module.
+ */
+
+use Drupal\lightning_core\ConfigHelper as Config;
+use Drupal\node\Entity\NodeType;
+use Drupal\search_api\Entity\Index;
+use Drupal\search_api\Entity\Server;
+
+/**
+ * Implements hook_install().
+ */
+function dfs_dev_search_install() {
+  // Enable default permissions for system roles.
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('use search_api_autocomplete for dfs_dev_search'));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('use search_api_autocomplete for dfs_dev_search'));
+
+  // Search API DB is not a hard dependency, but install it if it's available so
+  // that the search index we provide will "just work" out of the box.
+  $module_data = system_rebuild_module_data();
+  if (isset($module_data['search_api_db'])) {
+    \Drupal::service('module_installer')->install(['search_api_db']);
+  }
+
+  // Don't make any configuration changes during config sync.
+  if (\Drupal::isConfigSyncing()) {
+    return;
+  }
+
+  /** @var \Drupal\node\NodeTypeInterface $node_type */
+  $node_types = NodeType::loadMultiple();
+  array_walk($node_types, 'dfs_dev_search_node_type_insert');
+
+  // The database server is optional configuration, to be installed only if
+  // Search API DB is present. For some reason, it's not installed during a
+  // normal site install, so create it now if it doesn't already exist.
+  $server = Server::load('database');
+  if (empty($server) && \Drupal::moduleHandler()->moduleExists('search_api_db')) {
+    Config::forModule('dfs_dev_search')
+      ->optional()
+      ->getEntity('search_api_server', 'database')
+      ->save();
+
+    $server = Server::load('database');
+  }
+  if ($server) {
+    Index::load('dfs_dev')->setServer($server)->enable()->save();
+  }
+}

@@ -1,0 +1,46 @@
+//
+// @file
+// User SMACSS.
+//
+
+.profile {
+  &.view-mode-full {
+    .field-name-user-picture {
+      .field-item {
+        border-radius: 50%;
+        overflow: hidden;
+        line-height: 0;
+      }
+    }
+
+    .field-label-inline {
+      .field-label {
+        font-weight: bold;
+        display: inline;
+
+        &::after {
+          content: ':';
+        }
+      }
+
+      .field-items,
+      .field-item {
+        display: inline;
+      }
+    }
+
+    .field-name-created .field-label::after {
+      content: none;
+    }
+
+    .field-name-roles .field-item {
+      &::after {
+        content: ',';
+      }
+
+      &:last-child::after {
+        content: '.';
+      }
+    }
+  }
+}

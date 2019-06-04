@@ -1,0 +1,11 @@
+name: DFS Obio Commerce Individual Product Search
+type: module
+description: Adds facet search capabilities to the DFS Obio Commerce scenario.
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - df_tools_display
+  - df_tools_search
+  - dfs_obio_commerce_product
+  - facets_range_widget
+  - facets_summary

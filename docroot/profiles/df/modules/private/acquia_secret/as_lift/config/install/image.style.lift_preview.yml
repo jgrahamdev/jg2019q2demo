@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - as_lift
+name: lift_preview
+label: lift_preview
+effects:
+  01d7ac1f-46e6-4921-a002-9e745525d6ad:
+    uuid: 01d7ac1f-46e6-4921-a002-9e745525d6ad
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 150
+      height: 150

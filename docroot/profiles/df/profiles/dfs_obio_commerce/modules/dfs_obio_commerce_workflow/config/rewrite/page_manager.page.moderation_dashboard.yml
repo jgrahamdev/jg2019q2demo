@@ -1,0 +1,27 @@
+config_rewrite: replace
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: moderation_dashboard
+label: 'Moderation Dashboard'
+description: ''
+use_admin_theme: false
+path: '/user/{user}/moderation/dashboard'
+access_logic: and
+access_conditions:
+  -
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: current_user
+  -
+    id: user_is_current_user
+    active: true
+    negate: false
+    context_mapping:
+      currentUser: current_user
+parameters: {  }

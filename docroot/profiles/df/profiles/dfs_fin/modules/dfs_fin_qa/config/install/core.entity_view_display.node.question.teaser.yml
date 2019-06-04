@@ -1,0 +1,27 @@
+uuid: 736837c7-74b2-4c4f-8800-b82725a42d79
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.question.field_answer
+    - field.field.node.question.field_question
+    - node.type.question
+  module:
+    - user
+    - dfs_fin_qa
+  enforced:
+    module:
+      - dfs_fin_qa
+id: node.question.teaser
+targetEntityType: node
+bundle: question
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_answer: true
+  field_question: true
+  langcode: true

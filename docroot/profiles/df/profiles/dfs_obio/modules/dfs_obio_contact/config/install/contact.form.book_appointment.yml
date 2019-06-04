@@ -1,0 +1,26 @@
+uuid: 0d8f4dcf-8b96-4d57-bd89-b7f33c2811f2
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact_storage
+    - type_style
+third_party_settings:
+  contact_storage:
+    submit_text: 'Book Appointment'
+    show_preview: false
+    disabled_form_message: 'Bookings currently offline, please check back later.'
+    maximum_submissions_user: 0
+    page_autoreply_format: plain_text
+  type_style:
+    color: '#000000'
+    icon: ''
+id: book_appointment
+label: 'Book Appointment'
+recipients:
+  - admin@example.com
+reply: 'Thanks for booking, we''ll be in contact shortly.'
+weight: 0
+message: ''
+redirect: /book-apt/confirm
+

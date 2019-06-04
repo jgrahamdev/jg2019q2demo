@@ -1,0 +1,13 @@
+inlinemanual:
+  version: VERSION
+  header: true
+  js:
+    //inlinemanual.com/embed/player.API_KEY.bare.js: { type: external }
+
+main:
+  version: VERSION
+  js:
+    js/dfs_obio_tour.js: {}
+  dependencies:
+    - core/drupalSettings
+    - dfs_obio_tour/inlinemanual

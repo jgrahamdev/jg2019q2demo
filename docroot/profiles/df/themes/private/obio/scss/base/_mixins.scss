@@ -1,0 +1,80 @@
+//
+// @file
+// Global mixins for the Obio theme.
+//
+// Function, not mixin...
+@function inverse-by-lightness($color) {
+  @if (lightness($color) > 50) {
+    @return $black;
+  }
+  @else {
+    @return $white;
+  }
+}
+
+@function l-rhythm($number) {
+  @if (unit($number)=="px") {
+    $number: $number / (($global-font-size / 100%) * 16 * $global-lineheight);
+  }
+
+  @return strip-unit($number) * 1rem * $global-lineheight;
+}
+
+$grid-content-queries:'.medium-1, .medium-2, .medium-3, .medium-4, .medium-5, .medium-6,
+ .large-1,
+.large-2,
+.large-3,
+.large-4,
+.large-5,
+.large-6';
+ @function rhythm($unit: 1) {
+  @return $global-lineheight * $unit * 1rem;
+}
+
+%btn-md {
+  display: block;
+  position: relative;
+  transition: background-color .3s;
+  margin: 30px auto;
+  outline: none;
+  border-width: 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  background-color: #000;
+  padding: 20px;
+  padding: 0;
+  min-width: 300px;
+  height: 50px;
+  line-height:50px;
+  overflow: hidden;
+  color: #ecf0f1;
+  &:hover,
+  &:focus {
+    background-color: #333;
+  }
+  >* {
+    position: relative;
+  }
+  &::before {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    background-color: rgba(236, 240, 241, .3);
+    padding-top: 0;
+    width: 0;
+    content: '';
+  }
+  &:active::before {
+    transition: width .2s ease-out, padding-top .2s ease-out;
+    padding-top: 120%;
+    width: 120%;
+  }
+}
+
+//impliment this so the class can be used as well as the placeholder function.
+.md-btn {
+  @extend %btn-md;
+}

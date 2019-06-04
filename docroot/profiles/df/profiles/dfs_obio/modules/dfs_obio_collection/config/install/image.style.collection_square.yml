@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: collection_square
+label: 'Collection square'
+effects:
+  4df60d2b-d518-4a1f-a0ac-b37dd18d068d:
+    uuid: 4df60d2b-d518-4a1f-a0ac-b37dd18d068d
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 400
+      height: 400
+

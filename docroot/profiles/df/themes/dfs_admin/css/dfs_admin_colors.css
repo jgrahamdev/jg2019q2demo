@@ -1,0 +1,101 @@
+/**
+ * @file
+ * Overrides used for the Color module.
+ *
+ */
+
+header.header-wrapper {
+  background: #__header-bg__;
+}
+
+header.header-wrapper h1.page-title {
+  color: #__page-title__;
+}
+
+.highlighted-wrapper,
+.layout-container > main {
+  background: #__body-bg__;
+}
+
+body {
+  color: #__body-color__;
+}
+
+a {
+  color: #__primary__;
+}
+
+.breadcrumb-section-wrapper {
+  background: #__breadcrumb-bg__;
+}
+
+.breadcrumb-nav ol li a, .breadcrumb-nav ol li::before {
+  color: #__breadcrumb__;
+}
+
+.breadcrumb-nav ol li span {
+  color: #__breadcrumb-title__;
+}
+
+.tabs.tabs-transparent .tab a:hover, .tabs.tabs-transparent .tab a.active {
+  color: #__tabs-active__;
+}
+
+.tabs.tabs-transparent .tab a, .tabs.tabs-transparent .tab.disabled a, .tabs.tabs-transparent .tab.disabled a:hover {
+  color: #__tabs__;
+}
+
+.tabs.tabs-transparent .indicator {
+  background: #__tabs-active__;
+}
+
+[type="checkbox"].filled-in:checked + label:after, input[type="checkbox"]:checked[type='checkbox'] + label:after {
+  border-color: #__button__;
+  background: #__button__;
+}
+
+.btn, .btn-large, .button-action, .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset button, .dropbutton-wrapper .single-btn-wrapper a, #edit-actions .button.use-ajax, .views-displays .tabs.secondary li.add a, .ui-dialog-content .webform-ajax-link, .webform-details-toggle-state-wrapper .webform-details-toggle-state, .maintenance-page-content .button, .maintenance-page-content ul.links li a {
+  background: #__button__;
+  color: #__button-text__;
+}
+
+.btn:hover, .btn-large:hover, .button-action:hover, .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset button:hover, .dropbutton-wrapper .single-btn-wrapper a:hover, #edit-actions .button.use-ajax:hover, .views-displays .tabs.secondary li.add a:hover, .ui-dialog-content .webform-ajax-link:hover, .webform-details-toggle-state-wrapper .webform-details-toggle-state:hover, .maintenance-page-content .button:hover, .maintenance-page-content ul.links li a:hover {
+  background: #__button-hover__;
+  color: #__button-hover-text__;
+}
+
+.switch label input[type=checkbox]:checked + .lever {
+  background: #__button-hover__;
+}
+
+.switch label input[type=checkbox]:checked + .lever:after {
+  background: #__button__;
+}
+
+.collection a.collection-item {
+  color: #__primary__;
+}
+
+.button-action {
+  background: #__button-action__;
+  color: #__button-action-text__ !important;
+}
+
+.button-action:hover, .button-action:active, .button-action:focus {
+  background: #__button-action-hover__;
+  color: #__button-action-hover-text__ !important;
+}
+
+.tabs .tab a {
+  color: #__button-action-hover__;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+  color: #__button-action__;
+}
+
+.pagination li.active {
+  background-color: #__primary__;
+}
+
+

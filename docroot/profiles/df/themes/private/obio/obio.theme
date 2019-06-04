@@ -1,0 +1,423 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming Obio.
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Render\Element;
+use Drupal\Core\Url;
+use Drupal\node\Entity\Node;
+use Drupal\node\Entity\NodeType;
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function obio_preprocess_block(&$variables) {
+  // Force translation for block titles.
+  if (isset($variables['label']) && is_string($variables['label']) && !empty($variables['label'])) {
+    $variables['label'] = t($variables['label']);
+  }
+  // Add block bundle to the classes array too.
+  if (!empty($variables['content']) && !empty($variables['content']['#block_content']) && is_callable(array($variables['content']['#block_content'], 'bundle'))) {
+    $block_bundle = Html::getClass($variables['content']['#block_content']->bundle());
+    $block_viewmode = Html::getClass($variables['content']['#view_mode']);
+    $block_modifier = $block_bundle . '--' . $block_viewmode;
+    $block_content_uuid = $variables['content']['#block_content']->uuid();
+
+    // Wrapper attributes.
+    $variables['attributes']['class'][] = 'block-content';
+    $variables['attributes']['class'][] = 'block-content__' . $block_bundle;
+    $variables['attributes']['class'][] = 'block-content__' . $block_modifier;
+
+    // Title attributes, if needed...
+    $variables['title_attributes']['class'][] = 'block-content__title';
+    $variables['title_attributes']['class'][] = 'block-content__title--' . $block_bundle;
+    $variables['title_attributes']['class'][] = 'block-content__title--' . $block_modifier;
+
+    if ($block_content_uuid === '5e773021-741c-4315-b623-a1695ccdfb7d') {
+      // It's the promotion block.
+      $variables['attributes']['class'][] = 'block--promotion';
+    }
+  }
+
+  if (!empty($variables['plugin_id'])) {
+    $variables['attributes']['class'][] = 'block--' . Html::getClass(str_replace(':', '--', $variables['plugin_id']));
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for input.
+ */
+function obio_theme_suggestions_input_alter(array &$suggestions, array $variables, $hook) {
+  if (isset($variables['element']) && isset($variables['element']['#parents']) && in_array('field_rating', $variables['element']['#parents'], TRUE)) {
+    $suggestions[] = 'input__field_rating';
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for field.
+ */
+function obio_theme_suggestions_field_alter(array &$suggestions, array $variables) {
+  $original_suggestions = $suggestions;
+  $element = $variables['element'];
+  $view_mode = $element['#view_mode'];
+
+  if ((strpos($element['#view_mode'], 'panelizer-') !== FALSE) && (strpos($element['#view_mode'], '-block-id-') !== FALSE)) {
+    // Grab the "real" view mode.
+    $temp = str_replace('panelizer-', '', $view_mode);
+    list($view_mode) = explode('-block-id-', $temp);
+
+    // Assuming that this field is panelized.
+    foreach ($original_suggestions as $suggestion) {
+      $suggestions[] = $suggestion . '__' . 'panelizer';
+      $suggestions[] = $suggestion . '__' . 'panelizer' . '__' . $view_mode;
+    }
+  }
+
+  if (!empty($element['#formatter'])) {
+    switch ("{$element['#field_type']}:{$element['#formatter']}") {
+      case 'comment:comment_average_rating_and_anchor':
+      $original_suggestions[] = 'field__average_rating';
+      break;
+    }
+  }
+
+  foreach ($original_suggestions as $suggestion) {
+    $suggestions[] = $suggestion . '__' . $view_mode;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for block.
+ */
+function obio_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if ($variables['elements']['#configuration']['provider'] == 'block_content' &&
+    (isset($variables['elements']['content']['#block_content']))) {
+    // We get the block__block_content__BUNDE suggestion from df_tools_blocks
+    // module.
+    $block_content_uuid = $variables['elements']['content']['#block_content']->uuid();
+    $block_content_bundle = $variables['elements']['content']['#block_content']->bundle();
+    $suggestions[] = 'block__block_content__' . $block_content_bundle . '__' . $variables['elements']['#configuration']['view_mode'];
+
+    if ($block_content_uuid === '5e773021-741c-4315-b623-a1695ccdfb7d') {
+      // It's the promotion block.
+      $suggestions[] = 'block__promotion';
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for views_view.
+ */
+function obio_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+  if (isset($variables['view']->element['#name'])) {
+    $view_id = $variables['view']->element['#name'];
+    $display_id = $variables['view']->element['#display_id'];
+
+    $suggestions[] = 'views_view__' . $view_id;
+    $suggestions[] = 'views_view__' . $view_id . '__' . $display_id;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for views_view_unformatted.
+ */
+function obio_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables) {
+  if (isset($variables['view']->element['#name'])) {
+    $view_id = $variables['view']->element['#name'];
+    $display_id = $variables['view']->element['#display_id'];
+
+    $suggestions[] = 'views_view_unformatted__' . $view_id;
+    $suggestions[] = 'views_view_unformatted__' . $view_id . '__' . $display_id;
+  }
+}
+
+/**
+ * Implements template_preprocess_html().
+ */
+function obio_preprocess_html(&$variables) {}
+
+/**
+ * Implements template_preprocess_node().
+ */
+function obio_preprocess_node(&$variables) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+  $node_type = NodeType::load($node->bundle());
+  $variables['bundle_label'] = $node_type->label();
+}
+
+/**
+ * Implements template_preprocess_node().
+ */
+function obio_preprocess_links__node(&$variables) {
+  $variables['attributes']['class'][] = 'links--node';
+  $variables['attributes']['class'][] = 'h6-size';
+
+  foreach ($variables['links'] as $link) {
+    $link['attributes']['class'][] = 'links__item';
+    $link['attributes']['class'][] = 'links__item--node';
+  }
+}
+
+/**
+ * Implements template_preprocess_taxonomy_term().
+ */
+function obio_preprocess_taxonomy_term(&$variables) {
+  // If the taxonomy term page route is handled by page manager, $vars['page']
+  // will be always FALSE. I have to simplify the original condition defined in
+  // core taxonomy.module (around line 261).
+  $variables['page'] = $variables['view_mode'] == 'full';
+}
+
+/**
+ * Implements template_preprocess_page().
+ */
+function obio_preprocess_page(&$variables) {
+  $reversed_image_path = '/' . drupal_get_path('theme', 'obio') . '/images/logo-reversed.svg';
+
+  if (theme_get_setting('obio_page_site_logo_reversed')) {
+    $elements = array(
+      '#theme' => 'image',
+      '#uri' => $reversed_image_path,
+      '#attributes' => array(
+        'class' => array('logo'),
+      )
+    );
+    $variables['reversed_logo'] = $elements;
+  }
+  $config = \Drupal::config('system.site');
+  $variables['site_slogan'] = $config->get('slogan');
+
+  // Conditionally use our special formatter for this message.
+  if (isset($_SESSION['obio_modal'])) {
+    $variables['#attached']['drupalSettings']['obio']['modal'] = $_SESSION['obio_modal'];
+    unset($_SESSION['obio_modal']);
+  }
+}
+
+/**
+ * Implements template_preprocess_views_view().
+ */
+function obio_preprocess_views_view(&$variables) {
+  if (!empty($variables['css_class']) && (strpos($variables['css_class'], 'js-obio-masonry') !== FALSE)) {
+    $library_discovery = \Drupal::service('library.discovery');
+    if ($library_discovery->getLibraryByName('df_tools_gallery', 'imagesloaded') !== FALSE
+      && $library_discovery->getLibraryByName('df_tools_gallery', 'masonry') !== FALSE) {
+      $variables['#attached']['library'][] = 'obio/masonry';
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_menu__main().
+ */
+function obio_preprocess_menu__main(&$variables) {
+  $variables['#cache']['contexts'][] = 'url.path';
+  $secondary_id = 'menu_link_content:34f752f4-a59a-4f13-b953-73369cfab82a';
+  $cart_id = 'menu_link_content:6e58c5df-ae62-4609-a1e0-819546cdd136';
+  $inspiration_id = 'menu_link_content:f2393bea-54b2-4de4-8dd3-70e6db1e5f17';
+  $locations_id = 'menu_link_content:26b96398-cf3f-4367-903f-e7c2debd8d06';
+  if (isset($variables['items'][$secondary_id])) {
+    $variables['secondary_menu'] = $variables['items'][$secondary_id];
+    unset($variables['items'][$secondary_id]);
+    if (isset($variables['secondary_menu']['below'][$cart_id])) {
+      $variables['secondary_menu']['below'][$cart_id]['title'] = [
+        '#markup' => $variables['secondary_menu']['below'][$cart_id]['title'] . '<i class="icon ion-ios-cart"></i>',
+      ];
+    }
+  }
+  $node = \Drupal::request()->attributes->get('node');
+  if ($node instanceof \Drupal\node\NodeInterface) {
+    if ($node->bundle() === 'article' && isset($variables['items'][$inspiration_id])) {
+      $variables['items'][$inspiration_id]['in_active_trail'] = TRUE;
+    }
+    else if ($node->bundle() === 'location' && isset($variables['items'][$locations_id])) {
+      $variables['items'][$locations_id]['in_active_trail'] = TRUE;
+    }
+  }
+}
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function obio_library_info_alter(&$libraries, $extension) {
+  // We have to remove the CSS file which contains the color placeholders.
+  // If colors are altered, the original library is already modified by the
+  // Color module in this phase.
+  // In that case, we are unsetting a non-defined array key.
+  if ($extension === 'obio') {
+    unset($libraries['global']['css']['base']['css/obio-colors.css']);
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function obio_form_alter(&$form, FormStateInterface $form_state) {
+  // Adding form id and base form ids as classes to the form.
+  if (!empty($form['#form_id']) && $form['#form_id'] !== 'block_offcanvas_form') {
+    $form['#attributes']['class'][] = 'obio-form';
+    $form['#attributes']['class'][] = Html::getClass('form__id-' . $form['#form_id']);
+
+    $build_info = $form_state->getBuildInfo();
+    if (!empty($build_info['base_form_id'])) {
+      $form['#attributes']['class'][] = Html::getClass('form-base__id-' . $build_info['base_form_id']);
+    }
+  }
+}
+
+function obio_form_contact_message_book_appointment_form_alter (&$form, FormStateInterface $form_state) {
+    $form['#attached']['library'][] = 'obio/pickadate';
+}
+
+
+/**
+ * Implements template_preprocess_HOOK() for views_view_table.
+ */
+function obio_preprocess_views_view_table(&$variables) {
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $variables['view'];
+  if ($view->id() === 'commerce_cart_form') {
+    $variables['attributes']['class'][] = 'tablesaw';
+    $variables['attributes']['class'][] = 'tablesaw-stack';
+    $variables['attributes']['data-tablesaw-mode'] = 'stack';
+  }
+}
+
+/**
+ * Implements template_preprocess_HOOK() for commerce_product.
+ */
+function obio_preprocess_commerce_product(&$variables) {
+  $variables['attributes']['class'][] = 'commerce-product';
+
+  if (!empty($variables['elements']) && !empty($variables['elements']['#view_mode'])) {
+    $variables['view_mode'] = $variables['elements']['#view_mode'];
+  }
+}
+
+/**
+ * Implements template_preprocess_HOOK() for responsive_image.
+ */
+function obio_preprocess_responsive_image(&$variables) {
+  if (!empty($variables['responsive_image_style_id'])) {
+    $style_id_clean = Html::getClass($variables['responsive_image_style_id']);
+
+    if ($variables['output_image_tag']) {
+      $variables['img_element']['#attributes']['class'][] = 'obio-respimg';
+      $variables['img_element']['#attributes']['class'][] = 'obio-respimg--' . $style_id_clean;
+    }
+    else {
+      $variables['attributes']['class'][] = 'obio-resppic';
+      $variables['attributes']['class'][] = 'obio-resppic--' . $style_id_clean;
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_HOOK() for commerce_product_variation.
+ */
+function obio_preprocess_commerce_product_variation(&$variables) {
+  $variation = $variables['elements']['#commerce_product_variation'];
+  $variables['attributes']['class'][] = 'commerce-product-variation';
+  $variables['attributes']['class'][] = 'view-mode--' . Html::getClass($variables['elements']['#view_mode']);
+  $variables['attributes']['class'][] = 'type--' . Html::getClass($variation->bundle());
+}
+
+/**
+ * Implements template_preprocess_HOOK() for input__submit.
+ */
+function obio_preprocess_input__submit(&$variables) {
+  $variables['label'] = !empty($variables['element']['#value']) ? $variables['element']['#value'] : t('Submit');
+}
+
+/**
+ * Implements template_preprocess_HOOK() for commerce_order_total_summary.
+ */
+function obio_preprocess_commerce_order_total_summary(&$variables) {
+  $variables['#attached']['library'][] = 'commerce_order/total_summary';
+}
+
+/**
+ * Implements template_preprocess_HOOK() for toolbar.
+ */
+function obio_preprocess_toolbar(&$variables) {
+  $variables['toolbar_attributes']->addClass('clearfix');
+}
+
+/**
+ * Implements template_preprocess_HOOK() for menu_local_tasks.
+ */
+function obio_preprocess_menu_local_tasks(&$variables) {
+  $tabs = ['primary', 'secondary'];
+
+  foreach ($tabs as $tab_type) {
+    if (!empty($variables[$tab_type])) {
+      foreach ($variables[$tab_type] as $task_name => $menu_local_task) {
+        $attributes = $menu_local_task['#link']['url']->getOption('attributes') ? $menu_local_task['#link']['url']->getOption('attributes') : [];
+        $attributes['class'][] = 'local-tasks__link';
+        $attributes['class'][] = 'button';
+        $attributes['class'][] = 'button--local-task';
+        $attributes['class'][] = Html::getClass('local-tasks__link--' . $tab_type);
+        $variables[$tab_type][$task_name]['#link']['url']->setOption('attributes', $attributes);
+        $variables[$tab_type][$task_name]['#attributes'] = [
+          'class' => [
+            'local-tasks__item',
+            Html::getClass('local-tasks__item--' . $tab_type),
+          ],
+        ];
+      }
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_HOOK() for user.
+ */
+function obio_preprocess_user(&$variables) {
+  if (!empty($variables['elements']['#view_mode'])) {
+    $variables['view_mode'] = $variables['elements']['#view_mode'];
+  }
+}
+
+/**
+ * Implements template_preprocess_HOOK() for field.
+ */
+function obio_preprocess_field(&$variables) {
+  $element = $variables['element'];
+
+  if ($element['#field_type'] === 'comment' && $element['#object'] instanceof EntityInterface && $element['#formatter'] !== 'comment_average_rating_and_anchor') {
+    $entityId = $element['#object']->id();
+    $variables['comments_anchor'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'a',
+      '#value' => "\0",
+      '#attributes' => ['id' => Html::getUniqueId('comments-' . $entityId)],
+    ];
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for commerce_order_item_add_to_cart_form.
+ */
+function obio_form_commerce_order_item_add_to_cart_form_alter(&$form, FormStateInterface $form_state) {
+  if (!empty($form['actions']) &&
+    !empty($form['actions']['submit']) &&
+    !empty($form['actions']['submit']['#attributes']) &&
+    !empty($form['actions']['submit']['#attributes']['class']) &&
+    array_search('success', $form['actions']['submit']['#attributes']['class']) !== FALSE) {
+    unset($form['actions']['submit']['#attributes']['class'][array_search('success', $form['actions']['submit']['#attributes']['class'])]);
+  }
+}
+
+/**
+ * Implements template_preprocess_HOOK() for layout__individual_product_search.
+ */
+function obio_preprocess_layout__individual_product_search(&$variables) {
+  $variables['content']['sidebar']['#prefix'] = '<div class="block-region-sidebar accordion" data-accordion data-allow-all-closed="true" data-multi-expand="true"';
+}

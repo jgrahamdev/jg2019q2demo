@@ -1,0 +1,46 @@
+uuid: 97508b55-7989-48f2-9d31-49be18d7b4e4
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - ctools
+    - dfs_fin
+    - node
+    - dfs_fin
+  enforced:
+    module:
+      - dfs_fin
+third_party_settings:
+  block_class:
+    classes: 'columns medium-6 small-12 align-right'
+_core:
+  default_config_hash: 9Q3xTi8AZ9A3Nawbp8CaXGQNuKX_XZTb3T5MGMWS0Ls
+id: agentquoteform
+theme: fin
+region: content
+weight: 1
+provider: null
+plugin: agent_quote_form
+settings:
+  id: agent_quote_form
+  label: 'Quote Review'
+  provider: dfs_fin
+  label_display: '0'
+  context_mapping:
+    node: '@node.node_route_context:node'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      quote: quote
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  node_type:
+    id: node_type
+    bundles:
+      quote: quote
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

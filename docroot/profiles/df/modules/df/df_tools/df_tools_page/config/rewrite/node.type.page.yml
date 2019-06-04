@@ -1,0 +1,5 @@
+new_revision: false
+third_party_settings:
+  type_style:
+    color: '#f57f17'
+    icon: web_asset

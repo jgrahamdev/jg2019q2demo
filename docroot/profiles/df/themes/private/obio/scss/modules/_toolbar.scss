@@ -1,0 +1,55 @@
+//
+// @file
+// Toolbar FOUC prevention from DF Admin theme (_df-admin.scss).
+//
+
+// Toolbar causes a white bar because of transforms getting miscalculated in the navbar logic
+#toolbar-administration * {
+  transition: color 0.2s, background 0.2s, background-color 0.2s, opacity 0.2s !important;
+}
+
+.toolbar {
+  @at-root #{&}-horizontal #{&}-tray {
+    border-bottom: inherit;
+
+    .menu-item {
+      + .menu-item {
+        border-left: inherit;
+      }
+
+      &:last-child {
+        border-right: inherit;
+      }
+    }
+  }
+
+  @at-root .adminimal-admin-toolbar #{&} #{&}-tray {
+    box-shadow: inherit;
+    // border-bottom-color: transparent;
+  }
+
+  @at-root .adminimal-admin-toolbar #{&}-oriented {
+    .user-toolbar-tab {
+      float: left;
+    }
+  }
+
+  #{&}-bar #{&}-tab.contextual-toolbar-tab {
+    display: none;
+  }
+
+  // Override for item anchors.
+  @at-root #{&}-menu > li > a {
+    padding: 1em 1.3333em;
+
+    &.toolbar-icon {
+      padding-left: 2.75em;
+    }
+  }
+
+  @at-root #{&}-horizontal#{&}-loading #{&}-bar {
+    @media (min-width: 61em) {
+      min-height: 79px;
+    }
+  }
+}

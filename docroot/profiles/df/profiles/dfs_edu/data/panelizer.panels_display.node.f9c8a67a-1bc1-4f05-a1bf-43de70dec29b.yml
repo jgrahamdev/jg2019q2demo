@@ -1,0 +1,104 @@
+blocks:
+  5435c555-a6ed-4aa0-882f-89f574d38f6b:
+    id: 'block_content:c05e572d-91da-415b-adf5-d9087c9da336'
+    label: 'Home Everyone'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 5435c555-a6ed-4aa0-882f-89f574d38f6b
+    weight: 1
+  52e2ab25-3df9-490c-97ae-ed4b7a8b1c38:
+    id: 'block_content:d43c4950-ed7a-4289-9894-bb60685b31d0'
+    label: Community
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: featured
+    context_mapping: {  }
+    region: callout_left
+    uuid: 52e2ab25-3df9-490c-97ae-ed4b7a8b1c38
+    weight: 1
+  459e6fef-9b2f-43bb-861d-c5891c2e27d8:
+    id: 'views_block:article_collection-block_1'
+    label: ''
+    provider: views
+    label_display: 0
+    views_label: ''
+    items_per_page: none
+    context_mapping: {  }
+    region: aside_right
+    uuid: 459e6fef-9b2f-43bb-861d-c5891c2e27d8
+    weight: 1
+  9c7acc4a-bbaa-4ed4-b171-7cb012f8ac66:
+    id: 'entity_block:block_content'
+    label: 'Custom block'
+    provider: entity_block
+    label_display: false
+    entity: '9'
+    entity_uuid: 622bcfd5-7b60-4034-885d-1e9051e7d352
+    view_mode: featured
+    context_mapping: {  }
+    region: middle
+    uuid: 9c7acc4a-bbaa-4ed4-b171-7cb012f8ac66
+    weight: 2
+  eadda6b9-b1c5-43a7-a78d-45b403978e10:
+    id: subscribe_form
+    label: 'Subscribe to the OBIO U Newsletter'
+    provider: dfs_obio
+    label_display: visible
+    context_mapping: {  }
+    region: callout_right
+    uuid: eadda6b9-b1c5-43a7-a78d-45b403978e10
+    weight: 1
+  484cc637-2419-47cd-9623-6e482dffa624:
+    id: 'entity_block:media'
+    label: Media
+    provider: entity_block
+    label_display: false
+    entity: '28'
+    entity_uuid: 6d8e89df-ecb1-4896-9423-3f17e107b356
+    view_mode: default
+    context_mapping: {  }
+    region: aside_left
+    uuid: 484cc637-2419-47cd-9623-6e482dffa624
+    weight: 2
+  22dea4c8-7eb4-4fd9-8438-8abcea0d36a7:
+    id: 'entity_block:media'
+    label: Media
+    provider: entity_block
+    label_display: false
+    entity: '2'
+    entity_uuid: 3cb675e2-df5f-4216-9a35-0217cb3e1d44
+    view_mode: default
+    context_mapping: {  }
+    region: aside_left
+    uuid: 22dea4c8-7eb4-4fd9-8438-8abcea0d36a7
+    weight: 1
+  1daa68d2-d340-4fe2-8811-31bba1eedb95:
+    id: 'entity_block:block_content'
+    label: 'Custom block'
+    provider: entity_block
+    label_display: false
+    entity: '5'
+    entity_uuid: b1306b21-5402-49f9-abb1-6983ec95042d
+    view_mode: full
+    context_mapping: {  }
+    region: footer
+    uuid: 1daa68d2-d340-4fe2-8811-31bba1eedb95
+    weight: 1
+id: panels_variant
+uuid: 66454ba9-dca2-4264-bd09-9beeb133bd80
+label: ''
+weight: 0
+layout: landing
+layout_settings: {  }
+page_title: '[node:title]'
+storage_type: panelizer_field
+storage_id: 'node:1:full:15'
+pattern: panelizer
+builder: ipe

@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Set up the Article content type for Demo Framework.
+ */
+
+use Drupal\shortcut\Entity\Shortcut;
+
+/**
+ * Implements hook_install().
+ */
+function df_tools_articles_install() {
+  // Don't do anything during config sync.
+  if (\Drupal::isConfigSyncing()) {
+    return;
+  }
+
+  // Enable translation for Articles.
+  $entities = ['node' => ['article']];
+  df_tools_translation_enable_translation($entities);
+
+  // Add Article to the default shortcut set.
+  $shortcut = Shortcut::create(array(
+    'shortcut_set' => 'default',
+    'title' => t('Add Article'),
+    'weight' => -2,
+    'link' => array('uri' => 'internal:/node/add/article'),
+  ));
+  $shortcut->save();
+}

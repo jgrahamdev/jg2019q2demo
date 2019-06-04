@@ -1,0 +1,24 @@
+//
+// @file
+// Place where we store back needed features.
+//
+
+.row .row {
+  @include flex-grid-row(nest, $base: false);
+  max-width:$grid-row-width;
+}
+
+
+// Extends visually-hidden elements (default CSS provided by the Drupal core).
+// This negative margin helps hiding visually-hidden elements, eg. removes the
+// 1px offset at site-footer caused by the live announce accesibility helper
+// element.
+.visually-hidden {
+  margin-bottom: -1px;
+}
+
+audio,
+video {
+  width: 100%;
+  height: auto;
+}

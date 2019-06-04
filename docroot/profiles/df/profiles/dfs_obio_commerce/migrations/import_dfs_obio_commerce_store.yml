@@ -1,0 +1,26 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_obio_commerce_store
+label: 'Import dfs_obio_commerce:commerce_store:online'
+source:
+    plugin: csv
+    path: ../data/dfs_obio_commerce.commerce_store.online.csv
+    header_row_count: 1
+    keys: [UUID]
+destination:
+    plugin: 'entity:commerce_store'
+process:
+    type: { plugin: default_value, default_value: online }
+    uuid: UUID
+    uid: UID
+    name: Name
+    mail: Mail
+    address/langcode: { plugin: default_value, default_value: en }
+    address/country_code: { plugin: default_value, default_value: US }
+    address/address_line1: 'Address Line 1'
+    address/address_line2: 'Address Line 2'
+    address/locality: 'Address City'
+    address/administrative_area: 'Address State'
+    address/postal_code: 'Address Zip'
+    default_currency: 'Default Currency'
+    billing_countries: 'Billing Countries'
+provider: dfs_obio_commerce

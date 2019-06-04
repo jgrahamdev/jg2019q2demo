@@ -1,0 +1,232 @@
+//
+// @file
+// Custom styles for commerce product (SMACSS).
+//
+
+$elem-background: $white;
+$elem-color: $black;
+$elem-padding: rem-calc(20px);
+
+.commerce_product [class*="block-region"]:first-child {
+  margin-top: 0;
+
+  > section:first-child {
+    margin-top: rem-calc(-20px);
+
+    @media #{$large-up} {
+        margin-top: rem-calc(-40px);
+    }
+  }
+}
+
+
+.commerce-product {
+  margin-top: rem-calc(55px);
+  margin-bottom: rem-calc(55px);
+
+  @include breakpoint(medium down) {
+    .dfs-obio-product-submit {
+      width: 100%;
+    }
+  }
+
+  .product-variation-info {
+    position: relative;
+    margin-top: rem-calc(28px);
+    margin-bottom: rem-calc(28px);
+    padding: rem-calc($elem-padding) 0;
+    border: 2px solid $elem-color;
+    background: $elem-background;
+    font-size: $label-font-size;
+    overflow: hidden;
+
+    .field-label {
+      display: none;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0.3em;
+      left: 0;
+      border-bottom: 1px dashed $elem-color;
+      margin: rem-calc($elem-padding);
+    }
+
+    .l-table__item {
+      padding: 0 rem-calc($elem-padding);
+    }
+
+    .field-item-title,
+    .field-item {
+      display: inline;
+      background: $elem-background;
+      box-shadow: 0.5em 0 0 $elem-background, -0.5em 0 0 $elem-background;
+    }
+  }
+
+  .product-variation-title,
+  .product-variation-price {
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+
+    > div {
+      display: inline-block;
+    }
+  }
+
+  .product-variation-price {
+    .field {
+      display: inline-block;
+    }
+
+    .field-name-price {
+      margin-left: rem-calc(10px);
+      font-size: (1rem / $label-font-size) * 1rem;
+      line-height: 1rem;
+      font-weight: bold;
+    }
+  }
+
+  .dfs-rating {
+    color: $anchor-color;
+
+    .stars {
+      word-spacing: -0.25em;
+      margin-right: 0.25em;
+    }
+
+    .message {
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      font-size: 80%;
+    }
+  }
+
+  .product-read-more__link {
+    color: inherit;
+    text-decoration: underline;
+
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &.view-mode-compact {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &.view-mode-quickview {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &.view-mode-quickview,
+  &.view-mode-add-to-cart {
+    .df-tools-slideshow > .field-items > .field-item {
+      margin-left: 100px;
+
+      .field-item {
+        margin-left: 0;
+      }
+    }
+
+    .field-name-price {
+      .price-current,
+      .price-previous {
+        display: inline;
+        vertical-align: top;
+      }
+
+      .price-previous {
+        text-decoration: line-through;
+      }
+    }
+
+    .product-fields .field {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .df-tools-slideshow-uses-custom-pager {
+      white-space: nowrap;
+      direction: rtl;
+      font-size: 0;
+
+      @media #{$large-up} {
+        margin-left: 100px;
+      }
+
+      // Uncomment to let pager items float around slider.
+      // &::before,
+      // &::after {
+      //   content: '';
+      //   display: table;
+      //   clear: both;
+      // }
+
+      .slick-list {
+        display: inline-block;
+        width: 100%;
+        white-space: normal;
+        vertical-align: top;
+        direction: ltr;
+        // Uncomment to let pager items float around slider.
+        // float: right;
+
+        :focus {
+          outline: none;
+        }
+      }
+
+      .slick-dots {
+        position: static;
+        margin: 10px 0;
+        white-space: normal;
+        vertical-align: top;
+        text-align: left;
+        direction: ltr;
+        display: block;
+        float: left;
+        width: 100%;
+        text-align: center;
+
+        @media screen and (max-width: 600px) {
+          display: block !important;
+        }
+
+        @media #{$large-up} {
+          width: 90px;
+          margin: 0 0 -10px -105px;
+          // Uncomment to let pager items float around slider.
+          // margin: 0 -5px -10px -5px;
+          // display: inline-block;
+          // width: auto;
+          // float: none;
+        }
+
+        li {
+          margin: 0 5px 10px;
+          border-width: 0;
+          max-width: 40px;
+
+          @media #{$large-up} {
+            max-width: 80px;
+          }
+        }
+
+        .slick-active {
+          border-width: 2px;
+        }
+      }
+
+      .slick-arrow {
+        text-shadow: 0 0 10px rgba(0,0,0, 0.1);
+      }
+    }
+  }
+}

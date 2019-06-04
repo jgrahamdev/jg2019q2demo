@@ -1,0 +1,9 @@
+name: DF Tools Comment
+type: module
+description: Provide a default comment type for Demo Framework.
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - comment
+  - df_core
+  - rdf

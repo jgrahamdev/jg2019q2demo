@@ -1,0 +1,5 @@
+name: AS Journey Lift JS
+type: module
+description: Contains additional JS for Lift capture
+core: 8.x
+package: Demo Framework Secret Modules

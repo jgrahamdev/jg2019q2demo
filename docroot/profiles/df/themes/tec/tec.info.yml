@@ -1,0 +1,29 @@
+name: Tech Theme
+description: "Theme for our DFS TEC scenario."
+core: 8.x
+type: theme
+engine: twig
+base theme: dfs_base
+
+# Image appears on admin/appearance
+screenshot: images/screenshot.jpg
+
+libraries:
+ - tec/main
+
+regions:
+  meta: Meta Header
+  header: Header
+  help: Help
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  highlighted: Highlighted
+  content: Content
+  sidebar_first: 'Left Sidebar'
+  sidebar_second: 'Right Sidebar'
+  footer: 'Footer'
+  left_off_canvas: 'Left off canvas'
+  right_off_canvas: 'Right off canvas'
+regions_hidden:
+  page_top: 'Page Top'
+  page_bottom: 'Page bottom'

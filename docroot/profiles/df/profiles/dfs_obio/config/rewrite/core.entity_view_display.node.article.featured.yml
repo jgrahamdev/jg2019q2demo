@@ -1,0 +1,52 @@
+config_rewrite: replace
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.featured
+    - field.field.node.article.body
+    - field.field.node.article.field_image
+    - node.type.article
+    - responsive_image.styles.card_wide
+  module:
+    - responsive_image
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.article.featured
+targetEntityType: node
+bundle: article
+mode: featured
+content:
+  field_image:
+    type: responsive_image
+    weight: 1
+    settings:
+      responsive_image_style: card_wide
+      image_link: content
+    third_party_settings: {  }
+    label: hidden
+    region: content
+  links:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  body: true
+  comment: true
+  field_article_subtitle: true
+  field_tags: true
+  langcode: true
+  panelizer: true
+  scheduled_update: true

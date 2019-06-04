@@ -1,0 +1,33 @@
+uuid: b735d068-7e52-418e-b5ee-6eaa34a765a6
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: spanish_collection
+label: 'Spanish collection'
+type: 'canonical_entities:node'
+pattern: '/coleccion/[node:title]'
+selection_criteria:
+  9b5e4db8-cc2a-4989-b6a7-008fabe12776:
+    id: node_type
+    bundles:
+      collection: collection
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 9b5e4db8-cc2a-4989-b6a7-008fabe12776
+  58da756e-423b-4cdd-bc3b-cf48ebd2e022:
+    id: language
+    langcodes:
+      es: es
+    negate: false
+    context_mapping:
+      language: 'node:langcode:language'
+    uuid: 58da756e-423b-4cdd-bc3b-cf48ebd2e022
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

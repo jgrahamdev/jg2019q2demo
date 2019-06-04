@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.member
+  module:
+    - user
+    - dfs_fin_agent_portal
+  enforced:
+    module:
+      - dfs_fin_agent_portal
+id: user_remove_role_action.member
+label: 'Remove the Member role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: member
+

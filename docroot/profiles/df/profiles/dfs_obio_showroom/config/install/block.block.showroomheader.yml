@@ -1,0 +1,30 @@
+uuid: 9aab75e9-fa4e-440a-8a06-bbc01f6d57e1
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:79067cfc-3ecb-49a2-9614-d9cbf2253e82'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - obio
+third_party_settings:
+  block_class:
+    classes: ''
+id: showroomheader
+theme: obio
+region: header_right
+weight: 0
+provider: null
+plugin: 'block_content:79067cfc-3ecb-49a2-9614-d9cbf2253e82'
+settings:
+  id: 'block_content:79067cfc-3ecb-49a2-9614-d9cbf2253e82'
+  label: 'Showroom Header'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
+

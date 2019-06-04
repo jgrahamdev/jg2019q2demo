@@ -1,0 +1,79 @@
+//
+// @file
+// Collection content type styles (SMACSS).
+//
+
+.node--type-collection {
+  // Full page.
+  &.node--view-mode-full {
+    .block--entity-field--node--title {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .df-tools-slideshow,
+    .df-tools-magellan-block {
+      @extend .full-width-row;
+
+      .slick-slide img {
+        width: 100%;
+      }
+    }
+
+    .df-tools-magellan-block {
+      @include breakpoint(small only) {
+        display: none;
+      }
+
+      z-index: 1;
+    }
+
+    .field-node--field-collection-description {
+      max-width: 55em;
+      font-size: 1.1em;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    // @TODO replace this with a template.
+    .field-comment-review {
+      @extend .row;
+      @extend .align-middle;
+
+      > .collection-review {
+        @extend .large-4;
+        @extend .small-12;
+        @extend .columns;
+
+        @include breakpoint (small only) {
+          margin-bottom: rem-calc(10px);
+        }
+      }
+    }
+  }
+
+  // Featured view mode.
+  &.node--view-mode-featured {
+    position: relative;
+
+    h2.node-title {
+      position: absolute;
+      top: 5%;
+      width: 100%;
+      text-align: center;
+      z-index: 2;
+
+      a {
+        background: $white;
+        padding: 10px;
+      }
+    }
+
+    .field-node--field-collection-description {
+      .field-label {
+        text-align: center;
+        font-size: 1.4em;
+      }
+    }
+  }
+}

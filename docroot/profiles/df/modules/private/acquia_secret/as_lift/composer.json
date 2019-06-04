@@ -1,0 +1,13 @@
+{
+  "name": "acquia_secret/as_lift",
+  "description": "Contains custom functionality required for our Lift demo.",
+  "type": "drupal-module",
+  "require": {},
+  "extra": {
+    "drush": {
+      "services": {
+        "drush.services.yml": "^9"
+      }
+    }
+  }
+}

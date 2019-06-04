@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - taxonomy
+    - dfs_fin_contact
+  enforced:
+    module:
+      - dfs_fin_contact
+id: contact_message.field_additional_interests
+field_name: field_additional_interests
+entity_type: contact_message
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 3
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
+

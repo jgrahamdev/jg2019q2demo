@@ -1,0 +1,46 @@
+{#
+/**
+ * @file
+ *
+ * Individual product template for the card view mode.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - product: The rendered product fields.
+ *   Use 'product' to print them all, or print a subset such as
+ *   'product.title'. Use the following code to exclude the
+ *   printing of a given field:
+ *   @code
+ *   {{ product|without('title') }}
+ *   @endcode
+ * - product_entity: The product entity.
+ * - product_url: The product URL.
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'individual-product-card',
+    'commerce-product',
+    'commerce-product--type-' ~ product_entity.bundle|clean_class,
+    not product_entity.isPublished() ? 'is-unpublished',
+    view_mode ? 'view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+  <div class="product-variation-card-image">
+    {% if product.variation_field_media %}
+      <div class="card-image">
+        <a href="{{ product_url }}">
+          {{ product.variation_field_media.0 }}
+        </a>
+      </div>
+    {% endif %}
+    {{ product.dfs_obio_quickview }}
+  </div>
+  <div class="card-section">
+    <div class="product-variation-card-title">{{ product.title }}</div>
+    {{ product|without('title', 'variation_field_media', 'variations', 'dfs_obio_quickview') }}
+  </div>
+</article>

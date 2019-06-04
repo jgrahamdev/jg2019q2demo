@@ -1,0 +1,63 @@
+uuid: cb378607-c297-478e-a8d7-77181331cb92
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.video_hero
+    - entity_browser.browser.media_browser_in_modal
+    - field.field.block_content.video_hero.field_first_line
+    - field.field.block_content.video_hero.field_hero_link
+    - field.field.block_content.video_hero.field_media
+  module:
+    - entity_browser
+    - link
+id: block_content.video_hero.default
+targetEntityType: block_content
+bundle: video_hero
+mode: default
+content:
+  field_first_line:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_hero_link:
+    weight: 2
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_media:
+    type: entity_browser_entity_reference
+    weight: 3
+    settings:
+      entity_browser: media_browser_in_modal
+      field_widget_display: label
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_edit: false
+      field_widget_display_settings: {  }
+    region: content
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 4
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,27 @@
+config_rewrite: replace
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.square
+  module:
+    - crop
+    - focal_point
+name: thumbnail
+label: 'Thumbnail (100×100)'
+effects:
+  frfa2c01-c68c-4802-b689-a3d40b74f621:
+    uuid: frfa2c01-c68c-4802-b689-a3d40b74f621
+    id: crop_crop
+    weight: -11
+    data:
+      crop_type: square
+  922d1fae-2416-44e9-90a8-9cac11c91ce8:
+    uuid: 922d1fae-2416-44e9-90a8-9cac11c91ce8
+    id: focal_point_scale_and_crop
+    weight: 3
+    data:
+      width: 100
+      height: 100
+      crop_type: focal_point
+

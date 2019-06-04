@@ -1,0 +1,9 @@
+name: DF Tools Lite
+type: module
+description: Provides customizations and defaults for Lite.
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - df_core
+  - libraries
+  - lite

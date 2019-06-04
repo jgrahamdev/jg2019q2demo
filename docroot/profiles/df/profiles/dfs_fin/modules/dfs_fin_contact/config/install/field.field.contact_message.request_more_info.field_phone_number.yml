@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.request_more_info
+    - field.storage.contact_message.field_phone_number
+  module:
+    - telephone
+id: contact_message.request_more_info.field_phone_number
+field_name: field_phone_number
+entity_type: contact_message
+bundle: request_more_info
+label: Phone
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone
+

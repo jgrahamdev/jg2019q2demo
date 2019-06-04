@@ -1,0 +1,15 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_fin_areas_of_focus
+label: 'Import dfs_fin:term:areas_of_focus'
+source:
+    plugin: csv
+    path: '../data/dfs_fin.term.areas_of_focus.csv'
+    header_row_count: 1
+    keys: [Name]
+destination:
+    plugin: 'entity:taxonomy_term'
+process:
+    vid: { plugin: default_value, default_value: areas_of_focus }
+    name: Name
+    description: Details
+provider: import

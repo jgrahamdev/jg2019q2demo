@@ -1,0 +1,41 @@
+uuid: d9df3cc0-18f3-4eab-b100-c5b9b89ca684
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.content_browser
+    - field.field.node.quote.body
+    - field.field.node.quote.field_agent_assigned
+    - field.field.node.quote.field_areas_of_focus
+    - field.field.node.quote.field_associated_product
+    - field.field.node.quote.field_quote_amount
+    - field.field.node.quote.field_tags
+    - field.field.node.quote.field_vin
+    - node.type.quote
+  module:
+    - panelizer
+    - user
+    - dfs_fin_quotes
+  enforced:
+    module:
+      - dfs_fin_quotes
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+id: node.quote.content_browser
+targetEntityType: node
+bundle: quote
+mode: content_browser
+content: {  }
+hidden:
+  body: true
+  field_agent_assigned: true
+  field_areas_of_focus: true
+  field_associated_product: true
+  field_quote_amount: true
+  field_tags: true
+  field_vin: true
+  langcode: true
+  links: true
+  content_moderation_control: true

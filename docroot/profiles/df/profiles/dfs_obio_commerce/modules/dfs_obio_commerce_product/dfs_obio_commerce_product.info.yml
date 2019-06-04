@@ -1,0 +1,13 @@
+name: 'DFS Obio Commerce Product'
+type: module
+description: 'Product overrides.'
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - commerce_checkout
+  - commerce_price
+  - commerce_product
+  - dfs_obio_commerce_comments
+  - dfs_obio_commerce_image
+  - dfs_obio_quickview
+  - libraries

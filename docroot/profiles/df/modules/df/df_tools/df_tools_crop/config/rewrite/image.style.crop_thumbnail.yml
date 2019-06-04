@@ -1,0 +1,10 @@
+effects:
+  8fc26706-68dc-4eb7-8121-33e3936ed55f:
+    uuid: 8fc26706-68dc-4eb7-8121-33e3936ed55f
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 300
+      upscale: false
+

@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: Product types
+vid: product_types
+description: 'Use this terms to mark the type of individual products.'
+hierarchy: 0
+weight: 0

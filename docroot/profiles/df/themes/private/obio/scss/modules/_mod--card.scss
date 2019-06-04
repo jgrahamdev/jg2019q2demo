@@ -1,0 +1,197 @@
+//
+// @file
+// Visual styles for (block content) hero (SMACSS module).
+//
+$card-bg: $off-white;
+$card-fg: $body-font-color;
+$card-link: $anchor-color;
+$card-link-hover: $anchor-color-hover;
+.card {
+  $font-size-title: "h4";
+  $font-size-default: "h6";
+  $small-fontsize-map: map-get($header-styles, small);
+  $default-fontsize-map: map-get($header-styles, medium);
+  margin-top: rem-calc(map-get($grid-column-gutter, 'small') / 4);
+  margin-bottom: rem-calc(map-get($grid-column-gutter, 'small') / 4);
+  box-shadow: 0 0 (map-get($grid-column-gutter, 'medium') / 3) rgba($white, 0.05);
+  background: $card-bg;
+  color: $card-fg;
+  &, .l-over-each__item {}
+  @media #{$medium-up} {
+    margin-top: rem-calc(map-get($grid-column-gutter, 'medium') / 2);
+    margin-bottom: rem-calc(map-get($grid-column-gutter, 'medium') / 2);
+  }
+  // card__media.
+  @at-root #{&}__media {
+    background: $body-background;
+    img {
+      width: 100%;
+    }
+  }
+  // card__label.
+  @at-root %card__type {
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    left: 0;
+    a {
+      color: inherit;
+    }
+  }
+  @at-root #{&}__type {
+    @extend %card__type;
+  }
+  @at-root %card__type-items {
+    margin: 0;
+    padding: 0 rem-calc(map-get($grid-column-gutter, 'small'));
+    float: left;
+    background: $black;
+    color: $white;
+    list-style: none;
+    font-weight: 700;
+    @media #{$medium-up} {
+      padding: 0 rem-calc(map-get($grid-column-gutter, 'medium'));
+    }
+  }
+  @at-root #{&}__type-items {
+    @extend %card__type-items;
+  }
+  @at-root %card__type-item {
+    display: inline-block;
+    margin: rem-calc(5px) 0;
+    &::before {
+      content: "\2022";
+      margin-left: rem-calc(map-get(map-get($small-fontsize-map, $font-size-default), 'font-size') / 3);
+      @media #{$medium-up} {
+        margin-left: rem-calc(map-get(map-get($default-fontsize-map, $font-size-default), 'font-size') / 3);
+      }
+    }
+    &:first-child::before {
+      content: none;
+    }
+  }
+  @at-root #{&}__type-item {
+    @extend %card__type-item;
+  }
+  // card__label.
+  @at-root #{&}__label {
+    position: relative;
+    .field-type-entity-reference {
+      @extend %card__type;
+      .field-items {
+        @extend %card__type-items;
+      }
+      .field-item {
+        @extend %card__type-item;
+      }
+    }
+  }
+  // Modifier class:
+  @at-root #{&}--no-media {
+    .card__type {
+      padding-top: rem-calc(4px);
+      position: static;
+    }
+  }
+  // Modifier class:
+  @at-root #{&}--multiple-media {
+    .card__media > .field {
+      overflow: hidden;
+      & > .field-items {
+        margin: rem-calc(map-get($grid-column-gutter, 'small') * -0.5);
+        @media #{$medium-up} {
+          margin: rem-calc(map-get($grid-column-gutter, 'medium') * -0.5);
+        }
+        & > .field-item {
+          padding: rem-calc(map-get($grid-column-gutter, 'small') * 0.5);
+          @media #{$medium-up} {
+            padding: rem-calc(map-get($grid-column-gutter, 'medium') * 0.5);
+          }
+        }
+      }
+    }
+  }
+  // card__content.
+  @at-root #{&}__content {
+    padding: rem-calc(map-get($grid-column-gutter, 'small') * 0.75) rem-calc(map-get($grid-column-gutter, 'small'));
+    clear: both;
+    font-size: rem-calc(map-get(map-get($small-fontsize-map, $font-size-default), 'font-size'));
+    line-height: $header-lineheight;
+    .is-featured {
+      position: absolute;
+      top: rem-calc(16px);
+      left: 1px;
+      padding: rem-calc(5px) rem-calc(10px);
+      background: $black;
+      color: $white;
+      letter-spacing: 1px;
+      i {
+        color: #cabd25;
+      }
+    }
+    .field {
+      margin-top: $header-margin-bottom;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+    // This is what we inherit by default.
+    // a {
+    //   color: $card-link;
+    //   &:focus,
+    //   &:hover {
+    //     color: $card-link-hover;
+    //   }
+    // }
+    @media #{$medium-up} {
+      font-size: rem-calc(map-get(map-get($default-fontsize-map, $font-size-default), 'font-size'));
+      padding: rem-calc(map-get($grid-column-gutter, 'medium') * 0.75) rem-calc(map-get($grid-column-gutter, 'medium'));
+    }
+  }
+  // card__title.
+  @at-root #{&}__title {
+    margin-bottom: 0;
+    font-family: $header-font-family;
+    font-size: rem-calc(map-get(map-get($small-fontsize-map, $font-size-title), 'font-size'));
+    font-weight: $header-font-weight;
+    line-height: $header-lineheight;
+    @media #{$medium-up} {
+      font-size: rem-calc(map-get(map-get($default-fontsize-map, $font-size-title), 'font-size'));
+    }
+  }
+  // card__height.
+  // Used at the taxonomy view blocks, for the group header. Determines the
+  // minimal height of the whole card module.
+  @at-root #{&}__height {
+    @media #{$medium-up} {
+      padding-bottom: 50%;
+    }
+    @media #{$large-up} {
+      padding-bottom: 136.65%;
+    }
+  }
+}
+
+// featured card_title
+.view-article-collection {
+  .node--type-article.node--view-mode-card {
+    @media #{$medium-up} {
+      &.node--sticky {
+        .card__title {
+          font-size: 2rem !important;
+          line-height: 1.35em;
+        }
+        .card__content {
+          min-height: rem-calc(230px);
+        }
+      }
+      .card__content {
+        min-height: rem-calc(165px);
+      }
+    }
+  }
+}
+
+.node--view-mode-card {
+  position: relative;
+}

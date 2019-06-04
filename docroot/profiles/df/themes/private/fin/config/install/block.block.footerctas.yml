@@ -1,0 +1,31 @@
+uuid: 0a85c42f-1d96-4604-a607-7b8fa6b0952e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:256e9304-aead-4d8a-9207-7e8aac3eb4b3'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - fin
+third_party_settings:
+  block_class:
+    classes: ''
+_core:
+  default_config_hash: fBD9LK5eWVj-QNU3hQFvFjksBQ45GOOXvCH6_dz1vGM
+id: footerctas
+theme: fin
+region: footer_last
+weight: -9
+provider: null
+plugin: 'block_content:256e9304-aead-4d8a-9207-7e8aac3eb4b3'
+settings:
+  id: 'block_content:256e9304-aead-4d8a-9207-7e8aac3eb4b3'
+  label: 'Get Started'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

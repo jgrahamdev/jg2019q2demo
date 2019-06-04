@@ -1,0 +1,143 @@
+foundation_1col:
+  label: 'Foundation: 1 column row'
+  path: layouts/foundation_1col
+  template: foundation-1col
+  category: 'Foundation: 1'
+  regions:
+    middle:
+      label: Main column
+  icon: foundation_1col.png
+
+foundation_2col:
+  label: 'Foundation: 2 column row'
+  path: layouts/foundation_2col
+  template: foundation-2col
+  category: 'Foundation: 2'
+  regions:
+    left:
+      label: Left
+    right:
+      label: Right
+  icon: foundation_2col.png
+
+foundation_2col_bricks:
+  label: 'Foundation: 2 column bricks'
+  path: layouts/foundation_2col_bricks
+  template: foundation-2col-bricks
+  category: 'Foundation: 2'
+  regions:
+    top:
+      label: Top
+    above_left:
+      label: Above Left
+    above_right:
+      label: Above Right
+    middle:
+      label: Middle
+    below_left:
+      label: Below Left
+    below_right:
+      label: Below Right
+    bottom:
+      label: Bottom
+  icon: foundation_2col_bricks.png
+
+foundation_2col_stacked:
+  label: 'Foundation: stacked 2 column row'
+  path: layouts/foundation_2col_stacked
+  template: foundation-2col-stacked
+  category: 'Foundation: 2'
+  regions:
+    top:
+      label: Top
+    left:
+      label: Left
+    right:
+      label: Right
+    bottom:
+      label: Bottom
+  icon: foundation_2col_stacked.png
+
+foundation_3col:
+  label: 'Foundation: 3 column row'
+  path: layouts/foundation_3col
+  template: foundation-3col
+  category: 'Foundation: 3'
+  regions:
+    left:
+      label: Left
+    middle:
+      label: Middle
+    right:
+      label: Right
+  icon: foundation_3col.png
+
+foundation_3col_stacked:
+  label: 'Foundation: stacked 3 column row'
+  path: layouts/foundation_3col_stacked
+  template: foundation-3col-stacked
+  category: 'Foundation: 3'
+  regions:
+    top:
+      label: Top
+    left:
+      label: Left
+    middle:
+      label: Middle
+    right:
+      label: Right
+    bottom:
+      label: Bottom
+  icon: foundation_3col_stacked.png
+
+foundation_4col:
+  label: 'Foundation: 4 column row'
+  path: layouts/foundation_4col
+  template: foundation-4col
+  category: 'Foundation: 4'
+  regions:
+    left:
+      label: Left
+    middle_left:
+      label: Middle Left
+    middle_right:
+      label: Middle Right
+    right:
+      label: Right
+  icon: foundation_4col.png
+
+foundation_6row_combo:
+  label: 'Foundation: 6 row combo'
+  path: layouts/foundation_6row_combo
+  template: foundation-6row-combo
+  category: 'Foundation: 6'
+  regions:
+    top:
+      label: Top
+    top_first:
+      label: Top First
+    top_second:
+      label: Top Second
+    top_third:
+      label: Top Third
+    top_fourth:
+      label: Top Fourth
+    middle_small:
+      label: Middle Small
+    middle_large:
+      label: Middle Large
+    middle_first:
+      label: Middle First
+    middle_second:
+      label: Middle Second
+    bottom_first:
+      label: Bottom First
+    bottom_second:
+      label: Bottom Second
+    bottom_third:
+      label: Bottom Third
+    bottom_fourth:
+      label: Bottom Fourth
+    bottom:
+      label: Bottom
+  icon: foundation_6row_combo.png

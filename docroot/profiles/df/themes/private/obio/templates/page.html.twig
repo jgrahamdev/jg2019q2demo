@@ -1,0 +1,257 @@
+{#
+/**
+ * @file
+ * Zurb Foundations's theme implementation to display a single page.
+ *
+ * Available variables:
+ *
+ * General utility variables:
+ * - base_path: The base URL path of the Drupal installation. Will usually be
+ *   "/" unless you have installed Drupal in a sub-directory.
+ * - is_front: A flag indicating if the current page is the front page.
+ * - logged_in: A flag indicating if the user is registered and signed in.
+ * - is_admin: A flag indicating if the user has permission to access
+ *   administration pages.
+ *
+ * Site identity:
+ * - front_page: The URL of the front page. Use this instead of base_path when
+ *   linking to the front page. This includes the language domain or prefix.
+ * - logo: The url of the logo image, as defined in theme settings.
+ * - linked_logo: The logo image, linked to <front>.
+ * - site_name: The name of the site. This is empty when displaying the site
+ *   name has been disabled in the theme settings.
+ * - linked_site_name: The name of the site that also links to <front>.
+ * - site_slogan: The slogan of the site. This is empty when displaying the site
+ *   slogan has been disabled in theme settings.
+ * - hide_site_name: A flag indicating if the site name has been toggled off on
+ *   the theme settings page. If hidden, the "visually-hidden" class is added
+ *   to make the site name visually hidden, but still accessible.
+ * - hide_site_slogan: A flag indicating if the site slogan has been toggled off
+ *   on the theme settings page. If hidden, the "visually-hidden" class is
+ *   added to make the site slogan visually hidden, but still accessible.
+ *
+ * Page content (in order of occurrence in the default page.html.twig):
+ * - messages: Status and error messages. Should be displayed prominently.
+ * - node: Fully loaded node, if there is an automatically-loaded node
+ *   associated with the page and the node ID is the second argument in the
+ *   page's path (e.g. node/12345 and node/12345/revisions, but not
+ *   comment/reply/12345).
+ *
+ * Regions:
+ * - page.meta_header
+ * - page.header
+ * - page.help
+ * - page.highlighted
+ * - page.content_top
+ * - page.content
+ * - page.sidebar_first
+ * - page.sidebar_second
+ * - page.footer_first
+ * - page.footer_middle
+ * - page.footer_last
+ *
+ * @see template_preprocess_page()
+ * @see bartik_preprocess_page()
+ * @see html.html.twig
+ */
+#}
+<div class="site-wrap">
+  <div class="off-canvas-wrap" data-offcanvas>
+    <div class="inner-wrap" id="inner-wrap">
+      <aside class="left-off-canvas-menu" role="complementary">
+        {{ page.left_off_canvas }}
+      </aside>
+
+      <aside class="right-off-canvas-menu" role="complementary">
+        {{ page.right_off_canvas }}
+      </aside>
+
+      {% if page.meta_header %}
+        <div class="meta-wrapper">
+          <div class="row">
+            <div class="meta-header large-12 columns">
+              <div class="row align-right">
+                {{ page.meta_header }}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if page.highlighted %} {% spaceless %}
+        <div class="row">
+          <div class="large-12 highlighted-wrapper columns">
+            {{ page.highlighted }}
+          </div>
+        </div>
+      {% endspaceless %} {% endif %}
+      <div class="header-wrap">
+        <div class="row align-center">
+          <div class="header-left columns">
+            {{ page.header }}
+          </div>
+          <div class="header-right columns">
+            {{ page.header_right }}
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        {% if show_account_info %}
+          <div class="{{ site_slogan ? 'large-6' : 'large-4 columns large-offset-8' }} columns hide-for-small">
+            <p>
+              {% if logged_in %}
+                <a href="{{ path('user.page') }}">{{ 'My Account'|t }}</a>
+                <a href="{{ path('user.logout') }}">{{ 'Logout'|t }}</a>
+              {% else %}
+                <a href="{{ path('user.login') }}">{{ 'Login'|t }}</a>
+                <a href="{{ path('user.register') }}">{{ 'Sign Up'|t }}</a>
+              {% endif %}
+            </p>
+          </div>
+
+          <div class="show-for-small">
+            <div class="six mobile-two columns">
+              <p>
+                <a href="{{ path('user.login') }}" class="radius button">{{ 'Login'|t }}</a>
+              </p>
+            </div>
+            <div class="six mobile-two columns">
+              <p>
+                <a href="{{ path('user.register') }}" class="radius success button">{{ 'Sign Up'|t }}</a>
+              </p>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if messages and not zurb_foundation_messages_modal -%}
+      <div class="l-messages row">
+        <div class="large-12 columns">
+          {{ messages }}
+        </div>
+      </div>
+      {%- endif %}
+
+      {% if page.help -%}
+      <div class="l-help row">
+        <div class="large-12 columns">
+          {{ page.help }}
+        </div>
+      </div>
+      {%- endif %}
+
+      {% if page.content_prefix -%}
+        <div class="row">
+          <div class="expanded columns">
+            {{ page.content_prefix }}
+          </div>
+        </div>
+      {%- endif %}
+
+      {%
+        set sidebar_first = page.sidebar_first|render|striptags('<img><audio><video><drupal-render-placeholder>')|trim
+      %}
+      {%
+        set sidebar_second = page.sidebar_second|render|striptags('<img><audio><video><drupal-render-placeholder>')|trim
+      %}
+      {%
+        set main_sidebar_first_classes = [
+          'main__sidebar',
+          'main__sidebar--first',
+          sidebar_second ? 'with-second',
+        ]
+      %}
+      {%
+        set main_sidebar_second_classes = [
+          'main__sidebar',
+          'main__sidebar--second',
+          sidebar_first ? 'with-first',
+        ]
+      %}
+      {%
+        set main_content_classes = [
+          'main__content',
+          sidebar_first or sidebar_second ? 'has-sidebar',
+          sidebar_first ? 'has-sidebar-first',
+          sidebar_second ? 'has-sidebar-second',
+        ]
+      %}
+      {%
+        set main_classes = [
+          'main',
+          sidebar_first or sidebar_second ? 'main--with-sidebar',
+        ]
+      %}
+
+      <div{{ create_attribute({class: main_classes}) }}>
+        <main{{ create_attribute({class: main_content_classes}) }} id="main" role="main">
+          <a id="main-content"></a>
+          {% if breadcrumb -%} {{- breadcrumb -}} {%- endif %}
+          <section>
+            {{ page.content }}
+          </section>
+        </main>
+
+        {% if sidebar_first %}
+          <div id="sidebar-first"{{ create_attribute({class: main_sidebar_first_classes}) }}>
+            {{ page.sidebar_first }}
+          </div>
+        {% endif %}
+
+        {% if sidebar_second %}
+          <div id="sidebar-second"{{ create_attribute({class: main_sidebar_second_classes}) }}>
+            {{ page.sidebar_second }}
+          </div>
+        {% endif %}
+      </div>
+
+      {% if reversed_logo %}
+        <div class="bottom-bar dark-bg">
+          <div class="row">
+            <div class="large-12 columns">
+              <p class="text-center footer-logo"> {{- reversed_logo -}} </p>
+              <p class="text-center footer-slogan"> {{- site_slogan -}} </p>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if page.footer_first or page.footer_middle or page.footer_last or page.meta_footer -%}
+      <footer id="footer" class="dark-bg full-width-row">
+        <div class="full-width-inner align-center">
+          <div class="row" id="bottom-area">
+            {% if page.footer_first -%}
+              <div id="footer-first" class="columns small-12 medium-3">
+                {{ page.footer_first }}
+              </div>
+            {%- endif %}
+
+            {% if page.footer_middle -%}
+              <div id="footer-middle" class="columns small-12 medium-6">
+                {{ page.footer_middle }}
+              </div>
+            {%- endif %}
+
+            {% if page.footer_last -%}
+              <div id="footer-last" class="columns small-12 medium-3">
+                {{ page.footer_last }}
+              </div>
+            {%- endif %}
+          </div>
+
+          {% if page.meta_footer -%}
+          <div class="row">
+            <div id="meta-footer" class="columns large-12">
+              {{ page.meta_footer }}
+            </div>
+          </div>
+          {%- endif %}
+        </div>
+      </footer>
+      {%- endif %}
+
+      <a class="exit-off-canvas"></a>
+    </div>
+  </div>
+</div>

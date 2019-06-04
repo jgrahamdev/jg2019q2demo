@@ -1,0 +1,226 @@
+// Common abstract classes to extend or parametrics are stored here.
+.dark-bg {
+    background: $dark-bg
+}
+
+// Make the background black, so when the site is shorter than the window, it will appear the footer expand the full height
+body:not(.cke_editable) {
+    background: $dark-bg;
+}
+
+//specific override for style dropdown in ckeditor to prevent site background from overriding
+.cke_panel_listItem a {
+    background:$white;
+    &#cke_63_option {
+        background:#ccc;
+        &:hover {
+            background:$black;
+        }
+    }
+}
+
+//reset background to white for everything on the site
+#main-canvas-wrapper, .site-wrap {
+    background: $white;
+}
+
+// if the thing being viewed is not a node, add some margin
+.region-content {
+    @extend .full-block-spacing;
+}
+
+// remove margin and let the node templte handle that to allow for no gap between header (heros)
+body.path-node, body.path-taxonomy, body.path-frontpage {
+    .region-content {
+        padding-top: 0;
+    }
+}
+
+.login-dropdown-button {
+    max-width: 100px;
+}
+
+.ambiance-bg {
+    .full-width-inner {
+        padding-left:.8em;
+        padding-right:.8em;
+    }
+
+}
+
+.pricing-table {
+    border: solid 1px $medium-gray;
+    position: relative;
+
+    li {
+        border-bottom: dotted 1px $medium-gray;
+        font-size: 0.75rem;
+        padding: 0.875rem 1.125rem;
+        background: $white;
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+    .title {
+        background-color: $black;
+        color: $white;
+        font-size: 0.875rem;
+        border-bottom: 0;
+        position: relative;
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            margin-left:-50px;
+            top: 50%;
+            margin-top: -25px;
+            background: transparent url(../images/product-var-logo-sprite.png) no-repeat;
+        }
+        &.title-silver {
+            &::before {
+             background-position: -150px -50px;
+            }
+        }
+        &.title-gold {
+            &::before {
+             background-position: -200px -50px;
+            }
+        }
+        &.title-platinum {
+            &::before {
+             background-position: -250px -50px;
+            }
+        }
+    }
+    .price {
+        background-color: #F6F6F6;
+        color: #333333;
+        font-size: 1.75rem;
+        border-bottom: 0;
+    }
+    .description {
+        color: #777777;
+        font-size: 0.625rem;
+        background: $white;
+    }
+    .button {
+        margin: 0;
+    }
+}
+
+.button, .button.hollow {
+    font-family: $body-font-family;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 80%;
+    text-shadow: 0 0 0;
+    transition: $slider-transition;
+}
+
+.button.hollow {
+    border: 2px solid $primary-color;
+    &:focus, &:hover {
+        $main-color: $primary-color;
+        border-color: $main-color;
+        background: $main-color;
+        color: inverse-by-lightness($main-color);
+    }
+    &.success {
+        &:focus, &:hover {
+            $main-color: $success-color;
+            border-color: $main-color;
+            background: $main-color;
+            color: inverse-by-lightness($main-color);
+        }
+    }
+    &:active {
+        $main-color: darken($primary-color, 10%);
+        border-color: $main-color;
+        background: $main-color;
+        color: inverse-by-lightness($main-color);
+    }
+}
+
+//full width does not play nice with IPE or Lift sidebar.
+.panels-ipe-active, .lift-tools-active  {
+  .df-tools-slideshow, .df-tools-magellan-block, .full-width-row {
+    width: 100%;
+    left: 0;
+    transition: all 0.5s linear;
+  }
+}
+.panels-ipe-active, .lift-tools-active  {
+ .df-tools-magellan-block {
+    margin:10px 0;
+  }
+}
+
+
+.quickedit-form  {
+    .filter-wrapper  {
+        display:none;
+    }
+}
+
+.quickedit-entity-active {
+  z-index: 2;
+}
+
+//Add styles for drop buttons.
+.js .dropbutton-wrapper {
+  background-color: transparent;
+  min-height: 1em !important;
+  .dropbutton-widget {
+    border: 1px solid;
+    background-color: #fff;
+    color: #0a0a0a;
+    cursor: pointer;
+    overflow: hidden;
+    max-width: 100%;
+    .button {
+      border: none;
+      margin: 0;
+      padding: 0.32em 1em;
+      background: transparent none;
+    }
+    .dropbutton-action a {
+      margin-right: 0;
+      padding: 0.33333rem 0.5rem;
+    }
+  }
+  .dropbutton-toggle button {
+    background-color: #2199e8;
+    color: #ffffff;
+  }
+  .dropbutton {
+    a {
+      color: #3a3a3a;
+      border-bottom: 0 none;
+    }
+    .dropbutton-action:hover, a:hover {
+      background: #f2f2fa;
+      border-bottom: 0 none;
+    }
+    .card {
+      background: inherit;
+      border: 0;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+//Fixes pager hover
+.pagination .current {
+  padding: 0;
+  a {
+    color: #FFFFFF;
+    &:hover {
+      color: #0a0a0a;
+    }
+  }
+}
+
+

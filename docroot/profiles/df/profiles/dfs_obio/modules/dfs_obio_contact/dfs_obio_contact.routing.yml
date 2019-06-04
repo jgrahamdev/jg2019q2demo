@@ -1,0 +1,7 @@
+dfs_obio_contact.book_confirm:
+  path: '/book-apt/confirm'
+  defaults:
+    _controller: '\Drupal\dfs_obio_contact\Controller\BookingController::confirmPage'
+    _title: 'Thanks for booking with OBIO!'
+  requirements:
+    _permission: 'access content'

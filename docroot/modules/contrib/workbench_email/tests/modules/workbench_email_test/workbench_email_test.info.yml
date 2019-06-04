@@ -1,0 +1,12 @@
+name: Workbench email test
+description: 'Test functionality for workbench email'
+# core: 8.x
+type: module
+dependencies:
+  - workbench_email:workbench_email
+
+# Information added by Drupal.org packaging script on 2018-11-23
+version: '8.x-1.0'
+core: '8.x'
+project: 'workbench_email'
+datestamp: 1542952088

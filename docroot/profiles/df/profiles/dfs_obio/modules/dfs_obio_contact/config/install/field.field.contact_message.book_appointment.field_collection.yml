@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.book_appointment
+    - field.storage.contact_message.field_collection
+    - node.type.collection
+id: contact_message.book_appointment.field_collection
+field_name: field_collection
+entity_type: contact_message
+bundle: book_appointment
+label: 'Interested In'
+description: 'Select the collections you are most interested in seeing.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      collection: collection
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
+

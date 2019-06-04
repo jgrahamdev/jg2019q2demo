@@ -1,0 +1,94 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.user
+    - views.view.agent_content
+    - views.view.agent_portal
+  content:
+    - 'block_content:basic:52634CDC-3225-4D35-8FD4-5DA42C11000A'
+  module:
+    - block_content
+    - dfs_fin
+    - panels
+    - views
+    - dfs_fin
+  enforced:
+    module:
+      - dfs_fin
+id: member_user
+label: 'Member User'
+variant: panels_variant
+variant_settings:
+  blocks:
+    dc63d365-94be-4e31-a700-fe89bae3dcaa:
+      id: 'views_block:agent_portal-my_profile'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: tabs
+      weight: -10
+      uuid: dc63d365-94be-4e31-a700-fe89bae3dcaa
+      context_mapping: {  }
+    9b4b60a6-fc33-47d6-9708-8ee80f24b5c8:
+      id: 'views_block:agent_portal-member_info'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: tabs
+      weight: -9
+      uuid: 9b4b60a6-fc33-47d6-9708-8ee80f24b5c8
+      context_mapping: {  }
+    347774a8-79ff-4cff-a100-b3c37655344c:
+      id: 'block_content:52634CDC-3225-4D35-8FD4-5DA42C11000A'
+      label: 'Member Profile Tabs'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: -7
+      uuid: 347774a8-79ff-4cff-a100-b3c37655344c
+      context_mapping: {  }
+    f5337283-cf42-4675-ba01-1b6f4c5c74cd:
+      id: 'views_block:agent_content-quote_requests'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: top
+      weight: -8
+      uuid: f5337283-cf42-4675-ba01-1b6f4c5c74cd
+      context_mapping: {  }
+    a9d6a198-0ad1-4991-a900-00d5bd9a7ed2:
+      id: member_quote_form
+      label: 'Member Quote Form'
+      provider: dfs_fin
+      label_display: '0'
+      region: top
+      weight: -9
+      uuid: a9d6a198-0ad1-4991-a900-00d5bd9a7ed2
+      context_mapping:
+        user: user
+  id: panels_variant
+  uuid: fddb3c94-9964-4098-9703-3bb06e07d00d
+  label: null
+  weight: 0
+  layout: onecoltabs
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: member_user
+  builder: standard
+page: user
+weight: -10
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }
+

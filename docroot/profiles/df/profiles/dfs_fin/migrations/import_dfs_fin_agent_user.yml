@@ -1,0 +1,27 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_fin_agent_user
+label: 'Import dfs_fin_agent:user:user'
+source:
+    plugin: agent_user
+    path: '../data/dfs_fin.node.agent_location.csv'
+    header_row_count: 1
+    keys: [Title]
+destination:
+    plugin: 'entity:user'
+process:
+    type: { plugin: default_value, default_value: user }
+    name: Name
+    pass: Pass
+    mail: Mail
+    status: Status
+    roles: Roles
+    user_picture: Picture
+    access: { plugin: default_value, default_value: 1474924254 }
+    login: { plugin: default_value, default_value: 1474924254 }
+    field_first_name: First
+    field_last_name: Last
+    field_user_agent_location: { plugin: migration, migration: import_dfs_fin_agent_location, source: Title }
+provider: import
+migration_dependencies:
+    required: [import_dfs_fin_agent_location]
+    optional: {  }

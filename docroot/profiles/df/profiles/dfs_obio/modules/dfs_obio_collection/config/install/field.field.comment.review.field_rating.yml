@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.review
+    - field.storage.comment.field_rating
+id: comment.review.field_rating
+field_name: field_rating
+entity_type: comment
+bundle: review
+label: Rating
+description: 'The rating for this collection. Any number between one and five is valid.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 1
+  max: !!float 5
+  prefix: ''
+  suffix: ''
+field_type: decimal

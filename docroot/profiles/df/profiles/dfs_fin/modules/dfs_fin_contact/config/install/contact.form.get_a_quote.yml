@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - dfs_fin_contact
+  enforced:
+    module:
+      - dfs_fin_contact
+id: get_a_quote
+label: 'Get a Quote'
+recipients:
+  - admin@example.com
+reply: ''
+weight: 0

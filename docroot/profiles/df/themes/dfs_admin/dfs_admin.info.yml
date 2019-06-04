@@ -1,0 +1,23 @@
+name: Demo Framework Admin Theme
+description: "Lightweight admin theme for Demo Framework"
+core: 8.x
+type: theme
+base theme: material_admin
+
+screenshot: images/screenshot.png
+
+libraries:
+ - dfs_admin/global
+
+regions:
+  header: Header
+  status: 'Status area'
+  pre_content: 'Pre-content'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  content: Content
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  sidebar_first: 'First sidebar'
+regions_hidden:
+  - sidebar_first

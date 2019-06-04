@@ -1,0 +1,12 @@
+name: 'DF Tools Landing Page'
+description: 'Extends the landing page content type provided by Lightning.'
+type: module
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - lightning_landing_page
+  - df_core
+  - df_tools_layout
+  - df_tools_translation
+  - df_tools_workflow
+  - type_style

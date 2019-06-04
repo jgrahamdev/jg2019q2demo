@@ -1,0 +1,10 @@
+dependencies:
+  module:
+    - dfs_obio
+filters:
+  obio_filter_url:
+    id: obio_filter_url
+    provider: dfs_obio
+    status: true
+    weight: 0
+    settings: { }

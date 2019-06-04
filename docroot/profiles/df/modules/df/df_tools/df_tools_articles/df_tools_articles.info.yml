@@ -1,0 +1,29 @@
+name: DF Tools Articles
+type: module
+description: Provide a base Article node type configuration for Demo Framework.
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - addtoany
+  - better_formats
+  - datetime
+  - df_core
+  - df_tools_blocks
+  - df_tools_crop
+  - df_tools_comment
+  - df_tools_layout
+  - df_tools_translation
+  - content_browser
+  - image
+  - link
+  - inline_entity_form
+  - menu_ui
+  - metatag
+  - node
+  - pathauto
+  - panelizer
+  - replicate_ui
+  - text
+  - taxonomy
+  - type_style
+  - user

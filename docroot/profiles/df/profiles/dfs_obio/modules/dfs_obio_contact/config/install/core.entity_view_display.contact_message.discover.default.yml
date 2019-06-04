@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.discover
+    - field.field.contact_message.discover.field_company
+id: contact_message.discover.default
+targetEntityType: contact_message
+bundle: discover
+mode: default
+content:
+  field_company:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  message:
+    type: string
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

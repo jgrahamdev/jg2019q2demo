@@ -1,0 +1,37 @@
+uuid: fbbe307b-0b9a-4e33-8401-1ba4c2c20b26
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:hero:da90147e-5b6f-40b8-9800-de73490149f1'
+  module:
+    - block_class
+    - block_content
+    - system
+  theme:
+    - fin
+third_party_settings:
+  block_class:
+    classes: ''
+_core:
+  default_config_hash: 7obYXXjH9mw0zJNaKVH5J4tIV2jqtq4jJEcnFJf5Ilc
+id: productshero
+theme: fin
+region: featured
+weight: -14
+provider: null
+plugin: 'block_content:da90147e-5b6f-40b8-9800-de73490149f1'
+settings:
+  id: 'block_content:da90147e-5b6f-40b8-9800-de73490149f1'
+  label: 'Products Hero'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /products
+    negate: false
+    context_mapping: {  }

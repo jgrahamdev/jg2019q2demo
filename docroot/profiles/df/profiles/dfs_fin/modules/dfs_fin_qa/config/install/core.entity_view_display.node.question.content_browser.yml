@@ -1,0 +1,43 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.content_browser
+    - field.field.node.question.field_answer
+    - field.field.node.question.field_question
+    - node.type.question
+  module:
+    - comment
+    - panelizer
+    - user
+    - dfs_fin_qa
+  enforced:
+    module:
+      - dfs_fin_qa
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+id: node.question.content_browser
+targetEntityType: node
+bundle: question
+mode: content_browser
+content:
+  field_answer:
+    type: comment_default
+    weight: 0
+    label: hidden
+    settings:
+      pager_id: 0
+    third_party_settings: {  }
+    region: content
+  field_question:
+    type: basic_string
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  links: true

@@ -1,0 +1,16 @@
+name: 'DFS FIN Quotes'
+description: 'Quotes created by users when filling out the "Get a Quote" form'
+type: module
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - auto_login_url
+  - content_browser
+  - dfs_fin_location
+  - dfs_fin_products
+  - inline_entity_form_preview
+  - file
+  - rest
+  - taxonomy
+  - user
+  - node

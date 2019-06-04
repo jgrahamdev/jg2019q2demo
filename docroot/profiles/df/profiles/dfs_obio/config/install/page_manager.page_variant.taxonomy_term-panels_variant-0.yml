@@ -1,0 +1,82 @@
+uuid: e968e970-9014-4968-a402-8257ebbd1716
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.taxonomy_term
+    - views.view.content_related_to_term
+  module:
+    - ctools
+    - panels
+    - views
+id: taxonomy_term-panels_variant-0
+label: Tags
+variant: panels_variant
+variant_settings:
+  blocks:
+    c08310df-e115-4b81-8886-02d7c38d55a3:
+      id: 'entity_view:taxonomy_term'
+      label: 'Entity view (Taxonomy term)'
+      provider: ctools
+      label_display: '0'
+      view_mode: full
+      region: middle
+      weight: -10
+      uuid: c08310df-e115-4b81-8886-02d7c38d55a3
+      context_mapping:
+        entity: taxonomy_term
+    85ffe321-1de3-4ae5-845f-8b74f3a01c27:
+      id: 'views_block:content_related_to_term-block_collection'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: 0
+      uuid: 85ffe321-1de3-4ae5-845f-8b74f3a01c27
+      context_mapping: {  }
+    22e168c3-63a0-46a4-bdb6-4b204255c5b5:
+      id: 'views_block:content_related_to_term-block_articles'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: 1
+      uuid: 22e168c3-63a0-46a4-bdb6-4b204255c5b5
+      context_mapping: {  }
+    21589bca-8447-4177-b4e5-1875bce84919:
+      id: 'views_block:content_related_to_term-block_galleries'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: middle
+      weight: 2
+      uuid: 21589bca-8447-4177-b4e5-1875bce84919
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 372ad920-221a-4325-8829-303c024edbb1
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: '[term:name]'
+  storage_type: page_manager
+  storage_id: taxonomy_term-panels_variant-0
+  builder: standard
+page: taxonomy_term
+weight: 0
+selection_criteria:
+  -
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      tags: tags
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+selection_logic: and
+static_context: {  }

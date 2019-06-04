@@ -1,0 +1,23 @@
+name: 'DFS Obio ACM'
+type: profile
+description: 'Acquia Commerce modules.'
+core: 8.x
+package: 'Demo Framework Scenarios'
+'base profile': dfs_obio
+dependencies:
+  - acq_commerce
+  - acq_cart
+  - acq_checkout
+  - acq_customer
+  - acq_payment
+  - acq_promotion
+  - acq_sku
+exclude:
+  - lightning_api
+  - lightning_contact_form
+  - lightning_preview
+  - lightning_roles
+  - bartik
+  - seven
+  - dfs_obio_content
+  - acq_product

@@ -1,0 +1,39 @@
+name: Big Screen
+description: "theme for Big Screen Display"
+core: 8.x
+type: theme
+base theme: fin
+
+# Image appears on admin/appearance
+# screenshot: images/screenshot.jpg
+
+# Uncomment these lines and change "STARTER" to your theme name if you
+# need to add custom CSS or JS
+libraries:
+ - bigscreen/global
+
+# Regions are output in the page.html.twig
+
+regions:
+  highlighted: Highlighted
+  content: Content
+  left_off_canvas: 'Left off canvas'
+  right_off_canvas: 'Right off canvas'
+  sidebar_first: 'Left Sidebar'
+  sidebar_second: 'Right Sidebar'
+regions_hidden:
+  page_top: 'Page Top'
+  page_bottom: 'Page bottom'
+  footer_first: 'Footer first column'
+  footer_middle: 'Footer middle column'
+  footer_last: 'Footer last column'
+  meta_footer: 'Full Width Meta Footer'
+# Hidden regions
+# regions_hidden[]: Page top
+# regions_hidden[]: Page bottom
+
+features:
+  - logo
+  - name
+  - slogan
+  - favicon

@@ -1,0 +1,4 @@
+Name,Roles,Picture,First,Last,Mail
+jennifer_kappel,authenticated,jennifer_kappel.jpg,Jennifer,Kappel,jen@example.com
+alex_angstrom,authenticated,alex_angstrom.jpg,Alex,Angstrom,alex@example.com
+marc_rust,authenticated,marc_rust.jpg,Marc,Rust,rustneversleeps@example.com

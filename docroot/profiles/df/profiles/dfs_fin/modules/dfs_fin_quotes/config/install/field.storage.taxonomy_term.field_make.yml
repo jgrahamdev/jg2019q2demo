@@ -1,0 +1,25 @@
+uuid: 72246804-f861-4356-9e80-27e93b1ced46
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - dfs_fin_quotes
+  enforced:
+    module:
+      - dfs_fin_quotes
+id: taxonomy_term.field_make
+field_name: field_make
+entity_type: taxonomy_term
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,6 @@
+big_screen.settings_page:
+  route_name: big_screen.big_screen_settings
+  title: Big Screen
+  description: 'Select the Big Screen theme.'
+  parent: system.themes_page
+  weight: 99

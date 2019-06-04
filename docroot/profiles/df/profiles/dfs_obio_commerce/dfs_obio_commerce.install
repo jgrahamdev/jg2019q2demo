@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the dfs_obio_commerce module.
+ */
+
+use Drupal\file\Entity\File;
+
+/**
+ * Implements hook_install().
+ */
+function dfs_obio_commerce_install() {
+  // Ensure the translation fields are created in the database.
+  // @todo Remove this when https://www.drupal.org/node/2599228 is fixed.
+  \Drupal::service('entity.definition_update_manager')->applyUpdates();
+
+  // Add image for uid 1 (Bill James).
+  if ($adminUser = \Drupal::service('entity_type.manager')->getStorage('user')->load(1)) {
+    // File url from dfs_obio:file:file migration data.
+    $adminPictureSource = drupal_get_path('profile', 'dfs_obio') . '/data/images/bill_james.jpg';
+    $adminPictureTarget = 'public://pictures/';
+
+    if (file_exists($adminPictureSource) && file_prepare_directory($adminPictureTarget, FILE_CREATE_DIRECTORY)) {
+      $fileTarget = $adminPictureTarget . basename($adminPictureSource);
+
+      if ($fileUri = file_unmanaged_copy($adminPictureSource, $fileTarget, FILE_EXISTS_REPLACE)) {
+        $fileEntity = File::create(['uri' => $fileUri]);
+        $fileEntity->setPermanent();
+        $fileEntity->save();
+
+        if ($fileEntity) {
+          $adminUser->set('user_picture', [
+            [
+              'target_id' => $fileEntity->id(),
+              'alt' => '',
+              'title' => '',
+            ],
+          ])->save();
+        }
+      }
+    }
+  }
+
+  // Remove article's comment field instance config.
+  \Drupal::configFactory()
+    ->getEditable('field.field.node.article.comment')
+    ->delete();
+
+  // Import our custom .po files
+  df_tools_translation_import_translations('profile', 'dfs_obio');
+}

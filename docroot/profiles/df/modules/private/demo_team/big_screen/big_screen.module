@@ -1,0 +1,26 @@
+<?php
+
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function big_screen_entity_base_field_info(EntityTypeInterface $entity_type) {
+  if ($entity_type->id() == 'node') {
+    $fields = array();
+    $fields['always_big'] = BaseFieldDefinition::create('boolean')
+      ->setLabel(t('<strong>Always Big!</strong>'))
+      ->setDescription(t('Show this content on the Big Screen only.'))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayOptions('form', [
+        'settings' => ['display_label' => true],
+        'type' => 'boolean_checkbox',
+        'weight' => 30,
+      ])
+      ->setTranslatable(TRUE)
+      ->setRevisionable(TRUE)
+      ->setComputed(FALSE);
+    return $fields;
+  }
+}

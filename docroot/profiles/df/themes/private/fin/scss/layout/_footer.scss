@@ -1,0 +1,71 @@
+//  client styles for footer region.
+.copyright {
+  color: $dark-bg-font-color;
+}
+
+.footer-logo {
+  @extend .vertical-padding-space;
+  @extend .vertical-margin-space;
+  .logo {
+    max-width:120px;
+  }
+}
+
+footer {
+  #footer-first,
+  #footer-middle,
+  #footer-last,
+  #meta-footer {
+    @extend .full-block-spacing
+  }
+  h2.block-title {
+    color: $white;
+    @extend h5;
+    padding: 0 10px;
+  }
+  p {
+    color: $white;
+    padding: 0 10px;
+  }
+  .block-views-block-footer-nav-block-1,
+  .block-views-block-footer-nav-block-2 {
+    a {
+      padding-top: rem-calc(10px);
+      float: left;
+    }
+  }
+  //footer specific styling for newsletter on dark background. All other styling is outside of <footer> so the block can be placed anywhere
+  #block-newsletterform {
+    border: 2px solid $dark-bg-border;
+    .newsletter-icon,
+    .newsletter-header,
+    .newsletter-subheader {
+      color: $white;
+    }
+  }
+}
+
+#block-newsletterform {
+  @extend .callout;
+  background: transparent;
+  .newsletter-icon {
+    @media #{$medium-up} {
+      float: left;
+    }
+    @extend .horizontal-padding-space;
+  }
+  .newsletter-header {
+    @extend h4;
+  }
+  .newsletter-subheader {
+    font-style: italic;
+    font-size: .85em;
+  }
+  .email-form-textbox,
+  .subscribe-submit {
+    margin-bottom: 0;
+  }
+  .subscribe-submit {
+    line-height: rem-calc(15px);
+  }
+}

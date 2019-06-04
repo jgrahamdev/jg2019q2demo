@@ -1,0 +1,19 @@
+config_rewrite: replace
+uuid: 4c75abe6-763a-478b-bd53-83016c959eed
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: hero_square
+label: 'Hero medium (1114x665)'
+effects:
+  19a9debe-127b-4f12-b115-52638acd8a0f:
+    uuid: 19a9debe-127b-4f12-b115-52638acd8a0f
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 1114
+      height: 665
+      crop_type: focal_point
+

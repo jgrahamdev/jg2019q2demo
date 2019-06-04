@@ -1,0 +1,57 @@
+dfs_fin.products:
+  title: 'Products'
+  url: 'internal:/products'
+  menu_name: main
+  weight: 0
+  expanded: TRUE
+dfs_fin.resources:
+  title: 'Resources'
+  url: 'internal:/resources'
+  menu_name: main
+  weight: 0
+  expanded: TRUE
+dfs_fin.articles:
+  title: 'Articles'
+  url: 'internal:/resources/articles'
+  menu_name: main
+  parent: dfs_fin.resources
+  weight: 0
+  expanded: TRUE
+dfs_fin.faq:
+  title: 'Frequently asked questions'
+  url: 'internal:/faq'
+  menu_name: main
+  parent: dfs_fin.resources
+  weight: 1
+dfs_fin.our_company:
+  title: 'Our Company'
+  url: 'internal:/about'
+  menu_name: main
+  weight: 1
+  expanded: TRUE
+dfs_fin.contact:
+  title: 'Contact us'
+  url: 'internal:/contact/request_more_info'
+  menu_name: main
+  weight: 2
+  expanded: TRUE
+dfs_fin.get_started:
+  title: 'Get Started'
+  url: 'internal:#main-menu'
+  menu_name: main
+  weight: 3
+  expanded: TRUE
+dfs_fin.get_quote:
+  title: 'Get a quote'
+  url: 'internal:/contact/get_a_quote'
+  menu_name: main
+  parent: dfs_fin.get_started
+  weight: 0
+dfs_fin.locations:
+  title: 'Find a location'
+  url: 'internal:/locations'
+  menu_name: main
+  parent: dfs_fin.get_started
+  weight: 1
+dfs_fin.nodes:
+  deriver: \Drupal\dfs_fin_menu\Plugin\Derivative\DFSFINMenuLinkDerivative

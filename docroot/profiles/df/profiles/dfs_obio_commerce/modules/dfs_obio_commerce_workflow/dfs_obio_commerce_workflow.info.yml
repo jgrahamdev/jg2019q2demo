@@ -1,0 +1,7 @@
+name: 'DFS Obio Commerce Workflow'
+type: module
+description: 'Workflow overrides.'
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - df_tools_workflow

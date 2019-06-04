@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - dfs_fin_contact
+  enforced:
+    module:
+      - dfs_fin_contact
+id: request_more_info
+label: 'Request more info'
+recipients:
+  - admin@example.com
+reply: 'Thanks for your correspondence, a representative will get back to as soon as possible.'
+weight: 0

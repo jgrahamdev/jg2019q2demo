@@ -1,0 +1,6 @@
+main:
+  css:
+    theme:
+      css/dfs_obio_quickview.theme.css: {}
+  dependencies:
+    - core/drupal.dialog.ajax

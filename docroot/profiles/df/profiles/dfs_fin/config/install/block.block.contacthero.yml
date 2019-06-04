@@ -1,0 +1,38 @@
+uuid: c1412924-c903-44ee-9f00-a97ff70a59a4
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:hero:e834ce73-7029-4bff-8613-19b4b579bf56'
+  module:
+    - block_class
+    - block_content
+    - system
+    - dfs_fin
+  enforced:
+    module:
+      - dfs_fin
+third_party_settings:
+  block_class:
+    classes: ''
+_core:
+  default_config_hash: CGo4SvG35h3FBGv6EGYJDOqWgrarlZKsacH_7bF0Cyk
+id: contacthero
+theme: fin
+region: featured
+weight: -15
+provider: null
+plugin: 'block_content:e834ce73-7029-4bff-8613-19b4b579bf56'
+settings:
+  id: 'block_content:e834ce73-7029-4bff-8613-19b4b579bf56'
+  label: 'Contact Hero'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /contact/request_more_info
+    negate: false

@@ -1,0 +1,31 @@
+uuid: a8473389-dc1f-40d3-9347-71dd8db69f3e
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:8de07e00-efb3-445c-921d-29fa827f621c'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - fin
+third_party_settings:
+  block_class:
+    classes: ''
+_core:
+  default_config_hash: 47NiULbDBjttat9xsDuBjMoV-BFlBZu0LtFcAn6Fwu4
+id: getstarted
+theme: fin
+region: '-1'
+weight: -3
+provider: null
+plugin: 'block_content:8de07e00-efb3-445c-921d-29fa827f621c'
+settings:
+  id: 'block_content:8de07e00-efb3-445c-921d-29fa827f621c'
+  label: 'Get Started'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

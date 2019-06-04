@@ -1,0 +1,24 @@
+uuid: 028c2489-7593-4464-a9d8-7b1a8f481b83
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - system
+  theme:
+    - bigscreen
+third_party_settings:
+  block_class:
+    classes: ''
+id: mainpagecontent
+theme: bigscreen
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,31 @@
+config_rewrite: replace
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - system
+  theme:
+    - obio
+third_party_settings:
+  block_class:
+    classes: vertical
+id: tabs
+theme: obio
+region: sidebar_first
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility:
+  request_path:
+    id: request_path
+    pages: "/user/*"
+    negate: false
+    context_mapping: {  }

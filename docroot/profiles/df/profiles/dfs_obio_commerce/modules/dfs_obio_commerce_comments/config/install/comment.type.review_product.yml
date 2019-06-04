@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: review_product
+label: 'Product Review'
+target_entity_type_id: commerce_product
+description: 'A review related to a Product.'

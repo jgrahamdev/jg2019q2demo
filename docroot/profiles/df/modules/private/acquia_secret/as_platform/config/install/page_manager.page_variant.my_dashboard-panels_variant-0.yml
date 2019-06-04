@@ -1,0 +1,142 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.my_dashboard
+    - views.view.moderation_dashboard
+  module:
+    - ctools_block
+    - panels
+    - views
+  enforced:
+    module:
+      - as_platform
+id: my_dashboard-panels_variant-0
+label: Admin Dashboard
+variant: panels_variant
+variant_settings:
+  blocks:
+    2fd9dd3e-a754-44cd-84e3-331c768e7a48:
+      id: 'entity_field:user:timezone'
+      label: Timezone
+      provider: ctools_block
+      label_display: '0'
+      formatter:
+        label: above
+        type: string
+        settings:
+          link_to_entity: false
+        third_party_settings: {  }
+        weight: 0
+      context_mapping:
+        entity: current_user
+      region: left
+      uuid: 2fd9dd3e-a754-44cd-84e3-331c768e7a48
+      weight: 5
+    c7c4b0fc-bc46-48f1-a068-bbf97c99829c:
+      id: 'entity_field:user:roles'
+      label: Roles
+      provider: ctools_block
+      label_display: '0'
+      formatter:
+        label: above
+        type: entity_reference_label
+        settings:
+          link: true
+        third_party_settings: {  }
+        weight: 0
+      context_mapping:
+        entity: current_user
+      region: left
+      uuid: c7c4b0fc-bc46-48f1-a068-bbf97c99829c
+      weight: 4
+    2f5fbbba-a00f-4100-ab46-8a906f6f7607:
+      id: 'entity_field:user:user_picture'
+      label: Picture
+      provider: ctools_block
+      label_display: '0'
+      formatter:
+        label: above
+        type: image
+        settings:
+          image_style: ''
+          image_link: ''
+        third_party_settings: {  }
+        weight: 0
+      context_mapping:
+        entity: current_user
+      region: left
+      uuid: 2f5fbbba-a00f-4100-ab46-8a906f6f7607
+      weight: 1
+    a33f4ba1-fe09-4cca-8f5e-e41a4bc499e6:
+      id: 'entity_field:user:field_last_name'
+      label: 'Last Name'
+      provider: ctools_block
+      label_display: '0'
+      formatter:
+        label: above
+        type: string
+        settings:
+          link_to_entity: false
+        third_party_settings: {  }
+        weight: 0
+      context_mapping:
+        entity: current_user
+      region: left
+      uuid: a33f4ba1-fe09-4cca-8f5e-e41a4bc499e6
+      weight: 3
+    58616af3-bbf0-4460-8eb0-6ca2dd52f6d8:
+      id: 'entity_field:user:field_first_name'
+      label: 'First Name'
+      provider: ctools_block
+      label_display: '0'
+      formatter:
+        label: above
+        type: string
+        settings:
+          link_to_entity: false
+        third_party_settings: {  }
+        weight: 0
+      context_mapping:
+        entity: current_user
+      region: left
+      uuid: 58616af3-bbf0-4460-8eb0-6ca2dd52f6d8
+      weight: 2
+    03bf46da-f1c0-43cd-92c7-b0ab9344bb04:
+      id: 'views_block:moderation_dashboard-my_drafts'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      context_mapping: {  }
+      region: middle
+      uuid: 03bf46da-f1c0-43cd-92c7-b0ab9344bb04
+      weight: 1
+    0adbeeed-5803-482e-bb64-68a384d84efd:
+      id: 'views_block:moderation_dashboard-review'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      context_mapping: {  }
+      region: middle
+      uuid: 0adbeeed-5803-482e-bb64-68a384d84efd
+      weight: 2
+  id: panels_variant
+  uuid: a6582f60-d3ea-4d3e-8380-01ba0cee674d
+  label: null
+  weight: 0
+  layout: layout_threecol_25_50_25
+  layout_settings: {  }
+  page_title: 'My Dashboard'
+  storage_type: page_manager
+  storage_id: my_dashboard-panels_variant-0
+  builder: ipe
+page: my_dashboard
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }
+

@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    description: ''
+id: commerce_product.browser
+label: 'Product browser'
+targetEntityType: commerce_product
+cache: true

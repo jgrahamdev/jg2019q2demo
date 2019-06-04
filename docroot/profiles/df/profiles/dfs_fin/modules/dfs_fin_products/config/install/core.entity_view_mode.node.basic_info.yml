@@ -1,0 +1,14 @@
+uuid: 76adab59-0550-4130-ab00-b0773447fe86
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - dfs_fin_products
+  enforced:
+    module:
+      - dfs_fin_products
+id: node.basic_info
+label: 'Basic Info'
+targetEntityType: node
+cache: true

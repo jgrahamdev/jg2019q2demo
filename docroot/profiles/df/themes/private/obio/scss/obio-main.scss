@@ -1,0 +1,13 @@
+//
+// @file
+// Main stylesheet including base and external imports.
+//
+
+// Import the real monolithic SCSS file.
+@import 'obio-base';
+
+// Place external imports here.
+//
+// Color module will run out of memory if you do these inside the
+// _obio-base.scss file.
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:200,300,400,700');

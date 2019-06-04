@@ -1,0 +1,34 @@
+uuid: 22cebb99-0d5e-45b8-9300-e21884e2a0b2
+langcode: en
+status: true
+dependencies:
+  module:
+    - addtoany
+    - block_class
+    - ctools
+    - dfs_fin
+  enforced:
+    module:
+      - dfs_fin
+third_party_settings:
+  block_class:
+    classes: ''
+id: addtoanybuttons
+theme: fin
+region: sidebar_second
+weight: -15
+provider: null
+plugin: addtoany_block
+settings:
+  id: addtoany_block
+  label: 'Share:'
+  provider: addtoany
+  label_display: visible
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      article: article
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

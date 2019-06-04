@@ -1,0 +1,31 @@
+uuid: e038ff65-f8b2-4896-8303-3e7326d7cabd
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - system
+  theme:
+    - fin
+third_party_settings:
+  block_class:
+    classes: ''
+_core:
+  default_config_hash: HJo1RADemqz7i-hsHg9Z4HQcemvmTVZkfAEP67jQGgg
+id: fin_page_title
+theme: fin
+region: content
+weight: -13
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/about\r\n/agent-license\r\n/history\r\n/our-story\r\n/terms-conditions\r\n/location\r\n/location/*\r\n/user\r\n/user/*"
+    negate: false
+    context_mapping: {  }

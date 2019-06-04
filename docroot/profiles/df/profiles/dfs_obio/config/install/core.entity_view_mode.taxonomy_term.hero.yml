@@ -1,0 +1,14 @@
+uuid: ac4ac57c-a9fc-475a-8a6d-06889dcc7e3d
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - taxonomy
+third_party_settings:
+  lightning_core:
+    description: ''
+id: taxonomy_term.hero
+label: Hero
+targetEntityType: taxonomy_term
+cache: true

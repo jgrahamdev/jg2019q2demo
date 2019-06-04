@@ -1,0 +1,24 @@
+id: import_dfs_obio_image
+label: Import dfs_obio:media:image
+source:
+  plugin: media_image
+  path: '../data/dfs_obio.media.image.csv'
+  header_row_count: 1
+  keys: [Image]
+destination:
+  plugin: entity:media
+process:
+  bundle: { plugin: default_value, default_value: image }
+  image: File
+  name: Name
+  uuid: UUID
+  field_tags:
+    -
+      plugin: explode
+      delimiter: ','
+      source: Tags
+    -
+      plugin: migration
+      migration: import_dfs_obio_media_tags
+migration_dependencies:
+    required: [import_dfs_obio_media_tags]

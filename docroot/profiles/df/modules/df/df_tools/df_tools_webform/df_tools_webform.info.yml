@@ -1,0 +1,8 @@
+name: DF Tools Webform
+type: module
+description: Sets up webform to work correctly with our admin theme.
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - webform
+  - webform_ui

@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - system
+  theme:
+    - obio
+third_party_settings:
+  block_class:
+    classes: block-pagetitle__cart
+id: dfs_obio_commerce__page_title_cart
+theme: obio
+region: content_prefix
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title — Cart'
+  provider: core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /cart
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,6 @@
+dfs_obio_tour.settings:
+  title: 'DFS Obio Tour'
+  description: 'Configure DFS Obio Tour API keys.'
+  route_name: dfs_obio_tour.settings
+  parent: system.admin_config_ui
+  weight: 50

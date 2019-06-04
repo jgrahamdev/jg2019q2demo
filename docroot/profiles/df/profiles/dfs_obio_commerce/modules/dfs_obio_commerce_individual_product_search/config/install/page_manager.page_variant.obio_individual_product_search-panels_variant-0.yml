@@ -1,0 +1,92 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.color
+    - facets.facet.price
+    - facets.facet.tags
+    - facets.facet.types
+    - facets_summary.facets_summary.reset_link
+    - page_manager.page.obio_individual_product_search
+    - views.view.obio_individual_product_search
+  module:
+    - facets
+    - facets_summary
+    - panels
+    - views
+id: obio_individual_product_search-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    b15054ea-088f-46a9-90ef-721a84a81ef0:
+      id: 'facet_block:color'
+      label: Color
+      provider: facets
+      label_display: visible
+      region: sidebar
+      weight: -1
+      uuid: b15054ea-088f-46a9-90ef-721a84a81ef0
+      context_mapping: {  }
+    19c9e967-3127-4f1d-bd3d-3407fd39df63:
+      id: 'facet_block:tags'
+      label: Tags
+      provider: facets
+      label_display: visible
+      region: sidebar
+      weight: -2
+      uuid: 19c9e967-3127-4f1d-bd3d-3407fd39df63
+      context_mapping: {  }
+    6b269855-ce37-45ec-99b0-406cc1bf76f3:
+      id: 'facet_block:types'
+      label: Types
+      provider: facets
+      label_display: visible
+      region: sidebar
+      weight: 0
+      uuid: 6b269855-ce37-45ec-99b0-406cc1bf76f3
+      context_mapping: {  }
+    120cc8be-79a0-430d-90f0-c38fbd6d36b9:
+      id: 'views_block:obio_individual_product_search-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: main
+      weight: 0
+      uuid: 120cc8be-79a0-430d-90f0-c38fbd6d36b9
+      context_mapping: {  }
+    c4cb648d-df37-409f-a1be-1e01238e8acd:
+      id: 'facet_block:price'
+      label: Price
+      provider: facets
+      label_display: visible
+      region: sidebar
+      weight: 1
+      uuid: c4cb648d-df37-409f-a1be-1e01238e8acd
+      context_mapping: {  }
+    c2c4b7c6-0f67-4056-a531-ff7f83289d0b:
+      id: 'facets_summary_block:reset_link'
+      label: 'Your Selections:'
+      provider: facets_summary
+      label_display: visible
+      region: main
+      weight: -1
+      uuid: c2c4b7c6-0f67-4056-a531-ff7f83289d0b
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 7834f6d6-70d0-449c-aec5-5c044ba19e13
+  label: null
+  weight: 0
+  layout: layout_individual_product_search
+  layout_settings: {  }
+  page_title: 'All Products'
+  storage_type: page_manager
+  storage_id: obio_individual_product_search-panels_variant-0
+  builder: standard
+page: obio_individual_product_search
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

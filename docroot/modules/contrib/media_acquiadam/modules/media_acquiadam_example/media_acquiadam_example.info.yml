@@ -1,0 +1,16 @@
+name: "Media: Acquia DAM - Example Configuration"
+description: "Example configuration of the Media: Acquia DAM module."
+# core: 8.x
+type: module
+package: Media
+dependencies:
+  - media_acquiadam
+  - file
+  - image
+  - fallback_formatter
+
+# Information added by Drupal.org packaging script on 2018-06-19
+version: '8.x-1.32'
+core: '8.x'
+project: 'media_acquiadam'
+datestamp: 1529441324

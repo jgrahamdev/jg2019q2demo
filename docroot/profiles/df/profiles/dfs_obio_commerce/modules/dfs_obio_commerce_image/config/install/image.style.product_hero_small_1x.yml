@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: product_hero_small_1x
+label: 'Product hero (small) 1x'
+effects:
+  66d96bed-053d-434c-95d6-678c79db156d:
+    uuid: 66d96bed-053d-434c-95d6-678c79db156d
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1920
+      height: 600
+      crop_type: focal_point
+  e550e112-6435-4b44-afed-cd1dcc870d8a:
+    uuid: e550e112-6435-4b44-afed-cd1dcc870d8a
+    id: focal_point_scale_and_crop
+    weight: 3
+    data:
+      width: 640
+      height: 600
+      crop_type: focal_point

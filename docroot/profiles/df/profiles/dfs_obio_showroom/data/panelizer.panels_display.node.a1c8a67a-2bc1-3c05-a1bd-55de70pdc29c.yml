@@ -1,0 +1,89 @@
+blocks:
+  5dec915e-f647-4e52-a5a0-55eca3d585a6:
+    id: 'block_content:191357ef-d497-4069-ab7f-0a5fa3905604'
+    label: 'Boston Home Hero'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 5dec915e-f647-4e52-a5a0-55eca3d585a6
+    weight: 1
+  1ff5f023-1599-4176-83d6-b4118f17a823:
+    id: magellan
+    label: Magellan
+    provider: df_tools_blocks
+    label_display: 0
+    context_mapping: {  }
+    region: middle
+    uuid: 1ff5f023-1599-4176-83d6-b4118f17a823
+    weight: 2
+  3d253eca-5a90-4432-a02c-8a2352ba131a:
+    id: 'block_content:13e54264-d983-4fdd-a5f7-9858241a9c2c'
+    label: 'Seeing is believing.'
+    provider: block_content
+    label_display: 1
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 3d253eca-5a90-4432-a02c-8a2352ba131a
+    weight: 3
+  666856dc-88c3-4d18-b605-fd767fec7631:
+    id: subscribe_form
+    label: 'Stay Informed'
+    provider: dfs_obio
+    label_display: visible
+    context_mapping: {  }
+    region: middle
+    uuid: 666856dc-88c3-4d18-b605-fd767fec7631
+    weight: 4
+  6ca55538-d8d9-419d-b343-846242430ea0:
+    id: content_embed
+    label: 'Hours / Location'
+    provider: content_browser
+    label_display: visible
+    view_mode: teaser 
+    nids:
+      - 1
+    uuids: {  }
+    context_mapping: {  }
+    region: middle
+    uuid: 6ca55538-d8d9-419d-b343-846242430ea0
+    weight: 5
+  2fb2d155-8273-4109-967f-874b9c2fd992:
+    id: 'views_block:latest_articles-block_1'
+    label: 'What''s New'
+    provider: views
+    label_display: visible
+    views_label: 'What''s New'
+    items_per_page: none
+    context_mapping: {  }
+    region: middle
+    uuid: 2fb2d155-8273-4109-967f-874b9c2fd992
+    weight: 6
+  d856b03e-72db-4da6-9518-6f0da76a2fb3:
+    id: 'views_block:latest_galleries-boston_galleries'
+    label: 'Boston Galleries'
+    provider: views
+    label_display: visible
+    views_label: 'Boston Galleries'
+    items_per_page: 2
+    context_mapping: {  }
+    region: middle
+    uuid: d856b03e-72db-4da6-9518-6f0da76a2fb3
+    weight: 7
+id: panels_variant
+uuid: 66454ba9-dca2-4264-bd09-9beeb133bd80
+label: ''
+weight: 0
+layout: foundation_1col
+layout_settings: {  }
+page_title: '[node:title]'
+storage_type: panelizer_field
+storage_id: 'node:3:full:14'
+pattern: panelizer
+builder: ipe

@@ -1,0 +1,84 @@
+blocks:
+  a4864ebb-18f5-48c5-8b60-96cc5336a2a2:
+    id: 'entity_field:node:body'
+    label: Body
+    provider: ctools_block
+    label_display: '0'
+    formatter:
+      label: hidden
+      type: text_default
+      settings: {  }
+      third_party_settings: {  }
+      weight: 0
+    context_mapping:
+      entity: '@panelizer.entity_context:entity'
+    region: middle
+    weight: 3
+    uuid: a4864ebb-18f5-48c5-8b60-96cc5336a2a2
+  beaeb733-fbeb-4d85-8a00-fb1cfbf31299:
+    id: 'views_block:product_bundle_callout-product_bundle_block'
+    label: ''
+    provider: views
+    label_display: '0'
+    views_label: ''
+    items_per_page: none
+    context_mapping: {  }
+    region: middle
+    uuid: beaeb733-fbeb-4d85-8a00-fb1cfbf31299
+    weight: 5
+  217d6d29-ce35-41a2-9d19-25632c5a7f84:
+    id: 'block_content:11d2f248-2778-4361-893d-61c1f65b2b52'
+    label: 'Disability Hero'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 217d6d29-ce35-41a2-9d19-25632c5a7f84
+    weight: 1
+  3ef6a3e3-4ac2-45d8-9409-9fe7c12053bf:
+    id: 'entity_field:node:field_associated_testimonials'
+    label: 'Associated Testimonials'
+    provider: ctools_block
+    label_display: 0
+    formatter:
+      label: hidden
+      type: entity_reference_entity_view
+      settings:
+        view_mode: teaser
+      third_party_settings: {  }
+      weight: 0
+    context_mapping:
+      entity: '@panelizer.entity_context:entity'
+    region: middle
+    uuid: 3ef6a3e3-4ac2-45d8-9409-9fe7c12053bf
+    weight: 4
+  c8446596-d403-4b20-9c00-0c1d5dfcde01:
+    id: 'entity_field:node:field_promo_text'
+    label: 'Promo Text'
+    provider: ctools_block
+    label_display: 0
+    formatter:
+      label: hidden
+      type: string
+      settings:
+        link_to_entity: 0
+      third_party_settings: {  }
+      weight: 0
+    context_mapping:
+      entity: '@panelizer.entity_context:entity'
+    region: middle
+    uuid: c8446596-d403-4b20-9c00-0c1d5dfcde01
+    weight: 2
+id: panels_variant
+uuid: 91249ee3-27cf-424e-915c-92becd79eb47
+label: ''
+weight: 0
+layout: foundation_1col
+layout_settings: {  }
+page_title: '[node:title]'
+storage_type: panelizer_field
+storage_id: 'node:13:full:34'
+builder: ipe

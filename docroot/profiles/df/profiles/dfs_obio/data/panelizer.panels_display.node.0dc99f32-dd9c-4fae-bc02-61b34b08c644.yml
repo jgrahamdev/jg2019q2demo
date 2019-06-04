@@ -1,0 +1,48 @@
+blocks:
+  bc396094-60e7-49da-8b05-5fa3d0eb4083:
+    id: 'entity_field:node:title'
+    label: Title
+    provider: ctools_block
+    label_display: '0'
+    formatter:
+      label: hidden
+      type: string
+      settings:
+        link_to_entity: false
+      third_party_settings: {  }
+      weight: 0
+    context_mapping:
+      entity: '@panelizer.entity_context:entity'
+    region: top
+    uuid: bc396094-60e7-49da-8b05-5fa3d0eb4083
+    weight: 1
+  b0715cb5-aa38-459f-918e-99b3a7f677f0:
+    id: 'views_block:collection_example_view-collection_example'
+    label: ''
+    provider: views
+    label_display: 0
+    views_label: ''
+    items_per_page: none
+    context_mapping: {  }
+    region: right
+    uuid: b0715cb5-aa38-459f-918e-99b3a7f677f0
+    weight: 1
+  73222bf4-d848-4dad-9ee4-ec142a59ec59:
+    id: collection_node_endpoint_block
+    label: 'Collection node endpoint block'
+    provider: dfs_obio_collection
+    label_display: 0
+    context_mapping: {  }
+    region: left
+    uuid: 73222bf4-d848-4dad-9ee4-ec142a59ec59
+    weight: 1
+id: panels_variant
+uuid: 66454ba9-dca2-4264-bd09-9beeb133bd80
+label: ''
+weight: 0
+layout: foundation_2col_stacked
+layout_settings: {  }
+page_title: '[node:title]'
+storage_type: panelizer_field
+storage_id: 'node:7:full:97'
+builder: ipe

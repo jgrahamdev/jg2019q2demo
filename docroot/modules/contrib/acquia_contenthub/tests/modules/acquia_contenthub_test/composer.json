@@ -1,0 +1,19 @@
+{
+  "name": "drupal/acquia_contenthub_test",
+  "type": "drupal-module",
+  "description": "Test module for adding in contenthub test dependencies.",
+  "license": "GPL-2.0+",
+  "require": {
+    "drupal/paragraphs": "^1.5",
+    "drupal/field_permissions": "^1.0",
+    "drupal/entity_embed": "^1.0",
+    "drupal/entity": "^1.0",
+    "drupal/entity_browser": "^2.0",
+    "drupal/file_entity": "^2.0"
+  },
+  "extra": {
+    "orca": {
+      "enable": false
+    }
+  }
+}

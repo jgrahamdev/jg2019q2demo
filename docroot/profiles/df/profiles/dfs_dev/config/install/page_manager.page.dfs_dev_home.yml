@@ -1,0 +1,12 @@
+uuid: 3fc0501e-dc4d-4b95-b809-9aca53c4f60e
+langcode: en
+status: true
+dependencies: {  }
+id: dfs_dev_home
+label: 'Developer Home'
+description: ''
+use_admin_theme: false
+path: /dev-home
+access_logic: and
+access_conditions: {  }
+parameters: {  }

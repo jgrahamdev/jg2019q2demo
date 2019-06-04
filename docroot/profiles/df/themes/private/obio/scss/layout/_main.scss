@@ -1,0 +1,195 @@
+// featured view modes for article
+.article-featured {
+  position: relative;
+  @extend .vertical-margin-space;
+  .image-wrap {
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0.88235rem;
+      right: 0.88235rem;
+      ;
+      background: rgba(0, 0, 0, 0.5);
+      -moz-transition: background .3s linear;
+      -webkit-transition: background .3s linear;
+      -o-transition: background .3s linear;
+      transition: background .3s linear;
+    }
+    img {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  .title-wrap {
+    max-width: 50%;
+    position: absolute;
+    margin-right: 40px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    bottom: 0;
+    right: 40%;
+    @include breakpoint(medium down) {
+      max-width: 100%;
+      right: 0;
+    }
+    .field-name-user-picture {
+      display: inline-block;
+      img {
+        border-radius: 100%;
+        max-width: 75px;
+        @include breakpoint(medium down) {
+          max-width: 40px;
+        }
+      }
+    }
+    .field-name-field-first-name,
+    .field-name-field-last-name {
+      display: inline-block;
+      color: $white;
+    }
+    .article-featured-title a {
+      font-weight: bold;
+      color: $white;
+      font-size: 1.2em;
+      @include breakpoint(medium down) {
+        font-size: .8em;
+        font-weight: 100;
+      }
+    }
+  }
+}
+
+// specifics for view modes & Views lists to act "responsive" based on the placement in IPE
+#panels-ipe-content {
+  #{$grid-content-queries} {
+    article.article-node-type-teaser {
+      .title-wrap {
+        max-width: 100%;
+        right: 0;
+      }
+      .field-name-user-picture {
+        img {
+          max-width: 40px;
+        }
+      }
+      .field-name-field-first-name,
+      .field-name-field-last-name,
+      .article-featured-title,
+      a {
+        font-size: 1em;
+        font-weight: 100;
+      }
+    }
+    div.block-content__content--hero {
+      .full-width-row {
+        width: 100%;
+        left: 0;
+      }
+      .field-name-field-first-line {
+        font-size: 1.52941rem;
+        font-weight: 300;
+        line-height: 1.2;
+      }
+      .full-width-inner>.column {
+        max-width: 100%;
+        flex: 0 0 100%;
+      }
+    }
+    .view {
+      .row.medium-unstack {
+        .columns {
+          flex: 0 0 100%;
+        }
+      }
+    }
+  }
+}
+
+#panels-ipe-content {
+  #{$grid-content-queries} {
+    .small-up-1 {
+      &.large-up-2,
+      &.large-up-3,
+      &.large-up-4,
+      &.large-up-5,
+      &.large-up-6 {
+        .columns {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.small-up-1 {
+  &.large-up-2,
+  &.large-up-3,
+  &.large-up-4,
+  &.large-up-5,
+  &.large-up-6 {
+    .location-wrap .columns {
+      flex: 0 0 100%;
+      max-width: 100%;
+      .hide-for-small-only {
+        display: none;
+      }
+    }
+  }
+}
+
+.obio-modal-message {
+  text-align: center;
+  i {
+    color: $success-color;
+  }
+}
+
+//Acquia DAM asset preview /media/*
+.asset-data-container {
+  .asset-data-label p {
+    color: #666;
+  }
+  background:#eee;
+  padding:20px;
+  font-size:0.8rem;
+  .field-wrapper {
+    margin-bottom: 12px;
+    .field-label {
+      display: inline-block;
+      padding-right: 10px;
+      width: 30%;
+    }
+    .field-items {
+      display: inline-block;
+      width: 50%;
+      color: #666;
+    }
+  }
+}
+
+.asset-preview-container {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  .asset-name-title {
+    padding: 15px;
+    background: #f2f2fa;
+    margin-bottom: 20px;
+    h4 {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.view-article-collection.articles-latest {
+  .view-content {
+    .columns {
+      padding: 0;
+    }
+    .card {
+      margin-bottom: 0;
+    }
+  }
+}

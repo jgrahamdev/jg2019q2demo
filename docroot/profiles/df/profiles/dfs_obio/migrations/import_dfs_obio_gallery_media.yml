@@ -1,0 +1,35 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_obio_gallery_media
+label: 'Import dfs_obio:entity_gallery:media'
+source:
+  plugin: csv
+  path: ../data/dfs_obio.entity_gallery.media.csv
+  header_row_count: 1
+  keys: [UUID]
+  csvColumns: { 0: 'UUID', 1: 'Title', 2: 'Media', 3: 'Tags' }
+destination:
+  plugin: 'entity:entity_gallery'
+process:
+  type: { plugin: default_value, default_value: media }
+  uuid: UUID
+  title: Title
+  entity_gallery_media:
+    -
+      plugin: explode
+      delimiter: ','
+      source: Media
+    -
+      plugin: migration
+      migration: import_dfs_obio_image
+  field_tags:
+    -
+      plugin: explode
+      delimiter: ','
+      source: Tags
+    -
+      plugin: migration
+      migration: import_dfs_obio_media_tags
+  uid: UID
+provider: import
+migration_dependencies:
+  required: [import_dfs_obio_image, import_dfs_obio_media_tags]

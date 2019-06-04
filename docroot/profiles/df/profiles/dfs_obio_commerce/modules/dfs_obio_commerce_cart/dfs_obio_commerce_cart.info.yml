@@ -1,0 +1,10 @@
+name: 'DFS Obio Commerce Blocks'
+type: module
+description: 'Block overrides.'
+core: 8.x
+package: Demo Framework Scenarios - Submodules
+dependencies:
+  - commerce_cart
+  - commerce_order
+  - commerce_price
+  - commerce_product

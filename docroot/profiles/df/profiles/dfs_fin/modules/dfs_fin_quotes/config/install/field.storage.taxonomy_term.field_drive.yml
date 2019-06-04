@@ -1,0 +1,25 @@
+uuid: 960447b8-2148-4353-9f10-6448aa744b32
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - dfs_fin_quotes
+  enforced:
+    module:
+      - dfs_fin_quotes
+id: taxonomy_term.field_drive
+field_name: field_drive
+entity_type: taxonomy_term
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

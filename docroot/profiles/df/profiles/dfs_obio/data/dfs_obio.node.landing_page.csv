@@ -1,0 +1,9 @@
+UUID,Title,Description,Path,State
+f9c8a67a-1bc1-4f05-a1bf-43de70dec29b,"Home","<p>Explore what Obio has to offer on our homepage.</p>",/obio,published
+f0ae1167-73ff-4045-a60a-6f7ee25ded25,"Inspiration","<p>Get inspired with the latest articles from Obio.</p>",/inspiration,published
+102a2d1c-d869-43cb-a6f1-435409863171,"Locations","<p>Find an Obio showroom location near you.</p>",/locations,published
+fea94828-3622-413f-a9ce-4871894991b8,"Shop Office","<p>Browse our product line and see what style fits your workplace.</p>",/shop/office,published
+f4144f20-255f-4e29-8a40-ecee47971106,"About","<p>Meet the design team at Obio and see what drives us to build beautiful spaces.</p>",/about,published
+d7f33238-aed9-4b90-a71e-92f2f3112303,"System Test","<p>An internal page used for testing various site components.</p>",/system-test,draft
+0dc99f32-dd9c-4fae-bc02-61b34b08c644,"API Demo","<p>An internal page showing how content can be consumed with our API.</p>",/api-demo,published
+cb47aee5-421c-4c4e-83de-b4c528d27378,"Commerce Home","<p>Explore what Obio has to offer on our homepage.</p>",/home,published

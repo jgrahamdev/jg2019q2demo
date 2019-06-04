@@ -1,0 +1,9 @@
+name: DF Tools Media Acquia DAM
+type: module
+description: Extends the Lightning Media module to provide support for the Acquia DAM.
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - df_tools_media
+  - media_acquiadam
+  - lightning_acquiadam

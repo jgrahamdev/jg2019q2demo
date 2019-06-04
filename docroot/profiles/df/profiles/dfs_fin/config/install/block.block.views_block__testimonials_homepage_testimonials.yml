@@ -1,0 +1,36 @@
+uuid: f14783d0-42c3-4cfa-9101-1ec812d969b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.testimonials
+  module:
+    - block_class
+    - system
+    - views
+    - dfs_fin
+  enforced:
+    module:
+      - dfs_fin
+third_party_settings:
+  block_class:
+    classes: ''
+id: views_block__testimonials_homepage_testimonials
+theme: fin
+region: null
+weight: null
+provider: null
+plugin: 'views_block:testimonials-homepage_testimonials'
+settings:
+  id: 'views_block:testimonials-homepage_testimonials'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

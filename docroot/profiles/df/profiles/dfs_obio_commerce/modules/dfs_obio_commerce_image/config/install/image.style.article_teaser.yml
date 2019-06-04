@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - crop
+    - focal_point
+name: article_teaser
+label: 'Article teaser'
+effects:
+  0877f89c-ac8d-4904-8922-96a1657bb0ef:
+    uuid: 0877f89c-ac8d-4904-8922-96a1657bb0ef
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 584
+      height: 490
+      crop_type: focal_point

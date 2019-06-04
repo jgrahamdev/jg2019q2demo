@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+id: dfs_obio_commerce__cart
+label: Cart
+description: 'Alternate cart page for Obio Commerce scenario'
+use_admin_theme: false
+path: /cart
+access_logic: and
+access_conditions: {  }
+parameters: {  }

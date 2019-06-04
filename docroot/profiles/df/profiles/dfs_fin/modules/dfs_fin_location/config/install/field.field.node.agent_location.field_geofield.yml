@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_geofield
+    - node.type.agent_location
+  enforced:
+    module:
+      - dfs_fin_location
+  module:
+    - geocoder_field
+    - geofield
+third_party_settings:
+  geocoder_field:
+    method: source
+    weight: 0
+    geocode_field: field_address
+    reverse_geocode_field: ''
+    hidden: true
+    disabled: false
+    plugins:
+      - openstreetmap
+    dumper: wkt
+    delta_handling: s_to_m
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.agent_location.field_geofield
+field_name: field_geofield
+entity_type: node
+bundle: agent_location
+label: Geofield
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  backend: geofield_backend_default
+field_type: geofield

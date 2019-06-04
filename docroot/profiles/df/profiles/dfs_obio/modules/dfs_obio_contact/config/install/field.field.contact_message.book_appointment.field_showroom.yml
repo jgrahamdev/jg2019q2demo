@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.book_appointment
+    - field.storage.contact_message.field_showroom
+    - node.type.location
+id: contact_message.book_appointment.field_showroom
+field_name: field_showroom
+entity_type: contact_message
+bundle: book_appointment
+label: Showroom
+description: 'Select the showroom you''d like to visit.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      location: location
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
+

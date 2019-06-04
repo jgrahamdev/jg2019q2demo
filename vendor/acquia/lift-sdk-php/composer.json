@@ -1,0 +1,45 @@
+{
+    "name": "acquia/lift-sdk-php",
+    "type": "library",
+    "description": "A PHP Client library to consume the Acquia Lift API.",
+    "homepage": "https://github.com/acquia/lift-sdk-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "See Contributors",
+            "homepage": "https://github.com/acquia/lift-sdk-php/graphs/contributors"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/acquia/lift-sdk-php/issues"
+    },
+    "require": {
+        "php": ">=5.5.0",
+        "guzzlehttp/guzzle": "~6.0",
+        "acquia/http-hmac-php": "~3.1",
+        "symfony/serializer": "~2.7|^3.2",
+        "symfony/http-foundation": "~2.7|^3.2"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "~1.0",
+        "pdepend/pdepend": "~1.0",
+        "phploc/phploc": "~2.0",
+        "phpmd/phpmd": "~1.0",
+        "phpunit/phpunit": ">=4.8.35 <5",
+        "scrutinizer/ocular": "~1.0",
+        "sebastian/phpcpd": "~2.0"
+    },
+    "suggest": {
+        "ramsey/uuid": "A PHP 5.4+ library for generating RFC 4122 version 1, 3, 4, and 5 universally unique identifiers (UUID)"
+    },
+    "autoload": {
+        "psr-4": {
+            "Acquia\\LiftClient\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Acquia\\LiftClient\\Test\\": "test/"
+        }
+    }
+}

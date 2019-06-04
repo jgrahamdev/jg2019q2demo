@@ -1,0 +1,21 @@
+uuid: 4034436c-f3fc-4ae9-9607-7ae54d4e79ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero
+    - field.storage.block_content.field_first_line
+id: block_content.hero.field_first_line
+field_name: field_first_line
+entity_type: block_content
+bundle: hero
+label: 'First Line'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string

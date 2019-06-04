@@ -1,0 +1,100 @@
+uuid: 05490ccd-9709-4ae9-9513-1953b45ed898
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.quote.body
+    - field.field.node.quote.field_agent_assigned
+    - field.field.node.quote.field_areas_of_focus
+    - field.field.node.quote.field_associated_product
+    - field.field.node.quote.field_quote_amount
+    - field.field.node.quote.field_tags
+    - field.field.node.quote.field_vin
+    - node.type.quote
+  module:
+    - panelizer
+    - text
+    - user
+    - dfs_fin_quotes
+  enforced:
+    module:
+      - dfs_fin_quotes
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+id: node.quote.default
+targetEntityType: node
+bundle: quote
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_agent_assigned:
+    weight: 6
+    label: hidden
+    settings:
+      view_mode: compact
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_areas_of_focus:
+    weight: 4
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_associated_product:
+    weight: 5
+    label: hidden
+    settings:
+      view_mode: basic_info
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_quote_amount:
+    weight: 7
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_tags:
+    weight: 3
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_vin:
+    weight: 8
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  links:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

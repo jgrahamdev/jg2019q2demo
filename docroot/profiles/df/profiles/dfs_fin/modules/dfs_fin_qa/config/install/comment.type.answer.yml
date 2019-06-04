@@ -1,0 +1,13 @@
+uuid: 8a3d9379-a011-4523-9d24-3663184ce00e
+langcode: en
+status: true
+dependencies:
+  module:
+    - dfs_fin_qa
+  enforced:
+    module:
+      - dfs_fin_qa
+id: answer
+label: Answer
+target_entity_type_id: node
+description: 'An answer for the corresponding "Question" content type.'

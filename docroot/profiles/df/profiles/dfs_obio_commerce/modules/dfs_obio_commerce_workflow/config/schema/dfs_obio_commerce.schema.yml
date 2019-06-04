@@ -1,0 +1,5 @@
+condition.plugin.user_is_current_user:
+  type: condition.plugin
+  mapping:
+    active:
+      type: boolean

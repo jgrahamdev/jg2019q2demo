@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Theme override for an 'input' #type form element.
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the input element.
+ * - children: Optional additional rendered elements.
+ *
+ * @see template_preprocess_input()
+ */
+#}
+{%
+  set min = attributes.min ? attributes.min|render : 0
+%}
+{%
+  set max = attributes.max ? attributes.max|render : 5
+%}
+<div class="row">
+  <div class="large-12 columns">
+    <div class="simple-rating">
+      {% for doubleVal in (max * 2)..(min * 2) %}
+        {%
+          set star = doubleVal / 2
+        %}
+        <input type="radio" id="{{ attributes.id }}-{{ star }}" name="{{ attributes.name }}" value="{{ star }}" {% if attributes.value|render == star %} checked {% endif %} />
+        <label for="{{ attributes.id }}-{{ star }}"></label>
+      {% endfor %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+uuid: 7788c0db-caee-4160-aa8e-478f9c8e7f5c
+langcode: en
+status: true
+dependencies:
+  module:
+    - type_style
+id: video_hero
+label: 'Video hero'
+revision: 1
+description: 'A hero block that displays a video'

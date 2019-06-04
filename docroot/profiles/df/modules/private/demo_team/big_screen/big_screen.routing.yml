@@ -1,0 +1,20 @@
+big_screen.view_output:
+  path: '/node/{node}/big'
+  defaults:
+    _controller: '\Drupal\big_screen\Controller\BigScreen::viewOutput'
+  requirements:
+    _permission: 'access content'
+big_screen.preview_output:
+  path: '/node/{node}/big/preview'
+  defaults:
+    _controller: '\Drupal\big_screen\Controller\BigScreen::previewOutput'
+  requirements:
+    _permission: 'access content'
+big_screen.big_screen_settings:
+  path: '/admin/appearance/big-screen'
+  defaults:
+    _form: '\Drupal\big_screen\Form\BigScreenSettings'
+    _title: 'Big Screen Settings'
+  requirements:
+    _permission: 'configure big screen'
+  

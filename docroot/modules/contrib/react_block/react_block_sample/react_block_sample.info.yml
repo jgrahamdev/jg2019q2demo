@@ -1,0 +1,13 @@
+name: 'react_block_sample'
+type: module
+description: 'Sample components for the react_block module'
+# core: 8.x
+package: 'PDB'
+dependencies:
+  - react_block
+
+# Information added by Drupal.org packaging script on 2019-02-18
+version: '8.x-1.0-alpha1'
+core: '8.x'
+project: 'react_block'
+datestamp: 1550449385

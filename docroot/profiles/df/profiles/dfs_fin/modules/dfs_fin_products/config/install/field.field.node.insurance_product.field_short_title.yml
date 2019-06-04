@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_short_title
+    - node.type.insurance_product
+  module:
+    - dfs_fin_products
+  enforced:
+    module:
+      - dfs_fin_products
+id: node.insurance_product.field_short_title
+field_name: field_short_title
+entity_type: node
+bundle: insurance_product
+label: 'Short title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

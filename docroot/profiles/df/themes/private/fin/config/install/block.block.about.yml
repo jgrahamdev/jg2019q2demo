@@ -1,0 +1,31 @@
+uuid: 4ac7ee15-69ca-4661-b80a-105934917fb3
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:0e17ff3a-c54c-4655-a858-8882fd3ce1cb'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - fin
+third_party_settings:
+  block_class:
+    classes: ''
+_core:
+  default_config_hash: ToIPUecQWzveest8XQpR6eMaEZ_Uj_cIZZPKTYsupM0
+id: about
+theme: fin
+region: '-1'
+weight: -5
+provider: null
+plugin: 'block_content:0e17ff3a-c54c-4655-a858-8882fd3ce1cb'
+settings:
+  id: 'block_content:0e17ff3a-c54c-4655-a858-8882fd3ce1cb'
+  label: About
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

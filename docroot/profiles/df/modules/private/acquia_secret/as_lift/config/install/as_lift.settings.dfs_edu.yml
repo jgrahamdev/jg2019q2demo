@@ -1,0 +1,85 @@
+entity_config:
+  node:
+    article:
+      enable_index: true
+      enable_viewmodes: true
+      rendering:
+        teaser: teaser
+        card: card
+      preview_image_field: field_image
+      preview_image_style: large
+    location:
+      enable_index: true
+      enable_viewmodes: true
+      rendering:
+        teaser: teaser
+      preview_image_field: 'field_location_media->thumbnail'
+      preview_image_style: large
+  block_content:
+    hero:
+      enable_index: true
+      enable_viewmodes: true
+      rendering:
+        full: full
+      preview_image_field: field_hero_image
+      preview_image_style: large
+  taxonomy_term:
+    tags:
+      enable_index: true
+      enable_viewmodes: false
+      rendering: []
+      preview_image_field: ''
+      preview_image_style: ''
+    media_tags:
+      enable_index: true
+      enable_viewmodes: false
+      rendering: []
+      preview_image_field: ''
+      preview_image_style: ''
+  media:
+    image:
+      enable_index: true
+      enable_viewmodes: false
+      rendering: []
+      preview_image_field: ''
+      preview_image_style: ''
+  file:
+    image:
+      enable_index: true
+      enable_viewmodes: false
+      rendering: []
+      preview_image_field: ''
+      preview_image_style: ''
+    audio:
+      enable_index: true
+      enable_viewmodes: false
+      rendering: []
+      preview_image_field: ''
+      preview_image_style: ''
+    document:
+      enable_index: true
+      enable_viewmodes: false
+      rendering: []
+      preview_image_field: ''
+      preview_image_style: ''
+    video:
+      enable_index: true
+      enable_viewmodes: false
+      rendering: []
+      preview_image_field: ''
+      preview_image_style: ''
+default_content:
+  block_content:
+    -
+      info: Home Everyone
+      type: hero
+    -
+      info: Home Prospective
+      type: hero
+    -
+      info: Home Alumni
+      type: hero
+    -
+      info: Home Student
+      type: hero
+slots: []

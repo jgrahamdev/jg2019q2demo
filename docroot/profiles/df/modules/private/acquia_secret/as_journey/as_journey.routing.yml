@@ -1,0 +1,36 @@
+as_journey.demo:
+  path: '/demo/{filename}'
+  defaults:
+    _controller: '\Drupal\as_journey\Controller\DemoPageController::demo'
+  requirements:
+    _permission: 'access content'
+
+as_journey.facebook:
+  path: '/demo/facebook'
+  defaults:
+    _controller: '\Drupal\as_journey\Controller\FacebookController::demo'
+  requirements:
+    _permission: 'access content'
+
+as_journey.instagram:
+  path: '/demo/instagram'
+  defaults:
+    _controller: '\Drupal\as_journey\Controller\InstagramController::demo'
+  requirements:
+    _permission: 'access content'
+
+as_journey.settings:
+  path: '/admin/config/services/as_journey'
+  defaults:
+    _form: '\Drupal\as_journey\Form\ASJourneySettingsForm'
+    _title: 'AS Journey Settings'
+  requirements:
+    _permission: 'administer site configuration'
+
+as_journey.bot_string_controller_output:
+  path: '/admin/bot-string'
+  defaults:
+    _controller: '\Drupal\as_journey\Controller\BotStringController::output'
+    _title: 'Bot Activation String'
+  requirements:
+    _permission: 'access content'

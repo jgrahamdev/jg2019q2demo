@@ -1,0 +1,228 @@
+.block-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: rem-calc(80px);
+}
+
+// Heroes never have titles, but stil need some space.
+section.block-content__hero:not(:first-of-type) {
+  margin-top: rem-calc(80px);
+}
+
+// Regions should have the same spacing as blocks.
+.row:first-child [class*="block-region"],
+.layout-region:first-child [class*="block-region"] {
+  margin-top: inherit;
+}
+
+[class*="block-region"] {
+  margin-top: rem-calc(80px);
+}
+
+// Nothing should not be full width in left or right regions.
+[class*="block-region"][class*="left"] .full-width-row,
+[class*="block-region"][class*="right"] .full-width-row {
+  width: 100%;
+  left: inherit;
+}
+
+.df-tools-tabs-wrapper.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+  padding: .5rem 2rem .5rem 2rem;
+}
+
+.df-tools-tabs-wrapper {
+  .ui-tabs-nav {
+    text-transform: uppercase;
+  }
+  .field-type-text-with-tab {
+    font-size: 0.85em;
+  }
+}
+
+.how-it-works-block {
+  .round-border {
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    border: 2px solid $black;
+    padding: rem-calc(20px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p.step-icon {
+      margin-top: 0.5rem;
+      text-align: center;
+      flex: 1 100%;
+    }
+    p {
+      margin-bottom: 0;
+      font-weight: 100;
+      font-size: rem-calc(18px);
+      text-transform: uppercase;
+    }
+    strong {
+      margin-left: rem-calc(10px);
+      font-weight: 700;
+    }
+  }
+  p:last-child {
+    margin-top: 1rem;
+    text-align: center;
+  }
+}
+
+@keyframes pretty-progress {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -70px 0;
+  }
+}
+
+.latest-block-post {
+  h2.block-title {
+    font-size: rem-calc(22px);
+    margin-top: 0;
+    @include breakpoint(small only) {
+      margin-top: rem-calc(100px);
+    }
+  }
+  .browse-articles-link {
+    transition: opacity 0.5s ease;
+    text-align: center;
+    background: $primary-color;
+    &:hover {
+      opacity: 0.8;
+    }
+    a {
+      color: $white;
+      display: block;
+      padding: 70px 0px;
+      width: 100%;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+.callout-bio {
+  .callout-bio-text {
+    @extend .vertical-margin-space;
+  }
+}
+
+.slider {
+  position: relative;
+  padding: 0 0 31.25%;
+  height: 0;
+}
+
+.slider__container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.block-cart {
+  position: relative;
+  .cart-block--contents {
+    background: $off-white;
+    border: 1px solid $black;
+    width: rem-calc(375px);
+    left: rem-calc(-300px);
+    tr {
+      border-bottom: 1px solid $black;
+      td {
+        background: $off-white;
+      }
+    }
+    .cart-block--contents__links a {
+      @extend .button;
+      @extend .small;
+    }
+    .views-field-total-price__number {
+      font-weight: bold;
+    } //hide quantitiy field here since its weird to have more than one package.
+    .views-field-quantity {
+      display: none;
+    }
+  }
+}
+
+
+.block-languageswitcher {
+  @include breakpoint(medium up) {
+    margin-left: 50px;
+  }
+  .standard-icon {
+    color: $white;
+  }
+  .block-title {
+    @extend h5;
+    margin: 0;
+    margin-right: 10px;
+    display: inline-block;
+  }
+  .language-pane {
+    text-align: left;
+    @extend .top;
+  }
+}
+
+#help-links {
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  ul {
+    margin-left: 0;
+  }
+  li {
+    list-style: none;
+    padding-bottom: 10px;
+    span {
+      color: $primary-color;
+      padding-right: 5px;
+    }
+    a {
+      font-size: .8rem;
+      letter-spacing: 2px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+
+//subscribe form on colleciton pages
+.node--type-collection .layout--onecol .block-plugin-id-subscribe-form {
+  background: url('/profiles/df/profiles/dfs_obio/data/images/collection-eco-2.jpg');
+  background-repeat: no-repeat;
+  padding: 150px 0;
+
+  .form__id-dfs-obio-subscribe-form {
+    margin: 0;
+    padding: 0;
+  }
+ .form-wrapper {
+    max-width: 600px;
+    background: #fff;
+    padding: 30px;
+  }
+  .newsletter-description {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    text-align: center;
+    p {
+        margin:0;
+        padding-top:20px;
+    }
+  }
+}

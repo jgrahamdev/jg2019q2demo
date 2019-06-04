@@ -1,0 +1,18 @@
+uuid: 616b2ea0-5530-4c15-ada3-3f3a9d91f773
+langcode: en
+status: true
+dependencies:
+  module:
+    - crop
+    - focal_point
+name: hero_thin_small
+label: 'Thin hero – small (640x320)'
+effects:
+  41a05986-7fba-410f-8c20-1636a0bba044:
+    uuid: 41a05986-7fba-410f-8c20-1636a0bba044
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 640
+      height: 320
+      crop_type: focal_point

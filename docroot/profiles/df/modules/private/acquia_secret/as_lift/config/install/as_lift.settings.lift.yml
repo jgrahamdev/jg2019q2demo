@@ -1,0 +1,6 @@
+assets: https://lift3assets.lift.acquia.com/stable
+content_hub: https://employees.content-hub.acquia.com
+decision_api: https://us-east-1-demo-decisionapi.lift.acquia.com
+lift_api: https://demo-api.lift.acquia.com
+oauth: https://us-east-1-demo-oauth2.lift.acquia.com/authorize
+profile_manager: https://demo.lift.acquia.com

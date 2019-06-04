@@ -1,0 +1,19 @@
+uuid: 7a589cd1-c4ef-473c-bffa-2473fe460fd0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.article
+    - user.role.administrator
+id: draft_rejected
+label: 'Draft rejected'
+subject: '[[site:name]] Your draft of "[node:title]" needs work'
+roles:
+  administrator: administrator
+bundles:
+  'node:article': 'node:article'
+fields: {  }
+author: true
+body:
+  value: '<p>Hello,</p>\r\n\r\n<p>Your draft of \"[node:title]\" has been moved out of review by [node:latest_author]. To revise the draft please <a href=\"[node:latest_url]\">click here</a>.</p>\r\n'
+  format: full_html

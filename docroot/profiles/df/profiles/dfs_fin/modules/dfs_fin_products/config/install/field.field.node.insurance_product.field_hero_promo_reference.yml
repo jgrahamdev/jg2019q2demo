@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero
+    - field.storage.node.field_hero_promo_reference
+    - node.type.insurance_product
+  module:
+    - dfs_fin_products
+  enforced:
+    module:
+      - dfs_fin_products
+id: node.insurance_product.field_hero_promo_reference
+field_name: field_hero_promo_reference
+entity_type: node
+bundle: insurance_product
+label: 'Hero Promo Reference'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      hero: hero
+    sort:
+      field: _none
+field_type: entity_reference

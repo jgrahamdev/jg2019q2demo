@@ -1,0 +1,447 @@
+/* Homepage styles */
+
+.header-wrap {
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid $primary-color;
+}
+
+.landing-display-dfs-tec-home {
+  /* Slideshow block styles */
+  @media #{$medium-up} {
+    margin-top: rem-calc(-130px);
+  }
+  .block-bundle-slideshow {
+    .block-title {
+      display: none;
+    }
+  }
+  .df-tools-slideshow {
+    .hero-block-fields {
+      position: absolute;
+      left: 20%;
+      top: 30%;
+      padding: rem-calc(15px);
+      background-color: rgba(255, 255, 255, .5);
+      @media #{$medium-only},
+      #{$small-only} {
+        width: 100%;
+        height: inherit;
+        left: 0;
+        top: 0;
+      }
+      @media #{$medium-only} {
+        padding-top: rem-calc(150px);
+      }
+    }
+    .field-name-field-first-line {
+      font-size: rem-calc(30px);
+      @media #{$small-only} {
+        font-size: rem-calc(20px);
+      }
+      text-transform: uppercase;
+    }
+    .field-name-field-second-line {
+      @media #{$medium-only},
+      #{$small-only} {
+        padding-top: 0;
+      }
+    }
+    .field-name-field-hero-link {
+      padding-top: rem-calc(20px);
+      @media #{$medium-only},
+      #{$small-only} {
+        padding-top: rem-calc(5px);
+      }
+      a {
+        @extend .button;
+        @extend .alert;
+        text-transform: uppercase;
+      }
+    }
+  }
+  /* This is the primary-region service promo HTML block */
+  .homepage-service-promo {
+    text-align: center;
+    h3 {
+      color: $charcoal;
+      strong,
+      b {
+        color: $primary-alt-color;
+      }
+    }
+    hr {
+      margin: rem-calc(20px) auto rem-calc(50px);
+      width: 70%;
+      border-width: rem-calc(3px);
+      border-color: $primary-alt-color;
+    }
+    figure {
+      h4 {
+        color: $primary-color;
+        text-transform: uppercase;
+        font-size: rem-calc(18px);
+        margin-top: rem-calc(20px);
+      }
+      display: inline-block;
+      vertical-align: top;
+      margin: 0;
+      padding: 0 rem-calc(30px) 0 rem-calc(30px);
+      border-right: rem-calc(1px) solid $light-gray;
+      max-width: 33.3333%;
+      @media #{$medium-only},
+      #{$small-only} {
+        border-right: none;
+        max-width: none;
+      }
+      &:last-child {
+        padding-right: 0;
+        border-right: none;
+        @media #{$small-only} {
+          padding-right: rem-calc(30px);
+        }
+      }
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+  /* Article view theme */
+  .homepage-articles {
+    .row {
+        margin:0 auto;
+    }
+    /* Format the title */
+    .block-title {
+      text-align: center;
+      font-size: rem-calc(30px);
+      font-weight: 200;
+      padding: rem-calc(10px);
+      margin-bottom: rem-calc(10px);
+      background-color: $seafoam;
+      position: relative;
+      /* Add an arrow in the center(ish) of the div */
+      &:after {
+        top: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-top-color: $seafoam;
+        border-width: rem-calc(10px);
+        margin-left: rem-calc(-10px);
+      }
+    }
+    @media #{$medium-only},
+    #{$small-only} {
+      .views-row {
+        margin-top: rem-calc(20px);
+      }
+    }
+    .views-field-title {
+      text-align: center;
+      margin: rem-calc(20px);
+      a {
+        color: inherit;
+      }
+    }
+    .views-field-body {
+      margin-left: rem-calc(10px);
+      a {
+        color: $alert-color;
+      }
+    }
+    .views-field-field-image {
+      @media #{$medium-only},
+      #{$small-only} {
+        text-align: center;
+      }
+    }
+  }
+}
+
+
+/* Employee page styles */
+
+.landing-display-team-page {
+  .views-field-field-headshot {
+    a img {
+      border-radius: 90px;
+      ;
+      width: rem-calc(180px);
+      height: rem-calc(180px);
+    }
+  }
+  .views-field-title {
+    font-weight: bold;
+  }
+  .views-field-field-title {
+    font-style: italic;
+  }
+  .views-field-view-node {
+    a {
+      color: #fff;
+    }
+  }
+  .views-col {
+    padding-bottom: rem-calc(25px);
+    padding-top: rem-calc(25px);
+    border-bottom: 1px solid $primary-color;
+    height: rem-calc(450px);
+    @media #{$small-only} {
+      width: inherit !important;
+    }
+  }
+  .row-3 {
+    border-bottom: none;
+  }
+  .views-exposed-form {
+    float: right;
+    .form-item {
+      display: inline-block;
+    }
+    .form-submit {
+      padding: rem-calc(10px);
+    }
+  }
+  .views-col {
+    text-align: center;
+    .views-field-field-headshot {
+      margin-bottom: rem-calc(10px);
+    }
+    .views-field-field-email {
+      margin-top: rem-calc(5px);
+    }
+    .views-field-field-phone {
+      margin-bottom: rem-calc(5px);
+    }
+  }
+}
+
+
+/* Article/Service node styles */
+
+.node-article,
+.node-service {
+  .field-name-field-image,
+  .field-name-field-hero-image {
+    @extend .full-width;
+    img {
+      width: 100%;
+      @media #{$medium-up} {
+        margin-top: rem-calc(-130px);
+      }
+    }
+  }
+  /* Float the edit buttons on the hero image */
+  .tab-wrap {
+    position: absolute;
+    z-index: 1;
+  }
+  article {
+    margin-top: rem-calc(-70px);
+    background-color: $white;
+    padding: rem-calc(25px);
+    position: relative;
+    z-index: 1;
+    .node-title {
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: rem-calc(20px);
+    }
+  }
+}
+
+.article-title {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: rem-calc(20px);
+  margin-top: rem-calc(-70px);
+  background-color: $white;
+  padding: rem-calc(25px);
+  position: relative;
+  z-index: 1;
+}
+
+.node-article {
+  .field-name-body {
+    margin: 0 rem-calc(30px) 0 rem-calc(30px);
+  }
+}
+
+section[rel~="schema:comment"] {
+  .filter-wrapper {
+    display: none;
+  }
+  h2.field-label {
+    font-size: 1.5em;
+    margin-top: 20px;
+    border-top: 1px solid #000;
+    padding-top: 20px;
+  }
+  .field-items {
+    font-size: 1.3em;
+    color: $secondary-color;
+  }
+}
+
+.node-service {
+  .field-name-field-headline,
+  .field-name-field-subheadline {
+    color: $white;
+    position: absolute;
+    text-shadow: 0 0 rem-calc(10px) rgba(0, 0, 0, 0.5);
+    left: 10%;
+  }
+  .field-name-field-headline {
+    top: 30%;
+    font-size: rem-calc(50px);
+    @media #{$small-only} {
+      top: 0;
+      font-size: rem-calc(30px);
+    }
+  }
+  .field-name-field-subheadline {
+    top: 45%;
+    @media #{$small-only} {
+      top: 25%;
+      font-size: rem-calc(20px);
+    }
+    font-size: rem-calc(25px);
+  }
+}
+
+
+/* Employee styles */
+
+.node-employee {
+  .field-name-field-location,
+  .field-name-field-email,
+  .field-name-field-phone {
+    display: inline-block;
+    margin: 0 rem-calc(5px) rem-calc(20px) 0;
+    background: #ccc;
+    padding: rem-calc(10px);
+  }
+  .node-title {
+    margin-bottom: rem-calc(20px);
+    border-bottom: 1px solid $primary-color;
+  }
+  .field-name-field-biography {
+    margin-top: rem-calc(10px);
+  }
+  .field-name-field-headshot {
+    padding-right: rem-calc(20px);
+    padding-bottom: rem-calc(20px);
+    float: left;
+  }
+}
+
+
+/* Service landing page style */
+
+.landing-display-services {
+  .services-view {
+    margin-top: rem-calc(50px);
+    .views-row {
+      position: relative;
+      margin-bottom: rem-calc(50px);
+    }
+    .views-field-title,
+    .views-field-body {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+    }
+    .views-field-title {
+      top: 20%;
+      a {
+        color: $white;
+        text-shadow: 0 0 rem-calc(10px) rgba(0, 0, 0, 0.5);
+      }
+    }
+    .views-field-body {
+      top: 40%;
+      background-color: rgba(255, 255, 255, .9);
+      padding: rem-calc(15px);
+      /* Remove default blockquote quote character */
+      blockquote {
+        &:before {
+          content: ""
+        }
+      }
+      @media #{$small-only} {
+        display: none;
+      }
+    }
+    /* Learn more button */
+    .views-field-path {
+      position: absolute;
+      bottom: rem-calc(10px);
+      width: 100%;
+      text-align: center;
+      a {
+        color: $white;
+      }
+    }
+  }
+}
+
+
+/* Contact page styles */
+
+
+.block-tec-contacthero {
+    @extend .full-width;
+    img {
+    width: 100%;
+  }
+}
+
+#user-logout-wrapper.dropdown-pane {
+  width: 200px;
+  li {
+    list-style: none;
+  }
+  a {
+    @include disable-mouse-outline;
+    font-size: 15px;
+    display: block;
+    padding-bottom: rem-calc(5px);
+    color: $alert-color;
+    &:hover {
+      text-decoration: underline;
+    }
+    span {
+      padding-right: rem-calc(5px);
+    }
+  }
+}
+
+#language-menu {
+  width: rem-calc(110px);
+  padding: rem-calc(10px);
+  ul {
+    list-style: none;
+    li {
+      a {
+        @include disable-mouse-outline;
+        padding-bottom: 5px;
+        font-size: 15px;
+        display: block;
+        color: $alert-color;
+        &:hover {
+          text-decoration: underline;
+        }
+        &.is-active {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

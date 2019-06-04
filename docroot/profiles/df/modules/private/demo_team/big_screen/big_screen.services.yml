@@ -1,0 +1,6 @@
+services:
+  theme.negotiator.big_screen:
+    class: Drupal\big_screen\Theme\BigScreenNegotiator
+    arguments: ["@config.factory"]
+    tags:
+      - { name: theme_negotiator, priority: 1000 }

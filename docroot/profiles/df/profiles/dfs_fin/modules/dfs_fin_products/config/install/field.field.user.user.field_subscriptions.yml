@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_subscriptions
+    - node.type.insurance_product
+  module:
+    - user
+    - dfs_fin_products
+  enforced:
+    module:
+      - dfs_fin_products
+id: user.user.field_subscriptions
+field_name: field_subscriptions
+entity_type: user
+bundle: user
+label: Subscriptions
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      insurance_product: insurance_product
+    sort:
+      field: _none
+field_type: entity_reference
+

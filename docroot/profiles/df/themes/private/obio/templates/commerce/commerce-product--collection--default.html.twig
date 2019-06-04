@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ *
+ * Default product template.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - product: The rendered product fields.
+ *   Use 'product' to print them all, or print a subset such as
+ *   'product.title'. Use the following code to exclude the
+ *   printing of a given field:
+ *   @code
+ *   {{ product|without('title') }}
+ *   @endcode
+ * - product_entity: The product entity.
+ * - product_url: The product URL.
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'commerce-product',
+    'commerce-product--type-' ~ product_entity.bundle|clean_class,
+    not product_entity.isPublished() ? 'is-unpublished',
+    view_mode ? 'view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+  {{ product.variations }}
+  <div class="product-variation-info">
+    <div>
+      <div class="l-table">
+        <div class="l-table__item">
+          <div class="product-variation-title">{{ product.variation_title }}</div>
+        </div>
+        <div class="l-table__item text-right">
+          <div class="product-variation-price"><span class="field-item-title">{{ "Subtotal"|t }}</span> {{ product.variation_price }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions form-wrapper">
+    <button class="dfs-obio-product-submit button js-show visually-hidden">{{ "Add to cart"|t }}</button>
+  </div>
+</article>

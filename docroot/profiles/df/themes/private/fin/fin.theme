@@ -1,0 +1,134 @@
+<?php
+
+// Add your custom theme override functions here.
+
+/**
+ * Implements hook_preprocess_block()
+ */
+function fin_preprocess_block(&$variables) {}
+
+/**
+ * Implements template_preprocess_field().
+ */
+function fin_preprocess_field(&$variables) {
+}
+
+/**
+ * Implements template_preprocess_html().
+ *
+ * Adds additional classes
+ */
+function fin_preprocess_html(&$variables) {
+
+  $variables['html_attributes'] .= ' class="no-js"';
+
+}
+
+/**
+ * Implements template_preprocess_node
+ *
+ * Add template suggestions and classes
+ */
+function fin_preprocess_node(&$variables) {
+  /** @var \Drupal\node\Entity\Node $node */
+  $node = $variables['elements']['#node'];
+  if ($node && $node->bundle() == 'question' && $variables['view_mode'] == 'content_browser') {
+    $variables['content']['field_answer'][0]['comment_form'] = [];
+  }
+}
+
+/**
+ * Implements template_preprocess_page
+ *
+ * Add convenience variables and template suggestions
+ */
+function fin_preprocess_page(&$variables) {
+
+  $reversed_image_path = '/' . drupal_get_path('theme','fin') . '/images/logo-reversed.png';
+
+  if (theme_get_setting('fin_page_site_logo_reversed')) {
+    $elements = array(
+      '#theme' => 'image',
+      '#uri' => $reversed_image_path,
+      '#attributes' => array(
+        'class' => array('logo'),
+      )
+    );
+    $variables['reversed_logo'] = $elements;
+  }
+
+  if (!empty($variables['sidebar_sec_grid'])) {
+    $variables['sidebar_sec_grid'] .= ' small-12';
+  }
+
+  if (!empty($variables['sidebar_first_grid'])) {
+    $variables['sidebar_first_grid'] .= ' small-12';
+  }
+
+  if (empty($variables['sidebar_first_grid']) && (empty($variables['sidebar_sec_grid']))) {
+    $variables['main_grid'] = 'shrink';
+  }
+
+  $variables['#attached']['drupalSettings']['fin']['desktop_mobile_menu_icon'] = theme_get_setting('fin_page_desktop_mobile_menu_icon');
+
+  $variables['#attached']['drupalSettings']['fin']['last_menu_as_cta'] = theme_get_setting('fin_page_last_menu_as_cta');
+
+
+  // Conditionally use our special formatter for this message.
+  if (isset($_SESSION['fin_modal'])) {
+    $variables['#attached']['drupalSettings']['fin']['modal'] = $_SESSION['fin_modal'];
+    unset($_SESSION['fin_modal']);
+  }
+}
+
+/**
+ * Implements template_preprocess_views_view().
+ */
+function fin_preprocess_views_view(&$variables) {}
+
+
+function fin_preprocess_menu__main(&$variables) {
+
+//add logo to menu
+
+  $variables['logo_img'] = '';
+
+  $logo = theme_get_setting('logo.url');
+  $site_name = \Drupal::config('system.site')->get('name');
+
+  if (!empty($logo)) {
+    $elements = array(
+      '#theme' => 'image',
+      '#uri' => $logo,
+      '#attributes' => array(
+        'alt' => strip_tags($site_name) . ' ' . t('logo'),
+        'title' => strip_tags($site_name) . ' ' . t('Home'),
+        'class' => array('logo'),
+      )
+    );
+
+    $variables['logo_img'] = $elements;
+  }
+
+  $title = strip_tags($site_name) . ' ' . t('Home');
+  $url = \Drupal\Core\Url::fromRoute('<front>');
+  $url->setOption('attributes', array('title' => $title));
+
+  $variables['linked_logo'] = '';
+  if (!empty($variables['logo_img'])) {
+    $variables['linked_logo'] = \Drupal::l($variables['logo_img'], $url);
+  }
+
+  // Support translation of dynamically defined menu link items.
+  if (array_key_exists('dfs_fin.products', $variables['items'])) {
+    foreach ($variables['items']['dfs_fin.products']['below'] as &$item) {
+      $item['title'] = t($item['title'])->render();
+    }
+  }
+
+  if (array_key_exists('dfs_fin.our_company', $variables['items'])) {
+    foreach ($variables['items']['dfs_fin.our_company']['below'] as &$item) {
+      $item['title'] = t($item['title'])->render();
+    }
+  }
+}

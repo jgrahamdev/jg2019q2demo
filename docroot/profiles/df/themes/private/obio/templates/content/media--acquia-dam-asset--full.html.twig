@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a media entity.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes }}>
+  <div class="row">
+    <div class="columns small-12 medium-6 asset-preview-container">
+    	{{content.thumbnail}}
+    	<div class="asset-name-title"><h4>{{name}}<h4></div>
+    </div>
+    <div class="columns small-12 medium-6 asset-data-container">
+    	<div class="asset-data-label"><p>Info</p></div>
+      {% if content %}  {{ content|without('thumbnail') }}{% endif %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+UUID,Title,Link
+04bb3257-6bc2-401a-82f0-a896dd49d986,Académica,internal:/academics
+25054c33-a3bc-4b61-9bad-58e6a1291b38,Admisiones,internal:/admissions
+d3eb6bd1-d229-4c78-8ffa-4e46d2d31ec9,Investigación,internal:/research
+a8d94f6f-ea2b-4a1f-8f04-59f3e27461a4,Campus,internal:/campus
+380dba9f-9e62-45fc-9350-26fe27cae066,Atletismo,internal:/athletics
+1df2f586-dc6d-4632-b56b-2d44be7b4a88,Dando,internal:/giving
+c3721a08-8021-4b67-be9c-a206a7d28ab9,Alumni,internal:/alumni
+6e2e051a-266d-48de-b3eb-a415a1def299,Acerca de,internal:/about
+1b00b4d7-59e9-490c-9413-d3740cdd59f8,Arte y Historia del Arte,entity:node/cc692bcb-2f6e-47f5-a51a-b4200d2d4d74
+2b00b4d7-59e9-490c-9413-d3740cdd59f8,Química,entity:node/d504bd40-bd73-4a85-80c1-c0534c8b0913
+3b00b4d7-59e9-490c-9413-d3740cdd59f8,Ciencias de la Computación,entity:node/440cbd38-4fa2-4ee6-9a68-5b8effc78c5e
+4b00b4d7-59e9-490c-9413-d3740cdd59f8,Historia,entity:node/06bf6d39-20eb-4d4f-b312-c1d2ccfbf449
+5b00b4d7-59e9-490c-9413-d3740cdd59f8,Periodismo,entity:node/cc93541b-fcef-4bdd-972d-6e7ba75b16fe
+6b00b4d7-59e9-490c-9413-d3740cdd59f8,Medicina,entity:node/263f1bb1-89f3-44d8-86bd-9d5be63009bc

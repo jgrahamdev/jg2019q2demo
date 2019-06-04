@@ -1,0 +1,30 @@
+name: 'Demo Framework'
+type: profile
+description: 'Architects start here.'
+core: 8.x
+'base profile': lightning
+dependencies:
+  - admin_login_path
+  - admin_toolbar
+  - admin_toolbar_tools
+  - adminimal_admin_toolbar
+  - contact
+  - config_update
+  - df_core
+  - google_analytics
+  - material_admin_support
+  - panels_ipe
+  - pathauto
+  - scenarios
+  - syslog
+  - tour
+themes:
+  - dfs_base
+  - dfs_admin
+exclude:
+  - lightning_api
+  - lightning_contact_form
+  - lightning_preview
+  - lightning_roles
+  - bartik
+  - seven

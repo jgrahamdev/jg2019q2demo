@@ -1,0 +1,18 @@
+uuid: 28a57471-146d-4a01-a305-7e8632889188
+langcode: en
+status: true
+dependencies:
+  theme:
+    - dfs_base
+id: pagetitle
+theme: dfs_base
+region: content
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

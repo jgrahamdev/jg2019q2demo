@@ -1,0 +1,175 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.insurance_product.body
+    - field.field.node.insurance_product.field_associated_testimonials
+    - field.field.node.insurance_product.field_hero_promo_reference
+    - field.field.node.insurance_product.field_hero_reference
+    - field.field.node.insurance_product.field_icon
+    - field.field.node.insurance_product.field_image
+    - field.field.node.insurance_product.field_promo_text
+    - field.field.node.insurance_product.field_short_title
+    - field.field.node.insurance_product.field_subtitle
+    - field.field.node.insurance_product.field_tags
+    - field.field.node.insurance_product.panelizer
+    - node.type.insurance_product
+  enforced:
+    module:
+      - dfs_fin_products
+  module:
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: true
+    custom: true
+    displays:
+      default:
+        blocks:
+          a4864ebb-18f5-48c5-8b60-96cc5336a2a2:
+            id: 'entity_field:node:body'
+            label: Body
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: text_default
+              settings: {  }
+              third_party_settings: {  }
+              weight: 0
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            region: middle
+            weight: 3
+            uuid: a4864ebb-18f5-48c5-8b60-96cc5336a2a2
+          528058c7-6ce9-444e-8200-a42d8b8f4433:
+            id: 'entity_field:node:field_icon'
+            label: Icon
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: string
+              settings:
+                link_to_entity: false
+              third_party_settings: {  }
+              weight: 0
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            region: middle
+            weight: 2
+            uuid: 528058c7-6ce9-444e-8200-a42d8b8f4433
+          4c2dc18b-d807-4fa6-9500-ce2c286bc66e:
+            id: 'entity_field:node:field_subtitle'
+            label: Subtitle
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: string
+              settings:
+                link_to_entity: false
+              third_party_settings: {  }
+              weight: 0
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            region: middle
+            weight: 1
+            uuid: 4c2dc18b-d807-4fa6-9500-ce2c286bc66e
+          beaeb733-fbeb-4d85-8a00-fb1cfbf31299:
+            id: 'views_block:product_bundle_callout-product_bundle_block'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+            region: middle
+            uuid: beaeb733-fbeb-4d85-8a00-fb1cfbf31299
+            weight: 4
+        id: panels_variant
+        uuid: 91249ee3-27cf-424e-915c-92becd79eb47
+        label: ''
+        weight: 0
+        layout: foundation_1col
+        layout_settings: {  }
+        page_title: '[node:title]'
+        storage_type: panelizer_default
+        storage_id: 'node:insurance_product:full:default'
+        builder: ipe
+_core:
+  default_config_hash: f6-8FsrGjBNC1-8XUdofRl4XpUFmwxxnFo3UY_xyQto
+id: node.insurance_product.default
+targetEntityType: node
+bundle: insurance_product
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_associated_testimonials:
+    type: entity_reference_entity_view
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_hero_reference:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_icon:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_promo_text:
+    type: string
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_subtitle:
+    type: string
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_tags:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  content_moderation_control:
+    weight: -20
+    region: content
+hidden:
+  field_hero_promo_reference: true
+  field_image: true
+  field_short_title: true
+  langcode: true
+  links: true
+  panelizer: true

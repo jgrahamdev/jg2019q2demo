@@ -1,0 +1,26 @@
+id: import_dfs_obio_menu
+label: Import dfs_obio:menu_link_content:link
+source:
+  plugin: csv
+  path: '../data/dfs_obio.menu_link_content.menu_link_content.csv'
+  header_row_count: 1
+  keys: [UUID]
+destination:
+  plugin: entity:menu_link_content
+process:
+  bundle: { plugin: default_value, default_value: menu_link_content }
+  uuid: UUID
+  title: Title
+  description: Title
+  link:
+    -
+      plugin: get
+      source: Link
+    -
+      plugin: uuid_link
+  menu_name: Menu name
+  parent: Parent
+  weight: Weight
+  expanded: { plugin: default_value, default_value: true }
+migration_dependencies:
+    required: [import_dfs_obio_landing_page]

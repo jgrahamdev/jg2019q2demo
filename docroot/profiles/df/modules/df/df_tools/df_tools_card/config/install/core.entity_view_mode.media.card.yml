@@ -1,0 +1,14 @@
+uuid: 3f4407c8-eee8-456f-80ac-93cd27683845
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - media
+third_party_settings:
+  lightning_core:
+    description: 'Used inside another content entities card view mode'
+id: media.card
+label: Card
+targetEntityType: media
+cache: true

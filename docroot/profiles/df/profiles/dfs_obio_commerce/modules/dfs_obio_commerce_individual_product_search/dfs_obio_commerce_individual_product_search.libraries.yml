@@ -1,0 +1,5 @@
+individual_product_search:
+  version: VERSION
+  css:
+    theme:
+      layouts/individual_product_search/individual_product_search.css: {}

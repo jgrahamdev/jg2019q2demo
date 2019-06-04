@@ -1,0 +1,22 @@
+uuid: f4a1169b-399c-459d-a321-3367b0949125
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - fin
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: fin_powered
+theme: fin
+region: '-1'
+weight: -4
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

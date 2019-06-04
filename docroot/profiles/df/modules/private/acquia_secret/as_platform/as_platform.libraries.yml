@@ -1,0 +1,7 @@
+acquia.platform.icons:
+  version: VERSION
+  css:
+    theme:
+      css/acquia.platform.icons.css: {}
+  js:
+    js/acquia.platform.lift.js: {}

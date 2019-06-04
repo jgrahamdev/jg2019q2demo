@@ -1,0 +1,22 @@
+uuid: 6f4553f9-b77e-47df-844a-18313ece5003
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: agent_location
+label: 'Agent Location'
+type: 'canonical_entities:node'
+pattern: '/location/[node:title]'
+selection_criteria:
+  d1bd5f3d-e896-4e7c-8803-306464e844e7:
+    id: node_type
+    bundles:
+      agent_location: agent_location
+    negate: false
+    context_mapping:
+      node: node
+    uuid: d1bd5f3d-e896-4e7c-8803-306464e844e7
+selection_logic: and
+weight: -5
+relationships: {  }

@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ *
+ * Default product template.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - product: The rendered product fields.
+ *   Use 'product' to print them all, or print a subset such as
+ *   'product.title'. Use the following code to exclude the
+ *   printing of a given field:
+ *   @code
+ *   {{ product|without('title') }}
+ *   @endcode
+ * - product_entity: The product entity.
+ * - product_url: The product URL.
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'commerce-product',
+    'commerce-product--type-' ~ product_entity.bundle|clean_class,
+    not product_entity.isPublished() ? 'is-unpublished',
+    view_mode ? 'view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+  <div class="row">
+    <div class="small-12 medium-6 column">
+      <div class="clearfix rhythm--bottom">
+        {{ product.variation_field_media }}
+      </div>
+    </div>
+    <div class="small-12 medium-6 column">
+      <h1>{{ product.title }}</h1>
+      <div class="product-fields">
+        {{ product.variation_sku }}
+        {{- product|without('variation_attributes','variation_field_media', 'variations', 'variation_sku', 'title', 'product_read_more') -}}
+        {# Add to cart form at the end #}
+        {{ product.variations }}
+        {# Prodiuct read more finally #}
+        {{ product.product_read_more }}
+      </div>
+    </div>
+  </div>
+</article>

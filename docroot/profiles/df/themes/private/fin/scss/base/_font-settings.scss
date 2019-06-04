@@ -1,0 +1,68 @@
+//fonts used for fin
+@font-face {
+  font-family: karla;
+  font-weight: normal;
+  src: url('../fonts/karla/Karla-Regular.ttf');
+}
+
+@font-face {
+  font-family: karla;
+  font-weight: normal;
+  font-style: italic;
+  src: url('../fonts/karla/Karla-Italic.ttf');
+}
+
+@font-face {
+  font-family: karla;
+  font-weight: bold;
+  font-style: normal;
+  src: url('../fonts/karla/Karla-Bold.ttf');
+}
+
+@font-face {
+  font-family: karla;
+  font-weight: bold;
+  font-style: italic;
+  src: url('../fonts/karla/Karla-BoldItalic.ttf');
+}
+
+//Only using light, normal and bold, though this font has semi-bold and extra bold if desired, we could add them.
+@font-face {
+  font-family: opensans;
+  font-weight: 100;
+  src: url('../fonts/opensans/OpenSans-Light.ttf');
+}
+
+@font-face {
+  font-family: opensans;
+  font-weight: 100;
+  font-style: italic;
+  src: url('../fonts/opensans/OpenSans-LightItalic.ttf');
+}
+
+@font-face {
+  font-family: opensans;
+  font-weight: normal;
+  src: url('../fonts/opensans/OpenSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: opensans;
+  font-weight: normal;
+  font-style: italic;
+  src: url('../fonts/opensans/OpenSans-Italic.ttf');
+}
+
+@font-face {
+  font-family: opensans;
+  font-weight: bold;
+  font-style: normal;
+  src: url('../fonts/opensans/OpenSans-Bold.ttf');
+}
+
+@font-face {
+  font-family: opensans;
+  font-weight: bold;
+  font-style: italic;
+  src: url('../fonts/opensans/OpenSans-BoldItalic.ttf');
+}

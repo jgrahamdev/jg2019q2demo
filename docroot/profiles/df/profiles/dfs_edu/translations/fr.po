@@ -1,0 +1,22 @@
+# French translation of Acquia U
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-08-28 20:47+0000\n"
+"PO-Revision-Date: 2015-08-28 20:47+0000\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Subscribe to the OBIO U Newsletter"
+msgstr "Abonnez-vous à la Newsletter OBIO U"
+
+msgid "Subscribe to our Campus Newsletter"
+msgstr "Abonnez-vous à notre Newsletter Campus"
+
+msgid "About the Program"
+msgstr "À propos du programme"

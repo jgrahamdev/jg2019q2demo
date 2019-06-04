@@ -1,0 +1,42 @@
+//
+// @file
+// BEM module for product card.
+//
+
+.card-compact {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: $product-compact-card-max-width;
+  background: $body-background;
+  color: $body-font-color;
+
+  @at-root #{&}__image {
+    flex: 1 0 auto;
+    background-color: $secondary-bg;
+    background-image: linear-gradient($secondary-bg, $body-background);
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    .field:first-child:last-child {
+      height: 0;
+      padding-bottom: 80%;
+      margin-bottom: -0.75rem;
+    }
+  }
+
+  @at-root #{&}__content {
+    padding: 1rem;
+  }
+
+  @at-root #{&}__title {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1.2rem;
+    min-height: 2.4rem;
+  }
+}

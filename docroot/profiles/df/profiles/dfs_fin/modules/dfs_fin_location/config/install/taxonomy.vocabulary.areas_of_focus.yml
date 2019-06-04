@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - dfs_fin_location
+  enforced:
+    module:
+      - dfs_fin_location
+name: 'Areas of focus'
+vid: areas_of_focus
+description: ''
+hierarchy: 0
+weight: 0

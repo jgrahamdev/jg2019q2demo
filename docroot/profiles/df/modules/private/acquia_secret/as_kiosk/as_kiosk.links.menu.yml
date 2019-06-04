@@ -1,0 +1,5 @@
+as_kiosk.settings:
+  title: 'AS Kiosk'
+  description: 'Configure AS Kiosk settings.'
+  route_name: as_kiosk.settings
+  parent: system.admin_config_services

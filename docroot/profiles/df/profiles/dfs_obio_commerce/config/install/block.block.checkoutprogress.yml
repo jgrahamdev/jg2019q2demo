@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - commerce_checkout
+  theme:
+    - obio
+third_party_settings:
+  block_class:
+    classes: ''
+id: checkoutprogress
+theme: obio
+region: content
+weight: -3
+provider: null
+plugin: commerce_checkout_progress
+settings:
+  id: commerce_checkout_progress
+  label: 'Checkout progress'
+  provider: commerce_checkout
+  label_display: '0'
+visibility: {  }

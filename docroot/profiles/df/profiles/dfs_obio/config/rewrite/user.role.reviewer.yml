@@ -1,0 +1,18 @@
+uuid: null
+permissions:
+  - 'create location content'
+  - 'delete any location content'
+  - 'delete own location content'
+  - 'delete location revisions'
+  - 'edit any location content'
+  - 'edit own location content'
+  - 'revert location revisions'
+  - 'view location revisions'
+  - 'create collection content'
+  - 'delete any collection content'
+  - 'delete own collection content'
+  - 'delete collection revisions'
+  - 'edit any collection content'
+  - 'edit own collection content'
+  - 'revert collection revisions'
+  - 'view collection revisions'

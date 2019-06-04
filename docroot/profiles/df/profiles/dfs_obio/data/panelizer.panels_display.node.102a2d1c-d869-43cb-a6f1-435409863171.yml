@@ -1,0 +1,35 @@
+blocks:
+  559fe18d-5706-4e86-9686-a8043d3822fa:
+    id: 'block_content:8de0c34d-3203-47d0-9c27-d4375db1883c'
+    label: 'Locations Title'
+    provider: block_content
+    label_display: 0
+    status: true
+    info: ''
+    view_mode: full
+    context_mapping: {  }
+    region: middle
+    uuid: 559fe18d-5706-4e86-9686-a8043d3822fa
+    weight: 1
+  eda6fa82-017e-40c1-ba9a-455b2f1818e6:
+    id: 'views_block:locations-block_1'
+    label: ''
+    provider: views
+    label_display: 0
+    views_label: ''
+    items_per_page: none
+    context_mapping: {  }
+    region: middle
+    uuid: eda6fa82-017e-40c1-ba9a-455b2f1818e6
+    weight: 2
+id: panels_variant
+uuid: 66454ba9-dca2-4264-bd09-9beeb133bd80
+label: ''
+weight: 0
+layout: foundation_1col
+layout_settings: {  }
+page_title: '[node:title]'
+storage_type: panelizer_field
+storage_id: 'node:3:full:45'
+pattern: panelizer
+builder: ipe

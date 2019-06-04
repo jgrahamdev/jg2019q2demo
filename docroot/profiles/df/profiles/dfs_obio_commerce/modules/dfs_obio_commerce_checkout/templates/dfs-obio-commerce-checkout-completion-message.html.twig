@@ -1,0 +1,60 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a DFS OBIO Commerce completion message.
+ *
+ * Available variables:
+ * - order: The order entity with limited access to object properties and methods.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - order.getOrderNumber() will return the node creation timestamp.
+ *   - order.hasItems() returns TRUE if the order has order items.
+ *   Calling other methods, such as order.delete(), will result in an exception.
+ *   See \Drupal\commerce_order\Entity\Order for a full list of public properties and
+ *   methods for the order object.
+ * - order_number: A unique number identifying the order.
+ *
+ * @see template_preprocess_dfs_obio_commerce_checkout_completion_message()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<div class="completion-purchase-message columns">
+  <div class="full-block-spacing">
+    <div class="columns">
+      <h2> {% trans %}Awesome, your order is complete!{% endtrans %}</h2>
+      <p><small><i class="fa fa-bookmark-o" aria-hidden="true"></i> {% trans %} Your order number is{% endtrans %}<strong> {{ order_number }}. </strong>{% trans %}You can view your order on your account page when <a href="/user">logged in.</a>{% endtrans %}</small></p>
+    </div>
+  </div>
+  <div class="row medium-unstack align-middle full-block-spacing callout">
+    <div class="columns small-order-2 medium-order-1">
+      <p>{% trans %}Based on your order, we matched you up with one of our professional designers,{% endtrans %} <strong>Wendy.</strong> </p>
+      <p>{% trans %}You should expect to hear from Wendy in the next day, but if you just can't wait to get started, you can contact Wendy in the following ways:{% endtrans %} </p>
+      <p><strong><i class="fa fa-phone-square" aria-hidden="true"></i> {% trans %}Phone:{% endtrans %} </strong> +1 555-332-1123</p>
+      <p><strong><i class="fa fa-envelope" aria-hidden="true"></i> {% trans %}Email:{% endtrans %} </strong> wendy@obio.co.uk</p>
+    </div>
+    <div class="columns small-order-1 medium-order-2 text-center">
+      <img src="{{ img_path }}" class="vertical-padding-space" />
+    </div>
+  </div>
+  <div class="row full-block-spacing">
+    <div class="columns small-12 medium-6 text-center inspire-app-tout">
+      <div class="tout-content-wrap">
+      <h3> {% trans %}Get Inspired.{% endtrans %} </h3>
+      <p> {% trans %}Download the Obio Inspiration App and see how our customers have built their spaces.{% endtrans %} </p>
+      <p><a href="https://obioinspiration.acquia-demo.com" class="button" target="_blank"><i class="fa fa-cloud-download" aria-hidden="true"></i> {% trans %}View App{% endtrans %}</a></p>
+    </div>
+  </div>
+    <div class="columns small-12 medium-6">
+      <h3> {% trans %}Here's what you can expect to happen now:{% endtrans %} </h3>
+      <ul>
+        <li>{% trans %}Wendy will contact you to learn more about your overall company persona and schedule a meeting at the space.{% endtrans %} </li>
+        <li>{% trans %}After your initial conversation, Wendy will provide concepts for layouts and provide a list of ambiance items for your first package{% endtrans %} </li>
+        <li>{% trans %}Next, arrange the office with the new collection!{% endtrans %} </li>
+      </ul>
+      <p><small><strong>{% trans %}If you have any questions in the meantime, please <a href="/contact">email</a> and we'd be happy to help.{% endtrans %} </strong></small></p>
+    </div>
+  </div>
+</div>
+

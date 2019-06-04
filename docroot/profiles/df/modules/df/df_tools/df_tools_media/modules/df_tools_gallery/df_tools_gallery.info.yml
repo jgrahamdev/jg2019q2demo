@@ -1,0 +1,11 @@
+name: DF Tools Gallery
+type: module
+description: Provides customizations and defaults for Entity Gallery.
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - df_core
+  - df_tools_articles
+  - df_tools_media
+  - df_tools_slideshow
+  - entity_gallery

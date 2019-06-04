@@ -1,0 +1,7 @@
+as_kiosk.settings:
+  path: '/admin/config/services/as_kiosk'
+  defaults:
+    _form: '\Drupal\as_kiosk\Form\ASKioskSettingsForm'
+    _title: 'AS Kiosk settings'
+  requirements:
+    _permission: 'as_kiosk_permissions'

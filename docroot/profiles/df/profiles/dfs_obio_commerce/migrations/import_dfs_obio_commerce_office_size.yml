@@ -1,0 +1,15 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_obio_commerce_office_size
+label: 'Import dfs_obio_commerce:commerce_product_attribute_value:office_size'
+source:
+    plugin: csv
+    path: ../data/dfs_obio_commerce.commerce_product_attribute_value.office_size.csv
+    header_row_count: 1
+    keys: [UUID]
+destination:
+    plugin: 'entity:commerce_product_attribute_value'
+process:
+    attribute: { plugin: default_value, default_value: office_size }
+    uuid: UUID
+    name: Name
+provider: dfs_obio_commerce

@@ -1,0 +1,110 @@
+//
+// @file
+// Custom styles for commerce product add to cart form (SMACSS).
+//
+
+.form-base__id-commerce-order-item-add-to-cart-form {
+  .attribute-widgets {
+    width: 100%;
+  }
+
+  .fieldset-legend {
+    font-weight: bold;
+  }
+
+  .js-form-type-radio {
+    margin: rem-calc(8px) 0 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .fieldgroup {
+    @include breakpoint(medium down) {
+      margin-top: rem-calc(20px);
+    }
+  }
+
+  input[type="radio"] {
+    display: none;
+
+    ~ label {
+      display: block;
+      margin: 0;
+      padding: rem-calc(18px);
+      border: 2px solid $body-font-color;
+      background: $body-background;
+      color: $body-font-color;
+      transition: $slider-transition;
+      white-space: normal;
+
+    }
+
+    + label:hover {
+      background: $off-white;
+    }
+
+    &:checked + label {
+      background: $body-font-color;
+      color: $body-background;
+    }
+
+    ~ .ajax-progress-throbber {
+      display: none;
+
+      + label {
+        background-image: repeating-linear-gradient(-45deg, $off-white, $off-white 25px, $white 25px, $white 50px);
+        animation: pretty-progress 1s linear infinite;
+        background-size: 150% 100%;
+      }
+    }
+
+    //
+    // Special icons – "slow" and ugly selectors!!!.
+    //
+    $icon-size-x: 50px;
+    $icon-size-y: 50px;
+    $icon-map: (
+      "1": 0,
+      "2": -1 * $icon-size-x,
+      "3": -2 * $icon-size-x,
+      "4": -3 * $icon-size-x,
+      "5": -4 * $icon-size-x,
+      "6": -5 * $icon-size-x
+    );
+
+    &[name*="attribute_office_size"],
+    &[name*="attribute_ambiance_package"] {
+      & ~ label {
+        padding-left: rem-calc(50px);
+        position: relative;
+
+        &::before {
+          content: "";
+          display: inline-block;
+          width: $icon-size-x;
+          height: $icon-size-y;
+
+          position: absolute;
+          left: 0;
+          top: 50%;
+          margin-top: -0.5 * $icon-size-y;
+          background: transparent url("../images/product-var-logo-sprite.png") no-repeat;
+        }
+      }
+
+      @each $value, $x-position in $icon-map {
+        &[value="#{$value}"] {
+          ~ label::before {
+            background-position: $x-position 0;
+          }
+
+          &:checked + label::before {
+            background-position: $x-position (-1 * $icon-size-y);
+          }
+        }
+      }
+    }
+  }
+}

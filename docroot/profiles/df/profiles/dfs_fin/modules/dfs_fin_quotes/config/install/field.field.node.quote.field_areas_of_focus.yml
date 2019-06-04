@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_areas_of_focus
+    - node.type.quote
+    - taxonomy.vocabulary.areas_of_focus
+  module:
+    - dfs_fin_quotes
+  enforced:
+    module:
+      - dfs_fin_quotes
+id: node.quote.field_areas_of_focus
+field_name: field_areas_of_focus
+entity_type: node
+bundle: quote
+label: 'Areas of Focus'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      areas_of_focus: areas_of_focus
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

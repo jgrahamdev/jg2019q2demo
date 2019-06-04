@@ -1,0 +1,8 @@
+name: AS Platform Bar
+type: module
+description: Provides useful Acquia product integration shortcuts in the toolbar.
+core: 8.x
+package: Demo Framework Secret Modules
+dependencies:
+  - toolbar
+  - page_manager

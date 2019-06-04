@@ -1,0 +1,23 @@
+as_kiosk.settings:
+  type: config_object
+  label: 'AS Kiosk settings'
+  mapping:
+    settings:
+      type: mapping
+      label: 'AS Kiosk email settings'
+      mapping:
+        email_form_id:
+          type: string
+          label: 'Email Form ID'
+        email_subject:
+          type: string
+          label: 'Email Subject'
+        email_from_name:
+          type: string
+          label: 'Email From Name'
+        email_from_address:
+          type: string
+          label: 'Email From Address'
+        email_campaign:
+          type: string
+          label: 'Email Campaign'

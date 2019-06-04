@@ -1,0 +1,78 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.dfs_obio_commerce__cart
+  content:
+    - 'block_content:basic:1b6bd6ea-b880-4062-9b14-2212c90b80dc'
+  module:
+    - block_content
+    - panels
+id: dfs_obio_commerce__cart-panels_variant-default
+label: Default
+variant: panels_variant
+variant_settings:
+  blocks:
+    51055dd7-65bb-412d-9c84-26958f861c86:
+      id: obio_commerce_cart_page
+      label: Cart
+      provider: dfs_obio_commerce
+      label_display: '0'
+      region: main
+      weight: 0
+      uuid: 51055dd7-65bb-412d-9c84-26958f861c86
+      context_mapping: {  }
+    4194c95f-bd74-49e2-8608-2a8225a4b180:
+      id: 'block_content:6ee38334-a973-4a52-9dae-876376a52436'
+      label: 'Cart message'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: secondary
+      weight: 0
+      uuid: 4194c95f-bd74-49e2-8608-2a8225a4b180
+      context_mapping: {  }
+    37960c1e-9268-404c-90e8-f53e19bcc239:
+      id: obio_commerce_cart_submit_button
+      label: 'Cart Submit Button'
+      provider: dfs_obio_commerce
+      label_display: '0'
+      region: secondary
+      weight: -1
+      uuid: 37960c1e-9268-404c-90e8-f53e19bcc239
+      context_mapping: {  }
+    5bfef557-4346-47a7-ac26-809acc5b8ce9:
+      id: obio_commerce_cart_continue_shopping
+      label: 'Continue Shopping Link'
+      provider: dfs_obio_commerce
+      label_display: '0'
+      path: /shop/office
+      region: top
+      weight: -1
+      uuid: 5bfef557-4346-47a7-ac26-809acc5b8ce9
+      context_mapping: {  }
+  id: panels_variant
+  uuid: e3a3aedf-b48b-466e-920a-6221fb43f8dc
+  label: null
+  weight: 0
+  layout: dfs_obio_commerce_cart_layout_simple
+  layout_settings:
+    dfs_defaults:
+      classes_wrapper: ''
+      classes_main: 'layout-main clearfix cart-border-top'
+    dfs_regions:
+      classes_top: layout-region-checkout-main
+      classes_main: layout-region-checkout-main
+      classes_secondary: layout-region-checkout-secondary
+      classes_footer: ''
+  page_title: 'Your Cart'
+  storage_type: page_manager
+  storage_id: dfs_obio_commerce__cart-panels_variant-default
+  builder: standard
+page: dfs_obio_commerce__cart
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

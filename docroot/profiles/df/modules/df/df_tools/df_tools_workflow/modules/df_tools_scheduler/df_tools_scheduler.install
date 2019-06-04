@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Contains install and update routines for df_tools_scheduler.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function df_tools_scheduler_install() {
+  // Don't do anything during config sync.
+  if (\Drupal::isConfigSyncing()) {
+    return;
+  }
+}

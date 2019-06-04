@@ -1,0 +1,79 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.commerce_product.field_tags
+    - field.storage.commerce_product.field_product_types
+    - field.storage.commerce_product.variations
+    - field.storage.commerce_product_variation.attribute_color
+    - search_api.server.database
+  module:
+    - commerce_product
+    - search_api
+id: dfs_obio_individual_products
+name: 'DFS Obio Individual products'
+description: ''
+read_only: false
+field_settings:
+  field_tags:
+    label: Tags
+    datasource_id: 'entity:commerce_product'
+    property_path: field_tags
+    type: integer
+    dependencies:
+      config:
+        - field.storage.commerce_product.field_tags
+  field_product_types:
+    label: 'Product types'
+    datasource_id: 'entity:commerce_product'
+    property_path: field_product_types
+    type: integer
+    dependencies:
+      config:
+        - field.storage.commerce_product.field_product_types
+  title:
+    label: Title
+    datasource_id: 'entity:commerce_product'
+    property_path: title
+    type: string
+  attribute_color:
+    label: 'Variations » Product variation » Color'
+    datasource_id: 'entity:commerce_product'
+    property_path: 'variations:entity:attribute_color'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.commerce_product.variations
+        - field.storage.commerce_product_variation.attribute_color
+      module:
+        - commerce_product
+  number:
+    label: 'Variations » Product variation » Price » Number'
+    datasource_id: 'entity:commerce_product'
+    property_path: 'variations:entity:price:number'
+    type: decimal
+    dependencies:
+      config:
+        - field.storage.commerce_product.variations
+      module:
+        - commerce_product
+datasource_settings:
+  'entity:commerce_product':
+    bundles:
+      default: false
+      selected:
+        - individual
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: database

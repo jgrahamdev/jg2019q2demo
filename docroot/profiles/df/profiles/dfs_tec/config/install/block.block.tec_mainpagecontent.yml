@@ -1,0 +1,20 @@
+uuid: b9cfaab2-2efc-4bff-9b64-f61870c56519
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - tec
+id: tec_mainpagecontent
+theme: tec
+region: content
+weight: -2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

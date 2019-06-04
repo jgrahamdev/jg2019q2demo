@@ -1,0 +1,156 @@
+//
+// @file
+// Non-modular or client styles for asides or sidebars.
+//
+
+.main {
+  @include grid-row(
+    $columns: null,
+    $behavior: null,
+    $size: $grid-row-width,
+    $cf: true,
+    $gutters: $grid-column-gutter
+  );
+
+  @at-root #{&}--with-sidebar {
+    @include clearfix();
+
+    &::before {
+      content: '';
+      display: block;
+      border-top: 1px solid $tasks-border-color;
+      height: 1px;
+      flex: 1 1 100%;
+
+      @include -zf-breakpoint-value(auto, $grid-column-gutter) {
+        margin: -1px (rem-calc($-zf-bp-value) / 2) 0;
+      };
+    }
+  }
+
+  // Horizontal border for top of page main areas with sidebar(s).
+  @at-root #{&}__content {
+    @include -zf-breakpoint-value(auto, $grid-column-gutter) {
+      $side-padding: (rem-calc($-zf-bp-value) / 2);
+      padding-right: $side-padding;
+      padding-left: $side-padding;
+    }
+
+    &.has-sidebar {
+      @media #{$medium-up} {
+        display: inline;
+        float: left;
+        width: percentage(2 / 3);
+      }
+
+      @media #{$large-up} {
+        width: percentage(3 / 4);
+      }
+
+      @at-root #{&}-first {
+        @media #{$medium-up} {
+          margin-left: percentage(1 / 3);
+        }
+
+        @media #{$large-up} {
+          margin-left: percentage(1 / 4);
+        }
+
+        &.has-sidebar-second {
+          @media #{$medium-up} {
+            width: percentage(2 / 4);
+            margin-left: percentage(1 / 4);
+          }
+        }
+      }
+    }
+  }
+
+  @at-root #{&}__sidebar {
+    position: relative;
+
+    @include -zf-breakpoint-value(auto, $grid-column-gutter) {
+      $side-padding: (rem-calc($-zf-bp-value) / 2);
+      padding-right: $side-padding;
+      padding-left: $side-padding;
+    }
+
+    // Block rhythm inside sidebars.
+    .block {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+
+      &.block-tabs:first-child {
+        margin-top: 0;
+      }
+    }
+
+    @at-root #{&}--first {
+      @media #{$medium-up} {
+        width: percentage(1 / 3);
+        display: inline;
+        float: left;
+        margin-left: percentage(-1);
+
+        &.with-second {
+          width: percentage(1 / 4);
+          margin-left: percentage(-3 / 4);
+        }
+      }
+
+      @media #{$large-up} {
+        width: percentage(1 / 4);
+      }
+
+      // Vertical border.
+      &::before {
+        @include -zf-breakpoint-value(auto, $grid-column-gutter) {
+          right: rem-calc($-zf-bp-value) / 2;
+        };
+
+        @media #{$medium-up} {
+          content: '';
+          margin-right: -1px;
+          display: block;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          border-left: 1px solid $tasks-border-color;
+        }
+      }
+    }
+
+    @at-root #{&}--second {
+      @media #{$medium-up} {
+        width: percentage(1/3);
+        display: inline;
+        float: left;
+
+        &.with-first {
+          width: percentage(1/4);
+        }
+      }
+
+      @media #{$large-up} {
+        width: percentage(1 / 4);
+      }
+
+      // Vertical border.
+      &::before {
+        @include -zf-breakpoint-value(auto, $grid-column-gutter) {
+          left: rem-calc($-zf-bp-value) / 2;
+        };
+
+        @media #{$medium-up} {
+          content: '';
+          margin-left: -1px;
+          display: block;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          border-left: 1px solid $tasks-border-color;
+        }
+      }
+    }
+  }
+}

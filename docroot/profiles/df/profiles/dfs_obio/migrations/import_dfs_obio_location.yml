@@ -1,0 +1,39 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_obio_location
+label: 'Import dfs_obio:node:location'
+source:
+    plugin: creator_article_node
+    path: '../data/dfs_obio.node.location.csv'
+    header_row_count: 1
+    keys: [UUID]
+destination:
+    plugin: 'entity:node'
+process:
+    uuid: UUID
+    uid: UID
+    type: { plugin: default_value, default_value: location }
+    title: Title
+    body/value: Body
+    field_location_media:
+      -
+        plugin: explode
+        delimiter: ','
+        source: Media
+      -
+        plugin: migration
+        migration: import_dfs_obio_image
+    body/format: { plugin: default_value, default_value: rich_text }
+    moderation_state: { plugin: default_value, default_value: published }
+    field_location_address/langcode: 'Address Langcode'
+    field_location_address/country_code: 'Address Country Code'
+    field_location_address/address_line1: 'Address Line 1'
+    field_location_address/address_line2: 'Address Line 2'
+    field_location_address/locality: 'Address City'
+    field_location_address/administrative_area: 'Address State'
+    field_location_address/postal_code: 'Address Zip'
+    field_location_geofield: Geofield
+    moderation_state: { plugin: default_value, default_value: published }
+provider: import
+migration_dependencies:
+    required: [import_dfs_obio_image]
+    optional: {  }

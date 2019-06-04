@@ -1,0 +1,13 @@
+name: 'DF Tools Card'
+type: module
+description: 'Card view mode for our many entities.'
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - df_tools_articles
+  - df_tools_blocks
+  - df_tools_crop
+  - df_tools_gallery
+  - df_tools_layout
+  - df_tools_page
+  - df_tools_panelizer

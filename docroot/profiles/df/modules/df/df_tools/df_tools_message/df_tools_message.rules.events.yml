@@ -1,0 +1,16 @@
+df_tools_message_subscribe:
+  label: 'User has registered for a subscription'
+  category: 'User'
+  context:
+    email:
+      type: 'email'
+      label: 'Email address'
+    site:
+      type: 'string'
+      label: 'Site name'
+    url:
+      type: 'string'
+      label: 'Site url'
+    langcode:
+      type: 'string'
+      label: 'Langcode'

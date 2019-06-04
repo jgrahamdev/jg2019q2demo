@@ -1,0 +1,111 @@
+// Place any Drupal-related quirks here.
+
+@import "dfs_base/scss/base/common";
+
+/*
+ * zurb_foundation.scss - Contains all Drupal-specific SASS for this theme.
+ *
+ * @todo Split this into multiple folders/files.
+*/
+.product-node-type {
+  .field-name-field-icon {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 35px;
+  }
+  .field-block-content--field-hero-link {
+    display: none;
+  }
+  .field-block-content--field-hero-image {
+    margin-bottom: 20px;
+  }
+  .field-block-content--field-first-line,
+  .field-block-content--field-second-line {
+    text-align: center;
+    font-size: 18px;
+    padding-bottom: 5px;
+  }
+}
+
+.agent-node-type {
+  .view-mode-content_browser {
+    text-align: center;
+    width: 100%;
+    .field-name-field-image {
+      padding-top: 10px;
+      img {
+        @extend .profile-pic;
+        width: 150px;
+      }
+    }
+    .agent-contact-info {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    i {
+      position: absolute;
+      left: 5%;
+      font-size: 14px;
+    }
+  }
+}
+
+.testimonial-node-type {
+  .field-name-body {
+    position: absolute;
+    bottom: 10%;
+    background: rgba(255, 255, 255, .8);
+    padding: 10px;
+  }
+}
+
+.page-node-type {
+  .field-type-text-with-summary {
+    padding: 10px;
+    margin: 10px;
+    h4 {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.question-node-type {
+  i.ion-quote {
+    font-size: 40px;
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+  .callout {
+    background: #fff;
+    border: none;
+    > h2 {
+      display: none;
+    }
+    article {
+      h4 {
+        font-size: 18px;
+        a {
+          color: $primary-color;
+        }
+      }
+      h3 {
+        font-size: 15px;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+    }
+    //cant really call the question without these fields, but we dont want them.
+  }
+  h2.field-items,
+  input,
+  .field--widget-string-textarea {
+    display: none;
+  }
+}
+
+[data-category="dfs_fin_hidden"] {
+  display: none;
+}
+
+#block-exposedformdfs-fin-searchblock-1 div.contextual {display:none;}

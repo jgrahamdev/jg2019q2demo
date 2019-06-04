@@ -1,0 +1,18 @@
+views.field.content_browser_preview:
+  type: views_field
+  label: 'Content Browser Preview'
+  mapping:
+    view_mode:
+      type: string
+      label: 'View Mode'
+    exposed_view_mode:
+      type: boolean
+      label: 'Exposed view mode'
+
+content_browser.settings:
+  type: config_object
+  label: 'Content Browser global settings'
+  mapping:
+    use_frontend_theme:
+      type: boolean
+      label: 'Use frontend theme'

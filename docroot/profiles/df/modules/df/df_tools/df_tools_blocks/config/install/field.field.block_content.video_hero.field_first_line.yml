@@ -1,0 +1,19 @@
+uuid: b03c04db-f60e-4da5-bb1e-522b56e82e05
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.video_hero
+    - field.storage.block_content.field_first_line
+id: block_content.video_hero.field_first_line
+field_name: field_first_line
+entity_type: block_content
+bundle: video_hero
+label: 'First Line'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

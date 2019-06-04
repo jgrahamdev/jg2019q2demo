@@ -1,0 +1,27 @@
+name: DF Tools Blocks
+type: module
+description: Provide a base set of Custom Block types for Demo Framework.
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - block_content
+  - content_browser
+  - entity_block
+  - entity_browser_block
+  - df_core
+  - df_tools_crop
+  - df_tools_icons
+  - df_tools_media
+  - df_tools_migration
+  - df_tools_translation
+  - field_group
+  - node
+  - image
+  - image_effects
+  - link
+  - inline_entity_form
+  - text
+  - user
+  - responsive_image
+  - replicate
+  - replicate_ui

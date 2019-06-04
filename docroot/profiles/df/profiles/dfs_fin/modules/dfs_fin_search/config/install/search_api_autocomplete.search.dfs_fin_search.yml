@@ -1,0 +1,24 @@
+uuid: 7ca746a1-7afb-4798-87a3-c6d8af2c926d
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.dfs_fin
+    - views.view.dfs_fin_search
+  module:
+    - views
+    - search_api_autocomplete
+id: dfs_fin_search
+label: 'DFS Fin Search'
+index_id: dfs_fin
+suggester_settings:
+  server:
+    fields: {  }
+suggester_weights: {  }
+suggester_limits: {  }
+search_settings:
+  'views:dfs_fin_search':
+    displays:
+      default: true
+      selected: {  }
+options: {  }

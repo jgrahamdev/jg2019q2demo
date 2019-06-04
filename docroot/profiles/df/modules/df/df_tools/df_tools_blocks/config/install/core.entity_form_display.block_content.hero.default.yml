@@ -1,0 +1,114 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero
+    - entity_browser.browser.image_browser
+    - field.field.block_content.hero.field_callout_color
+    - field.field.block_content.hero.field_first_line
+    - field.field.block_content.hero.field_gradient_color
+    - field.field.block_content.hero.field_hero_alignment
+    - field.field.block_content.hero.field_hero_image
+    - field.field.block_content.hero.field_hero_link
+    - field.field.block_content.hero.field_icon
+    - field.field.block_content.hero.field_nested_block
+    - field.field.block_content.hero.field_second_line
+    - field.field.block_content.hero.field_text_color
+  module:
+    - entity_browser
+    - link
+id: block_content.hero.default
+targetEntityType: block_content
+bundle: hero
+mode: default
+content:
+  field_callout_color:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_first_line:
+    type: string_textfield
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_gradient_color:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_hero_alignment:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_hero_image:
+    type: entity_browser_file
+    weight: 2
+    settings:
+      entity_browser: image_browser
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      view_mode: card
+      field_widget_edit: false
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    region: content
+  field_hero_link:
+    type: link_default
+    weight: 5
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    region: content
+  field_second_line:
+    type: string_textfield
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_text_color:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  langcode:
+    type: language_select
+    weight: 1
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+    region: content
+  translation:
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_icon: true
+  field_nested_block: true

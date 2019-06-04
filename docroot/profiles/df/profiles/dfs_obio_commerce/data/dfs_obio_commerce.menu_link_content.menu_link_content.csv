@@ -1,0 +1,3 @@
+UUID,Title,Link,Menu name,Parent,Weight
+6e58c5df-ae62-4609-a1e0-819546cdd136,Cart,route:commerce_cart.page,main,menu_link_content:34f752f4-a59a-4f13-b953-73369cfab82a,1
+f62e4c25-adf3-4daa-a94c-262ef53c3a8d,All Products,internal:/shop/products,main,menu_link_content:21e770a5-304f-40dc-b6bd-1cf3cf2221cb,-1

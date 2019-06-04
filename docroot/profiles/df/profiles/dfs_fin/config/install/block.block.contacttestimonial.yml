@@ -1,0 +1,38 @@
+uuid: 2b659965-42ee-40d8-ae00-c8469ac0b8ae
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - block_content
+    - content_browser
+    - system
+    - dfs_fin
+  enforced:
+    module:
+      - dfs_fin
+third_party_settings:
+  block_class:
+    classes: ''
+id: contacttestimonial
+theme: fin
+region: sidebar_second
+weight: null
+provider: null
+plugin: 'content_embed'
+settings:
+  id: 'content_embed'
+  label: 'Contact Testimonial'
+  provider: content_browser
+  label_display: '0'
+  status: true
+  info: ''
+  uuids:
+    - 'ad92525b-e76f-49f9-b22d-4592d6673f68'
+  view_mode: featured
+visibility:
+  request_path:
+    id: request_path
+    pages: /contact/request_more_info
+    negate: false
+    context_mapping: {  }

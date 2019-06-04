@@ -1,0 +1,3 @@
+uuid: null
+permissions:
+  - 'restful get site_info'

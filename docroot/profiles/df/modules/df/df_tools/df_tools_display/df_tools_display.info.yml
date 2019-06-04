@@ -1,0 +1,9 @@
+name: DF Tools Display
+type: module
+description: Page Manager Display Variants for Demo Framework
+core: 8.x
+package: Demo Framework Tools
+dependencies:
+  - df_core
+  - page_manager
+  - page_manager_ui

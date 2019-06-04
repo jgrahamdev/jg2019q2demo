@@ -1,0 +1,140 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.content_browser
+    - field.field.node.location.body
+    - field.field.node.location.field_location_address
+    - field.field.node.location.field_location_geofield
+    - field.field.node.location.field_location_hours
+    - field.field.node.location.field_location_media
+    - field.field.node.location.field_location_showroom
+    - field.field.node.location.panelizer
+    - node.type.location
+  module:
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+    displays:
+      default:
+        blocks:
+          7932835e-af84-47bc-81b0-d2b3b10d15ec:
+            id: 'entity_field:node:field_location_media'
+            label: Media
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: media_thumbnail
+              settings:
+                image_style: vertical_hero
+                image_link: ''
+              third_party_settings: {  }
+              weight: 0
+            region: left
+            weight: 1
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: 7932835e-af84-47bc-81b0-d2b3b10d15ec
+          aade4836-d3ba-49cb-8941-a985cc8ed855:
+            id: 'entity_field:node:title'
+            label: Title
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: string
+              settings:
+                link_to_entity: false
+              third_party_settings: {  }
+              weight: 0
+            region: top
+            weight: 1
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: aade4836-d3ba-49cb-8941-a985cc8ed855
+          086238f7-0337-4fe5-a884-c060be689550:
+            id: 'entity_field:node:body'
+            label: Body
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: text_default
+              settings: {  }
+              third_party_settings: {  }
+              weight: 0
+            region: bottom
+            weight: 1
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            uuid: 086238f7-0337-4fe5-a884-c060be689550
+          7c574b65-40ae-48c7-bab2-75b4220dcdfe:
+            id: 'views_block:individual_location-block_1'
+            label: ''
+            provider: views
+            label_display: '0'
+            views_label: ''
+            items_per_page: none
+            context_mapping: {  }
+            region: right
+            uuid: 7c574b65-40ae-48c7-bab2-75b4220dcdfe
+            weight: 1
+          84ec39cd-a2d0-47fa-bde7-8b57f0777b1b:
+            id: 'entity_field:node:field_location_hours'
+            label: Hours
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: above
+              type: text_default
+              settings: {  }
+              third_party_settings: {  }
+              weight: 0
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+            region: right
+            uuid: 84ec39cd-a2d0-47fa-bde7-8b57f0777b1b
+            weight: 2
+        id: panels_variant
+        label: Default
+        uuid: 4156263f-beb8-4dc9-af91-feeb109e6acd
+        weight: 0
+        layout: foundation_2col_stacked
+        layout_settings:
+          css_id: ''
+          css_classes: ''
+        page_title: '[node:title]'
+        storage_type: panelizer_default
+        storage_id: 'node:location:full:default'
+        builder: ipe
+        pattern: panelizer
+id: node.location.content_browser
+targetEntityType: node
+bundle: location
+mode: content_browser
+content:
+  field_location_media:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: card
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  body: true
+  field_location_address: true
+  field_location_geofield: true
+  field_location_hours: true
+  field_location_showroom: true
+  langcode: true
+  links: true
+  panelizer: true

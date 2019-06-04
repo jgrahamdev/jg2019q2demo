@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: collection
+label: Collection
+description: ''
+variationType: office
+injectVariationFields: true

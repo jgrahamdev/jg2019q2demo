@@ -1,0 +1,45 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.book_appointment
+    - field.field.contact_message.book_appointment.field_booking_date
+    - field.field.contact_message.book_appointment.field_collection
+    - field.field.contact_message.book_appointment.field_showroom
+  module:
+    - datetime
+id: contact_message.book_appointment.default
+targetEntityType: contact_message
+bundle: book_appointment
+mode: default
+content:
+  field_booking_date:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_collection:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_showroom:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  mail:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  copy: true
+  langcode: true
+  message: true
+  name: true
+  preview: true
+  subject: true

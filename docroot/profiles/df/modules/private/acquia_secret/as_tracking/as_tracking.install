@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Contains as_tracking.install.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function as_tracking_install() {
+  if ($email = \Drupal::service('as_platform_registry')->get('email')) {
+    \Drupal::configFactory()
+      ->getEditable('as_tracking.settings')
+      ->set('user_id', $email)
+      ->save();
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function as_tracking_uninstall() {
+  $config_path = drupal_get_path('module', 'as_tracking') . '/config/install';
+  $files = file_scan_directory($config_path, '/.*\.yml$/');
+  $configs = array_map(function ($file) {
+    return $file->name;
+  }, $files);
+  $config_factory = \Drupal::configFactory();
+  foreach ($configs as $config_path => $config_name) {
+    $config_factory->getEditable($config_name)->delete();
+  }
+}

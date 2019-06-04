@@ -1,0 +1,37 @@
+uuid: 6d5f414d-2fe8-4724-8756-86a03da2ea6a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:hero:a92507c6-bf8b-4460-bf42-66b4a1fa890e'
+  module:
+    - block_class
+    - block_content
+    - system
+    - dfs_fin
+  enforced:
+    module:
+      - dfs_fin
+third_party_settings:
+  block_class:
+    classes: ''
+id: quotehero
+theme: fin
+region: featured
+weight: null
+provider: null
+plugin: 'block_content:a92507c6-bf8b-4460-bf42-66b4a1fa890e'
+settings:
+  id: 'block_content:a92507c6-bf8b-4460-bf42-66b4a1fa890e'
+  label: 'quote hero'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /contact/get_a_quote
+    negate: false
+    context_mapping: {  }

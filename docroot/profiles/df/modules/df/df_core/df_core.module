@@ -1,0 +1,57 @@
+<?php
+
+use Drupal\user\Entity\User;
+
+/**
+ * @file
+ * Contains core functionality for the DF distribution.
+ */
+
+/**
+ * Implements hook_module_implements_alter().
+ *
+ * @todo Remove after #2635978 is fixed.
+ */
+function df_core_module_implements_alter(&$implementations, $hook) {
+  // Disable block initialization/inheritance for themes enabled after Lightning
+  // is installed in order to prevent blocks associated with the profile from
+  // bleeding over into scenarios.
+  if ($hook == 'themes_installed') {
+    unset($implementations['block']);
+  }
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function df_core_menu_local_tasks_alter(&$data, $route_name) {
+  // Core doesn't currently clean up local tasks created via Views when the View
+  // is disabled/deleted. Remove the core file listing view's local tasks in
+  // order to prevent duplicate 'Files' tabs from appear on admin/content.
+  // @todo: remove this when https://www.drupal.org/node/2027043 is fixed.
+  if (!empty($data['tabs'])) {
+    foreach ($data['tabs'] as $tab_level => $tabs) {
+      foreach ($tabs as $href => $tab_data) {
+        if ($href == 'views_view:view.files.page_1') {
+          $data['tabs'][$tab_level][$href]['#access'] = FALSE;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_requirements().
+ */
+function df_requirements($phase) {
+  if (phpversion() < '7.1') {
+    $requirements = [];
+    $requirements['df_requirements'] = [
+      'title' => t('DF REQUIREMENTS'),
+      'value' => t("Your PHP installation is too old."),
+      'description' => t("This build requires your cloud env to run PHP7.1+"),
+      'severity' => REQUIREMENT_ERROR,
+    ];
+    return $requirements;
+  }
+}

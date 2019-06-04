@@ -1,0 +1,24 @@
+uuid: b3cf2a7b-28c3-4ddb-a589-f00c1487f10a
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - taxonomy
+    - dfs_fin_contact
+  enforced:
+    module:
+      - dfs_fin_contact
+id: contact_message.field_vin
+field_name: field_vin
+entity_type: contact_message
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

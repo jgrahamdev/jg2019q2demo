@@ -1,0 +1,23 @@
+uuid: 537ca26a-67c9-4338-9469-6e7acc96fa01
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.video_hero
+    - field.storage.block_content.field_hero_link
+  module:
+    - link
+id: block_content.video_hero.field_hero_link
+field_name: field_hero_link
+entity_type: block_content
+bundle: video_hero
+label: 'Callout button'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

@@ -1,0 +1,20 @@
+class: \Drupal\migrate\Plugin\Migration
+id: import_dfs_fin_comment
+label: 'Import dfs_fin:comment:comment'
+source:
+    plugin: node_comment
+    path: '../data/dfs_fin.comment.comment.csv'
+    header_row_count: 1
+    keys: [Subject]
+destination:
+    plugin: 'entity:comment'
+process:
+    comment_type: { plugin: default_value, default_value: comment }
+    subject: Subject
+    comment_body/value: Body
+    entity_id: { plugin: migration, migration: import_dfs_fin_article, source: Content }
+    uid: { plugin: migration, migration: import_dfs_fin_agent_user, source: Commented }
+provider: import
+migration_dependencies:
+    required: [import_dfs_fin_article, import_dfs_fin_agent_user]
+    optional: {  }

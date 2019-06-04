@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: product_hero_medium_1x
+label: 'Product hero (medium) 1x'
+effects:
+  68d5fb7d-3aab-42df-b791-49923ec6cb0e:
+    uuid: 68d5fb7d-3aab-42df-b791-49923ec6cb0e
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1920
+      height: 600
+      crop_type: focal_point
+  6f0166cf-1124-4ef6-b89c-62d9b0e84d9d:
+    uuid: 6f0166cf-1124-4ef6-b89c-62d9b0e84d9d
+    id: focal_point_scale_and_crop
+    weight: 3
+    data:
+      width: 1024
+      height: 600
+      crop_type: focal_point

@@ -1,0 +1,145 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.full
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_last_name
+    - field.field.user.user.user_picture
+    - responsive_image.styles.user_profile
+  module:
+    - field_group
+    - panelizer
+    - responsive_image
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+  field_group:
+    group_name_heading:
+      children:
+        - field_first_name
+        - field_last_name
+      parent_name: group_content
+      weight: 1
+      format_type: html_element
+      format_settings:
+        label: Name
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: account__display-name
+      label: Name
+    group_account:
+      children:
+        - group_profile_picture
+        - group_content
+      parent_name: ''
+      weight: 20
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: account
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: Account
+    group_profile_picture:
+      children:
+        - user_picture
+      parent_name: group_account
+      weight: 20
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: account__image
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Profile picture'
+    group_content:
+      children:
+        - group_name_heading
+        - member_for
+        - user_mail
+        - user_name
+        - user_roles
+      parent_name: group_account
+      weight: 21
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: account__content
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: Content
+id: user.user.full
+targetEntityType: user
+bundle: user
+mode: full
+content:
+  field_first_name:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_last_name:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  member_for:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_mail:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_name:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_picture:
+    type: responsive_image
+    weight: 0
+    settings:
+      responsive_image_style: user_profile
+      image_link: ''
+    third_party_settings: {  }
+    label: hidden
+    region: content
+  user_roles:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  profile_customer: true

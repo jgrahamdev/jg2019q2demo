@@ -1,0 +1,164 @@
+{#
+/**
+ * @file
+ * Zurb Foundations's theme implementation to display a single page.
+ *
+ * Available variables:
+ *
+ * General utility variables:
+ * - base_path: The base URL path of the Drupal installation. Will usually be
+ *   "/" unless you have installed Drupal in a sub-directory.
+ * - is_front: A flag indicating if the current page is the front page.
+ * - logged_in: A flag indicating if the user is registered and signed in.
+ * - is_admin: A flag indicating if the user has permission to access
+ *   administration pages.
+ *
+ * Site identity:
+ * - front_page: The URL of the front page. Use this instead of base_path when
+ *   linking to the front page. This includes the language domain or prefix.
+ * - logo: The url of the logo image, as defined in theme settings.
+ * - linked_logo: The logo image, linked to <front>.
+ * - site_name: The name of the site. This is empty when displaying the site
+ *   name has been disabled in the theme settings.
+ * - linked_site_name: The name of the site that also links to <front>.
+ * - site_slogan: The slogan of the site. This is empty when displaying the site
+ *   slogan has been disabled in theme settings.
+ * - hide_site_name: A flag indicating if the site name has been toggled off on
+ *   the theme settings page. If hidden, the "visually-hidden" class is added
+ *   to make the site name visually hidden, but still accessible.
+ * - hide_site_slogan: A flag indicating if the site slogan has been toggled off
+ *   on the theme settings page. If hidden, the "visually-hidden" class is
+ *   added to make the site slogan visually hidden, but still accessible.
+ *
+ * Page content (in order of occurrence in the default page.html.twig):
+ * - node: Fully loaded node, if there is an automatically-loaded node
+ *   associated with the page and the node ID is the second argument in the
+ *   page's path (e.g. node/12345 and node/12345/revisions, but not
+ *   comment/reply/12345).
+ *
+ * Regions:
+ * - page.header
+ * - page.help
+ * - page.highlighted
+ * - page.content
+ * - page.sidebar_first
+ * - page.sidebar_second
+ * - page.footer_first
+ * - page.footer_middle
+ * - page.footer_last
+ *
+ * @see template_preprocess_page()
+ * @see bartik_preprocess_page()
+ * @see html.html.twig
+ */
+#}
+
+<div class="meta-wrap">
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="row">
+      {% if page.meta %}
+        {{ page.meta }}
+      {% endif %}
+      <div class="meta-login large-3 large-offset-9 small-offset-1 columns">
+        <a class="login-dropdown-button account-link" data-toggle="user-logout-wrapper" aria-controls="user-logout-wrapper" aria-expanded="false">{{ 'Account'|t }}</a>
+        <div id="user-logout-wrapper" class="dropdown-pane f-dropdown" data-dropdown aria-hidden="true" aria-autoclose="false" data-auto-focus="false">
+          <ul>
+          {% if logged_in %}
+           <li> <a href="{{ path('user.page') }}">{{ 'My Account'|t }}</a></li>
+            <li><a href="{{ path('user.logout') }}">{{ 'Logout'|t }}</a></li>
+          {% else %}
+            <li><a href="{{ path('user.login') }}">{{ 'Login'|t }}</a></li>
+            <li><a href="{{ path('user.register') }}">{{ 'Sign Up'|t }}</a></li>
+          {% endif %}
+        </ul>
+      </div>
+        <a class="language-link" data-toggle="language-menu" aria-controls="language-menu" aria-expanded="false">{{ language_current_link }}</a>
+        <div id="language-menu" data-dropdown class="dropdown-pane f-dropdown" aria-hidden="true" aria-autoclose="false" data-auto-focus="false">
+          <ul>
+          {% for link in language_links %}
+            <li>{{ link }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+{% if page.header %}
+  <div class="header-wrap">
+    <div class="row">
+      <div class="large-12 columns">
+        {{ page.header }}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% if messages and not zurb_foundation_messages_modal %}
+<div class="l-messages row">
+  <div class="large-12 columns">
+    {{ messages }}
+  </div>
+</div>
+{% endif %}
+
+{% if page.help %}
+<div class="l-help row">
+  <div class="large-12 columns">
+    {{ page.help }}
+     <div class="highlight panel callout">
+    {{ page.highlighted }}
+  </div>
+  </div>
+</div>
+{% endif %}
+
+<div class="content-wrap {{ content_wrap_classes }}">
+  <div class="row">
+    <div id="main" class="{{ main_grid }} columns">
+      {% if page.highlighted %}
+ 
+      {% endif %}
+      <a id="main-content"></a>
+      {% if breadcrumb %} {{ breadcrumb }} {% endif %}
+
+      {% if action_links %}
+        <ul class="action-links">
+          {{ action_links }}
+        </ul>
+      {% endif %}
+      {{ page.content }}
+    </div>
+    {% if page.sidebar_first %}
+      <div id="sidebar-first" class="{{ sidebar_first_grid }} columns sidebar ">
+        {{ page.sidebar_first }}
+      </div>
+    {% endif %}
+    {% if page.sidebar_second %}
+      <div id="sidebar-second" class="{{ sidebar_sec_grid }} columns sidebar">
+        {{ page.sidebar_second }}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% if page.footer %}
+<div class="footer-wrap">
+  <footer id="footer" class="full-width">
+      {{ page.footer }}
+  </footer>
+</div>
+{% endif %}
+<div class="bottom-bar full-width">
+  <div class="row">
+      <div class="large-6 columns">
+        <p class="bottom-copyright">&copy; {{ "now"|date('Y') }} {{ site_name }} - {{ 'All rights reserved.'|t }}</p>
+      </div>
+      <div class="large-6 columns">
+        <div class="bottom-contact"><p>{{ 'Need to speak with someone?'|t }}</p><a href="/contact" class="button">{{ 'Contact Us'|t }}</a></div>
+      </div>
+  </div>
+</div>

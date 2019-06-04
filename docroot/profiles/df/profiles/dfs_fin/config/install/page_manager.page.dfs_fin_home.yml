@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - dfs_fin
+  enforced:
+    module:
+      - dfs_fin
+
+id: dfs_fin_home
+label: 'DFS FIN Home'
+use_admin_theme: null
+path: /dfs-fin-home
+access_logic: and
+access_conditions: {  }
+static_context: {  }

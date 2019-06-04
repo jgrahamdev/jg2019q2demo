@@ -1,0 +1,30 @@
+entity_config:
+  node:
+    article:
+      enable_index: true
+      enable_viewmodes: true
+      rendering:
+        teaser: teaser
+      preview_image_field: field_image
+      preview_image_style: large
+  block_content:
+    hero:
+      enable_index: true
+      enable_viewmodes: true
+      rendering:
+        full: full
+      preview_image_field: field_hero_image
+      preview_image_style: large
+  taxonomy_term:
+    tags:
+      enable_index: true
+      enable_viewmodes: false
+      rendering: []
+      preview_image_field: ''
+      preview_image_style: ''
+default_content:
+  node:
+    -
+      title: Interested in Auto Insurance
+      type: article
+slots: []

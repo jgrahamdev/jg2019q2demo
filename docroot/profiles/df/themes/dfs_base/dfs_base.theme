@@ -1,0 +1,169 @@
+<?php
+
+// Add your custom theme override functions here.
+
+use Drupal\Component\Utility\Html;
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function dfs_base_page_attachments_alter(&$page) {
+  // Force IE to use Chrome Frame if installed.
+  $callout_auto_close = theme_get_setting('dfs_base_callout_auto_close');
+
+  $page['#attached']['drupalSettings']['dfs_base']['callout_auto_close'] = $callout_auto_close;
+}
+
+/**
+ * Implements hook_preprocess_block()
+ */
+function dfs_base_preprocess_block(&$variables) {
+	if ($variables['elements']['#base_plugin_id'] == 'language_block') {
+		$language = \Drupal::languageManager()->getCurrentLanguage();
+		$block = \Drupal\block\Entity\Block::load($variables['elements']['#id']);
+		$region = $block->getRegion();
+		$regions = ['footer_first', 'footer_middle', 'footer_last'];
+		$class = (in_array($region, $regions) ? 'top' : 'bottom');
+		$content = $variables['content'];
+		$variables['content'] = [];
+		$variables['content'][] = [
+			'#markup' =>
+				'<a data-toggle="language-dropdown" class="standard-icon meta-icon-size language-dropdown-button left">' .
+				'<i class="icon ion-earth"></i>' .
+				'<span class="current-langcode">' . $language->getId() . '</span>' .
+				'</a>',
+			'#allowed_tags' => ['a', 'i', 'span'],
+		];
+		$variables['content'][] = [
+			  '#type' => 'container',
+				'#attributes' => [
+				  'class' => ['dropdown-pane', $class, 'language-pane'],
+					'id' => 'language-dropdown',
+					'data-dropdown' => '',
+					'data-auto-focus' => 'true',
+				],
+			0 => $content
+		];
+	}
+	// We get really verbose when it comes to block classes.
+	else if ($variables['elements']['#base_plugin_id'] === 'entity_field') {
+		$field = $variables['content']['field'];
+		if (isset($field['#field_name'])) {
+			$variables['attributes']['class'][] = Html::cleanCssIdentifier('block-entity-field-name-' . $field['#field_name']);
+			$variables['attributes']['class'][] = Html::cleanCssIdentifier('block-entity-field-type-' . $field['#field_type']);
+			$variables['attributes']['class'][] = Html::cleanCssIdentifier('block-entity-field-formatter-' . $field['#formatter']);
+		}
+	}
+	else if ($variables['elements']['#base_plugin_id'] === 'block_content') {
+		$block_content = $variables['content']['#block_content'];
+		$variables['attributes']['class'][] = Html::cleanCssIdentifier('block-content-type-' . $block_content->bundle());
+	}
+	else if ($variables['elements']['#base_plugin_id'] === 'entity_block') {
+		$variables['attributes']['class'][] = Html::cleanCssIdentifier('block-entity-type-' . $variables['elements']['#derivative_plugin_id']);
+	}
+	$variables['attributes']['class'][] = Html::cleanCssIdentifier('block-plugin-id-' . $variables['elements']['#base_plugin_id']);
+}
+
+/**
+ * Implements template_preprocess_field().
+ */
+function dfs_base_preprocess_field(&$variables) {
+}
+
+/**
+ * Implements template_preprocess_html().
+ *
+ * Adds additional classes
+ */
+function dfs_base_preprocess_html(&$variables) {
+	$variables['html_attributes']->addClass('no-js');
+}
+
+/**
+ * Implements template_preprocess_node
+ *
+ * Add template suggestions and classes
+ */
+function dfs_base_preprocess_node(&$variables) {
+}
+
+/**
+ * Implements template_preprocess_page
+ *
+ * Add convenience variables and template suggestions
+ */
+function dfs_base_preprocess_page(&$variables) {
+	// remove main_grid classes since we use flex-grid and it causes layout issues with empty regions
+	$variables['main_grid'] = " ";
+}
+
+/**
+ * Implements template_preprocess_views_view().
+ */
+function dfs_base_preprocess_views_view(&$variables) {}
+
+function dfs_base_preprocess_menu__main(&$variables) {
+
+//add logo to menu
+
+	$variables['logo_img'] = '';
+
+	$logo = theme_get_setting('logo.url');
+	$site_name = \Drupal::config('system.site')->get('name');
+
+	if (!empty($logo)) {
+		$elements = array(
+			'#theme' => 'image',
+			'#uri' => $logo,
+			'#attributes' => array(
+				'alt' => strip_tags($site_name) . ' ' . t('logo'),
+				'title' => strip_tags($site_name) . ' ' . t('Home'),
+				'class' => array('logo'),
+			)
+		);
+
+		$variables['logo_img'] = $elements;
+	}
+
+	$title = strip_tags($site_name) . ' ' . t('Home');
+	$url = \Drupal\Core\Url::fromRoute('<front>');
+	$url->setOption('attributes', array('title' => $title));
+
+	$variables['linked_logo'] = '';
+	if (!empty($variables['logo_img'])) {
+		$variables['linked_logo'] = \Drupal::l($variables['logo_img'], $url);
+	}
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for field.
+ */
+function dfs_base_theme_suggestions_field_alter(array &$suggestions, array $variables) {
+  $original_suggestions = $suggestions;
+  $element = $variables['element'];
+  $view_mode = $element['#view_mode'];
+
+  if ((strpos($element['#view_mode'], 'panelizer-') !== FALSE) && (strpos($element['#view_mode'], '-block-id-') !== FALSE)) {
+    // Grab the "real" view mode.
+    $temp = str_replace('panelizer-', '', $view_mode);
+    list($view_mode) = explode('-block-id-', $temp);
+
+    // Assuming that this field is panelized.
+    foreach ($original_suggestions as $suggestion) {
+      $suggestions[] = $suggestion . '__' . 'panelizer';
+      $suggestions[] = $suggestion . '__' . 'panelizer' . '__' . $view_mode;
+    }
+  }
+
+  if (!empty($element['#formatter'])) {
+    switch ("{$element['#field_type']}:{$element['#formatter']}") {
+      case 'comment:comment_average_rating_and_anchor':
+      $original_suggestions[] = 'field__average_rating';
+      break;
+    }
+  }
+
+  foreach ($original_suggestions as $suggestion) {
+    $suggestions[] = $suggestion . '__' . $view_mode;
+  }
+}

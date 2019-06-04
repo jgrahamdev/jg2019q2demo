@@ -1,0 +1,101 @@
+/* ---------- Color Module Styles ----------- */
+
+body, #main-canvas-wrapper {
+  background:#fbfcfc;
+  color:#0a0a0a;
+}
+
+.arrowbox-bottom, .testimonial-teaser .author-quote-wrapper .author-quote-text, .testimonial-featured .field-name-body {
+  background: #fbfcfc;
+}
+
+.meta-wrapper, #search-block-form .searchbox-icon, #search-block-form .form-submit {
+  background:#f3f3f3;
+}
+
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after {
+  border-color: #2199e8 transparent transparent;
+}
+
+.product-selector, .bundle-callout .row .field-name-field-icon i, label {
+  background:#2199e8;
+}
+
+blockquote {
+    border-left: 3px solid #2199e8;
+}
+
+.button{
+  background:#2199e8;
+  color: #ffffff;
+}
+
+.dark-bg {
+  background:#181a24;
+}
+
+.top-bar ul li a, .manage-account-block a span, .standard-icon, .main-menu-icon, #search-block-form .searchbox-icon, #search-block-form .main-menu-icon, .login-dropdown-button {
+  color:#353535;
+}
+
+.top-bar ul li a:hover, .top-bar ul li.is-active a, .login-dropdown-button:hover span, .login-dropdown-button.hover span, a.standard-icon:hover i:before, a.main-menu-icon:hover i:before, #search-block-form a.searchbox-icon:hover i:before, #search-block-form a.main-menu-icon:hover i:before, a.login-dropdown-button:hover i:before, a.standard-icon:hover span:before, a.main-menu-icon:hover span:before, #search-block-form a.searchbox-icon:hover span:before, #search-block-form a.main-menu-icon:hover span:before, a.login-dropdown-button:hover span:before, .testimonial-quotes .tabs .tabs-title > a[aria-selected='true'] .author-text, .testimonial-quotes .tabs .tabs-title > a:hover .author-text, #search-block-form .searchbox-icon:hover:before, #search-block-form .main-menu-icon:hover:before, .language-dropdown-button:hover span, .language-dropdown-button.hover span, .hover.login-dropdown-button:before, #user-logout-wrapper.dropdown-pane a:hover, .hover.login-dropdown-button i:before, .standard-icon.hover:before, .hover.standard-icon i:before, .language-pane ul li a:hover, .hover.main-menu-icon:before, .manage-account-block a:hover span, .manage-account-block a:hover i {
+  color:#0c4d78;
+}
+
+.testimonial-quotes .tabs .tabs-title > a[aria-selected='true'] .author-image img, .testimonial-quotes .tabs .tabs-title > a:hover .author-image img {
+  border: 2px solid #0c4d78;
+}
+
+h1, h2, .resource-section .resource-item .views-field-title a, h3, h4, #resource-nav .block-title, .block-addtoanybuttons .block-title, .block-views-block-similar-content-block-1 .block-title, .node--type-insurance-product .field-node--field-promo-text .field-item, .node--type-agent-location .agent-wrapper .address .field-label, #block-newsletterform .newsletter-header, h5, footer h2.block-title, footer .resource-section .resource-item .views-field-title a.block-title, .resource-section .resource-item .views-field-title footer a.block-title, h6, .meta-wrapper .meta-header a {
+  color:#353535
+}
+
+a:hover, a:focus {
+    color: #0c4d78;
+}
+
+.button.hollow:hover, .ipe-form input.hollow[data-drupal-selector="edit-preview"]:hover, .ipe-form input.hollow[data-drupal-selector="edit-field-hero-image-entity-browser-open-modal"]:hover, .ipe-form input.hollow[data-drupal-selector="edit-field-content-entity-browser-open-modal"]:hover, .ipe-form input.hollow[data-drupal-selector="edit-submit"]:hover, .ipe-form input.hollow[data-drupal-selector="edit-field-block-form-actions-ief-reference-save"]:hover, #comment-area .comment-text .links li.hollow:hover, .path-comment .comment-text .links li.hollow:hover, .hero-block-fields .field-name-field-hero-link a:hover, .latest-articles .views-field-view-node a.hollow:hover, .agent-node-type-featured .about-agent a.hollow:hover, .button.hollow:focus, .ipe-form input.hollow[data-drupal-selector="edit-preview"]:focus, .ipe-form input.hollow[data-drupal-selector="edit-field-hero-image-entity-browser-open-modal"]:focus, .ipe-form input.hollow[data-drupal-selector="edit-field-content-entity-browser-open-modal"]:focus, .ipe-form input.hollow[data-drupal-selector="edit-submit"]:focus, .ipe-form input.hollow[data-drupal-selector="edit-field-block-form-actions-ief-reference-save"]:focus, #comment-area .comment-text .links li.hollow:focus, .path-comment .comment-text .links li.hollow:focus, .hero-block-fields .field-name-field-hero-link a:focus, .latest-articles .views-field-view-node a.hollow:focus, .agent-node-type-featured .about-agent a.hollow:focus {
+  border-color: #0c4d78;
+  color:#0c4d78;
+}
+
+.product-selector .icons a > span:hover {
+  background: #0c4d78;
+}
+
+
+footer h2.block-title, footer p, footer #block-newsletterform .newsletter-header, footer #block-newsletterform .newsletter-subheader, footer .resource-section .resource-item .views-field-title a.block-title, .resource-section .resource-item .views-field-title footer a.block-title, .top-bar ul ul.is-dropdown-submenu li a, footer #block-newsletterform .newsletter-icon, .label, label, legend.alert, .description.alert, .node--type-agent-location .agent-wrapper .field-name-field-areas-of-focus .field-item{
+  color:#ffffff;
+}
+
+.product-selector h4, .product-selector #resource-nav .block-title, #resource-nav .product-selector .block-title, .product-selector .block-addtoanybuttons .block-title, .block-addtoanybuttons .product-selector .block-title, .product-selector .block-views-block-similar-content-block-1 .block-title, .block-views-block-similar-content-block-1 .product-selector .block-title, .product-selector .node--type-insurance-product .field-node--field-promo-text .field-item, .node--type-insurance-product .field-node--field-promo-text .product-selector .field-item, .product-selector .node--type-agent-location .agent-wrapper .address .field-label, .node--type-agent-location .agent-wrapper .address .product-selector .field-label, .product-selector #block-newsletterform .newsletter-header, #block-newsletterform .product-selector .newsletter-header {
+  color:#ffffff;
+}
+
+
+.top-bar ul ul.is-dropdown-submenu, #resource-nav li a.active {
+    background: #2c304c;
+}
+
+a, .button.hollow, .hero-block-fields .field-name-field-hero-link a {
+  color:#2199e8;
+}
+
+.button.hollow, .hero-block-fields .field-name-field-hero-link a{
+    border: 1px solid #2199e8;
+}
+
+
+/* ---------- Color Form ----------- */
+
+[dir="rtl"] .color-form .color-palette {
+  margin-left: 0;
+  margin-right: 20px;
+}
+[dir="rtl"] .color-form .form-item label {
+  float: right;
+}
+[dir="rtl"] .color-form .color-palette .lock {
+  right: -20px;
+  left: 0;
+}

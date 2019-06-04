@@ -1,0 +1,24 @@
+//
+// @file
+// Overrides for Commerce Checkout components.
+//
+.form-wrapper__login-option .button,
+.form-base__id-commerce-checkout-flow .form-actions .button {
+  margin: 0;
+}
+
+.inspire-app-tout {
+  @include breakpoint(small only) {
+    padding: 90px 0;
+    margin-bottom:30px;
+  }
+
+  background-image: url('/profiles/df/modules/private/dfs_obio/scenarios/dfs_obio_commerce/images/inspire-app-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: top center;
+  .tout-content-wrap {
+    margin-top: 20px;
+    background: rgba(255, 255, 255, .9);
+    padding-top: 30px;
+  }
+}

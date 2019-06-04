@@ -1,0 +1,200 @@
+<?php
+
+/**
+ * @file
+ * Contains hooks and private functions of Quick View module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Entity\EntityViewDisplay;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Config\Entity\ConfigEntityInterface;
+use Drupal\Core\Entity\BundleEntityFormBase;
+use Drupal\Core\Entity\ContentEntityTypeInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_help().
+ */
+function dfs_obio_quickview_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the dfs_obio_quickview module.
+    case 'help.page.dfs_obio_quickview':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Adds Quick View button to content entities, mainly for commerce products') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function dfs_obio_quickview_theme() {
+  return [
+    'quickview_link' => [
+      'render element' => 'element',
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for quickview link templates.
+ */
+function template_preprocess_quickview_link(&$variables) {
+  $element = $variables['element'];
+
+  // Creating variables for the template.
+  $variables['url'] = $element['#url']->mergeOptions([
+    'attributes' => [
+      'class' => ['use-ajax'],
+      'data-dialog-type' => 'modal',
+    ],
+  ]);
+
+  $variables['title'] = !empty($element['#title']) ? $element['#title'] : t('Quick View');
+  $variables['#attached']['library'][] = 'core/drupal.dialog.ajax';
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function dfs_obio_quickview_form_alter(&$form, FormStateInterface $formState) {
+  $formObject = $formState->getFormObject();
+  if ($formObject instanceof BundleEntityFormBase) {
+    $form['dfs_obio_quickview'] = [
+      '#type' => 'details',
+      '#title' => t('Quick View'),
+      '#group' => 'additional_settings',
+    ];
+
+    // Load the current node type configuration entity.
+    $entityTypeEntity = $formState->getFormObject()->getEntity();
+    $entityTypeId = $entityTypeEntity->getEntityType()->getBundleOf();
+    $viewModeOptions = ['default' => ['label' => t('Default')]] + \Drupal::service('entity_display.repository')->getViewModes($entityTypeId);
+
+    array_walk($viewModeOptions, function (&$modeDefs) {
+      $modeDefs = $modeDefs['label'];
+    });
+
+    $form['dfs_obio_quickview']['dfs_obio_quickview__status'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Enable Quick View link'),
+      '#default_value' => $entityTypeEntity->getThirdPartySetting('dfs_obio_quickview', 'status', FALSE),
+    ];
+
+    $form['dfs_obio_quickview']['dfs_obio_quickview__view_mode'] = [
+      '#type' => 'select',
+      '#title' => t('Select view mode for the Quick View'),
+      '#options' => $viewModeOptions,
+      '#default_value' => $entityTypeEntity->getThirdPartySetting('dfs_obio_quickview', 'view_mode', 'default'),
+      '#states' => [
+        'visible' => [
+          [
+            ':input[name="dfs_obio_quickview__status"]' => ['checked' => TRUE],
+          ],
+        ],
+      ],
+    ];
+
+    $form['#entity_builders'][] = 'dfs_obio_quickview_entity_type_form_builder';
+  }
+}
+
+/**
+ * Entity form builder for the entity type form.
+ *
+ * Mapping values provided by Quick View module to third party settings.
+ *
+ * @see dfs_obio_quickview_form_alter()
+ */
+function dfs_obio_quickview_entity_type_form_builder($entityTypeId, ConfigEntityInterface $type, array &$form, FormStateInterface $formState) {
+  if ($formState->getValue('dfs_obio_quickview__status')) {
+    $type->setThirdPartySetting('dfs_obio_quickview', 'status', TRUE);
+    $type->setThirdPartySetting('dfs_obio_quickview', 'view_mode', $formState->getValue('dfs_obio_quickview__view_mode'));
+  }
+  else {
+    // @TODO: remove dfs_obio_quickview from every view display entity at this
+    // type.
+    $type->unsetThirdPartySetting('dfs_obio_quickview', 'status');
+    $type->unsetThirdPartySetting('dfs_obio_quickview', 'view_mode');
+  }
+
+  foreach (EntityViewDisplay::loadMultiple() as $entityViewDisplay) {
+    if ($entityViewDisplay->getTargetEntityTypeId() === $entityTypeId) {
+      $entityViewDisplay->save();
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function dfs_obio_quickview_entity_extra_field_info() {
+  $extra = [];
+  $entityTypeDefinitions = \Drupal::service('entity_type.manager')->getDefinitions();
+  $quickviewMap = [];
+
+  // Collecting content entity types which have canonical link template.
+  $contentEntityTypeFilter = function (EntityTypeInterface $entityTypeDefinition) {
+    return ($entityTypeDefinition instanceof ContentEntityTypeInterface) && $entityTypeDefinition->hasLinkTemplate('canonical');
+  };
+  $bundleFilter = function (ConfigEntityInterface $configEntityType) {
+    return $configEntityType->getThirdPartySetting('dfs_obio_quickview', 'status', FALSE);
+  };
+
+  $validContentEntityTypes = array_filter($entityTypeDefinitions, $contentEntityTypeFilter);
+
+  foreach ($validContentEntityTypes as $contentEntityTypeId => $contentEntityType) {
+    $bundleEntityType = $contentEntityType->getBundleEntityType() ? $contentEntityType->getBundleEntityType() : $contentEntityTypeId;
+
+    // @TODO: handle user.
+    if ($contentEntityTypeId !== $bundleEntityType) {
+      $bundleEntityTypes = \Drupal::service('entity_type.manager')->getStorage($bundleEntityType)->loadMultiple();
+
+      foreach (array_keys(array_filter($bundleEntityTypes, $bundleFilter)) as $bundleKey) {
+        $quickviewMap[$contentEntityTypeId][] = $bundleKey;
+      }
+    }
+  }
+
+  foreach ($quickviewMap as $contentEntityTypeId => $bundleKeys) {
+    foreach ($bundleKeys as $bundleKey) {
+      $extra[$contentEntityTypeId][$bundleKey]['display']['dfs_obio_quickview'] = [
+        'label' => t('Quick View'),
+        'weight' => -5,
+        'visible' => FALSE,
+      ];
+    }
+  }
+
+  return $extra;
+}
+
+/**
+ * Implements hook_entity_view().
+ */
+function dfs_obio_quickview_entity_view(&$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+
+  // Only do the extra work if the component is configured to be displayed.
+  // This assumes a 'mymodule_addition' extra field has been defined for the
+  // entity bundle in hook_entity_extra_field_info().
+  if ($display->getComponent('dfs_obio_quickview')) {
+    $quickviewUrl = Url::fromRoute('quickview', [
+      'entityType' => $entity->getEntityTypeId(),
+      'entityId' => $entity->id(),
+      'nojs' => 'nojs',
+    ]);
+
+    $build['dfs_obio_quickview'] = [
+      '#theme' => 'quickview_link',
+      '#url' => $quickviewUrl,
+      '#object' => $entity,
+    ];
+  }
+}
