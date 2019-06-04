@@ -771,3 +771,5 @@ $settings['entity_update_batch_size'] = 50;
 if (file_exists('/var/www/site-php')) { require('/var/www/site-php/jg2019q2demo/jg2019q2demo-settings.inc'); }
 $config_directories[CONFIG_SYNC_DIRECTORY] = 'sites/default/sync';
 $settings["cache"]["default"] = "cache.backend.database";
+
+// Adding something arbitrary.
