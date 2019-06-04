@@ -8,7 +8,7 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
 
-function dfs_fin_contact_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+fnction dfs_fin_contact_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $default_forms = [
     'contact_message_request_more_info_form',
     'contact_message_feedback_form',
